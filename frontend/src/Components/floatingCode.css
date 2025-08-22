@@ -1,0 +1,89 @@
+.coding-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 900; /* Lower than navbar's z-index (1020) */
+  /* pointer-events: none; */
+}
+
+.code-float {
+  position: absolute;
+  font-size: 1.2rem;
+  color: #39ff14; /* Terminal green */
+  background: rgba(20, 20, 20, 0.85); /* Terminal dark background */
+  border-radius: 4px;
+  padding: 0.15em 0.5em;
+  opacity: 0.85;
+  font-family: 'Fira Mono', 'Consolas', 'Menlo', 'monospace';
+  box-shadow: 0 0 8px #39ff1466;
+  border: 1px solid #222;
+  animation: floatCode 7s cubic-bezier(0.4,0,0.2,1) infinite !important;
+  transition: box-shadow 0.3s;
+}
+
+/* Optional: Blinking cursor effect for every 3rd code */
+.code-float:nth-child(3n)::after {
+  content: '';
+  display: inline-block;
+  width: 0.6em;
+  height: 1em;
+  background: #39ff14;
+  margin-left: 0.1em;
+  vertical-align: middle;
+  animation: blink-cursor 1s steps(2, start) infinite;
+  border-radius: 1px;
+}
+
+.code-float:nth-child(1) { top: 10%; left: 15%; font-size: 2.2rem; animation-delay: 0s; }
+.code-float:nth-child(2) { top: 20%; left: 70%; font-size: 1.7rem; animation-delay: 1s; }
+.code-float:nth-child(3) { top: 35%; left: 30%; font-size: 1.4rem; animation-delay: 2s; }
+.code-float:nth-child(4) { top: 60%; left: 60%; font-size: 1.6rem; animation-delay: 3s; }
+.code-float:nth-child(5) { top: 80%; left: 20%; font-size: 1.3rem; animation-delay: 4s; }
+.code-float:nth-child(6) { top: 50%; left: 80%; font-size: 1.5rem; animation-delay: 5s; }
+.code-float:nth-child(7) { top: 70%; left: 40%; font-size: 1.8rem; animation-delay: 6s; }
+.code-float:nth-child(8) { top: 15%; left: 50%; font-size: 1.2rem; animation-delay: 7s; }
+.code-float:nth-child(9) { top: 40%; left: 75%; font-size: 1.4rem; animation-delay: 2.5s; }
+.code-float:nth-child(10) { top: 65%; left: 10%; font-size: 1.6rem; animation-delay: 3.5s; }
+.code-float:nth-child(11) { top: 30%; left: 60%; font-size: 1.3rem; animation-delay: 5.5s; }
+.code-float:nth-child(12) { top: 75%; left: 55%; font-size: 1.7rem; animation-delay: 6.5s; }
+
+.test-float {
+  position: absolute;
+  top: 100px !important;
+  left: 100px !important;
+  font-size: 3rem !important;
+  color: #000 !important;
+  opacity: 1 !important;
+  z-index: 99999 !important;
+}
+
+@keyframes floatCode {
+  0% {
+    transform: translateY(40px) scale(1) rotate(0deg);
+    opacity: 0.10;
+  }
+  20% {
+    opacity: 0.18;
+  }
+  50% {
+    transform: translateY(-30px) scale(1.08) rotate(8deg);
+    opacity: 0.22;
+  }
+  80% {
+    opacity: 0.18;
+  }
+  100% {
+    transform: translateY(-60px) scale(1) rotate(0deg);
+    opacity: 0.10;
+  }
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@media (max-width: 700px) {
+  .code-float {
+    font-size: 0.9rem !important;
+  }
+}
