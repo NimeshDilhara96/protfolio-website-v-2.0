@@ -17,7 +17,7 @@ function About() {
           <br />
           <ul className="about-list">
             <li><i className="fas fa-code"></i> Full-Stack Web Development</li>
-            <li><i className="fas fa-brain"></i> Artificial Intelligence Enthusiast</li>
+            <li><i className="fas fa-brain"></i> Artificial Intelligence Enthusiast.</li>
             <li><i className="fas fa-paint-brush"></i> UI/UX Design</li>
             <li><i className="fas fa-users"></i> Team Player & Mentor</li>
           </ul>
