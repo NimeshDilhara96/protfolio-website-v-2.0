@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { FaGithub, FaLinkedin, FaInstagram, FaTwitter, FaFacebook } from 'react-icons/fa';
 import './style.css'; // Assuming you have a CSS file for styling
 import './floatingCode.css'; // Add this line at the top with your other imports
+import profilePhoto from '../assets/profile.jpg'; // Ensure the path is correct
 
 const lines = [
   "Undergraduate Software Engineer",
@@ -85,7 +86,7 @@ function Home() {
           </div>
         </div>
         <div className="hero-visual">
-          <img src="https://avatars.githubusercontent.com/u/170844891?v=4" alt="Profile Photo" className="profile-photo" />
+          <img src={profilePhoto} alt="Profile Photo" className="profile-photo" />
         </div>
       </div>
     </div>
