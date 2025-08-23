@@ -921,47 +921,56 @@ body {
 
 .about-content {
   flex: 1;
-  min-width: 220px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
-.about-content p {
-  text-align: justify;
+.about-institute {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: var(--spacing-xs);
 }
 
-.about-content .section-title {
-  text-align: center;
-  width: 100%;
+.about-degree {
+  font-size: 1.05rem;
+  color: var(--gray);
+  margin-bottom: var(--spacing-xs);
+}
+
+.about-duration {
+  font-size: 0.98rem;
+  color: var(--gray-light);
 }
 
 .about-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-md);
+  gap: 0.7rem;
+  margin: var(--spacing-md) 0 0 0;
+  padding: 0;
+  list-style: none;
+  justify-content: center;
 }
 
 .about-list li {
-  background: var(--light-dark);
-  color: var(--primary-dark);
-  font-size: 1rem;
-  border-radius: var(--radius-md);
-  padding: var(--spacing-xs) var(--spacing-md);
   display: flex;
   align-items: center;
-  gap: var(--spacing-xs);
-  margin-bottom: 0;
-  box-shadow: var(--shadow-sm);
+  background: var(--gradient-primary);
+  color: var(--white);
+  font-size: 1rem;
   font-weight: 500;
+  border-radius: var(--radius-full);
+  padding: 0.45rem 1.1rem;
+  margin: 0;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.16s;
+  text-align: center;
+  gap: 0.5rem;
 }
 
-.about-list i {
-  color: var(--primary);
+.about-list li i {
+  color: var(--accent);
   font-size: 1.1rem;
+  margin-right: 0.3rem;
 }
 
 /* Responsive styles for About section */
@@ -971,16 +980,15 @@ body {
     align-items: center;
     gap: var(--spacing-xl);
     padding: var(--spacing-xl);
+    text-align: center;         /* Center all text on mobile */
   }
   .about-image img {
-    width: 140px;
-    height: 140px;
-    margin-right: 0;
     margin-bottom: var(--spacing-md);
   }
   .about-content {
     align-items: center;
     text-align: center;
+    padding: 0;
   }
   .about-list {
     justify-content: center;
