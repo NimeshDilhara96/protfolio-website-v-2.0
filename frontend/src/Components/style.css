@@ -1379,31 +1379,6 @@ body {
   }
 }
 
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --dark: #ffffff;
-    --light: #0f172a;
-    --white: #1e293b;
-    --gray: #94a3b8;
-    --gray-light: #64748b;
-  }
-
-  body {
-    background: var(--light);
-    color: var(--dark);
-  }
-
-  .navbar {
-    background: #0f172a; /* Use solid dark color */
-    border-bottom-color: rgba(51, 65, 85, 0.5);
-    backdrop-filter: none;
-  }
-
-  .navbar.scrolled {
-    background: #0f172a;
-  }
-}
 
 .site-footer {
   width: 100vw;
