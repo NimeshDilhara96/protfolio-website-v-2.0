@@ -11,7 +11,7 @@ function About() {
         <div className="about-content">
           <h2 className="section-title">About Me</h2>
           <p>
-            Hi! I'm <strong>Nimesh Dilhara</strong>, a passionate <strong>BSc (Hons) Software Engineering</strong> undergraduate with a strong interest in building modern, user-friendly web applications.<br />
+            Hi! I'm <strong>Nimesh Dilhara Kulasooriya </strong>, a passionate <strong>BSc (Hons) Software Engineering</strong> undergraduate with a strong interest in building modern, user-friendly web applications.<br />
             My expertise spans full-stack development, AI, and UI/UX design. I thrive on solving real-world problems, exploring new technologies, and collaborating on innovative projects that make an impact.
           </p>
           <br />
