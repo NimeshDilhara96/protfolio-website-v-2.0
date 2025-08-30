@@ -961,13 +961,23 @@ body {
 
 .about-list li {
   font-size: 1rem;
-  padding: 0.3em 0.5em;
-  background: #f3f4f6;
-  border-radius: 0.6em;
+  padding: 0.4em 0.8em;
+  background: linear-gradient(90deg, #e0ffe9 0%, #f3f4f6 100%);
+  border-radius: 0.8em;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 0.5em;
+  gap: 0.6em;
+  color: #1a2e22;
+  font-weight: 500;
+  box-shadow: 0 1px 6px rgba(0,255,144,0.06);
+  border-left: 4px solid #00ff90;
+  transition: background 0.2s, color 0.2s;
+}
+
+.about-list li i {
+  color: #00ff90;
+  font-size: 1.1em;
 }
 
 /* Responsive styles like Home.jsx */
@@ -1695,13 +1705,23 @@ body {
 
 .about-list li {
   font-size: 1rem;
-  padding: 0.3em 0.5em;
-  background: #f3f4f6;
-  border-radius: 0.6em;
+  padding: 0.4em 0.8em;
+  background: linear-gradient(90deg, #e0ffe9 0%, #f3f4f6 100%);
+  border-radius: 0.8em;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 0.5em;
+  gap: 0.6em;
+  color: #1a2e22;
+  font-weight: 500;
+  box-shadow: 0 1px 6px rgba(0,255,144,0.06);
+  border-left: 4px solid #00ff90;
+  transition: background 0.2s, color 0.2s;
+}
+
+.about-list li i {
+  color: #00ff90;
+  font-size: 1.1em;
 }
 
 /* Responsive styles like Home.jsx */
