@@ -18,16 +18,16 @@
   --accent-green: #10b981;
   --accent-purple: #8b5cf6;
   
-  /* Neutral Colors */
-  --dark: #0f172a;
+  /* Use only dark palette */
+  --dark: #ffffff;
   --dark-light: #1e293b;
   --dark-lighter: #334155;
-  --light: #f8fafc;
-  --light-dark: #e2e8f0;
-  --white: #ffffff;
-  --gray: #64748b;
-  --gray-light: #94a3b8;
-  --gray-lighter: #cbd5e1;
+  --light: #0f172a;
+  --light-dark: #1e293b;
+  --white: #1e293b;
+  --gray: #94a3b8;
+  --gray-light: #64748b;
+  --gray-lighter: #334155;
   
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
