@@ -1120,7 +1120,7 @@ body {
 }
 
 .contact-container {
-  max-width: 520px;
+  max-width: 420px; /* was 520px, now a bit smaller */
   margin: 0 auto;
   background: var(--white);
   border-radius: var(--radius-xl);
@@ -1173,7 +1173,7 @@ body {
   border-radius: var(--radius-md);
   font-size: 1rem;
   font-family: inherit;
-  color: #0c0c0c;
+  color: #d7cfcf;
   background: var(--light-dark);
   transition: border 0.2s, box-shadow 0.2s;
   box-shadow: var(--shadow-sm);
