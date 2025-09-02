@@ -1826,3 +1826,112 @@ body {
     min-width: 80%;
   }
 }
+
+/* --- Modern Footer --- */
+.footer-modern {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  background: linear-gradient(90deg, #18181b 0%, #23272f 100%);
+  color: #e5e7eb;
+  padding: 2rem 0 1.2rem 0;
+  box-shadow: 0 -2px 16px rgba(0,0,0,0.08);
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  position: relative;
+  left: 0;
+  z-index: 1;
+}
+
+.footer-modern-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1.08rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.footer-logo {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.13rem;
+  letter-spacing: 0.04em;
+}
+
+.footer-year {
+  color: #a1a1aa;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.footer-powered {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.footer-powered-link {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  text-decoration: none;
+  background: #23272f;
+  padding: 0.45em 1.1em;
+  border-radius: 1.2em;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+  font-size: 1.01em;
+}
+
+.footer-powered-link:hover {
+  background: #313244;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.footer-powered-label {
+  color: #a1a1aa;
+  font-size: 0.97em;
+  font-weight: 400;
+}
+
+.footer-powered-brand {
+  color: #00ff90;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  font-size: 1.08em;
+}
+
+/* Responsive Footer */
+@media (max-width: 600px) {
+  .footer-modern-container {
+    flex-direction: column;
+    gap: 0.7rem;
+    padding: 0 0.5rem;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-brand {
+    flex-direction: column;
+    gap: 0.2rem;
+    font-size: 1rem;
+  }
+  .footer-powered-link {
+    padding: 0.35em 0.8em;
+    font-size: 0.98em;
+  }
+  .footer-modern {
+    font-size: 0.97rem;
+    padding: 1.2rem 0 0.8rem 0;
+  }
+}
