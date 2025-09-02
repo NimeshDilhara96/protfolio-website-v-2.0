@@ -74,7 +74,7 @@ function Home() {
             Specialized in full-stack web development, AI, and UI/UX.
           </p>
           <div className="hero-actions">
-            <a href="#projects" className="btn btn-primary">View My Work</a>
+            <a href="#projects" className="btn btn-primary">Download My Cv</a>
             <a href="#contact" className="btn btn-outline">Contact Me</a>
           </div>
           <div className="social-links">

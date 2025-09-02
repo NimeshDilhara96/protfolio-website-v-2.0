@@ -2,7 +2,7 @@
   position: absolute;
   inset: 0;
   z-index: 900; /* Lower than navbar's z-index (1020) */
-  /* pointer-events: none; */
+  pointer-events: none; /* <-- Enable this line */
 }
 
 .code-float {
