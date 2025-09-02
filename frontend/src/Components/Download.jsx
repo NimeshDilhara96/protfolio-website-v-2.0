@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFilePdf, FaFileArchive, FaDownload } from 'react-icons/fa';
+import { FaFilePdf, FaFileArchive, FaDownload, FaAndroid } from 'react-icons/fa'; // Add FaAndroid
 import Navbar from './Navbar';
 import Footer from './Footer';
 import styles from './Download.module.css';
@@ -13,10 +13,10 @@ const downloads = [
 		btn: 'Download',
 	},
 	{
-		icon: <FaFileArchive className={styles.downloadIcon} color="#f6ad55" />,
-		title: 'Portfolio Source Code',
-		desc: 'Get the source code of this portfolio website.',
-		url: '/downloads/portfolio-source.zip',
+		icon: <FaAndroid className={styles.downloadIcon} color="#3ddc84" />, // Changed icon and color
+		title: 'Note App',
+		desc: 'My new Project.',
+		url: 'https://drive.google.com/uc?export=download&id=1-PRy0NVmhiec0-Xdzx5tYsKxxoorTgoB',
 		btn: 'Download',
 	},
 ];
