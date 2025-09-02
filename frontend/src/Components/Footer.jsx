@@ -5,9 +5,10 @@ function Footer() {
   return (
     <footer className="site-footer enhanced-footer">
       <div className="footer-content">
-        <p className="footer-text">
-          &copy; {new Date().getFullYear()} Nimesh Dilhara. All Rights Reserved.
+        <p>
+          &copy; {new Date().getFullYear()} Nimesh Dilhara. All Rights reserved.
         </p>
+        <span className="footer-divider" />
         <a
           href="https://nimeshdilhara96.github.io"
           className="powered-by"
