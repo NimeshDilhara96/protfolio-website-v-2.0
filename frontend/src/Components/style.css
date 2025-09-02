@@ -1120,12 +1120,12 @@ body {
 }
 
 .contact-container {
-  max-width: 520px;
+  max-width: 420px;
   margin: 0 auto;
   background: var(--white);
   border-radius: var(--radius-xl);
   box-shadow: 0 8px 32px rgba(99,102,241,0.10), 0 1.5px 6px rgba(0,0,0,0.04);
-  padding: var(--spacing-3xl) var(--spacing-2xl);
+  padding: var(--spacing-2xl) var(--spacing-lg);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -1168,10 +1168,10 @@ body {
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: var(--spacing-md);
+  padding: 0.7rem 1rem;
   border: 1.5px solid var(--gray-lighter);
   border-radius: var(--radius-md);
-  font-size: 1rem;
+  font-size: 0.97rem;
   font-family: inherit;
   color: #0c0c0c;
   background: var(--light-dark);
@@ -1193,9 +1193,11 @@ body {
 
 .contact-form button {
   align-self: flex-end;
-  min-width: 160px;
+  min-width: 120px;
   margin-top: var(--spacing-sm);
   box-shadow: var(--shadow-sm);
+  font-size: 0.97rem;
+  padding: 0.7rem 1.2rem;
 }
 
 .contact-social {
@@ -1225,15 +1227,17 @@ body {
 
 @media (max-width: 700px) {
   .contact-container {
-    padding: var(--spacing-xl) var(--spacing-md);
+    padding: var(--spacing-lg) var(--spacing-md);
+    max-width: 98vw;
   }
-  .form-row {
-    flex-direction: column;
-    gap: var(--spacing-sm);
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 0.95rem;
+    padding: 0.6rem 0.8rem;
   }
   .contact-form button {
-    width: 100%;
-    align-self: stretch;
+    font-size: 0.95rem;
+    padding: 0.6rem 1rem;
   }
 }
 
