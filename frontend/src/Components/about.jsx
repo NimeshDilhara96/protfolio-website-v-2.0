@@ -21,6 +21,7 @@ function About() {
               About Me
               <span className="absolute -bottom-3 left-0 md:left-0 w-16 h-1.5 bg-[var(--accent-pink)] rounded-full"></span>
             </h2>
+            <br />
           </div>
           
           <div className="space-y-4 mb-8">
