@@ -3,8 +3,8 @@ import './style.css'; // Keep importing style.css for other styles
 
 function About() {
   return (
-    <section id="about" className="py-12 md:py-16 bg-[var(--light)]">
-      <div className="max-w-[900px] mx-auto flex flex-col md:flex-row items-center gap-4 md:gap-12 bg-[var(--white)] rounded-xl shadow-lg p-4 md:p-8">
+    <section id="about" className="py-12 md:py-16 bg-[var(--light)] flex justify-center items-center">
+      <div className="max-w-[900px] w-[95%] mx-auto flex flex-col md:flex-row items-center gap-4 md:gap-12 bg-[var(--white)] rounded-xl shadow-lg p-4 md:p-8">
         <div className="flex-shrink-0 flex justify-center items-center">
           <img 
             src="https://avatars.githubusercontent.com/u/170844891?v=4" 
