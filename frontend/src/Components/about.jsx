@@ -16,14 +16,14 @@ function About() {
         </div>
         
         <div className="flex-1 min-w-0 text-center md:text-left px-2 md:px-4">
-          <div className="md:pt-2">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-[var(--primary-dark)] relative inline-block">
+          <div className="md:pt-2 mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-[var(--primary-dark)] relative inline-block">
               About Me
-              <span className="absolute -bottom-2 left-0 md:left-0 w-12 h-1 bg-[var(--accent-pink)] rounded-full"></span>
+              <span className="absolute -bottom-3 left-0 md:left-0 w-16 h-1.5 bg-[var(--accent-pink)] rounded-full"></span>
             </h2>
           </div>
           
-          <div className="space-y-6">
+          <div className="space-y-4 mb-8">
             <p className="text-[var(--dark)] text-base md:text-lg leading-relaxed">
               Hi! I'm <strong className="text-[var(--primary-dark)]">Nimesh Dilhara Kulasooriya</strong>, a passionate <strong className="text-[var(--primary-dark)]">BSc (Hons) Software Engineering</strong> undergraduate with a strong interest in building modern, user-friendly web applications.
             </p>
@@ -32,7 +32,7 @@ function About() {
             </p>
           </div>
           
-          <ul className="flex flex-wrap justify-center md:justify-start gap-3 mt-6">
+          <ul className="flex flex-wrap justify-center md:justify-start gap-3">
             <li className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#e0ffe9] to-[#f3f4f6] rounded-lg text-[#1a2e22] font-medium shadow-sm border-l-4 border-[#00ff90] transition-transform hover:translate-y-[-2px]">
               <i className="fas fa-code text-[var(--primary-dark)]"></i> Full-Stack Web Development
             </li>
