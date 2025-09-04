@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FaHome, FaUser, FaGraduationCap, FaCode, FaBriefcase, FaEnvelope, FaDownload } from 'react-icons/fa';
-import './style.css';
 
 const navLinks = [
   { href: "/#home", label: "Home", icon: <FaHome /> },
@@ -9,7 +8,7 @@ const navLinks = [
   { href: "/#technologies", label: "Skills", icon: <FaCode /> },
   { href: "/#projects", label: "Projects", icon: <FaBriefcase /> },
   { href: "/#contact", label: "Contact", icon: <FaEnvelope /> },
-  { href: "/downloads", label: "Downloads", icon: <FaDownload /> }, // Change to page route
+  { href: "/downloads", label: "Downloads", icon: <FaDownload /> },
 ];
 
 function Navbar() {
@@ -31,7 +30,7 @@ function Navbar() {
     navToggle.addEventListener('click', handleToggle);
 
     // Close menu on link click
-    const links = navMenu.querySelectorAll('.nav-link');
+    const links = navMenu.querySelectorAll('a');
     links.forEach(link => {
       link.addEventListener('click', () => {
         navToggle.classList.remove('active');
@@ -96,7 +95,7 @@ function Navbar() {
         }
       }
     };
-    const links = document.querySelectorAll('.nav-link');
+    const links = document.querySelectorAll('a[href^="#"]');
     links.forEach(link => link.addEventListener('click', handleSmoothScroll));
     return () => {
       links.forEach(link => link.removeEventListener('click', handleSmoothScroll));
@@ -104,31 +103,36 @@ function Navbar() {
   }, []);
 
   return (
-    <nav className="navbar" id="navbar" ref={navbarRef}>
-      <div className="nav-container">
-        <div className="logo">
+    <nav className={`fixed top-0 w-full bg-[var(--light)] border-b border-[rgba(226,232,240,0.5)] z-[1020] transition-all duration-300 ${navbarRef.current?.classList.contains('scrolled') ? 'bg-[var(--light)] shadow-lg' : ''}`} ref={navbarRef}>
+      <div className="max-w-[1200px] mx-auto px-6 flex justify-between items-center h-20">
+        <div className="flex items-center gap-4 text-2xl font-bold text-[var(--dark)] no-underline">
           <span className="logo-text">
-            Nimesh<span style={{ color: 'var(--primary)' }}>.</span>
+            Nimesh<span className="text-[var(--primary)]">.</span>
           </span>
         </div>
-        <div className="nav-menu" id="nav-menu" ref={navMenuRef}>
+        <div className={`flex gap-4 list-none md:fixed md:top-20 md:right-0 md:w-[85vw] md:max-w-[290px] md:h-[calc(100vh-80px)] md:bg-[#0f172a] md:shadow-[-2px_0_16px_rgba(0,0,0,0.12)] md:flex-col md:justify-start md:items-start md:p-8 md:gap-2 md:transform md:translate-x-full md:opacity-0 md:invisible md:transition-all md:duration-300 md:z-[1100] md:rounded-l-xl ${navMenuRef.current?.classList.contains('active') ? 'md:translate-x-0 md:opacity-100 md:visible' : ''}`} ref={navMenuRef}>
           {navLinks.map(link => (
-            <div className="nav-item" key={link.href}>
+            <div className="relative md:w-full md:text-left" key={link.href}>
               <a
                 href={link.href}
-                className={`nav-link${activeSection === link.href ? ' active' : ''}`}
+                className={`flex items-center gap-1 py-2 px-3 text-[var(--gray)] no-underline font-medium rounded-md transition-all duration-300 relative overflow-hidden ${activeSection === link.href ? 'text-white transform -translate-y-0.5 before:left-0' : 'before:left-[-100%]'} 
+                before:content-[''] before:absolute before:top-0 before:w-full before:h-full before:bg-gradient-to-r before:from-[var(--primary)] before:to-[var(--primary-dark)] before:transition-[left] before:duration-300 before:z-[-1]
+                hover:text-white hover:transform hover:-translate-y-0.5 hover:before:left-0
+                md:flex md:items-center md:gap-3 md:py-3.5 md:px-3 md:w-full md:text-[1.08rem] md:text-white md:border-none md:rounded-lg md:bg-none md:transition-all md:duration-[0.18s] md:mb-0.5
+                md:hover:bg-[var(--accent-pink)] md:hover:text-white md:hover:transform md:hover:translate-x-1 md:hover:scale-[1.04]
+                ${activeSection === link.href ? 'md:bg-[var(--accent-pink)] md:text-white md:transform md:translate-x-1 md:scale-[1.04]' : ''}`}
                 data-text={link.label}
               >
-                {link.icon}
+                <span className="text-[1.1rem] md:text-base">{link.icon}</span>
                 <span>{link.label}</span>
               </a>
             </div>
           ))}
         </div>
-        <div className="nav-toggle" id="nav-toggle" ref={navToggleRef}>
-          <span></span>
-          <span></span>
-          <span></span>
+        <div className={`hidden md:flex md:flex-col md:cursor-pointer md:p-2 md:rounded md:transition-all md:duration-300 md:z-[1101] ${navToggleRef.current?.classList.contains('active') ? 'active' : ''}`} ref={navToggleRef}>
+          <span className={`w-[25px] h-[3px] bg-[var(--dark)] my-[3px] transition-all duration-300 rounded-full ${navToggleRef.current?.classList.contains('active') ? 'transform rotate-45 translate-x-[5px] translate-y-[5px]' : ''}`}></span>
+          <span className={`w-[25px] h-[3px] bg-[var(--dark)] my-[3px] transition-all duration-300 rounded-full ${navToggleRef.current?.classList.contains('active') ? 'opacity-0' : ''}`}></span>
+          <span className={`w-[25px] h-[3px] bg-[var(--dark)] my-[3px] transition-all duration-300 rounded-full ${navToggleRef.current?.classList.contains('active') ? 'transform -rotate-45 translate-x-[7px] -translate-y-[6px]' : ''}`}></span>
         </div>
       </div>
     </nav>
