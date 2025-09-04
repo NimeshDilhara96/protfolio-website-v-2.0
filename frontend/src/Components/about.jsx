@@ -22,12 +22,12 @@ function About() {
         {/* Content */}
         <div className="flex-1 min-w-0 text-center md:text-left px-2 md:px-4">
           {/* Heading */}
-          <div className="mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-[var(--primary-dark)] relative inline-block">
-              About Me
-              <span className="absolute -bottom-3 left-0 w-16 h-1.5 bg-[var(--accent-pink)] rounded-full"></span>
+          <div className="mb-4">
+             <h2 className="text-2xl md:text-3xl font-bold text-[var(--primary-dark)] relative inline-block">
+                 About Me
+             <span className="absolute -bottom-3 left-0 w-16 h-1.5 bg-[var(--accent-pink)] rounded-full"></span>
             </h2>
-          </div>
+         </div>
 
           {/* Description */}
           <div className="space-y-4 mb-8 text-[var(--dark)] text-base md:text-lg leading-relaxed">
