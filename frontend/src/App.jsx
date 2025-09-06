@@ -9,15 +9,14 @@ import Stats from './Components/Stats';
 import Contact from './Components/Contact';
 import Footer from './Components/Footer';
 import Navbar from './Components/Navbar';
-import Download from './Components/Download'; // Add this import
-import Loading from './Components/Loading';
-import './Components/style.css';
+import Download from './Components/Download';
+import Loading from './Components/Loading'; // Add this import
 
 function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1500); // 1.5 seconds
+    const timer = setTimeout(() => setLoading(false), 3000); // 3 seconds for better effect
     return () => clearTimeout(timer);
   }, []);
 
