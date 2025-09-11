@@ -59,7 +59,7 @@ function Footer() {
               Full Stack Developer • UI/UX Enthusiast • Problem Solver
             </p>
             <div className="flex items-center gap-4">
-              <span>v3.0.0</span>
+              <span>v3.1.0</span>
               <div className="flex items-center gap-1">
                 <div className="w-1 h-1 bg-[var(--primary)] rounded-full animate-pulse"></div>
                 <div className="w-1 h-1 bg-[var(--accent)] rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
