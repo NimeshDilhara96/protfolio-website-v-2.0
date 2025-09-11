@@ -8,7 +8,7 @@ const downloads = [
         icon: <FaFilePdf className="text-4xl text-red-600" />,
         title: 'Resume (PDF)',
         desc: 'Download my latest resume in PDF format.',
-        url: '/downloads/NimeshDilhara_Resume.pdf',
+        url: 'https://drive.usercontent.google.com/u/0/uc?id=1_PNVLvQloSZATRJZa7xJU4QvxWEgLZwE&export=download',
         btn: 'Download',
     },
     {
