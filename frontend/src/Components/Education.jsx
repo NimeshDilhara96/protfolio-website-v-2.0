@@ -28,7 +28,7 @@ function Education() {
             <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
               {/* Logo */}
               <div className="flex-shrink-0">
-                <div className="w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden shadow-lg bg-white/50 backdrop-blur-sm flex items-center justify-center p-2">
+                <div className="w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden shadow-lg bg-dark/50 backdrop-blur-sm flex items-center justify-center p-2">
                   <img
                     src="https://esu.lk/_next/image?url=%2Fimages%2Flogo%2Fesu-header.png&w=256&q=75"
                     alt="ESOFT Metro Campus Logo"
@@ -67,7 +67,7 @@ function Education() {
             <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
               {/* Logo */}
               <div className="flex-shrink-0">
-                <div className="w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden shadow-lg bg-white/50 backdrop-blur-sm flex items-center justify-center p-2">
+                <div className="w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden shadow-lg bg-dark/50 backdrop-blur-sm flex items-center justify-center p-2">
                   <img
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMXXEvlKCNAX5FjO2CprQhrgJqldsZBHUv-Q&s"
                     alt="K/galigamuwa Central College Logo"

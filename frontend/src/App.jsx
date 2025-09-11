@@ -6,17 +6,18 @@ import Education from './Components/Education';
 import Technologies from './Components/Technologies';
 import Projects from './Components/Projects';
 import Stats from './Components/Stats';
+import ClientReviews from './Components/ClientReviews'; // Add this import
 import Contact from './Components/Contact';
 import Footer from './Components/Footer';
 import Navbar from './Components/Navbar';
 import Download from './Components/Download';
-import Loading from './Components/Loading'; // Add this import
+import Loading from './Components/Loading';
 
 function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 3000); // 3 seconds for better effect
+    const timer = setTimeout(() => setLoading(false), 3000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -34,6 +35,7 @@ function App() {
             <Technologies />
             <Projects />
             <Stats />
+            <ClientReviews /> {/* Add this line */}
             <Contact />
             <Footer />
           </>
