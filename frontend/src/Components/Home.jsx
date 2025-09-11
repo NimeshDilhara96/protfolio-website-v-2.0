@@ -142,11 +142,9 @@ function Home() {
             {/* Action buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-8">
               <a
-                href="#"
-                onClick={e => {
-                  e.preventDefault();
-                  alert("Download coming soon!");
-                }}
+                href="https://drive.google.com/file/d/1_PNVLvQloSZATRJZa7xJU4QvxWEgLZwE/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-[var(--primary)] to-[var(--primary-dark)] text-white text-sm rounded-xl font-medium shadow-lg shadow-[var(--primary)]/20 hover:translate-y-[-2px] hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 group"
               >
                 <span>Download CV</span>
@@ -215,14 +213,12 @@ function Home() {
               Specialized in full-stack web development, AI, and UI/UX.
             </p>
             
-            {/* Action buttons */}
+            {/* Action buttons - FIXED */}
             <div className="flex items-center gap-5 mb-10">
               <a
-                href="#"
-                onClick={e => {
-                  e.preventDefault();
-                  alert("Download coming soon!");
-                }}
+                href="https://drive.google.com/file/d/1_PNVLvQloSZATRJZa7xJU4QvxWEgLZwE/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-8 py-4 bg-gradient-to-r from-[var(--primary)] to-[var(--primary-dark)] text-white text-base rounded-xl font-medium shadow-lg shadow-[var(--primary)]/20 hover:translate-y-[-3px] hover:shadow-xl transition-all duration-300 flex items-center gap-3 relative overflow-hidden group"
               >
                 <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[var(--primary-dark)] to-[var(--primary)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></span>
