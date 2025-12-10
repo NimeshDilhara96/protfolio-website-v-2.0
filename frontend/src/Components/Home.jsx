@@ -142,7 +142,7 @@ function Home() {
             {/* Action buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-8">
               <a
-                href="https://drive.google.com/file/d/1_PNVLvQloSZATRJZa7xJU4QvxWEgLZwE/view?usp=sharing"
+                href="https://drive.google.com/file/d/1vv68wCDcY4ggOY3uy3AnyURXQtdYofW4/view?usp=drive_link"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-[var(--primary)] to-[var(--primary-dark)] text-white text-sm rounded-xl font-medium shadow-lg shadow-[var(--primary)]/20 hover:translate-y-[-2px] hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 group"
