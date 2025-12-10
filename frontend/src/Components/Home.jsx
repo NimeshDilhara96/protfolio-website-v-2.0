@@ -216,7 +216,7 @@ function Home() {
             {/* Action buttons - FIXED */}
             <div className="flex items-center gap-5 mb-10">
               <a
-                href="https://drive.google.com/drive/u/0/folders/1af2AEN2yZgFu7jnepeBhMnMka5UH1jXX"
+                href="https://drive.google.com/file/d/1vv68wCDcY4ggOY3uy3AnyURXQtdYofW4/view?usp=drive_link"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-4 bg-gradient-to-r from-[var(--primary)] to-[var(--primary-dark)] text-white text-base rounded-xl font-medium shadow-lg shadow-[var(--primary)]/20 hover:translate-y-[-3px] hover:shadow-xl transition-all duration-300 flex items-center gap-3 relative overflow-hidden group"
