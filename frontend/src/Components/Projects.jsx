@@ -24,11 +24,11 @@ const projects = [
     "image": "https://media.licdn.com/dms/image/v2/D4E22AQFHlJhnqs5UEw/feedshare-shrink_2048_1536/B4EZVsJEkKHgAo-/0/1741276074223?e=1758153600&v=beta&t=kgQYVfhapTiNuSY0ID7Xtj-bHq43D6afl6HGfGqrSp0"
   },
   {
-    "name": "Coming Soon",
-    "type": "UI/UX",
-    "description": "N/A",
-    "html_url": "#",
-    "image": "https://media.licdn.com/dms/image/v2/D4E22AQFHlJhnqs5UEw/feedshare-shrink_2048_1536/B4EZVsJEkKHgAo-/0/1741276074223?e=1758153600&v=beta&t=kgQYVfhapTiNuSY0ID7Xtj-bHq43D6afl6HGfGqrSp0"
+    "name": "Ai Promt Gallery",
+    "type": "Web App",
+    "description": "Live Demo: https://mometec.codes/Ai-Prompt-Gallery/  |  A web application that allows users to explore, create, and share AI-generated prompts for various applications, fostering creativity and collaboration in the AI community.",
+    "html_url": "https://www.mometec.codes",
+    "image": "https://share.google/images/4DMsrSsXBZoNqNyGP"
   }
 ];
 
