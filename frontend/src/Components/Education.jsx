@@ -40,10 +40,10 @@ function Education() {
               {/* Education Details */}
               <div className="flex-1">
                 <h3 className="text-2xl font-bold text-[var(--dark)] mb-2 group-hover:text-[var(--primary)] transition-colors duration-300">
-                  ESOFT Metro Campus
+                  ESU Colombo
                 </h3>
                 <div className="text-lg font-semibold text-[var(--gray)] mb-3">
-                  Bachelor of Information (Honours) Degree, Information Technology
+                 Bachelor of Information Technology (Hons.) in Software Engineering
                 </div>
                 <div className="flex items-center gap-2 text-[var(--primary)] font-medium">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
