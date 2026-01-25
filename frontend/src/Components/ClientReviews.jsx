@@ -21,7 +21,7 @@ function ClientReviews() {
     },
     {
       id: 3,
-      name: "Emily",
+      name: "Emily Rodriguez",
       role: "Marketing Director",
       rating: 5,
       review: "Nimesh's expertise in both frontend and backend development made our project seamless. The final product was exactly what we envisioned.",
