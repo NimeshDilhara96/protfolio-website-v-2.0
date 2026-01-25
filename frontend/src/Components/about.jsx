@@ -44,7 +44,7 @@ function About() {
             <div className="lg:col-span-2 flex flex-col items-center lg:items-start">
               <div className="relative mb-8">
                 <div className="absolute -inset-3 bg-gradient-to-r from-[var(--primary)]/10 to-[var(--accent-pink)]/10 rounded-full blur-xl"></div>
-                <div className="relative bg-white/80 backdrop-blur-sm p-3 rounded-full shadow-2xl border border-white/40">
+                <div className="relative bg-blue/80 backdrop-blur-sm p-3 rounded-full shadow-2xl border border-white/40">
                   <img
                     src="https://avatars.githubusercontent.com/u/170844891?v=4"
                     alt="Nimesh Dilhara"
@@ -58,7 +58,7 @@ function About() {
                 {highlights.map((item, idx) => (
                   <div
                     key={idx}
-                    className="bg-white/60 backdrop-blur-sm p-4 rounded-xl border border-white/40 shadow-sm hover:shadow-md transition-all duration-300"
+                    className="bg-blue/60 backdrop-blur-sm p-4 rounded-xl border border-white/40 shadow-sm hover:shadow-md transition-all duration-300"
                   >
                     <div className="flex items-center gap-3">
                       <div className="w-12 h-12 bg-gradient-to-br from-[var(--primary)]/20 to-[var(--accent-pink)]/20 rounded-lg flex items-center justify-center text-[var(--primary)] text-xl">
@@ -77,7 +77,7 @@ function About() {
             {/* Content - Right Column (3/5) */}
             <div className="lg:col-span-3 space-y-8">
               {/* Introduction */}
-              <div className="bg-white/60 backdrop-blur-sm p-8 rounded-2xl border border-white/40 shadow-lg">
+              <div className="bg-green/60 backdrop-blur-sm p-8 rounded-2xl border border-white/40 shadow-lg">
                 <h3 className="text-2xl md:text-3xl font-bold text-[var(--dark)] mb-6">
                   Nimesh Dilhara Kulasooriya
                 </h3>
@@ -110,7 +110,7 @@ function About() {
                   {skills.map((skill, idx) => (
                     <div
                       key={idx}
-                      className="group bg-white/60 backdrop-blur-sm p-5 rounded-xl border border-white/40 shadow-sm hover:shadow-lg hover:border-[var(--primary)]/40 transition-all duration-300"
+                      className="group bg-blue/60 backdrop-blur-sm p-5 rounded-xl border border-white/40 shadow-sm hover:shadow-lg hover:border-[var(--primary)]/40 transition-all duration-300"
                     >
                       <div className="flex items-start gap-4">
                         <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[var(--primary)]/10 to-[var(--accent-pink)]/10 rounded-xl flex items-center justify-center text-[var(--primary)] text-xl group-hover:scale-110 transition-transform duration-300">
