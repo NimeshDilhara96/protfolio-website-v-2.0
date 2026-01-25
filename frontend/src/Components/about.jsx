@@ -4,9 +4,9 @@ import { FaCode, FaBrain, FaPaintBrush, FaUsers, FaGraduationCap, FaLaptopCode, 
 function About() {
   const skills = [
     { icon: <FaLaptopCode />, label: "Full-Stack Development", description: "Modern web applications" },
-    { icon: <FaBrain />, label: "Artificial Intelligence", description: "ML & data science" },
-    { icon: <FaPaintBrush />, label: "UI/UX Design", description: "User-centered design" },
-    { icon: <FaUsers />, label: "Team Collaboration", description: "Agile methodologies" },
+    { icon: <FaBrain />, label: "AI Enthusiast", description: "ML & data science" },
+    { icon: <FaCode />, label: "React,Next.js,Node.js & .NET", description: "Technologies Mastered" },
+    { icon: <FaUsers />, label: "UI/UX Design", description: "User-centered design" },
   ];
 
   const highlights = [
