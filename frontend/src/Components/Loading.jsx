@@ -39,7 +39,7 @@ function Loading() {
         {/* Professional text */}
         <div className="text-center space-y-4">
           <p className="text-slate-800 font-medium text-lg tracking-wide">
-            Loading
+            Hi !
           </p>
           
           {/* Clean progress indicator */}
