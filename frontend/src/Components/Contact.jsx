@@ -107,11 +107,7 @@ function Contact() {
               <div className="bg-dark/70 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-lg shadow-[var(--primary)]/5">
                 <h3 className="text-xl font-bold text-[var(--dark)] mb-6 text-center">Follow me on</h3>
                 <div className="flex flex-wrap justify-center gap-4">
-                  <a href="mailto:nimeshdilhara2001@gmail.com" 
-                     className="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-xl flex items-center justify-center text-white shadow-lg hover:scale-110 hover:shadow-xl transition-all duration-300 group" 
-                     title="Email">
-                    <FaEnvelope className="text-lg group-hover:animate-pulse" />
-                  </a>
+                  
                   <a href="https://instagram.com/nimeshdilhara96" target="_blank" rel="noopener noreferrer" 
                      className="w-12 h-12 bg-gradient-to-r from-pink-500 to-rose-500 rounded-xl flex items-center justify-center text-white shadow-lg hover:scale-110 hover:shadow-xl transition-all duration-300 group" 
                      title="Instagram">
