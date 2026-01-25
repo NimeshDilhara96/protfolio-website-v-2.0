@@ -10,7 +10,7 @@ function About() {
   ];
 
   const highlights = [
-    { icon: <FaGraduationCap />, title: "Education", value: "BSc (Hons) Software Engineering" },
+    { icon: <FaGraduationCap />, title: "Education", value: "Bachelor of Information Technology (Hons.) in Software Engineering" },
     { icon: <FaAward />, title: "Experience", value: "2+ Years Learning & Building" },
     { icon: <FaRocket />, title: "Projects", value: "10+ Completed Projects" },
   ];
