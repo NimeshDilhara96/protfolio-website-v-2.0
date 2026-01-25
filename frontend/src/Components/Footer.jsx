@@ -20,7 +20,7 @@ function Footer() {
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
             <div className="text-center md:text-left">
               <h3 className="text-xl md:text-2xl font-bold text-[var(--dark)] mb-1">
-                Nimesh Dilhara
+                Nimesh Dilhara Kulasooriya
               </h3>
              
             </div>
@@ -56,7 +56,7 @@ function Footer() {
         <div className="mt-8 pt-6 border-t border-[var(--gray)]/20">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--gray)]">
             <p className="text-center sm:text-left">
-              Full Stack Developer • UI/UX Enthusiast • Problem Solver
+              Full Stack Developer • UI/UX Designer • AI Enthusiast 
             </p>
             <div className="flex items-center gap-4">
               <span>v3.1.0</span>
