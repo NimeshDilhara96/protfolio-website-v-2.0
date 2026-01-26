@@ -41,6 +41,15 @@ function ClientReviews() {
       review: "I have known Nimesh for many years as a close friend. He is highly technology oriented with strong IT knowledge and always stays updated with the latest trends and industry related news. He is a fast learner who quickly understands new concepts and adapts to changes with ease. He is hardworking, disciplined, and has a strong problem solving mindset. Nimesh is also friendly and easy to work with. I believe he has a bright future in the IT field and I highly recommend him for suitable opportunities.",
       initials: "MI",
       color: "from-green-500 to-teal-500"
+    },
+    {
+      id: 5,
+      name: "Yesmin Jalaldeen",
+      role: "BSc Information Technology StudentProduct Manager",
+      rating: 5,
+      review: "I confidently recommend Nimesh for software engineering internships, development roles, or technical collaborations. His technical foundation, teamwork skills, and commitment to excellence make him a valuable addition to any engineering team.",
+      initials: "YJ",
+      color: "from-yellow-500 to-red-500"
     }
 
   ];
