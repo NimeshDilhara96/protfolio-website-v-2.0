@@ -32,7 +32,17 @@ function ClientReviews() {
       review: "Nimesh's expertise in both frontend and backend development made our project seamless. The final product was exactly what we envisioned.",
       initials: "ER",
       color: "from-pink-500 to-orange-500"
+    },
+    {
+      id: 4,
+      name: "M Ilmi",
+      role: "Senior Brand Executive at Royal Fernwood Porcelain Limited", 
+      rating: 5,
+      review: "I have known Nimesh for many years as a close friend. He is highly technology oriented with strong IT knowledge and always stays updated with the latest trends and industry related news. He is a fast learner who quickly understands new concepts and adapts to changes with ease. He is hardworking, disciplined, and has a strong problem solving mindset. Nimesh is also friendly and easy to work with. I believe he has a bright future in the IT field and I highly recommend him for suitable opportunities.",
+      initials: "MI",
+      color: "from-green-500 to-teal-500"
     }
+
   ];
 
   // Auto-rotate reviews
@@ -66,9 +76,7 @@ function ClientReviews() {
         {/* Compact Section Title */}
         <div className="text-center mb-10">
           <div className="inline-block mb-3">
-            <span className="text-[var(--primary)] text-xs font-semibold uppercase tracking-wider bg-[var(--primary)]/10 px-3 py-1 rounded-full">
-              Testimonials
-            </span>
+            
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--dark)] mb-3 tracking-tight">
             What Clients Say
