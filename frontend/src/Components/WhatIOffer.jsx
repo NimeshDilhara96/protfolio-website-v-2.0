@@ -1,102 +1,92 @@
 import React from 'react';
+import { FaCode, FaPalette, FaCog } from 'react-icons/fa';
 
 const WhatIOffer = () => {
   const services = [
     {
-      id: 1,
-      title: 'Web Development',
-      description: 'Building responsive, scalable, and high-performance web applications with modern frameworks and best practices.',
-      icon: '💻',
-      skills: ['React', 'Node.js', 'MongoDB', 'Express', 'JavaScript']
+      icon: <FaCode className="w-8 h-8" />,
+      title: "Web Development",
+      description: "Building responsive, modern web applications with clean code and best practices. From landing pages to full-stack applications.",
+      skills: ["React", "Next.js", "TypeScript", "Node.js", "MongoDB"]
     },
     {
-      id: 2,
-      title: 'UI/UX Design (Figma)',
-      description: 'Crafting beautiful and intuitive user interfaces with a focus on user experience and modern design principles.',
-      icon: '🎨',
-      skills: ['Figma', 'Prototyping', 'Wireframing', 'Design Systems', 'User Research']
+      icon: <FaPalette className="w-8 h-8" />,
+      title: "UI/UX Design",
+      description: "Creating intuitive and beautiful user interfaces using Figma. Focusing on user experience and modern design principles.",
+      skills: ["Figma", "Prototyping", "Wireframing", "Design Systems"]
     },
     {
-      id: 3,
-      title: 'Custom Software Solutions',
-      description: 'Developing tailored software solutions to meet your unique business needs with cutting-edge technologies.',
-      icon: '⚙️',
-      skills: ['Full Stack', 'API Integration', 'Database Design', 'Cloud Services', 'DevOps']
+      icon: <FaCog className="w-8 h-8" />,
+      title: "Custom Software Solutions",
+      description: "Developing tailored software solutions to solve your unique business challenges. From concept to deployment.",
+      skills: ["System Design", "API Development", "Database Design", "DevOps"]
     }
   ];
 
   return (
-    <section id="what-i-offer" className="relative overflow-hidden bg-gradient-to-br from-[#0a0a0a] to-[#1a1a2e] py-20 px-5 md:py-28">
-      {/* Animated background gradient */}
-      <div className="absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-[radial-gradient(circle,_rgba(138,43,226,0.1)_0%,_transparent_70%)] animate-spin-slow pointer-events-none"></div>
-      
-      <div className="max-w-7xl mx-auto relative z-10">
+    <section id="what-i-offer" className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20 px-6">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-white to-purple-400 bg-clip-text text-transparent">
+        <div className="text-center mb-16">
+          <h2 className="text-5xl font-bold text-white mb-4">
             What I Offer
           </h2>
-          <p className="text-gray-400 text-lg md:text-xl font-light">
-            Transforming ideas into reality with expertise and innovation
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6"></div>
+          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+            Transforming ideas into digital reality with expertise in development, design, and custom solutions
           </p>
         </div>
-        
+
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-16 md:mb-20">
-          {services.map((service) => (
-            <div 
-              key={service.id} 
-              className="group relative bg-gradient-to-br from-[#1a1a2e] to-[#16213e] rounded-3xl p-8 md:p-10 border border-purple-400/20 cursor-pointer transition-all duration-500 hover:-translate-y-4 hover:shadow-[0_20px_60px_rgba(138,43,226,0.4),0_0_40px_rgba(167,139,250,0.3)] hover:border-purple-400/60 overflow-hidden"
+        <div className="grid md:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="group relative bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700 hover:border-blue-500 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/20"
             >
-              {/* Hover gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-700/10 to-purple-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              <div className="relative z-10">
-                {/* Icon */}
-                <div className="text-6xl md:text-7xl mb-5 inline-block transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 drop-shadow-[0_0_20px_rgba(167,139,250,0.5)]">
-                  {service.icon}
-                </div>
-                
-                {/* Title */}
-                <h3 className="text-2xl md:text-3xl font-semibold text-white mb-4">
-                  {service.title}
-                </h3>
-                
-                {/* Description */}
-                <p className="text-gray-400 leading-relaxed mb-6">
-                  {service.description}
-                </p>
-                
-                {/* Skills */}
-                <div className="flex flex-wrap gap-2">
-                  {service.skills.map((skill, index) => (
-                    <span 
-                      key={index} 
-                      className="bg-purple-400/15 text-purple-400 px-4 py-2 rounded-full text-sm font-medium border border-purple-400/30 transition-all duration-300 group-hover:bg-purple-400/25 group-hover:border-purple-400/50 group-hover:-translate-y-1"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
+              {/* Icon */}
+              <div className="mb-6 text-blue-400 group-hover:text-blue-300 transition-colors duration-300 group-hover:scale-110 transform">
+                {service.icon}
               </div>
+
+              {/* Title */}
+              <h3 className="text-2xl font-bold text-white mb-4">
+                {service.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-slate-300 mb-6 leading-relaxed">
+                {service.description}
+              </p>
+
+              {/* Skills */}
+              <div className="flex flex-wrap gap-2">
+                {service.skills.map((skill, idx) => (
+                  <span
+                    key={idx}
+                    className="px-3 py-1 text-sm bg-slate-700/50 text-slate-200 rounded-full border border-slate-600 group-hover:border-blue-500/50 transition-colors duration-300"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+
+              {/* Gradient overlay on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/5 group-hover:to-purple-500/5 rounded-2xl transition-all duration-300 pointer-events-none"></div>
             </div>
           ))}
         </div>
 
-        {/* CTA Section */}
-        <div className="text-center mt-16 md:mt-20 p-10 md:p-12 bg-gradient-to-br from-purple-700/10 to-purple-400/10 rounded-3xl border border-purple-400/20">
-          <p className="text-white text-2xl md:text-3xl font-medium mb-8">
+        {/* Call to Action */}
+        <div className="text-center mt-16">
+          <p className="text-slate-300 text-lg mb-6">
             Ready to bring your project to life?
           </p>
-          <a 
-            href="#contact" 
-            className="group inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-purple-700 to-purple-400 text-white text-lg font-semibold rounded-full transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(138,43,226,0.5)] relative overflow-hidden"
+          <a
+            href="#contact"
+            className="inline-block px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105"
           >
-            {/* Shine effect */}
-            <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent"></span>
-            
-            <span className="relative">Get In Touch</span>
-            <span className="relative text-xl transition-transform duration-300 group-hover:translate-x-1">→</span>
+            Let's Work Together
           </a>
         </div>
       </div>
