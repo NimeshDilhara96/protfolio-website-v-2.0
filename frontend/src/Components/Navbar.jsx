@@ -192,20 +192,20 @@ function Navbar() {
         className="fixed top-0 left-0 w-full z-50 transition-all duration-300 backdrop-blur-md bg-opacity-75 bg-[var(--light,#f9fafb)] border-b border-gray-100/20"
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-16 md:h-12">
             {/* Logo */}
-            <div className="flex-shrink-0 ml-4 mr-8">
+            <div className="flex-shrink-0 ml-0.5 mr-8 md:ml-2 md:mr-4">
               <button 
                 type="button"
                 onClick={(e) => handleNavClick(e, "/#home")}
                 aria-label="Go to homepage"
-                className="group flex items-center gap-2 px-6 py-2 rounded-xl transition-all duration-300 hover:bg-[var(--primary-light,#818cf8)]/8 hover:scale-105"
+                className="group flex items-center gap-2 px-6 py-2 md:px-4 md:py-1.5 rounded-xl transition-all duration-300 hover:bg-[var(--primary-light,#818cf8)]/8 hover:scale-105"
               >
                 <div className="relative">
-                  <span className="text-[var(--dark,#1f2937)] font-bold text-xl tracking-tight group-hover:text-[var(--primary,#6366f1)] transition-colors duration-300">
-                    Nimesh
+                  <span className="text-[var(--dark,#1f2937)] font-bold text-xl md:text-base tracking-tight group-hover:text-[var(--primary,#6366f1)] transition-colors duration-300">
+                    Nimesh Dilhara
                   </span>
-                  <span className="text-[var(--primary,#6366f1)] font-bold text-xl animate-pulse">.</span>
+                  <span className="text-[var(--primary,#6366f1)] font-bold text-xl md:text-base animate-pulse">.</span>
                   <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[var(--primary,#6366f1)] to-[var(--primary-dark,#4f46e5)] group-hover:w-full transition-all duration-300"></div>
                 </div>
               </button>
@@ -213,7 +213,7 @@ function Navbar() {
             
             {/* Desktop menu */}
             <div className="hidden md:block">
-              <div className="flex items-center gap-2" role="menubar">
+              <div className="flex items-center gap-1" role="menubar">
                 {navLinks.map(link => (
                   <button
                     key={link.href}
@@ -222,8 +222,8 @@ function Navbar() {
                     onClick={(e) => handleNavClick(e, link.href)}
                     aria-current={activeSection === link.href ? 'page' : undefined}
                     className={`
-                      relative px-5 py-2.5 rounded-xl font-medium text-sm tracking-wide transition-all duration-300
-                      flex items-center gap-2 group overflow-hidden min-w-[120px] justify-center
+                      relative px-4 py-2 rounded-lg font-medium text-sm tracking-wide transition-all duration-300
+                      flex items-center gap-2 group overflow-hidden min-w-[110px] justify-center
                       ${activeSection === link.href 
                         ? 'text-white bg-gradient-to-r from-[var(--primary,#6366f1)] via-[var(--primary,#6366f1)] to-[var(--primary-dark,#4f46e5)] shadow-lg shadow-[var(--primary,#6366f1)]/25 scale-105 transform -translate-y-1' 
                         : 'text-[var(--gray,#6b7280)] hover:text-white hover:bg-gradient-to-r hover:from-[var(--primary-dark,#4f46e5)] hover:to-[var(--primary,#6366f1)] hover:scale-102 hover:shadow-lg hover:shadow-[var(--primary,#6366f1)]/15 hover:-translate-y-0.5'}
@@ -235,7 +235,7 @@ function Navbar() {
                       {link.icon}
                     </span>
                     
-                    <span className="whitespace-nowrap relative z-20 font-semibold tracking-wide">
+                    <span className="whitespace-nowrap relative z-20 font-semibold tracking-wide text-sm">
                       {link.label}
                     </span>
                     
