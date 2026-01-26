@@ -45,7 +45,7 @@ function ClientReviews() {
     {
       id: 5,
       name: "Yesmin Jalaldeen",
-      role: "BSc Information Technology StudentProduct Manager",
+      role: "BSc Information Technology Student",
       rating: 5,
       review: "I confidently recommend Nimesh for software engineering internships, development roles, or technical collaborations. His technical foundation, teamwork skills, and commitment to excellence make him a valuable addition to any engineering team.",
       initials: "YJ",
