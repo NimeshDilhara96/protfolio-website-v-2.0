@@ -156,8 +156,31 @@ function Home() {
           <div className="mb-8">
             <div className="relative inline-block group">
               <div className="w-32 h-32 sm:w-40 sm:h-40 relative">
-                {/* Main border with gradient */}
-                <div className="absolute -inset-1 bg-gradient-to-br from-[var(--primary,#6366f1)] via-[var(--accent,#8b5cf6)] to-[var(--accent-pink,#ec4899)] rounded-full opacity-50 group-hover:from-white group-hover:via-white group-hover:to-white group-hover:opacity-100 transition-all duration-300"></div>
+                {/* Main border with gradient - Ring with opening at top-right */}
+                <div className="absolute -inset-1 bg-gradient-to-br from-[var(--primary,#6366f1)] via-[var(--accent,#8b5cf6)] to-[var(--accent-pink,#ec4899)] rounded-full opacity-50 group-hover:from-white group-hover:via-white group-hover:to-white group-hover:opacity-100 transition-all duration-300" style={{clipPath: 'polygon(50% 50%, 50% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 100%, 0% 100%, 0% 0%, 50% 0%, 50% 50%, 100% 15%, 100% 100%, 0% 100%, 0% 0%)'}}></div>
+                
+                {/* Ring segments for better gap control */}
+                <svg className="absolute -inset-1 w-[calc(100%+0.5rem)] h-[calc(100%+0.5rem)]" style={{transform: 'rotate(-90deg)'}}>
+                  <circle 
+                    cx="50%" 
+                    cy="50%" 
+                    r="48%" 
+                    fill="none" 
+                    stroke="url(#mobileGradient)" 
+                    strokeWidth="4" 
+                    strokeDasharray="220 40" 
+                    strokeDashoffset="-30"
+                    className="opacity-50 group-hover:stroke-white transition-all duration-300"
+                    style={{strokeLinecap: 'round'}}
+                  />
+                  <defs>
+                    <linearGradient id="mobileGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="var(--primary,#6366f1)" className="group-hover:stop-color-white" />
+                      <stop offset="50%" stopColor="var(--accent,#8b5cf6)" className="group-hover:stop-color-white" />
+                      <stop offset="100%" stopColor="var(--accent-pink,#ec4899)" className="group-hover:stop-color-white" />
+                    </linearGradient>
+                  </defs>
+                </svg>
                 
                 {/* Inner border */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[var(--light,#f9fafb)] to-[var(--light-dark,#f3f4f6)] rounded-full"></div>
@@ -171,6 +194,16 @@ function Home() {
                 
                 {/* Shine effect */}
                 <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500" style={{transform: 'rotate(45deg)'}}></div>
+                
+                {/* Open to Work Badge on Ring - LinkedIn Style */}
+                <div className="absolute bottom-1 right-1 z-20">
+                  <div className="relative">
+                    <div className="inline-flex items-center px-2.5 py-1 rounded-full bg-green-500 text-white border-2 border-white text-[10px] font-bold shadow-lg">
+                      <span className="w-1.5 h-1.5 bg-white rounded-full mr-1.5 animate-pulse"></span>
+                      Open to Work
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -179,7 +212,6 @@ function Home() {
           <div className="max-w-lg">
             <div className="flex flex-wrap items-center justify-center gap-2">
               <WelcomeBadge />
-              <OpenToWorkBadge />
             </div>
             
             <h1 className="text-3xl sm:text-4xl font-bold mb-3 text-[var(--dark,#1f2937)] tracking-tight">
@@ -231,7 +263,6 @@ function Home() {
           <div className="flex-1 text-left max-w-2xl">
             <div className="flex items-center gap-2">
               <WelcomeBadge />
-              <OpenToWorkBadge />
             </div>
             
             <h1 className="text-5xl xl:text-6xl font-bold mb-4 text-[var(--dark,#1f2937)] tracking-tight">
@@ -295,6 +326,14 @@ function Home() {
                 
                 {/* Shine effect */}
                 <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500" style={{transform: 'rotate(45deg)'}}></div>
+                
+                {/* Open to Work Badge on Ring */}
+                <div className="absolute bottom-2 right-2 z-20">
+                  <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-500/95 text-white border-2 border-white text-sm font-bold backdrop-blur-sm animate-pulse shadow-xl">
+                    <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
+                    Open to Work
+                  </div>
+                </div>
               </div>
             </div>
           </div>
