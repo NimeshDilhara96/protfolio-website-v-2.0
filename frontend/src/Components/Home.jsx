@@ -32,6 +32,14 @@ const WelcomeBadge = () => (
   </div>
 );
 
+// Open to Work Badge Component
+const OpenToWorkBadge = () => (
+  <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 mb-4 md:mb-6 rounded-full bg-green-500/10 text-green-600 border border-green-500/30 text-sm font-medium backdrop-blur-sm animate-pulse ml-2">
+    <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+    Open to Work
+  </div>
+);
+
 // Social Links Component
 const SocialLinks = ({ size = 'default' }) => {
   const iconSize = size === 'large' ? 20 : 16;
@@ -160,7 +168,10 @@ function Home() {
 
           {/* Text Content - Mobile */}
           <div className="max-w-lg">
-            <WelcomeBadge />
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              <WelcomeBadge />
+              <OpenToWorkBadge />
+            </div>
             
             <h1 className="text-3xl sm:text-4xl font-bold mb-3 text-[var(--dark,#1f2937)] tracking-tight">
               Nimesh Dilhara
@@ -209,7 +220,10 @@ function Home() {
         <div className="hidden lg:flex lg:flex-row items-center justify-between gap-12">
           {/* Text Content - Desktop */}
           <div className="flex-1 text-left max-w-2xl">
-            <WelcomeBadge />
+            <div className="flex items-center gap-2">
+              <WelcomeBadge />
+              <OpenToWorkBadge />
+            </div>
             
             <h1 className="text-5xl xl:text-6xl font-bold mb-4 text-[var(--dark,#1f2937)] tracking-tight">
               Nimesh Dilhara
