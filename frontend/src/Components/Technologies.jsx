@@ -55,64 +55,77 @@ function Technologies() {
   ];
 
   return (
-    <section id="technologies" className="py-20 bg-gradient-to-br from-[var(--light-dark)] to-[var(--light)] relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-20 w-40 h-40 bg-[var(--primary)]/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-32 h-32 bg-[var(--accent-pink)]/10 rounded-full blur-2xl animate-pulse" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-[var(--accent)]/10 rounded-full blur-xl animate-pulse" style={{animationDelay: '1s'}}></div>
+    <section id="technologies" className="py-16 bg-gradient-to-br from-[var(--light-dark)] to-[var(--light)] relative overflow-hidden">
+      {/* Animated grid background */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'linear-gradient(var(--primary) 1px, transparent 1px), linear-gradient(90deg, var(--primary) 1px, transparent 1px)',
+          backgroundSize: '50px 50px',
+          animation: 'gridMove 20s linear infinite'
+        }}></div>
+      </div>
+
+      {/* Floating particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-10 left-10 w-2 h-2 bg-[var(--primary)] rounded-full animate-ping"></div>
+        <div className="absolute top-40 right-20 w-2 h-2 bg-[var(--accent)] rounded-full animate-ping" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-20 left-1/4 w-2 h-2 bg-[var(--accent-pink)] rounded-full animate-ping" style={{animationDelay: '2s'}}></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Section Title */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-[var(--dark)] mb-4 tracking-tight">
+        {/* Compact Section Title */}
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-[var(--dark)] mb-3 tracking-tight">
             🛠️ Tech Arsenal
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[var(--primary)] via-[var(--accent)] to-[var(--accent-pink)] mx-auto rounded-full"></div>
-          <p className="text-[var(--gray)] text-lg mt-6 max-w-2xl mx-auto">
-            A comprehensive collection of technologies and tools I use to bring ideas to life
-          </p>
+          <div className="w-20 h-1 bg-gradient-to-r from-[var(--primary)] via-[var(--accent)] to-[var(--accent-pink)] mx-auto rounded-full"></div>
         </div>
 
-        {/* Tech Categories */}
-        <div className="space-y-12 max-w-6xl mx-auto">
+        {/* Compact Tech Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
           {techCategories.map((category, categoryIndex) => (
             <div 
               key={categoryIndex}
-              className="group bg-transparent backdrop-blur-sm rounded-2xl shadow-lg shadow-[var(--primary)]/5 p-8 transition-all duration-300 hover:shadow-xl hover:shadow-[var(--primary)]/10 hover:scale-[1.02] border border-gray-100/20"
+              className="group relative bg-blue/60 backdrop-blur-sm rounded-xl p-5 border border-gray-200/50 hover:border-[var(--primary)]/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(99,102,241,0.3)] hover:scale-105 overflow-hidden"
+              style={{
+                animation: `slideUp 0.5s ease-out ${categoryIndex * 0.1}s both`
+              }}
             >
+              {/* Corner accent */}
+              <div className="absolute top-0 right-0 w-12 h-12 bg-gradient-to-br from-[var(--primary)]/20 to-transparent rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
+              {/* Animated border */}
+              <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute inset-0 rounded-xl border-2 border-[var(--primary)] animate-spin-slow"></div>
+              </div>
+              
               {/* Category Title */}
-              <h3 className="text-2xl md:text-3xl font-bold text-[var(--dark)] mb-8 text-center group-hover:text-[var(--primary)] transition-colors duration-300">
-                {category.title}
+              <h3 className="text-lg font-bold text-[var(--dark)] mb-4 flex items-center justify-between group-hover:text-[var(--primary)] transition-colors duration-300">
+                <span>{category.title}</span>
+                <span className="text-xs px-2 py-1 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] font-semibold">{category.badges.length}</span>
               </h3>
               
-              {/* Tech Badges */}
-              <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+              {/* Tech Badges - Compact */}
+              <div className="flex flex-wrap gap-2">
                 {category.badges.map((badge, badgeIndex) => (
                   <div
                     key={badgeIndex}
-                    className="group/badge transform transition-all duration-300 hover:scale-110 hover:-translate-y-2"
-                    style={{
-                      animationDelay: `${badgeIndex * 100}ms`
-                    }}
+                    className="relative group/badge transform transition-all duration-300 hover:scale-110 hover:z-10"
                   >
-                    <div className="relative">
-                      {/* Glow effect on hover */}
-                      <div className="absolute -inset-1 bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] rounded-lg blur opacity-0 group-hover/badge:opacity-75 transition-opacity duration-300"></div>
-                      
-                      {/* Badge Image */}
-                      <img
-                        src={badge.src}
-                        alt={badge.alt}
-                        className="relative rounded-lg shadow-md transition-all duration-300 group-hover/badge:shadow-xl"
-                        loading="lazy"
-                      />
-                      
-                      {/* Hover tooltip */}
-                      <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-[var(--dark)] text-[var(--light)] px-3 py-1 rounded-lg text-sm font-medium opacity-0 group-hover/badge:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap">
-                        {badge.alt}
-                      </div>
+                    {/* Glow effect */}
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] rounded opacity-0 group-hover/badge:opacity-60 blur transition-opacity duration-300"></div>
+                    
+                    {/* Badge */}
+                    <img
+                      src={badge.src}
+                      alt={badge.alt}
+                      className="relative h-6 rounded shadow-sm group-hover/badge:shadow-lg transition-shadow duration-300"
+                      loading="lazy"
+                    />
+                    
+                    {/* Tooltip */}
+                    <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-[var(--dark)] text-white px-2 py-1 rounded text-xs font-medium opacity-0 group-hover/badge:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-20">
+                      {badge.alt}
                     </div>
                   </div>
                 ))}
@@ -120,16 +133,24 @@ function Technologies() {
             </div>
           ))}
         </div>
-
-        {/* Bottom decoration */}
-        <div className="flex justify-center mt-16">
-          <div className="flex items-center gap-3">
-            <div className="w-3 h-3 bg-gradient-to-r from-[var(--primary)] to-[var(--primary-dark)] rounded-full animate-bounce"></div>
-            <div className="w-3 h-3 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-pink)] rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-            <div className="w-3 h-3 bg-gradient-to-r from-[var(--accent-pink)] to-[var(--accent-purple)] rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
-          </div>
-        </div>
       </div>
+
+      <style jsx>{`
+        @keyframes gridMove {
+          0% { transform: translateY(0); }
+          100% { transform: translateY(50px); }
+        }
+        @keyframes slideUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </section>
   );
 }
