@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FaGithub, FaLinkedin, FaInstagram, FaTwitter, FaFacebook } from 'react-icons/fa';
-import profilePhoto from '../assets/profile.jpg';
+import profilePhoto from '../assets/profiletrc.png';
 
 const lines = [
   "Undergraduate Software Engineer",
@@ -154,14 +154,23 @@ function Home() {
         <div className="flex flex-col items-center text-center lg:hidden">
           {/* Profile Image - Mobile */}
           <div className="mb-8">
-            <div className="relative inline-block">
+            <div className="relative inline-block group">
               <div className="w-32 h-32 sm:w-40 sm:h-40 relative">
-                <div className="absolute -inset-1 bg-gradient-to-r from-[var(--primary,#6366f1)] to-[var(--accent-pink,#ec4899)] rounded-full blur-sm opacity-75 animate-pulse"></div>
+                {/* Main border with gradient */}
+                <div className="absolute -inset-1 bg-gradient-to-br from-[var(--primary,#6366f1)] via-[var(--accent,#8b5cf6)] to-[var(--accent-pink,#ec4899)] rounded-full opacity-50 group-hover:from-white group-hover:via-white group-hover:to-white group-hover:opacity-100 transition-all duration-300"></div>
+                
+                {/* Inner border */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[var(--light,#f9fafb)] to-[var(--light-dark,#f3f4f6)] rounded-full"></div>
+                
+                {/* Image */}
                 <img 
                   src={profilePhoto} 
                   alt="Nimesh Dilhara - Software Engineer and Full Stack Developer" 
-                  className="w-full h-full object-cover rounded-full border-3 border-white/60 shadow-2xl relative z-10"
+                  className="w-full h-full object-cover rounded-full p-1 relative z-10 transform group-hover:scale-105 transition-transform duration-500 shadow-2xl"
                 />
+                
+                {/* Shine effect */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500" style={{transform: 'rotate(45deg)'}}></div>
               </div>
             </div>
           </div>
@@ -269,15 +278,23 @@ function Home() {
 
           {/* Profile Image - Desktop */}
           <div className="flex-shrink-0">
-            <div className="relative">
+            <div className="relative group">
               <div className="w-80 h-80 xl:w-96 xl:h-96 relative">
-                <div className="absolute -inset-2 bg-gradient-to-r from-[var(--primary,#6366f1)] via-[var(--accent,#8b5cf6)] to-[var(--accent-pink,#ec4899)] rounded-full blur-lg opacity-60 animate-pulse"></div>
-                <div className="absolute -inset-1 bg-gradient-to-r from-[var(--primary,#6366f1)] to-[var(--accent-pink,#ec4899)] rounded-full blur-md opacity-80"></div>
+                {/* Main border with gradient */}
+                <div className="absolute -inset-1.5 bg-gradient-to-br from-[var(--primary,#6366f1)] via-[var(--accent,#8b5cf6)] to-[var(--accent-pink,#ec4899)] rounded-full opacity-50 group-hover:from-white group-hover:via-white group-hover:to-white group-hover:opacity-100 transition-all duration-300"></div>
+                
+                {/* Inner border */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[var(--light,#f9fafb)] to-[var(--light-dark,#f3f4f6)] rounded-full"></div>
+                
+                {/* Image */}
                 <img 
                   src={profilePhoto} 
                   alt="Nimesh Dilhara - Software Engineer and Full Stack Developer" 
-                  className="w-full h-full object-cover rounded-full border-4 border-white/70 shadow-2xl relative z-10 hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover rounded-full p-2 relative z-10 transform group-hover:scale-105 transition-transform duration-500 shadow-2xl"
                 />
+                
+                {/* Shine effect */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500" style={{transform: 'rotate(45deg)'}}></div>
               </div>
             </div>
           </div>
