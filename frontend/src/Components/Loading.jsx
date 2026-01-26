@@ -36,14 +36,19 @@ function Loading() {
           ></div>
         </div>
 
-        {/* Professional text */}
-        <div className="text-center space-y-4">
-          <p className="text-slate-800 font-medium text-lg tracking-wide">
-            Hi !
-          </p>
+        {/* Windows-style greeting */}
+        <div className="text-center space-y-3">
+          <div className="space-y-1">
+            <p className="text-slate-800 font-light text-5xl tracking-tight">
+              Hi
+            </p>
+            <p className="text-slate-600 font-light text-base tracking-wide">
+              Let's explore
+            </p>
+          </div>
           
           {/* Clean progress indicator */}
-          <div className="flex gap-1.5 justify-center">
+          <div className="flex gap-1.5 justify-center mt-6">
             {[0, 1, 2].map((i) => (
               <div
                 key={i}
