@@ -32,10 +32,10 @@ function App() {
             <Navbar />
             <Home />
             <About />
-            <WhatIOffer />
             <Education />
             <Technologies />
             <Projects />
+            <WhatIOffer />
             <Stats />
             <ClientReviews /> {/* Add this line */}
             <Contact />
