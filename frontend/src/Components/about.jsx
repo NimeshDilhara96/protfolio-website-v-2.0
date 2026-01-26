@@ -1,5 +1,6 @@
 import React from "react";
 import { FaCode, FaBrain, FaPaintBrush, FaUsers, FaGraduationCap, FaLaptopCode, FaAward, FaRocket } from 'react-icons/fa';
+import aboutPhoto from '../assets/about.png';
 
 function About() {
   const skills = [
@@ -46,7 +47,7 @@ function About() {
                 <div className="absolute -inset-3 bg-gradient-to-r from-[var(--primary)]/10 to-[var(--accent-pink)]/10 rounded-full blur-xl"></div>
                 <div className="relative bg-blue/80 backdrop-blur-sm p-3 rounded-full shadow-2xl border border-white/40">
                   <img
-                    src="https://avatars.githubusercontent.com/u/170844891?v=4"
+                    src={aboutPhoto}
                     alt="Nimesh Dilhara"
                     className="w-64 h-64 md:w-72 md:h-72 rounded-full object-cover"
                   />
