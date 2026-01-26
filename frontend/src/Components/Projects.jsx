@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 
 // Add a "type" property for filtering
 const projects = [
@@ -7,28 +8,32 @@ const projects = [
     "type": "Web App",
     "description": "NextGen Sports Club is an AI-powered full-stack MERN application designed to modernize sports club operations with smart booking, QR-based access, AI-generated training & meal plans, e-commerce, real-time messaging, and automated email notifications.",
     "html_url": "https://github.com/NimeshDilhara96/NextgensportclubSystem",
-    "image": "https://opengraph.githubassets.com/1/NimeshDilhara96/NextgensportclubSystem"
+    "image": "https://opengraph.githubassets.com/1/NimeshDilhara96/NextgensportclubSystem",
+    "tags": ["React", "Node.js", "MongoDB", "AI"]
   },
   {
     "name": "Nutricare-Meal_Management_System",
     "type": "Web App",
     "description": "Nutricare is a personalized meal planning and health management system designed to cater to individual dietary needs and health conditions. It empowers users to lead healthier lifestyles with customized meal plans, health insights, and expert consultations.",
     "html_url": "https://github.com/NimeshDilhara96/Nutricare-Meal_Management_System",
-    "image": "https://opengraph.githubassets.com/1/NimeshDilhara96/Nutricare-Meal_Management_System"
+    "image": "https://opengraph.githubassets.com/1/NimeshDilhara96/Nutricare-Meal_Management_System",
+    "tags": ["MERN", "Health", "API"]
   },
   {
     "name": "U-CARE Hospital Consultation Mobile UI Design",
     "type": "UI/UX",
     "description": "A modern and user-friendly mobile UI design for hospital consultation, created in Figma. View the full project and design details on Behance.",
     "html_url": "https://www.behance.net/gallery/219353335/U-CARE-Hospital-Consultation-Mobile-UI-Design%28Figma%29",
-    "image": "https://media.licdn.com/dms/image/v2/D4E22AQFHlJhnqs5UEw/feedshare-shrink_2048_1536/B4EZVsJEkKHgAo-/0/1741276074223?e=1758153600&v=beta&t=kgQYVfhapTiNuSY0ID7Xtj-bHq43D6afl6HGfGqrSp0"
+    "image": "https://media.licdn.com/dms/image/v2/D4E22AQFHlJhnqs5UEw/feedshare-shrink_2048_1536/B4EZVsJEkKHgAo-/0/1741276074223?e=1758153600&v=beta&t=kgQYVfhapTiNuSY0ID7Xtj-bHq43D6afl6HGfGqrSp0",
+    "tags": ["Figma", "UI/UX", "Mobile"]
   },
   {
     "name": "Ai Promt Gallery",
     "type": "Web App",
     "description": "Live Demo: https://mometec.codes/Ai-Prompt-Gallery/  |  A web application that allows users to explore, create, and share AI-generated prompts for various applications, fostering creativity and collaboration in the AI community.",
     "html_url": "https://www.mometec.codes",
-    "image": "https://share.google/images/4DMsrSsXBZoNqNyGP"
+    "image": "https://www.mometec.codes/prompt.php?id=69247cf58d9acf6c3901b313&slug=a-woman-leans-against-a-bridge-railing-in-london",
+    "tags": ["AI", "React", "Community"]
   }
 ];
 
@@ -43,35 +48,37 @@ function Projects() {
     : projects.filter(p => p.type === filter);
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-b from-[var(--light)] to-[var(--light-dark)] relative overflow-hidden">
-      {/* Background decoration */}
+    <section id="projects" className="py-12 md:py-16 bg-gradient-to-b from-[var(--light-dark)] to-[var(--dark-light)] relative overflow-hidden">
+      {/* Subtle background decoration */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 right-10 w-40 h-40 bg-[var(--accent)]/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 left-10 w-32 h-32 bg-[var(--primary)]/10 rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/2 right-1/4 w-24 h-24 bg-[var(--accent-pink)]/10 rounded-full blur-xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-20 right-10 w-96 h-96 bg-[var(--primary)]/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-10 w-80 h-80 bg-[var(--accent-pink)]/5 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Section Title */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-[var(--dark)] mb-4 tracking-tight">
-            🚀 Featured Projects
+        {/* Professional Section Header */}
+        <div className="text-center mb-10">
+          <div className="inline-block mb-3">
+           
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-[var(--dark)] mb-3 tracking-tight">
+            Featured Projects
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-[var(--primary)] via-[var(--accent)] to-[var(--accent-pink)] mx-auto rounded-full"></div>
-          <p className="text-[var(--gray)] text-lg mt-6 max-w-2xl mx-auto">
-            A showcase of my latest work, featuring modern web applications and creative designs
+          <div className="w-16 h-0.5 bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] mx-auto rounded-full"></div>
+          <p className="text-[var(--gray)] text-sm md:text-base max-w-2xl mx-auto mt-3">
+            Delivering exceptional digital solutions with modern technology and design excellence
           </p>
         </div>
 
-        {/* Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        {/* Professional Filter Buttons */}
+        <div className="flex flex-wrap justify-center gap-2 mb-10">
           {types.map(type => (
             <button
               key={type}
-              className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 transform hover:scale-105 ${
+              className={`px-5 py-2 rounded-lg font-semibold text-sm transition-all duration-300 ${
                 filter === type
-                  ? 'bg-gradient-to-r from-[var(--primary)] to-[var(--primary-dark)] text-white shadow-lg shadow-[var(--primary)]/25'
-                  : 'bg-zinc-900 backdrop-blur-sm text-[var(--gray)] hover:bg-[var(--primary)]/10 hover:text-[var(--primary)] border border-white/20'
+                  ? 'bg-gradient-to-r from-[var(--primary)] to-[var(--primary-dark)] text-white shadow-lg shadow-[var(--primary)]/20'
+                  : 'bg-[var(--light)] text-[var(--gray)] hover:text-[var(--primary)] border border-[var(--gray)]/20 hover:border-[var(--primary)]/50 hover:shadow-md'
               }`}
               onClick={() => setFilter(type)}
             >
@@ -80,85 +87,131 @@ function Projects() {
           ))}
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {/* Professional Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {filteredProjects.map((project, idx) => (
             <div
               key={idx}
-              className="group bg-cyan-950 backdrop-blur-sm rounded-2xl shadow-lg shadow-[var(--primary)]/5 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-[var(--primary)]/10 hover:scale-105 hover:-translate-y-2 border border-white/20"
+              className="group bg-[var(--light)] rounded-2xl shadow-lg border border-[var(--gray)]/20 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-[var(--primary)]/10 hover:-translate-y-1"
               style={{
-                animationDelay: `${idx * 150}ms`
+                animation: `fadeInUp 0.5s ease-out ${idx * 0.1}s both`
               }}
             >
-              {/* Project Image */}
-              <div className="relative overflow-hidden">
+              {/* Professional Image Container */}
+              <div className="relative overflow-hidden h-48 bg-gray-100">
                 <img
-                  className="w-full h-48 object-cover transition-all duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
                   src={project.image}
                   alt={project.name}
                   loading="lazy"
                 />
-                {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 
-                {/* Project type badge */}
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-[var(--primary)] text-xs font-semibold rounded-full border border-white/20">
+                {/* Subtle Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                
+                {/* Professional Type Badge */}
+                <div className="absolute top-3 left-3">
+                  <span className="px-2.5 py-1 bg-[var(--primary)]/10 text-[var(--primary)] text-xs font-bold rounded-lg shadow-md border border-[var(--primary)]/20">
                     {project.type}
                   </span>
                 </div>
+
+                {/* External Link Icon */}
+                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                  <a
+                    href={project.html_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 bg-[var(--light)] rounded-lg flex items-center justify-center text-[var(--primary)] hover:bg-[var(--primary)] hover:text-white transition-all duration-300 shadow-lg"
+                    aria-label="View project"
+                  >
+                    <FaExternalLinkAlt className="text-xs" />
+                  </a>
+                </div>
+
+                {/* Technology Tags */}
+                <div className="absolute bottom-3 left-3 right-3 flex flex-wrap gap-1.5 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                  {project.tags?.slice(0, 3).map((tag, i) => (
+                    <span key={i} className="px-2 py-0.5 bg-[var(--light)]/95 text-[var(--primary)] text-xs font-semibold rounded-md shadow-sm border border-[var(--primary)]/20">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
 
-              {/* Project Content */}
-              <div className="p-6">
+              {/* Professional Content */}
+              <div className="p-5">
                 {/* Project Title */}
-                <h3 className="text-xl font-bold text-[var(--dark)] mb-2 group-hover:text-[var(--primary)] transition-colors duration-300 line-clamp-2">
-                  {project.name.replace(/-/g, ' ')}
+                <h3 className="text-lg font-bold text-[var(--dark)] mb-1.5 group-hover:text-[var(--primary)] transition-colors duration-300 line-clamp-1">
+                  {project.name.replace(/-/g, ' ').replace(/_/g, ' ')}
                 </h3>
 
                 {/* Project Description */}
-                <p className="text-[var(--gray)] text-sm mb-6 line-clamp-3 leading-relaxed">
-                  {project.description}
+                <p className="text-[var(--gray)] text-xs mb-4 line-clamp-2 leading-relaxed">
+                  {project.description.split('|')[0].trim()}
                 </p>
 
-                {/* View Project Button */}
+                {/* Professional CTA Button */}
                 <a
                   href={project.html_url}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[var(--primary)] to-[var(--primary-dark)] text-white text-sm font-medium rounded-xl shadow-lg shadow-[var(--primary)]/20 hover:shadow-xl hover:shadow-[var(--primary)]/30 hover:scale-105 transition-all duration-300 group/btn"
+                  className="group/btn inline-flex items-center gap-2 text-[var(--primary)] text-xs font-semibold hover:gap-3 transition-all duration-300"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span>View Project</span>
-                  <svg className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  <span>View Details</span>
+                  <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                   </svg>
                 </a>
               </div>
-
-              {/* Bottom glow effect */}
-              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--primary)]/30 to-transparent"></div>
             </div>
           ))}
         </div>
 
-        {/* Empty state when no projects match filter */}
+        {/* Professional Empty State */}
         {filteredProjects.length === 0 && (
-          <div className="text-center py-16">
-            <div className="text-6xl mb-4">🔍</div>
-            <h3 className="text-xl font-semibold text-[var(--dark)] mb-2">No projects found</h3>
-            <p className="text-[var(--gray)]">Try selecting a different filter to see more projects.</p>
+          <div className="text-center py-12 bg-[var(--light)] rounded-2xl border border-[var(--gray)]/20 shadow-sm">
+            <div className="text-4xl mb-3 opacity-50">🔍</div>
+            <h3 className="text-lg font-semibold text-[var(--dark)] mb-1.5">No projects found</h3>
+            <p className="text-[var(--gray)] text-xs">Please select a different category to view more projects.</p>
           </div>
         )}
 
-        {/* Bottom decoration */}
-        <div className="flex justify-center mt-16">
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-[var(--primary)] rounded-full animate-pulse"></div>
-            <div className="w-2 h-2 bg-[var(--accent)] rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
-            <div className="w-2 h-2 bg-[var(--accent-pink)] rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+        {/* Professional CTA Section */}
+        <div className="text-center mt-10 pt-8 border-t border-[var(--gray)]/20">
+          <p className="text-[var(--gray)] text-xs mb-3 font-medium">Interested in collaborating?</p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a
+              href="https://github.com/nimeshdilhara96"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-[var(--primary)] to-[var(--primary-dark)] text-white text-sm rounded-lg font-semibold hover:shadow-xl hover:shadow-[var(--primary)]/30 hover:scale-105 transition-all duration-300 shadow-lg"
+            >
+              <FaGithub className="text-base" />
+              <span>View on GitHub</span>
+            </a>
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 px-5 py-2 bg-[var(--light)] border-2 border-[var(--primary)]/50 text-[var(--primary)] text-sm rounded-lg font-semibold hover:bg-[var(--primary)] hover:text-white hover:border-[var(--primary)] transition-all duration-300"
+            >
+              <span>Get in Touch</span>
+            </a>
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </section>
   );
 }
