@@ -152,7 +152,7 @@ function Projects() {
                 </div>
 
                 {/* Technology Tags */}
-                <div className="absolute bottom-3 left-3 right-3 flex flex-wrap gap-1.5 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                <div className="absolute bottom-3 left-3 right-3 flex flex-wrap gap-1.5 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300">
                   {project.tags?.slice(0, 3).map((tag, i) => (
                     <span key={i} className="px-2 py-0.5 bg-[var(--light)]/95 text-[var(--primary)] text-xs font-semibold rounded-md shadow-sm border border-[var(--primary)]/20">
                       {tag}
