@@ -4,6 +4,7 @@ import nextgenCover from '../assets/nextgensport club project cover.webp';
 import nutricoreCover from '../assets/Nutricare cover.webp';
 import ucareCover from '../assets/ucare project cover.webp';
 import aiPromptCover from '../assets/Ai_Promptgallery.webp';
+import nutricaremobilecover from '../assets/nutricaremobilecover.webp';
 
 // Add a "type" property for filtering
 const projects = [
@@ -38,7 +39,15 @@ const projects = [
     "html_url": "https://www.mometec.codes",
     "image": aiPromptCover,
     "tags": ["AI", "React", "Community"]
-  }
+  },
+  {
+    "name": "Nutricare Mobile Application UI Design",
+    "type": "UI/UX",
+    "description": "A sleek and intuitive mobile application UI design for Nutricare, focused on personalized meal management and health tracking. Explore the full design project on Behance.",
+    "html_url": "https://www.behance.net/gallery/219353335/Nutricare-Mobile-Application-UI-Design",
+    "image": nutricaremobilecover,
+    "tags": ["Figma", "UI/UX", "Mobile"]
+  },
 ];
 
 // Get unique types for filter buttons
