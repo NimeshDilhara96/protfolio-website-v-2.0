@@ -5,6 +5,7 @@ import nutricoreCover from '../assets/Nutricare cover.webp';
 import ucareCover from '../assets/ucare project cover.webp';
 import aiPromptCover from '../assets/Ai_Promptgallery.webp';
 import nutricaremobilecover from '../assets/nutricaremobilecover.webp';
+import personalprotfoliyo from '../assets/personalprotfoliyo.webp';
 
 // Add a "type" property for filtering
 const projects = [
@@ -48,6 +49,14 @@ const projects = [
     "image": nutricaremobilecover,
     "tags": ["Figma", "UI/UX", "Mobile"]
   },
+  {
+    "name": "Personal Portfolio Website",
+    "type": "Web App",
+    "description": "A personal portfolio website showcasing projects, skills, and experience, built with React and Tailwind CSS for a modern and responsive design.",
+    "html_url": "https://github.com/NimeshDilhara96/protfolio-website-v-2.0",
+    "image": personalprotfoliyo,
+    "tags": ["React", "Tailwind CSS", "Portfolio"]
+  }
 ];
 
 // Get unique types for filter buttons
