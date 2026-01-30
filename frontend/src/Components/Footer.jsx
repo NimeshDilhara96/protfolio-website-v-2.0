@@ -46,7 +46,7 @@ function Footer() {
               {/* Content with logo */}
               <div className="relative z-10 flex items-center gap-2">
                 
-                <span className="font-bold tracking-wide">MommentX</span>
+                <span className="font-bold tracking-wide">MommentX(Me)</span>
               </div>
             </a>
           </div>
@@ -59,7 +59,7 @@ function Footer() {
               Full Stack Developer • UI/UX Designer • AI Enthusiast 
             </p>
             <div className="flex items-center gap-4">
-              <span>v4.0.0</span>
+              <span>v4.2.0</span>
               <div className="flex items-center gap-1">
                 <div className="w-1 h-1 bg-[var(--primary)] rounded-full animate-pulse"></div>
                 <div className="w-1 h-1 bg-[var(--accent)] rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
