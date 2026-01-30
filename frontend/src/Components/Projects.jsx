@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
-import nextgenCover from '../assets/nextgensport club project cover.png';
-import nutricoreCover from '../assets/Nutricare cover.png';
-import ucareCover from '../assets/ucare project cover.png';
-import aiPromptCover from '../assets/Ai_Promptgallery.png';
+import nextgenCover from '../assets/nextgensport club project cover.webp';
+import nutricoreCover from '../assets/Nutricare cover.webp';
+import ucareCover from '../assets/ucare project cover.webp';
+import aiPromptCover from '../assets/Ai_Promptgallery.webp';
 
 // Add a "type" property for filtering
 const projects = [
