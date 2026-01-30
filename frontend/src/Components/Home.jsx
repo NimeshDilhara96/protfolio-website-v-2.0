@@ -13,18 +13,6 @@ const lines = [
   "MommentX"
 ];
 
-// Reduced to 8 elements for better performance
-const codeElements = [
-  { content: "function optimizeCode() { }", color: "var(--primary, #6366f1)" },
-  { content: "const createUI = () => <Component />", color: "var(--accent, #8b5cf6)" },
-  { content: ".container { display: flex; }", color: "var(--primary-dark, #4f46e5)" },
-  { content: "async function fetchData() { }", color: "var(--accent-pink, #ec4899)" },
-  { content: "import React from 'react';", color: "var(--primary, #6366f1)" },
-  { content: "const [state, setState] = useState();", color: "var(--primary-light, #818cf8)" },
-  { content: "SELECT * FROM projects", color: "var(--accent, #8b5cf6)" },
-  { content: "git commit -m 'Update'", color: "var(--accent-pink, #ec4899)" },
-];
-
 // Reusable Badge Component
 const WelcomeBadge = () => (
   <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 mb-4 md:mb-6 rounded-full bg-[var(--primary-light,#818cf8)]/10 text-[var(--primary,#6366f1)] border border-[var(--primary-light,#818cf8)]/20 text-sm font-medium backdrop-blur-sm">
@@ -49,7 +37,7 @@ const SocialLinks = ({ size = 'default' }) => {
     { href: "https://github.com/nimeshdilhara96", icon: FaGithub, label: "GitHub Profile" },
     { href: "https://linkedin.com/in/nimeshdilhara", icon: FaLinkedin, label: "LinkedIn Profile" },
     { href: "https://instagram.com/nimeshdilhara96", icon: FaInstagram, label: "Instagram Profile" },
-    { href: "https://twitter.com/yourusername", icon: FaTwitter, label: "Twitter Profile" }, // Fix your username
+    { href: "https://twitter.com/nimeshdilhara8", icon: FaTwitter, label: "Twitter Profile" }, // Fix your username
     { href: "https://facebook.com/nimesh.dilhara.96", icon: FaFacebook, label: "Facebook Profile" }
   ];
 
@@ -104,47 +92,80 @@ function Home() {
 
   return (
     <div id="home" className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-[var(--light,#f9fafb)] to-[var(--light-dark,#f3f4f6)] pt-20 md:pt-16">
-      {/* Enhanced Background */}
+      {/* Modern Professional Background - Mobile Optimized */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-tr from-[var(--light,#f9fafb)] via-[var(--light-dark,#f3f4f6)] to-[var(--dark-light,#374151)] opacity-80"></div>
+        {/* Rich colorful gradient base */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--light,#f9fafb)] via-[var(--light-dark,#f3f4f6)] to-[var(--dark-lighter,#334155)]"></div>
         
-        {/* Circular Gradients */}
-        <div className="absolute top-[-10%] left-[-5%] w-[40%] h-[40%] rounded-full bg-gradient-to-br from-[var(--primary,#6366f1)]/20 to-transparent blur-[80px] animate-pulse"></div>
-        <div className="absolute bottom-[-15%] right-[-10%] w-[50%] h-[50%] rounded-full bg-gradient-to-tl from-[var(--accent-pink,#ec4899)]/15 to-transparent blur-[100px] animate-pulse" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-[30%] right-[5%] w-[30%] h-[30%] rounded-full bg-gradient-to-bl from-[var(--accent,#8b5cf6)]/10 to-transparent blur-[70px] animate-pulse" style={{animationDelay: '1s'}}></div>
+        {/* Animated gradient orbs - More vibrant colors */}
+        <div className="absolute top-[-20%] sm:top-[-10%] left-[-10%] sm:left-[-5%] w-[300px] sm:w-[450px] md:w-[500px] h-[300px] sm:h-[450px] md:h-[500px] rounded-full bg-gradient-to-br from-[var(--primary,#6366f1)]/40 via-[var(--accent,#8b5cf6)]/30 to-[var(--primary-light,#818cf8)]/20 blur-3xl animate-blob"></div>
+        <div className="absolute top-[5%] sm:top-[10%] right-[-10%] sm:right-[-5%] w-[250px] sm:w-[350px] md:w-[400px] h-[250px] sm:h-[350px] md:h-[400px] rounded-full bg-gradient-to-bl from-[var(--accent-pink,#ec4899)]/35 via-[var(--accent-purple,#8b5cf6)]/25 to-[var(--primary,#6366f1)]/15 blur-3xl animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-[-15%] sm:bottom-[-10%] left-[10%] sm:left-[20%] w-[280px] sm:w-[400px] md:w-[450px] h-[280px] sm:h-[400px] md:h-[450px] rounded-full bg-gradient-to-tr from-[var(--accent,#8b5cf6)]/30 via-[var(--primary,#6366f1)]/25 to-[var(--accent-pink,#ec4899)]/15 blur-3xl animate-blob animation-delay-4000"></div>
         
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--light,#f9fafb)]/30 to-[var(--light,#f9fafb)] z-10"></div>
+        {/* Additional color accent */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[200px] sm:w-[350px] h-[200px] sm:h-[350px] rounded-full bg-gradient-to-r from-[var(--primary-light,#818cf8)]/20 to-[var(--accent-pink,#ec4899)]/15 blur-3xl animate-blob animation-delay-6000"></div>
         
-        {/* Floating Code Animation with performance optimization */}
-        <div className="absolute inset-0 pointer-events-none z-5">
-          {codeElements.map((code, index) => (
-            <div
-              key={index}
-              className="absolute opacity-20 text-[12px] font-mono whitespace-nowrap"
-              style={{
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                color: code.color,
-                transform: `scale(${0.8 + Math.random() * 0.5})`,
-                animation: `floatCode ${10 + Math.random() * 20}s linear infinite`,
-                animationDelay: `${Math.random() * 5}s`,
-                textShadow: `0 0 5px ${code.color}`,
-                willChange: 'transform'
-              }}
-            >
-              {code.content}
-            </div>
-          ))}
-        </div>
+        {/* Subtle geometric pattern */}
+        <div className="hidden sm:block absolute inset-0 opacity-[0.04]" style={{
+          backgroundImage: `
+            linear-gradient(to right, var(--primary, #6366f1) 1px, transparent 1px),
+            linear-gradient(to bottom, var(--primary, #6366f1) 1px, transparent 1px)
+          `,
+          backgroundSize: '80px 80px'
+        }}></div>
+        
+        {/* Modern dots pattern */}
+        <div className="absolute inset-0 opacity-[0.05]" style={{
+          backgroundImage: 'radial-gradient(circle, var(--accent, #8b5cf6) 1px, transparent 1px)',
+          backgroundSize: '40px 40px'
+        }}></div>
+        
+        {/* Lighter gradient overlay - less washing out */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-transparent via-[var(--light,#f9fafb)]/20 to-transparent"></div>
+        
+        {/* Smooth fade to content */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--light,#f9fafb)]/80 z-10"></div>
+        
+        {/* Glass morphism accent with color */}
+        <div className="hidden lg:block absolute top-1/3 right-1/3 w-96 h-96 bg-gradient-to-br from-[var(--primary,#6366f1)]/15 via-[var(--accent-pink,#ec4899)]/10 to-transparent rounded-full blur-2xl"></div>
       </div>
 
-      {/* CSS Keyframes for float animation */}
+      {/* Optimized CSS Keyframes - Smoother on mobile */}
       <style>{`
-        @keyframes floatCode {
-          0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
-          10% { opacity: 0.2; }
-          90% { opacity: 0.2; }
-          100% { transform: translateY(-100vh) translateX(50px) rotate(360deg); opacity: 0; }
+        @keyframes blob {
+          0%, 100% {
+            transform: translate(0, 0) scale(1);
+          }
+          33% {
+            transform: translate(30px, -30px) scale(1.08);
+          }
+          66% {
+            transform: translate(-20px, 20px) scale(0.95);
+          }
+        }
+        
+        .animate-blob {
+          animation: blob 25s ease-in-out infinite;
+          will-change: transform;
+        }
+        
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+        
+        .animation-delay-4000 {
+          animation-delay: 4s;
+        }
+        
+        .animation-delay-6000 {
+          animation-delay: 6s;
+        }
+        
+        /* Reduce motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+          .animate-blob {
+            animation: none;
+          }
         }
       `}</style>
 
