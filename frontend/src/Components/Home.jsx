@@ -155,7 +155,7 @@ function Home() {
           {/* Profile Image - Mobile */}
           <div className="mb-8">
             <div className="relative inline-block group">
-              <div className="w-32 h-32 sm:w-40 sm:h-40 relative">
+              <div className="w-48 h-48 sm:w-56 sm:h-56 relative">
                 {/* Main border with gradient - Ring with opening at top-right */}
                 <div className="absolute -inset-1 bg-gradient-to-br from-[var(--primary,#6366f1)] via-[var(--accent,#8b5cf6)] to-[var(--accent-pink,#ec4899)] rounded-full opacity-50 group-hover:from-white group-hover:via-white group-hover:to-white group-hover:opacity-100 transition-all duration-300" style={{clipPath: 'polygon(50% 50%, 50% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 100%, 0% 100%, 0% 0%, 50% 0%, 50% 50%, 100% 15%, 100% 100%, 0% 100%, 0% 0%)'}}></div>
                 
