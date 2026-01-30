@@ -43,7 +43,7 @@ function Stats() {
                 key={index}
                 className="group bg-[var(--white)]/70 backdrop-blur-sm rounded-xl md:rounded-2xl shadow-lg shadow-[var(--primary)]/10 p-4 md:p-6 text-center transition-all duration-500 hover:shadow-xl hover:shadow-[var(--primary)]/15 hover:scale-105 hover:-translate-y-1 border border-white/20"
                 style={{
-                  animationDelay: stat.delay
+                  animation: `fadeInUp 0.6s ease-out ${stat.delay} both`
                 }}
               >
                 {/* Icon with gradient background */}
@@ -88,6 +88,19 @@ function Stats() {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </section>
   );
 }
