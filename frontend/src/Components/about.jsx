@@ -1,6 +1,6 @@
 import React from "react";
 import { FaCode, FaBrain, FaPaintBrush, FaUsers, FaGraduationCap, FaLaptopCode, FaAward, FaRocket } from 'react-icons/fa';
-import aboutPhoto from '../assets/about.png';
+import aboutPhoto from '../assets/about.webp';
 
 function About() {
   const skills = [
