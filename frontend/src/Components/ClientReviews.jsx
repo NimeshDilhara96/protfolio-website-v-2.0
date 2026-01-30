@@ -152,7 +152,7 @@ function ClientReviews() {
             <button
               onClick={prevReview}
               aria-label="Previous review"
-              className="absolute left-0 md:-left-5 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white shadow-lg rounded-full flex items-center justify-center text-[var(--gray)] hover:text-[var(--primary)] hover:scale-110 transition-all duration-300 group border border-gray-100"
+              className="absolute left-0 md:-left-5 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-dark shadow-lg rounded-full flex items-center justify-center text-[var(--gray)] hover:text-[var(--primary)] hover:scale-110 transition-all duration-300 group border border-gray-100"
             >
               <FaChevronLeft className="text-sm group-hover:-translate-x-1 transition-transform duration-300" />
             </button>
@@ -160,7 +160,7 @@ function ClientReviews() {
             <button
               onClick={nextReview}
               aria-label="Next review"
-              className="absolute right-0 md:-right-5 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white shadow-lg rounded-full flex items-center justify-center text-[var(--gray)] hover:text-[var(--primary)] hover:scale-110 transition-all duration-300 group border border-gray-100"
+              className="absolute right-0 md:-right-5 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-blue shadow-lg rounded-full flex items-center justify-center text-[var(--gray)] hover:text-[var(--primary)] hover:scale-110 transition-all duration-300 group border border-gray-100"
             >
               <FaChevronRight className="text-sm group-hover:translate-x-1 transition-transform duration-300" />
             </button>
