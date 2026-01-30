@@ -8,23 +8,23 @@ const projects = [
     "type": "Web App",
     "description": "NextGen Sports Club is an AI-powered full-stack MERN application designed to modernize sports club operations with smart booking, QR-based access, AI-generated training & meal plans, e-commerce, real-time messaging, and automated email notifications.",
     "html_url": "https://github.com/NimeshDilhara96/NextgensportclubSystem",
-    "image": "https://opengraph.githubassets.com/1/NimeshDilhara96/NextgensportclubSystem",
-    "tags": ["React", "Node.js", "MongoDB", "AI"]
+    "image": "/src/assets/nextgensport club project cover.png",
+    "tags": ["React", "Node.js", "MongoDB", "AI", "MERN"]
   },
   {
     "name": "Nutricare-Meal_Management_System",
     "type": "Web App",
     "description": "Nutricare is a personalized meal planning and health management system designed to cater to individual dietary needs and health conditions. It empowers users to lead healthier lifestyles with customized meal plans, health insights, and expert consultations.",
     "html_url": "https://github.com/NimeshDilhara96/Nutricare-Meal_Management_System",
-    "image": "https://opengraph.githubassets.com/1/NimeshDilhara96/Nutricare-Meal_Management_System",
-    "tags": ["MERN", "Health", "API"]
+    "image": "/src/assets/Nutricare cover.png",
+    "tags": ["PHP", "Health", "API"]
   },
   {
     "name": "U-CARE Hospital Consultation Mobile UI Design",
     "type": "UI/UX",
     "description": "A modern and user-friendly mobile UI design for hospital consultation, created in Figma. View the full project and design details on Behance.",
     "html_url": "https://www.behance.net/gallery/219353335/U-CARE-Hospital-Consultation-Mobile-UI-Design%28Figma%29",
-    "image": "https://media.licdn.com/dms/image/v2/D4E22AQFHlJhnqs5UEw/feedshare-shrink_2048_1536/B4EZVsJEkKHgAo-/0/1741276074223?e=1758153600&v=beta&t=kgQYVfhapTiNuSY0ID7Xtj-bHq43D6afl6HGfGqrSp0",
+    "image": "/src/assets/ucare project cover.png",
     "tags": ["Figma", "UI/UX", "Mobile"]
   },
   {
@@ -32,7 +32,7 @@ const projects = [
     "type": "Web App",
     "description": "Live Demo: https://mometec.codes/Ai-Prompt-Gallery/  |  A web application that allows users to explore, create, and share AI-generated prompts for various applications, fostering creativity and collaboration in the AI community.",
     "html_url": "https://www.mometec.codes",
-    "image": "https://www.mometec.codes/prompt.php?id=69247cf58d9acf6c3901b313&slug=a-woman-leans-against-a-bridge-railing-in-london",
+    "image": "/src/assets/Ai_Promptgallery.png",
     "tags": ["AI", "React", "Community"]
   }
 ];
