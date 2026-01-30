@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FaGithub, FaLinkedin, FaInstagram, FaTwitter, FaFacebook } from 'react-icons/fa';
-import profilePhoto from '../assets/profiletrc.png';
+import profilePhoto from '../assets/profiletrc.webp';
 
 const lines = [
   "Undergraduate Software Engineer",
