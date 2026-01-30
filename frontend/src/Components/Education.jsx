@@ -30,9 +30,10 @@ function Education() {
               <div className="flex-shrink-0">
                 <div className="w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden shadow-lg bg-dark/50 backdrop-blur-sm flex items-center justify-center p-2">
                   <img
-                    src="https://esu.lk/_next/image?url=%2Fimages%2Flogo%2Fesu-header.png&w=256&q=75"
+                    src="https://esu.lk/images/logo/esu-header.png"
                     alt="ESOFT Metro Campus Logo"
                     className="w-full h-full object-contain"
+                    loading="lazy"
                   />
                 </div>
               </div>
