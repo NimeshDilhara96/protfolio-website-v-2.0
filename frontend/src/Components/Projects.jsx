@@ -6,6 +6,7 @@ import ucareCover from '../assets/ucare project cover.webp';
 import aiPromptCover from '../assets/Ai_Promptgallery.webp';
 import nutricaremobilecover from '../assets/nutricaremobilecover.webp';
 import personalprotfoliyo from '../assets/personalprotfoliyo.webp';
+import hotelcover from '../assets/hotelcover.webp';
 
 // Add a "type" property for filtering
 const projects = [
@@ -56,7 +57,24 @@ const projects = [
     "html_url": "https://github.com/NimeshDilhara96/protfolio-website-v-2.0",
     "image": personalprotfoliyo,
     "tags": ["React", "Tailwind CSS", "Portfolio"]
+  },
+  {
+    "name": "Hotel landing page design",
+    "type": "Web App",
+    "description": "A modern and visually appealing hotel landing page design, created using HTML, CSS, and JavaScript to enhance user experience and drive bookings.",
+    "html_url": "test",
+    "image": hotelcover,
+    "tags": ["Still Developing"]
+  },
+  {
+    "name": "queue Management System",
+    "type": "Web App",
+    "description": "A web-based queue management system designed to streamline customer service operations by efficiently managing and organizing queues in various service environments.",
+    "html_url": ",test",
+    //"image": ,
+    "tags": ["Still Developing"]
   }
+
 ];
 
 // Get unique types for filter buttons
@@ -64,10 +82,14 @@ const types = ["All", ...Array.from(new Set(projects.map(p => p.type)))];
 
 function Projects() {
   const [filter, setFilter] = useState("All");
+  const [itemsToShow, setItemsToShow] = useState(6);
 
   const filteredProjects = filter === "All"
     ? projects
     : projects.filter(p => p.type === filter);
+
+  const visibleProjects = filteredProjects.slice(0, itemsToShow);
+  const hasMore = itemsToShow < filteredProjects.length;
 
   return (
     <section id="projects" className="py-12 md:py-16 bg-gradient-to-b from-[var(--light-dark)] to-[var(--dark-light)] relative overflow-hidden">
@@ -102,7 +124,10 @@ function Projects() {
                   ? 'bg-gradient-to-r from-[var(--primary)] to-[var(--primary-dark)] text-white shadow-lg shadow-[var(--primary)]/20'
                   : 'bg-[var(--light)] text-[var(--gray)] hover:text-[var(--primary)] border border-[var(--gray)]/20 hover:border-[var(--primary)]/50 hover:shadow-md'
               }`}
-              onClick={() => setFilter(type)}
+              onClick={() => {
+                setFilter(type);
+                setItemsToShow(6);
+              }}
             >
               {type}
             </button>
@@ -111,7 +136,7 @@ function Projects() {
 
         {/* Professional Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-          {filteredProjects.map((project, idx) => (
+          {visibleProjects.map((project, idx) => (
             <div
               key={idx}
               className="group bg-[var(--light)] rounded-2xl shadow-lg border border-[var(--gray)]/20 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-[var(--primary)]/10 hover:-translate-y-1"
@@ -189,6 +214,21 @@ function Projects() {
             </div>
           ))}
         </div>
+
+        {/* Next Button */}
+        {hasMore && (
+          <div className="text-center mt-8">
+            <button
+              onClick={() => setItemsToShow(prev => prev + 6)}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[var(--primary)] to-[var(--primary-dark)] text-white text-sm rounded-lg font-semibold hover:shadow-xl hover:shadow-[var(--primary)]/30 hover:scale-105 transition-all duration-300 shadow-lg"
+            >
+              <span>Load More Projects</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+          </div>
+        )}
 
         {/* Professional Empty State */}
         {filteredProjects.length === 0 && (
