@@ -7,31 +7,31 @@ function Stats() {
       icon: FaBriefcase,
       value: "10+",
       label: "Projects Completed",
-      color: "from-[var(--primary)] to-[var(--primary-dark)]",
+      color: "from-[#34B27B] to-[#34B27B]",
       delay: "0s"
     },
     {
       icon: FaUserTie,
       value: "2+",
       label: "Years Experience",
-      color: "from-[var(--accent)] to-[var(--accent-green)]",
+      color: "from-[#34B27B] to-[#34B27B]",
       delay: "0.2s"
     },
     {
       icon: FaUsers,
       value: "5+",
       label: "Happy Clients",
-      color: "from-[var(--accent-pink)] to-[var(--accent-purple)]",
+      color: "from-[#34B27B] to-[#34B27B]",
       delay: "0.4s"
     }
   ];
 
   return (
-    <section id="stats" className="py-8 md:py-12 bg-gradient-to-r from-[var(--light)] to-[var(--light-dark)] relative overflow-hidden">
+    <section id="stats" className="py-8 md:py-12 bg-gradient-to-r from-[#11181C] to-black relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/2 left-10 w-24 h-24 bg-[var(--primary)]/5 rounded-full blur-2xl animate-pulse"></div>
-        <div className="absolute top-1/2 right-10 w-20 h-20 bg-[var(--accent-pink)]/5 rounded-full blur-xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/2 left-10 w-24 h-24 bg-[#34B27B]/10 rounded-full blur-2xl animate-pulse"></div>
+        <div className="absolute top-1/2 right-10 w-20 h-20 bg-[#34B27B]/10 rounded-full blur-xl animate-pulse" style={{animationDelay: '1s'}}></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -41,13 +41,13 @@ function Stats() {
             return (
               <div
                 key={index}
-                className="group bg-[var(--white)]/70 backdrop-blur-sm rounded-xl md:rounded-2xl shadow-lg shadow-[var(--primary)]/10 p-4 md:p-6 text-center transition-all duration-500 hover:shadow-xl hover:shadow-[var(--primary)]/15 hover:scale-105 hover:-translate-y-1 border border-white/20"
+                className="group bg-[#11181C]/70 backdrop-blur-sm rounded-xl md:rounded-2xl shadow-lg shadow-[#34B27B]/10 p-4 md:p-6 text-center transition-all duration-500 hover:shadow-xl hover:shadow-[#34B27B]/15 hover:scale-105 hover:-translate-y-1 border border-[#F8F9FA]/10"
                 style={{
                   animation: `fadeInUp 0.6s ease-out ${stat.delay} both`
                 }}
               >
                 {/* Icon with gradient background */}
-                <div className={`w-12 h-12 md:w-14 md:h-14 mx-auto mb-3 md:mb-4 rounded-lg md:rounded-xl bg-gradient-to-r ${stat.color} flex items-center justify-center shadow-lg shadow-[var(--primary)]/20 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
+                <div className={`w-12 h-12 md:w-14 md:h-14 mx-auto mb-3 md:mb-4 rounded-lg md:rounded-xl bg-gradient-to-r ${stat.color} flex items-center justify-center shadow-lg shadow-[#34B27B]/20 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
                   <IconComponent className="text-white text-lg md:text-xl" />
                 </div>
 
@@ -59,7 +59,7 @@ function Stats() {
                 </div>
 
                 {/* Stat Label */}
-                <div className="text-[var(--gray)] text-sm md:text-base font-medium group-hover:text-[var(--dark)] transition-colors duration-300">
+                <div className="text-[#F8F9FA]/70 text-sm md:text-base font-medium group-hover:text-[#F8F9FA] transition-colors duration-300">
                   {stat.label}
                 </div>
 
@@ -72,17 +72,17 @@ function Stats() {
 
         {/* Additional decorative stats */}
         <div className="flex flex-wrap justify-center items-center gap-3 md:gap-6 mt-8 md:mt-10 px-4">
-          <div className="flex items-center gap-1 md:gap-1.5 text-[var(--gray)] group hover:text-[var(--primary)] transition-colors duration-300">
+          <div className="flex items-center gap-1 md:gap-1.5 text-[#F8F9FA]/70 group hover:text-[#34B27B] transition-colors duration-300">
             <FaCode className="text-xs md:text-sm group-hover:animate-bounce" />
             <span className="font-medium text-xs md:text-sm">Clean Code</span>
           </div>
-          <div className="w-0.5 h-3 md:h-4 bg-[var(--gray)]/30 rounded-full"></div>
-          <div className="flex items-center gap-1 md:gap-1.5 text-[var(--gray)] group hover:text-[var(--accent-pink)] transition-colors duration-300">
+          <div className="w-0.5 h-3 md:h-4 bg-[#F8F9FA]/20 rounded-full"></div>
+          <div className="flex items-center gap-1 md:gap-1.5 text-[#F8F9FA]/70 group hover:text-[#34B27B] transition-colors duration-300">
             <FaCoffee className="text-xs md:text-sm group-hover:animate-bounce" />
             <span className="font-medium text-xs md:text-sm">Caffeine Powered</span>
           </div>
-          <div className="w-0.5 h-3 md:h-4 bg-[var(--gray)]/30 rounded-full"></div>
-          <div className="flex items-center gap-1 md:gap-1.5 text-[var(--gray)] group hover:text-[var(--accent)] transition-colors duration-300">
+          <div className="w-0.5 h-3 md:h-4 bg-[#F8F9FA]/20 rounded-full"></div>
+          <div className="flex items-center gap-1 md:gap-1.5 text-[#F8F9FA]/70 group hover:text-[#34B27B] transition-colors duration-300">
             <FaHeart className="text-xs md:text-sm group-hover:animate-bounce" />
             <span className="font-medium text-xs md:text-sm">Made with Love</span>
           </div>

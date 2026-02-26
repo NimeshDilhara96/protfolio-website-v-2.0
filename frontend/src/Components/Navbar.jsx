@@ -1,16 +1,13 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
-import { FaHome, FaUser, FaGraduationCap, FaCode, FaBriefcase, FaHandshake, FaEnvelope, FaDownload } from 'react-icons/fa';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const navLinks = [
-  { href: "/#home", label: "Home", icon: <FaHome /> },
-  { href: "/#about", label: "About", icon: <FaUser /> },
-  { href: "/#education", label: "Education", icon: <FaGraduationCap /> },
-  { href: "/#technologies", label: "Skills", icon: <FaCode /> },
-  { href: "/#projects", label: "Projects", icon: <FaBriefcase /> },
-  { href: "/#what-i-offer", label: "Services", icon: <FaHandshake /> },
-  { href: "/#contact", label: "Contact", icon: <FaEnvelope /> },
-  { href: "/downloads", label: "Downloads", icon: <FaDownload /> },
+  { href: "/#home", label: "Home" },
+  { href: "/#about", label: "About" },
+  { href: "/#education", label: "Education" },
+  { href: "/#technologies", label: "Skills" },
+  { href: "/#what-i-offer", label: "Services" },
+  { href: "/downloads", label: "Downloads" },
 ];
 
 // Throttle utility for scroll events
@@ -41,8 +38,9 @@ function throttle(func, wait) {
 
 function Navbar() {
   const navbarRef = useRef(null);
-  const [activeSection, setActiveSection] = useState("#home");
+  const [activeSection, setActiveSection] = useState("/#home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -78,29 +76,26 @@ function Navbar() {
   // Handle scroll for navbar styling (throttled)
   useEffect(() => {
     const handleScroll = throttle(() => {
-      if (window.scrollY > 50) {
-        navbarRef.current?.classList.add('shadow-lg', 'bg-opacity-90');
-      } else {
-        navbarRef.current?.classList.remove('shadow-lg', 'bg-opacity-90');
-      }
+      setScrolled(window.scrollY > 10);
     }, 100);
     
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Scrollspy - throttled for performance
   const handleScrollSpy = useCallback(() => {
-    throttle(() => {
-      if (location.pathname !== '/') return; // Only on homepage
-      
+    if (location.pathname !== '/') return;
+    
+    const throttledFn = throttle(() => {
       const navbarHeight = navbarRef.current?.offsetHeight || 70;
       const scrollPos = window.scrollY + navbarHeight + 50;
-      let current = "#home";
+      let current = "/#home";
       
       for (const link of navLinks) {
-        if (link.href.includes("#")) {
-          const sectionId = link.href.split("#")[1];
+        if (link.href.startsWith('/#')) {
+          const sectionId = link.href.replace('/#', '');
           const section = document.getElementById(sectionId);
           if (section && section.offsetTop <= scrollPos) {
             current = link.href;
@@ -108,14 +103,16 @@ function Navbar() {
         }
       }
       setActiveSection(current);
-    }, 100)();
+    }, 100);
+    
+    throttledFn();
   }, [location.pathname]);
 
   // Set active section based on current route
   useEffect(() => {
     if (location.pathname === '/downloads') {
       setActiveSection('/downloads');
-    } else {
+    } else if (location.pathname === '/') {
       window.addEventListener('scroll', handleScrollSpy);
       handleScrollSpy();
       return () => window.removeEventListener('scroll', handleScrollSpy);
@@ -127,15 +124,11 @@ function Navbar() {
     e.preventDefault();
     setIsMenuOpen(false);
 
-    if (href === '/downloads') {
-      navigate('/downloads');
-      setActiveSection('/downloads');
-    } else if (href.includes('#')) {
-      const sectionId = href.split('#')[1];
+    if (href.startsWith('/#')) {
+      const sectionId = href.replace('/#', '');
       
-      if (location.pathname === '/downloads') {
+      if (location.pathname !== '/') {
         navigate('/');
-        // Wait for navigation to complete
         setTimeout(() => {
           const target = document.getElementById(sectionId);
           if (target) {
@@ -145,7 +138,7 @@ function Navbar() {
               behavior: 'smooth'
             });
           }
-        }, 300); // Increased delay
+        }, 100);
       } else {
         const target = document.getElementById(sectionId);
         if (target) {
@@ -156,63 +149,39 @@ function Navbar() {
           });
         }
       }
+    } else {
+      navigate(href);
     }
   };
 
   return (
     <>
-      {/* Add CSS animations to head */}
-      <style>{`
-        @keyframes slideInLeft {
-          from {
-            opacity: 0;
-            transform: translateX(-20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-        
-        @keyframes slideOutLeft {
-          from {
-            opacity: 1;
-            transform: translateX(0);
-          }
-          to {
-            opacity: 0;
-            transform: translateX(-20px);
-          }
-        }
-      `}</style>
-
       <nav 
         ref={navbarRef}
         aria-label="Main navigation"
-        className="fixed top-0 left-0 w-full z-50 transition-all duration-300 backdrop-blur-md bg-opacity-75 bg-[var(--light,#f9fafb)] border-b border-gray-100/20"
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+          scrolled 
+            ? 'bg-[#11181C]/80 backdrop-blur-xl border-b border-[#F8F9FA]/10 shadow-sm' 
+            : 'bg-[#11181C]/50 backdrop-blur-md'
+        }`}
       >
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-          <div className="flex items-center justify-between h-16 md:h-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <div className="flex-shrink-0 ml-0.5 mr-8 md:ml-2 md:mr-4">
+            <div className="flex-shrink-0">
               <button 
                 type="button"
                 onClick={(e) => handleNavClick(e, "/#home")}
                 aria-label="Go to homepage"
-                className="group flex items-center gap-2 px-6 py-2 md:px-4 md:py-1.5 rounded-xl transition-all duration-300 hover:bg-[var(--primary-light,#818cf8)]/8 hover:scale-105"
+                className="group flex items-center gap-2 text-[#F8F9FA] font-semibold text-lg tracking-tight hover:opacity-80 transition-opacity"
               >
-                <div className="relative">
-                  <span className="text-[var(--dark,#1f2937)] font-bold text-xl md:text-base tracking-tight group-hover:text-[var(--primary,#6366f1)] transition-colors duration-300">
-                    Nimesh Dilhara
-                  </span>
-                  <span className="text-[var(--primary,#6366f1)] font-bold text-xl md:text-base animate-pulse">.</span>
-                  <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[var(--primary,#6366f1)] to-[var(--primary-dark,#4f46e5)] group-hover:w-full transition-all duration-300"></div>
-                </div>
+                <span>Nimesh Dilhara</span>
+                <span className="text-[#34B27B] animate-pulse">.</span>
               </button>
             </div>
             
             {/* Desktop menu */}
-            <div className="hidden md:block">
+            <div className="hidden lg:flex items-center gap-8">
               <div className="flex items-center gap-1" role="menubar">
                 {navLinks.map(link => (
                   <button
@@ -221,62 +190,66 @@ function Navbar() {
                     role="menuitem"
                     onClick={(e) => handleNavClick(e, link.href)}
                     aria-current={activeSection === link.href ? 'page' : undefined}
-                    className={`
-                      relative px-4 py-2 rounded-lg font-medium text-sm tracking-wide transition-all duration-300
-                      flex items-center gap-2 group overflow-hidden min-w-[110px] justify-center
-                      ${activeSection === link.href 
-                        ? 'text-white bg-gradient-to-r from-[var(--primary,#6366f1)] via-[var(--primary,#6366f1)] to-[var(--primary-dark,#4f46e5)] shadow-lg shadow-[var(--primary,#6366f1)]/25 scale-105 transform -translate-y-1' 
-                        : 'text-[var(--gray,#6b7280)] hover:text-white hover:bg-gradient-to-r hover:from-[var(--primary-dark,#4f46e5)] hover:to-[var(--primary,#6366f1)] hover:scale-102 hover:shadow-lg hover:shadow-[var(--primary,#6366f1)]/15 hover:-translate-y-0.5'}
-                    `}
+                    className="relative px-3 py-2 text-sm font-medium text-[#F8F9FA]/70 hover:text-[#F8F9FA] transition-colors group"
                   >
-                    <span className={`text-base flex-shrink-0 relative z-20 transition-all duration-300 ${
-                      activeSection === link.href ? 'transform rotate-6' : 'group-hover:transform group-hover:rotate-6'
-                    }`}>
-                      {link.icon}
-                    </span>
-                    
-                    <span className="whitespace-nowrap relative z-20 font-semibold tracking-wide text-sm">
-                      {link.label}
-                    </span>
-                    
-                    {activeSection === link.href && (
-                      <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-8 h-0.5 bg-white/80 rounded-full shadow-lg"></div>
-                    )}
+                    {link.label}
+                    <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-[#34B27B] transform origin-left transition-transform duration-200 ${
+                      activeSection === link.href ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                    }`} />
                   </button>
                 ))}
+              </div>
+
+              {/* CTA Buttons */}
+              <div className="flex items-center gap-2 ml-4 pl-4 border-l border-[#F8F9FA]/10">
+                {/* GitHub Stars */}
+                <a
+                  href="https://github.com/Nimeshdilhara96"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hidden xl:flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-[#F8F9FA]/70 hover:text-[#F8F9FA] border border-[#F8F9FA]/10 rounded-lg hover:border-[#34B27B] transition-all"
+                >
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+                  </svg>
+                  <span>1.2K</span>
+                </a>
+
+                <button
+                  onClick={(e) => handleNavClick(e, "/#contact")}
+                  className="px-4 py-2 text-sm font-medium text-[#F8F9FA]/70 hover:text-[#F8F9FA] transition-colors"
+                >
+                  Contact
+                </button>
+
+                <button
+                  onClick={(e) => handleNavClick(e, "/#projects")}
+                  className="px-4 py-2 text-sm font-medium text-white bg-[#34B27B] hover:bg-[#34B27B]/90 rounded-lg transition-all shadow-sm hover:shadow-md"
+                >
+                  View Projects
+                </button>
               </div>
             </div>
             
             {/* Mobile menu button */}
-            <div className="md:hidden mr-2">
-              <button 
-                type="button"
-                onClick={toggleMenu}
-                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-                aria-expanded={isMenuOpen}
-                aria-controls="mobile-menu"
-                className="relative inline-flex items-center justify-center p-2.5 rounded-lg text-[var(--dark,#1f2937)] hover:text-[var(--primary,#6366f1)] transition-all duration-300 group"
-              >
-                <span className="sr-only">{isMenuOpen ? "Close menu" : "Open menu"}</span>
-                <div className="relative w-5 h-4 flex flex-col justify-center items-center">
-                  <span 
-                    className={`absolute h-0.5 w-5 bg-current rounded-full transform transition-all duration-300 ease-out ${
-                      isMenuOpen ? 'rotate-45 translate-y-0' : '-translate-y-1.5 group-hover:w-6'
-                    }`}
-                  ></span>
-                  <span 
-                    className={`absolute h-0.5 w-4 bg-current rounded-full transform transition-all duration-300 ease-out ${
-                      isMenuOpen ? 'opacity-0 scale-0' : 'opacity-100 scale-100 group-hover:w-5'
-                    }`}
-                  ></span>
-                  <span 
-                    className={`absolute h-0.5 w-5 bg-current rounded-full transform transition-all duration-300 ease-out ${
-                      isMenuOpen ? '-rotate-45 translate-y-0' : 'translate-y-1.5 group-hover:w-6'
-                    }`}
-                  ></span>
-                </div>
-              </button>
-            </div>
+            <button 
+              type="button"
+              onClick={toggleMenu}
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
+              className="lg:hidden p-2 text-gray-300 hover:text-white transition-colors"
+            >
+              {isMenuOpen ? (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
+            </button>
           </div>
         </div>
 
@@ -284,47 +257,44 @@ function Navbar() {
         <div 
           id="mobile-menu"
           role="menu"
-          className={`md:hidden transition-all duration-300 ease-out ${
-            isMenuOpen ? 'max-h-[28rem] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
+          className={`lg:hidden transition-all duration-300 ease-in-out ${
+            isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
           }`}
         >
-          <div className="px-4 pt-4 pb-6 space-y-1 sm:px-6 bg-[var(--light,#f9fafb)] shadow-xl rounded-b-2xl border-t border-gray-100/10 backdrop-blur-lg">
-            {navLinks.map((link, index) => (
+          <div className="px-4 pt-2 pb-6 space-y-1 bg-[#11181C]/95 backdrop-blur-xl border-t border-[#F8F9FA]/10 shadow-lg">
+            {navLinks.map((link) => (
               <button
                 key={link.href}
                 type="button"
                 role="menuitem"
                 onClick={(e) => handleNavClick(e, link.href)}
                 aria-current={activeSection === link.href ? 'page' : undefined}
-                className={`
-                  w-full relative px-4 py-4 rounded-xl font-medium text-base transition-all duration-300 
-                  flex items-center gap-4 group overflow-hidden
-                  ${activeSection === link.href 
-                    ? 'text-white bg-gradient-to-r from-[var(--primary,#6366f1)] to-[var(--primary-dark,#4f46e5)] shadow-lg transform scale-105' 
-                    : 'text-[var(--dark,#1f2937)] hover:bg-[var(--primary-light,#818cf8)]/8 hover:text-[var(--primary,#6366f1)] hover:scale-102 hover:translate-x-2'}
-                `}
-                style={{
-                  animationDelay: `${index * 50}ms`,
-                  animation: isMenuOpen ? 'slideInLeft 0.3s ease-out forwards' : 'slideOutLeft 0.3s ease-out forwards'
-                }}
+                className={`w-full text-left px-4 py-3 text-base font-medium rounded-lg transition-all ${
+                  activeSection === link.href 
+                    ? 'text-[#34B27B] bg-[#34B27B]/20' 
+                    : 'text-[#F8F9FA]/70 hover:bg-[#11181C]'
+                }`}
               >
-                {activeSection === link.href && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-[var(--primary,#6366f1)]/20 to-[var(--primary-dark,#4f46e5)]/20 rounded-xl blur-sm"></div>
-                )}
-                
-                <span className={`text-lg flex-shrink-0 relative z-10 transition-all duration-300 ${
-                  activeSection === link.href ? 'transform rotate-6' : 'group-hover:transform group-hover:rotate-6'
-                }`}>
-                  {link.icon}
-                </span>
-                
-                <span className="relative z-10 font-semibold tracking-wide">{link.label}</span>
-                
-                {activeSection === link.href && (
-                  <div className="absolute right-4 w-2 h-2 bg-white/80 rounded-full animate-pulse"></div>
-                )}
+                {link.label}
               </button>
             ))}
+
+            {/* Mobile CTA Buttons */}
+            <div className="pt-4 space-y-2 border-t border-[#F8F9FA]/10">
+              <button
+                onClick={(e) => handleNavClick(e, "/#contact")}
+                className="w-full px-4 py-3 text-base font-medium text-[#F8F9FA]/70 hover:bg-[#11181C] rounded-lg transition-all"
+              >
+                Contact
+              </button>
+
+              <button
+                onClick={(e) => handleNavClick(e, "/#projects")}
+                className="w-full px-4 py-3 text-base font-medium text-white bg-[#34B27B] hover:bg-[#34B27B]/90 rounded-lg transition-all shadow-sm"
+              >
+                View Projects
+              </button>
+            </div>
           </div>
         </div>
       </nav>
@@ -332,7 +302,7 @@ function Navbar() {
       {/* Mobile menu backdrop */}
       {isMenuOpen && (
         <div 
-          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 md:hidden"
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
           onClick={() => setIsMenuOpen(false)}
           aria-hidden="true"
         />
