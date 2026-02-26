@@ -46,8 +46,8 @@ function Loading() {
               Let's explore
             </p>
              <p className="text-slate-600 font-light text-base tracking-wide">
-              Oops! Updating in progress… V 5.0.0 Soon !
-            </p>*/
+             ⚡ Deploying Version 5.0.0… Experimental release ahead. Kindly excuse any glitches.
+            </p>
           </div>
           
           {/* Clean progress indicator */}
