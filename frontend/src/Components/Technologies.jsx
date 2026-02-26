@@ -55,11 +55,11 @@ function Technologies() {
   ];
 
   return (
-    <section id="technologies" className="py-16 bg-gradient-to-br from-[var(--light-dark)] to-[var(--light)] relative overflow-hidden">
+    <section id="technologies" className="py-16 bg-gradient-to-br from-black to-[#11181C] relative overflow-hidden">
       {/* Animated grid background */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute inset-0" style={{
-          backgroundImage: 'linear-gradient(var(--primary) 1px, transparent 1px), linear-gradient(90deg, var(--primary) 1px, transparent 1px)',
+          backgroundImage: 'linear-gradient(#34B27B 1px, transparent 1px), linear-gradient(90deg, #34B27B 1px, transparent 1px)',
           backgroundSize: '50px 50px',
           animation: 'gridMove 20s linear infinite'
         }}></div>
@@ -67,18 +67,18 @@ function Technologies() {
 
       {/* Floating particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-10 left-10 w-2 h-2 bg-[var(--primary)] rounded-full animate-ping"></div>
-        <div className="absolute top-40 right-20 w-2 h-2 bg-[var(--accent)] rounded-full animate-ping" style={{animationDelay: '1s'}}></div>
-        <div className="absolute bottom-20 left-1/4 w-2 h-2 bg-[var(--accent-pink)] rounded-full animate-ping" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-10 left-10 w-2 h-2 bg-[#34B27B] rounded-full animate-ping"></div>
+        <div className="absolute top-40 right-20 w-2 h-2 bg-[#34B27B]/70 rounded-full animate-ping" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-20 left-1/4 w-2 h-2 bg-[#34B27B]/50 rounded-full animate-ping" style={{animationDelay: '2s'}}></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Compact Section Title */}
         <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-[var(--dark)] mb-3 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#F8F9FA] mb-3 tracking-tight">
             🛠️ Tech Arsenal
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-[var(--primary)] via-[var(--accent)] to-[var(--accent-pink)] mx-auto rounded-full"></div>
+          <div className="w-20 h-1 bg-[#34B27B] mx-auto rounded-full"></div>
         </div>
 
         {/* Compact Tech Grid */}
@@ -86,23 +86,23 @@ function Technologies() {
           {techCategories.map((category, categoryIndex) => (
             <div 
               key={categoryIndex}
-              className="group relative bg-blue/60 backdrop-blur-sm rounded-xl p-5 border border-gray-200/50 hover:border-[var(--primary)]/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(99,102,241,0.3)] hover:scale-105 overflow-hidden"
+              className="group relative bg-[#11181C]/60 backdrop-blur-sm rounded-xl p-5 border border-[#F8F9FA]/10 hover:border-[#34B27B]/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(52,178,123,0.3)] hover:scale-105 overflow-hidden"
               style={{
                 animation: `slideUp 0.5s ease-out ${categoryIndex * 0.1}s both`
               }}
             >
               {/* Corner accent */}
-              <div className="absolute top-0 right-0 w-12 h-12 bg-gradient-to-br from-[var(--primary)]/20 to-transparent rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute top-0 right-0 w-12 h-12 bg-[#34B27B]/20 rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
               {/* Animated border */}
               <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute inset-0 rounded-xl border-2 border-[var(--primary)] animate-spin-slow"></div>
+                <div className="absolute inset-0 rounded-xl border-2 border-[#34B27B] animate-spin-slow"></div>
               </div>
               
               {/* Category Title */}
-              <h3 className="text-lg font-bold text-[var(--dark)] mb-4 flex items-center justify-between group-hover:text-[var(--primary)] transition-colors duration-300">
+              <h3 className="text-lg font-bold text-[#F8F9FA] mb-4 flex items-center justify-between group-hover:text-[#34B27B] transition-colors duration-300">
                 <span>{category.title}</span>
-                <span className="text-xs px-2 py-1 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] font-semibold">{category.badges.length}</span>
+                <span className="text-xs px-2 py-1 rounded-full bg-[#34B27B]/20 text-[#34B27B] font-semibold">{category.badges.length}</span>
               </h3>
               
               {/* Tech Badges - Compact */}
@@ -113,7 +113,7 @@ function Technologies() {
                     className="relative group/badge transform transition-all duration-300 hover:scale-110 hover:z-10"
                   >
                     {/* Glow effect */}
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] rounded opacity-0 group-hover/badge:opacity-60 blur transition-opacity duration-300"></div>
+                    <div className="absolute -inset-0.5 bg-[#34B27B] rounded opacity-0 group-hover/badge:opacity-60 blur transition-opacity duration-300"></div>
                     
                     {/* Badge */}
                     <img
@@ -124,7 +124,7 @@ function Technologies() {
                     />
                     
                     {/* Tooltip */}
-                    <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-[var(--dark)] text-white px-2 py-1 rounded text-xs font-medium opacity-0 group-hover/badge:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-20">
+                    <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-[#11181C] text-[#F8F9FA] px-2 py-1 rounded text-xs font-medium opacity-0 group-hover/badge:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-20">
                       {badge.alt}
                     </div>
                   </div>
