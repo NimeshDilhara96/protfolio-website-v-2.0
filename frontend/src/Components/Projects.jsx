@@ -228,7 +228,7 @@ function Projects() {
           <div className="text-center mt-8">
             <button
               onClick={() => setItemsToShow(prev => prev + 6)}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#34B27B] text-white text-sm rounded-lg font-semibold hover:shadow-xl hover:shadow-[#34B27B]/30 hover:scale-105 transition-all duration-300 shadow-lg"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[var(--primary)] to-[var(--primary-dark)] text-white text-sm rounded-lg font-semibold hover:shadow-xl hover:shadow-[var(--primary)]/30 hover:scale-105 transition-all duration-300 shadow-lg"
             >
               <span>Load More Projects</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
