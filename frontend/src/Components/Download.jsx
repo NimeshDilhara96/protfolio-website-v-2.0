@@ -1,5 +1,6 @@
 import React from 'react';
-import { FaFilePdf, FaFileArchive, FaDownload, FaAndroid } from 'react-icons/fa';
+import { FaFilePdf, FaFileArchive, FaDownload, FaAndroid, FaWpforms } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
@@ -17,6 +18,14 @@ const downloads = [
         desc: 'My new Project.',
         url: 'https://drive.google.com/uc?export=download&id=1-PRy0NVmhiec0-Xdzx5tYsKxxoorTgoB',
         btn: 'Download',
+    },
+    {
+        icon: <FaWpforms className="text-4xl text-blue-500" />,
+        title: 'Contact Form',
+        desc: 'Fill out my contact form.',
+        url: '/form',
+        btn: 'Open Form',
+        isForm: true,
     },
 ];
 
@@ -69,16 +78,26 @@ function Download() {
                                     </p>
 
                                     {/* Download Button */}
-                                    <a
-                                        href={item.url}
-                                        className="inline-flex items-center gap-2 px-6 py-3 bg-[#34B27B] text-white text-sm font-semibold rounded-xl shadow-lg shadow-[#34B27B]/20 hover:shadow-xl hover:shadow-[#34B27B]/30 hover:scale-105 transition-all duration-300 group/btn"
-                                        download
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <FaDownload className="text-sm transition-transform duration-300 group-hover/btn:animate-bounce" />
-                                        <span>{item.btn}</span>
-                                    </a>
+                                    {item.isForm ? (
+                                        <Link
+                                            to={item.url}
+                                            className="inline-flex items-center gap-2 px-6 py-3 bg-[#34B27B] text-white text-sm font-semibold rounded-xl shadow-lg shadow-[#34B27B]/20 hover:shadow-xl hover:shadow-[#34B27B]/30 hover:scale-105 transition-all duration-300 group/btn"
+                                        >
+                                            <FaWpforms className="text-sm transition-transform duration-300 group-hover/btn:animate-bounce" />
+                                            <span>{item.btn}</span>
+                                        </Link>
+                                    ) : (
+                                        <a
+                                            href={item.url}
+                                            className="inline-flex items-center gap-2 px-6 py-3 bg-[#34B27B] text-white text-sm font-semibold rounded-xl shadow-lg shadow-[#34B27B]/20 hover:shadow-xl hover:shadow-[#34B27B]/30 hover:scale-105 transition-all duration-300 group/btn"
+                                            download
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <FaDownload className="text-sm transition-transform duration-300 group-hover/btn:animate-bounce" />
+                                            <span>{item.btn}</span>
+                                        </a>
+                                    )}
                                 </div>
 
                                 {/* Bottom glow effect */}

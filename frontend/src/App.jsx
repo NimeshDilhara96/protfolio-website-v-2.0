@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar';
 import Home from './Components/Home';
 import Loading from './Components/Loading';
+import FormRedirect from './Components/FormRedirect';
 
 // Lazy load components for better performance
 const About = lazy(() => import('./Components/about'));
@@ -46,6 +47,7 @@ function App() {
             </>
           } />
           <Route path="/downloads" element={<Download />} />
+          <Route path="/form" element={<FormRedirect />} />
         </Routes>
       </Suspense>
     </Router>
