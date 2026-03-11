@@ -21,10 +21,10 @@ const downloads = [
     },
     {
         icon: <FaWpforms className="text-4xl text-blue-500" />,
-        title: 'Contact Form',
-        desc: 'Fill out my contact form (Opens in new tab).',
+        title: 'Research Survey',
+        desc: 'AI Dietary Systems Study - Academic Research.',
         url: '/form',
-        btn: 'Open Form',
+        btn: 'Take Survey',
         isForm: true,
     },
 ];
