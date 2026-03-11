@@ -22,7 +22,7 @@ const downloads = [
     {
         icon: <FaWpforms className="text-4xl text-blue-500" />,
         title: 'Contact Form',
-        desc: 'Fill out my contact form.',
+        desc: 'Fill out my contact form (Opens in new tab).',
         url: '/form',
         btn: 'Open Form',
         isForm: true,
