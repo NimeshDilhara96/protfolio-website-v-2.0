@@ -72,6 +72,7 @@ function Education() {
                   <img
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMXXEvlKCNAX5FjO2CprQhrgJqldsZBHUv-Q&s"
                     alt="K/galigamuwa Central College Logo"
+                    loading="lazy"
                     className="w-full h-full object-contain"
                   />
                 </div>

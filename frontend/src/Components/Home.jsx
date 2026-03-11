@@ -36,7 +36,7 @@ const SocialLinks = ({ size = 'default' }) => {
   const socialLinks = [
     { href: "https://github.com/nimeshdilhara96", icon: FaGithub, label: "GitHub Profile" },
     { href: "https://linkedin.com/in/nimeshdilhara", icon: FaLinkedin, label: "LinkedIn Profile" },
-    { href: "https://instagram.com/nimeshdilhara96", icon: FaInstagram, label: "Instagram Profile" },
+    { href: "https://instagram.com/nimeshdilhara_", icon: FaInstagram, label: "Instagram Profile" },
     { href: "https://twitter.com/nimeshdilhara8", icon: FaTwitter, label: "Twitter Profile" }, // Fix your username
     { href: "https://facebook.com/nimesh.dilhara.96", icon: FaFacebook, label: "Facebook Profile" }
   ];
@@ -170,7 +170,7 @@ function Home() {
       `}</style>
 
       {/* Content Container */}
-      <div className="container mx-auto px-4 z-20 py-8 md:py-16">
+      <div className="container mx-auto px-4 lg:px-8 xl:px-16 z-20 py-8 md:py-16">
         {/* Mobile Layout */}
         <div className="flex flex-col items-center text-center lg:hidden">
           {/* Profile Image - Mobile */}
@@ -203,6 +203,7 @@ function Home() {
                 <img 
                   src={profilePhoto} 
                   alt="Nimesh Dilhara - Software Engineer and Full Stack Developer" 
+                  loading="lazy"
                   className="w-full h-full object-cover rounded-full p-1 relative z-10 transform group-hover:scale-105 transition-transform duration-500 shadow-2xl shadow-[#34B27B]/10"
                 />
                 
@@ -272,9 +273,9 @@ function Home() {
         </div>
 
         {/* Desktop Layout */}
-        <div className="hidden lg:flex lg:flex-row items-center justify-between gap-12">
+        <div className="hidden lg:flex lg:flex-row items-center justify-center gap-8 xl:gap-12 max-w-7xl mx-auto">
           {/* Text Content - Desktop */}
-          <div className="flex-1 text-left max-w-2xl">
+          <div className="flex-1 text-left max-w-xl xl:max-w-2xl">
             <div className="flex items-center gap-2">
               <WelcomeBadge />
             </div>
@@ -323,7 +324,7 @@ function Home() {
           {/* Profile Image - Desktop */}
           <div className="flex-shrink-0">
             <div className="relative group">
-              <div className="w-80 h-80 xl:w-96 xl:h-96 relative">
+              <div className="w-72 h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 relative">
                 {/* Main border with gradient */}
                 <div className="absolute -inset-1.5 bg-[#34B27B] rounded-full opacity-50 group-hover:opacity-100 transition-all duration-300"></div>
                 
@@ -334,6 +335,7 @@ function Home() {
                 <img 
                   src={profilePhoto} 
                   alt="Nimesh Dilhara - Software Engineer and Full Stack Developer" 
+                  loading="lazy"
                   className="w-full h-full object-cover rounded-full p-2 relative z-10 transform group-hover:scale-105 transition-transform duration-500 shadow-2xl shadow-[#34B27B]/10"
                 />
                 

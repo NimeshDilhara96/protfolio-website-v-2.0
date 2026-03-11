@@ -108,7 +108,7 @@ function Contact() {
                 <h3 className="text-xl font-bold text-[#F8F9FA] mb-6 text-center">Follow me on</h3>
                 <div className="flex flex-wrap justify-center gap-4">
                   
-                  <a href="https://instagram.com/nimeshdilhara96" target="_blank" rel="noopener noreferrer" 
+                  <a href="https://instagram.com/nimeshdilhara_" target="_blank" rel="noopener noreferrer" 
                      className="w-12 h-12 bg-gradient-to-r from-pink-500 to-rose-500 rounded-xl flex items-center justify-center text-white shadow-lg hover:scale-110 hover:shadow-xl transition-all duration-300 group" 
                      title="Instagram">
                     <FaInstagram className="text-lg group-hover:animate-pulse" />
@@ -123,7 +123,7 @@ function Contact() {
                      title="GitHub">
                     <FaGithub className="text-lg group-hover:animate-pulse" />
                   </a>
-                  <a href="https://twitter.com/nimesh.dilhara.96" target="_blank" rel="noopener noreferrer" 
+                  <a href="https://twitter.com/nimeshdilhara8" target="_blank" rel="noopener noreferrer" 
                      className="w-12 h-12 bg-gradient-to-r from-sky-500 to-blue-500 rounded-xl flex items-center justify-center text-white shadow-lg hover:scale-110 hover:shadow-xl transition-all duration-300 group" 
                      title="Twitter">
                     <FaTwitter className="text-lg group-hover:animate-pulse" />

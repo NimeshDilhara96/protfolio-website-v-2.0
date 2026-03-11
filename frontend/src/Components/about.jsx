@@ -49,6 +49,7 @@ function About() {
                   <img
                     src={aboutPhoto}
                     alt="Nimesh Dilhara"
+                    loading="lazy"
                     className="w-64 h-64 md:w-72 md:h-72 rounded-full object-cover"
                   />
                 </div>
