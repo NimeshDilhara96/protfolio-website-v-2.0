@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/((?!sitemap\\.xml$|robots\\.txt$).*)",
+      "source": "/((?!.*\\.(png|jpg|jpeg|svg|ico|xml|txt|webmanifest|gif|css|js)$).*)",
       "destination": "/index.html"
     }
   ]
