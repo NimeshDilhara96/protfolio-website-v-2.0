@@ -13,6 +13,7 @@ export function useInteractionAnimation() {
     };
 
     // Detect various user interactions
+    window.addEventListener('pointerdown', disableAnimations, { once: true, passive: true });
     window.addEventListener('click', disableAnimations, { once: true, passive: true });
     window.addEventListener('scroll', disableAnimations, { once: true, passive: true });
     window.addEventListener('keydown', disableAnimations, { once: true, passive: true });
@@ -20,6 +21,7 @@ export function useInteractionAnimation() {
     window.addEventListener('wheel', disableAnimations, { once: true, passive: true });
 
     return () => {
+      window.removeEventListener('pointerdown', disableAnimations);
       window.removeEventListener('click', disableAnimations);
       window.removeEventListener('scroll', disableAnimations);
       window.removeEventListener('keydown', disableAnimations);

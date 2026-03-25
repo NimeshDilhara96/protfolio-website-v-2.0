@@ -18,10 +18,17 @@ const Typewriter = React.memo(({ isMobile }) => {
   const [lineIdx, setLineIdx] = useState(0);
   const [charIdx, setCharIdx] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [display, setDisplay] = useState('');
   const typingTimeout = useRef();
 
   useEffect(() => {
+    // Use low-frequency rotating text on mobile to keep main thread free for interactions.
+    if (isMobile) {
+      const intervalId = setInterval(() => {
+        setLineIdx((prev) => (prev + 1) % lines.length);
+      }, 2800);
+      return () => clearInterval(intervalId);
+    }
+
     const currentLine = lines[lineIdx];
     if (!isDeleting) {
       if (charIdx < currentLine.length) {
@@ -35,21 +42,22 @@ const Typewriter = React.memo(({ isMobile }) => {
       } else {
         setIsDeleting(false);
         setLineIdx((lineIdx + 1) % lines.length);
-        typingTimeout.current = setTimeout(() => {}, 500);
       }
     }
-    setDisplay(currentLine.slice(0, charIdx));
     return () => clearTimeout(typingTimeout.current);
-  }, [charIdx, isDeleting, lineIdx]);
+  }, [charIdx, isDeleting, lineIdx, isMobile]);
+
+  const display = isMobile ? lines[lineIdx] : lines[lineIdx].slice(0, charIdx);
 
   const cursorClass = isMobile ? "w-[2px] h-5" : "w-[3px] h-7";
+  const cursorAnimationClass = isMobile ? "" : "animate-pulse";
   const textClass = isMobile ? "text-lg sm:text-xl min-h-[28px]" : "text-2xl xl:text-3xl min-h-[40px] xl:min-h-[48px]";
   const alignmentClass = isMobile ? "justify-center text-center" : "justify-start text-left";
 
   return (
     <div className={`${textClass} ${alignmentClass} font-medium mb-4 lg:mb-6 text-[#34B27B] flex items-center`}>
       <span>{display}</span>
-      <span className={`${cursorClass} bg-[#34B27B] ml-1 animate-pulse`} aria-hidden="true"></span>
+      <span className={`${cursorClass} ${cursorAnimationClass} bg-[#34B27B] ml-1`} aria-hidden="true"></span>
     </div>
   );
 });
