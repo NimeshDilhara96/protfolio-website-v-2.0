@@ -255,7 +255,11 @@ function Home() {
                 <img 
                   src={profilePhoto} 
                   alt="Nimesh Dilhara - Software Engineer and Full Stack Developer" 
-                  loading="lazy"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  width="224"
+                  height="224"
                   className="w-full h-full object-cover rounded-full p-1 relative z-10 transform group-hover:scale-105 transition-transform duration-500 shadow-2xl shadow-[#34B27B]/10"
                 />
                 
@@ -381,7 +385,11 @@ function Home() {
                 <img 
                   src={profilePhoto} 
                   alt="Nimesh Dilhara - Software Engineer and Full Stack Developer" 
-                  loading="lazy"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  width="384"
+                  height="384"
                   className="w-full h-full object-cover rounded-full p-2 relative z-10 transform group-hover:scale-105 transition-transform duration-500 shadow-2xl shadow-[#34B27B]/10"
                 />
                 
