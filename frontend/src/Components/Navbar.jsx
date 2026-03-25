@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const navLinks = [
@@ -10,34 +10,10 @@ const navLinks = [
   { href: "/downloads", label: "Downloads" },
 ];
 
-// Throttle utility for scroll events
-function throttle(func, wait) {
-  let timeout = null;
-  let previous = 0;
-  
-  return function(...args) {
-    const now = Date.now();
-    const remaining = wait - (now - previous);
-    
-    if (remaining <= 0 || remaining > wait) {
-      if (timeout) {
-        clearTimeout(timeout);
-        timeout = null;
-      }
-      previous = now;
-      func.apply(this, args);
-    } else if (!timeout) {
-      timeout = setTimeout(() => {
-        previous = Date.now();
-        timeout = null;
-        func.apply(this, args);
-      }, remaining);
-    }
-  };
-}
-
 function Navbar() {
   const navbarRef = useRef(null);
+  const sectionOffsetsRef = useRef([]);
+  const rafIdRef = useRef(null);
   const [activeSection, setActiveSection] = useState("/#home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -46,7 +22,7 @@ function Navbar() {
 
   // Mobile menu toggle
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen((prev) => !prev);
   };
 
   // Close menu on escape key
@@ -73,58 +49,87 @@ function Navbar() {
     };
   }, [isMenuOpen]);
 
-  // Handle scroll for navbar styling (throttled)
+  // Single rAF-based scroll pipeline for navbar state + scrollspy.
   useEffect(() => {
-    const handleScroll = throttle(() => {
-      setScrolled(window.scrollY > 10);
-    }, 100);
-    
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    const sectionLinks = navLinks.filter((link) => link.href.startsWith('/#'));
 
-  // Scrollspy - throttled for performance
-  const handleScrollSpy = useCallback(() => {
-    if (location.pathname !== '/') return;
-    
-    const throttledFn = throttle(() => {
-      const navbarHeight = navbarRef.current?.offsetHeight || 70;
-      const scrollPos = window.scrollY + navbarHeight + 50;
-      let current = "/#home";
-      
-      for (const link of navLinks) {
-        if (link.href.startsWith('/#')) {
+    const updateSectionOffsets = () => {
+      sectionOffsetsRef.current = sectionLinks
+        .map((link) => {
           const sectionId = link.href.replace('/#', '');
           const section = document.getElementById(sectionId);
-          if (section && section.offsetTop <= scrollPos) {
-            current = link.href;
-          }
+          return section ? { href: link.href, top: section.offsetTop } : null;
+        })
+        .filter(Boolean)
+        .sort((a, b) => a.top - b.top);
+    };
+
+    let ticking = false;
+    const updateFromScroll = () => {
+      ticking = false;
+      const currentScrollY = window.scrollY;
+      const isScrolled = currentScrollY > 10;
+
+      setScrolled((prev) => (prev === isScrolled ? prev : isScrolled));
+
+      if (location.pathname === '/downloads') {
+        setActiveSection((prev) => (prev === '/downloads' ? prev : '/downloads'));
+        return;
+      }
+
+      if (location.pathname !== '/') return;
+
+      const navbarHeight = navbarRef.current?.offsetHeight || 70;
+      const scrollPos = currentScrollY + navbarHeight + 50;
+      let current = '/#home';
+
+      for (const section of sectionOffsetsRef.current) {
+        if (section.top <= scrollPos) {
+          current = section.href;
+        } else {
+          break;
         }
       }
-      setActiveSection(current);
-    }, 100);
-    
-    throttledFn();
+
+      setActiveSection((prev) => (prev === current ? prev : current));
+    };
+
+    const requestTick = () => {
+      if (ticking) return;
+      ticking = true;
+      rafIdRef.current = window.requestAnimationFrame(updateFromScroll);
+    };
+
+    const onScroll = () => requestTick();
+    const onResize = () => {
+      updateSectionOffsets();
+      requestTick();
+    };
+
+    updateSectionOffsets();
+    requestTick();
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onResize);
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onResize);
+      if (rafIdRef.current) {
+        window.cancelAnimationFrame(rafIdRef.current);
+      }
+      ticking = false;
+      rafIdRef.current = null;
+    };
   }, [location.pathname]);
 
-  // Set active section based on current route
-  useEffect(() => {
-    if (location.pathname === '/downloads') {
-      setActiveSection('/downloads');
-    } else if (location.pathname === '/') {
-      window.addEventListener('scroll', handleScrollSpy);
-      handleScrollSpy();
-      return () => window.removeEventListener('scroll', handleScrollSpy);
-    }
-  }, [location.pathname, handleScrollSpy]);
-
-  // Handle navigation clicks
+  // Set active link instantly on click for snappier perceived responsiveness.
   const handleNavClick = (e, href) => {
     e.preventDefault();
     setIsMenuOpen(false);
 
     if (href.startsWith('/#')) {
+      setActiveSection(href);
       const sectionId = href.replace('/#', '');
       
       if (location.pathname !== '/') {
@@ -150,6 +155,7 @@ function Navbar() {
         }
       }
     } else {
+      setActiveSection(href);
       navigate(href);
     }
   };
