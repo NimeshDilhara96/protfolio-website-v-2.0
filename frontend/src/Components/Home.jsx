@@ -13,6 +13,46 @@ const lines = [
   "MommentX"
 ];
 
+// Memoized Typewriter component - isolates high-frequency re-renders
+const Typewriter = React.memo(({ isMobile }) => {
+  const [lineIdx, setLineIdx] = useState(0);
+  const [charIdx, setCharIdx] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [display, setDisplay] = useState('');
+  const typingTimeout = useRef();
+
+  useEffect(() => {
+    const currentLine = lines[lineIdx];
+    if (!isDeleting) {
+      if (charIdx < currentLine.length) {
+        typingTimeout.current = setTimeout(() => setCharIdx(charIdx + 1), 60);
+      } else {
+        typingTimeout.current = setTimeout(() => setIsDeleting(true), 1200);
+      }
+    } else {
+      if (charIdx > 0) {
+        typingTimeout.current = setTimeout(() => setCharIdx(charIdx - 1), 30);
+      } else {
+        setIsDeleting(false);
+        setLineIdx((lineIdx + 1) % lines.length);
+        typingTimeout.current = setTimeout(() => {}, 500);
+      }
+    }
+    setDisplay(currentLine.slice(0, charIdx));
+    return () => clearTimeout(typingTimeout.current);
+  }, [charIdx, isDeleting, lineIdx]);
+
+  const cursorClass = isMobile ? "w-[2px] h-5" : "w-[3px] h-7";
+  const textClass = isMobile ? "text-lg sm:text-xl min-h-[28px]" : "text-2xl xl:text-3xl min-h-[40px] xl:min-h-[48px]";
+
+  return (
+    <div className={`${textClass} font-medium mb-4 lg:mb-6 text-[#34B27B] flex items-center`}>
+      <span>{display}</span>
+      <span className={`${cursorClass} bg-[#34B27B] ml-1 animate-pulse`} aria-hidden="true"></span>
+    </div>
+  );
+});
+
 // Reusable Badge Component
 const WelcomeBadge = () => (
   <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 mb-4 md:mb-6 rounded-full bg-[#34B27B]/20 text-[#34B27B] border border-[#34B27B]/30 text-sm font-medium backdrop-blur-sm">
@@ -60,32 +100,6 @@ const SocialLinks = ({ size = 'default' }) => {
 };
 
 function Home() {
-  const [lineIdx, setLineIdx] = useState(0);
-  const [charIdx, setCharIdx] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [display, setDisplay] = useState('');
-  const typingTimeout = useRef();
-
-  useEffect(() => {
-    const currentLine = lines[lineIdx];
-    if (!isDeleting) {
-      if (charIdx < currentLine.length) {
-        typingTimeout.current = setTimeout(() => setCharIdx(charIdx + 1), 60);
-      } else {
-        typingTimeout.current = setTimeout(() => setIsDeleting(true), 1200);
-      }
-    } else {
-      if (charIdx > 0) {
-        typingTimeout.current = setTimeout(() => setCharIdx(charIdx - 1), 30);
-      } else {
-        setIsDeleting(false);
-        setLineIdx((lineIdx + 1) % lines.length);
-        typingTimeout.current = setTimeout(() => {}, 500);
-      }
-    }
-    setDisplay(currentLine.slice(0, charIdx));
-    return () => clearTimeout(typingTimeout.current);
-  }, [charIdx, isDeleting, lineIdx]);
 
   // Fixed CV link - use the same one for both mobile and desktop
   const CV_LINK = "https://drive.google.com/file/d/1vv68wCDcY4ggOY3uy3AnyURXQtdYofW4/view?usp=drive_link";
@@ -234,10 +248,7 @@ function Home() {
             </h1>
             
             {/* Fixed typing animation height */}
-            <div className="text-lg sm:text-xl font-medium mb-4 text-[#34B27B] min-h-[28px] flex items-center justify-center">
-              <span>{display}</span>
-              <span className="w-[2px] h-5 bg-[#34B27B] ml-1 animate-pulse" aria-hidden="true"></span>
-            </div>
+            <Typewriter isMobile={true} />
             
             <p className="text-[#F8F9FA]/70 text-base sm:text-lg mb-6 leading-relaxed">
               I craft modern, engaging digital experiences with clean code and creative design.
@@ -285,10 +296,7 @@ function Home() {
             </h1>
             
             {/* Fixed typing animation height */}
-            <div className="text-2xl xl:text-3xl font-medium mb-6 text-[#34B27B] min-h-[40px] xl:min-h-[48px] flex items-center">
-              <span>{display}</span>
-              <span className="w-[3px] h-7 bg-[#34B27B] ml-1 animate-pulse" aria-hidden="true"></span>
-            </div>
+            <Typewriter isMobile={false} />
             
             <p className="text-[#F8F9FA]/70 text-xl mb-8 max-w-xl leading-relaxed">
               I craft modern, engaging digital experiences with clean code and creative design.
