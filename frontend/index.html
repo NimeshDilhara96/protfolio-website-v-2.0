@@ -10,12 +10,12 @@
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="https://vercel.com">    
     <!-- 🚀 Performance: Preload critical resources -->
-    <link rel="preload" href="/src/main.jsx" as="script" type="module">
+    <link rel="preload" href="/src/main.jsx" as="script" type="module" fetchpriority="high">
     <link rel="modulepreload" href="/src/Components/Navbar.jsx">
     <link rel="modulepreload" href="/src/Components/Home.jsx">
     
     <!-- 🚀 Performance: Preload critical above-the-fold image -->
-    <link rel="preload" href="/public/profiletrc.webp" as="image" type="image/webp">
+    <link rel="preload" href="/public/profiletrc.webp" as="image" type="image/webp" fetchpriority="high">
     
     <!-- 🚀 Critical Path Rendering - inline minimal CSS for initial paint -->
     <style>
@@ -96,10 +96,12 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- 🚀 Main app bundle - loads immediately with high priority -->
     <script type="module" src="/src/main.jsx"></script>
-     <script>
+    <!-- 🚀 Deferred tracking - loaded after app renders -->
+    <script defer>
       window.TRACKING_WEBSITE_ID = 'ed9a639d-a4be-4b7c-90c4-f5adb2df3bf1';
     </script>
-    <script src="https://website-traking-tool.onrender.com/track.js"></script>
+    <script defer src="https://website-traking-tool.onrender.com/track.js"></script>
 </body>
 </html>
