@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useTransition, useCallback } from 'react';
 import { FaStar, FaQuoteLeft, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 function ClientReviews() {
   const [currentReview, setCurrentReview] = useState(0);
   const [direction, setDirection] = useState('next');
+  const [isPending, startTransition] = useTransition();
+  const [lastNavTime, setLastNavTime] = useState(0);
 
   const reviews = [
     {
@@ -63,16 +65,37 @@ function ClientReviews() {
     return () => clearInterval(timer);
   }, [reviews.length]);
 
-  const nextReview = () => {
-    setDirection('next');
-    setCurrentReview((prev) => (prev + 1) % reviews.length);
-  };
+  // Debounced navigation handlers to prevent INP delays from rapid clicks
+  const nextReview = useCallback(() => {
+    const now = Date.now();
+    if (now - lastNavTime < 80) return; // Debounce 80ms
+    setLastNavTime(now);
+    startTransition(() => {
+      setDirection('next');
+      setCurrentReview((prev) => (prev + 1) % reviews.length);
+    });
+  }, [lastNavTime, reviews.length]);
 
-  const prevReview = () => {
-    setDirection('prev');
-    setCurrentReview((prev) => (prev - 1 + reviews.length) % reviews.length);
-  };
+  const prevReview = useCallback(() => {
+    const now = Date.now();
+    if (now - lastNavTime < 80) return; // Debounce 80ms
+    setLastNavTime(now);
+    startTransition(() => {
+      setDirection('prev');
+      setCurrentReview((prev) => (prev - 1 + reviews.length) % reviews.length);
+    });
+  }, [lastNavTime, reviews.length]);
 
+  // Debounced dot click handler
+  const handleDotClick = useCallback((index) => {
+    const now = Date.now();
+    if (now - lastNavTime < 80) return; // Debounce 80ms
+    setLastNavTime(now);
+    startTransition(() => {
+      setDirection(index > currentReview ? 'next' : 'prev');
+      setCurrentReview(index);
+    });
+  }, [currentReview, lastNavTime]);
   return (
     <section id="reviews" className="py-12 md:py-16 bg-gradient-to-br from-[#11181C] to-black relative overflow-hidden">
       {/* Modern background decoration */}
@@ -100,6 +123,7 @@ function ClientReviews() {
             <div 
               key={currentReview}
               className="bg-[#11181C]/95 rounded-2xl p-6 md:p-8 shadow-xl border border-[#F8F9FA]/10 transform transition-all duration-500 hover:scale-[1.01] md:bg-[#11181C]/80 md:backdrop-blur-xl"
+              className={`bg-[#11181C]/95 rounded-2xl p-6 md:p-8 shadow-xl border border-[#F8F9FA]/10 transform transition-all duration-500 hover:scale-[1.01] md:bg-[#11181C]/80 md:backdrop-blur-xl ${isPending ? 'opacity-75' : ''}`}
               style={{
                 animation: direction === 'next' ? 'slideInRight 0.5s ease-out' : 'slideInLeft 0.5s ease-out'
               }}
@@ -153,6 +177,8 @@ function ClientReviews() {
               onClick={prevReview}
               aria-label="Previous review"
               className="absolute left-0 md:-left-5 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-[#11181C] shadow-lg rounded-full flex items-center justify-center text-[#F8F9FA]/70 hover:text-[#34B27B] hover:scale-110 transition-all duration-300 group border border-[#F8F9FA]/10"
+              className="absolute left-0 md:-left-5 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-[#11181C] shadow-lg rounded-full flex items-center justify-center text-[#F8F9FA]/70 hover:text-[#34B27B] hover:scale-110 transition-all duration-300 group border border-[#F8F9FA]/10 disabled:opacity-50 disabled:cursor-not-allowed"
+              disabled={isPending}
             >
               <FaChevronLeft className="text-sm group-hover:-translate-x-1 transition-transform duration-300" />
             </button>
@@ -161,6 +187,8 @@ function ClientReviews() {
               onClick={nextReview}
               aria-label="Next review"
               className="absolute right-0 md:-right-5 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-[#11181C] shadow-lg rounded-full flex items-center justify-center text-[#F8F9FA]/70 hover:text-[#34B27B] hover:scale-110 transition-all duration-300 group border border-[#F8F9FA]/10"
+              className="absolute right-0 md:-right-5 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-[#11181C] shadow-lg rounded-full flex items-center justify-center text-[#F8F9FA]/70 hover:text-[#34B27B] hover:scale-110 transition-all duration-300 group border border-[#F8F9FA]/10 disabled:opacity-50 disabled:cursor-not-allowed"
+              disabled={isPending}
             >
               <FaChevronRight className="text-sm group-hover:translate-x-1 transition-transform duration-300" />
             </button>
@@ -171,16 +199,14 @@ function ClientReviews() {
             {reviews.map((_, index) => (
               <button
                 key={index}
-                onClick={() => {
-                  setDirection(index > currentReview ? 'next' : 'prev');
-                  setCurrentReview(index);
-                }}
+                onClick={() => handleDotClick(index)}
+                disabled={isPending}
                 aria-label={`Go to review ${index + 1}`}
                 className={`transition-all duration-300 rounded-full ${
                   index === currentReview
                   ? 'w-8 h-2 bg-[#34B27B]'
                   : 'w-2 h-2 bg-[#F8F9FA]/20 hover:bg-[#F8F9FA]/40'
-                }`}
+                } disabled:opacity-50 disabled:cursor-not-allowed`}
               />
             ))}
           </div>

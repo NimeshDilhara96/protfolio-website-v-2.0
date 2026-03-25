@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useTransition, useCallback, useMemo } from 'react';
 import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 import nextgenCover from '../assets/nextgensport club project cover.webp';
 import nutricoreCover from '../assets/Nutricare cover.webp';
@@ -87,17 +87,120 @@ const projects = [
 
 // Get unique types for filter buttons
 const types = ["All", ...Array.from(new Set(projects.map(p => p.type)))];
+// Memoized ProjectCard component to isolate re-renders
+const ProjectCard = React.memo(({ project, idx }) => (
+  <div
+    className="group bg-[#11181C] rounded-2xl shadow-lg border border-[#F8F9FA]/10 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-[#34B27B]/10 hover:-translate-y-1"
+    style={{
+      animation: `fadeInUp 0.5s ease-out ${idx * 0.1}s both`
+    }}
+  >
+    {/* Professional Image Container */}
+    <div className="relative overflow-hidden h-48 bg-black">
+      <img
+        className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+        src={project.image}
+        alt={project.name}
+        loading="lazy"
+      />
+      
+      {/* Subtle Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+      
+      {/* Professional Type Badge */}
+      <div className="absolute top-3 left-3">
+        <span className="px-2.5 py-1 bg-[#34B27B]/20 text-[#34B27B] text-xs font-bold rounded-lg shadow-md border border-[#34B27B]/30">
+          {project.type}
+        </span>
+      </div>
+
+      {/* External Link Icon */}
+      <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300">
+        <a
+          href={project.html_url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-8 h-8 bg-[#11181C] rounded-lg flex items-center justify-center text-[#34B27B] hover:bg-[#34B27B] hover:text-white transition-all duration-300 shadow-lg"
+          aria-label="View project"
+        >
+          <FaExternalLinkAlt className="text-xs" />
+        </a>
+      </div>
+
+      {/* Technology Tags */}
+      <div className="absolute bottom-3 left-3 right-3 flex flex-wrap gap-1.5 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300">
+        {project.tags?.slice(0, 3).map((tag, i) => (
+          <span key={i} className="px-2 py-0.5 bg-[#11181C]/95 text-[#34B27B] text-xs font-semibold rounded-md shadow-sm border border-[#34B27B]/30">
+            {tag}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    {/* Professional Content */}
+    <div className="p-5">
+      {/* Project Title */}
+      <h3 className="text-lg font-bold text-[#F8F9FA] mb-1.5 group-hover:text-[#34B27B] transition-colors duration-300 line-clamp-1">
+        {project.name.replace(/-/g, ' ').replace(/_/g, ' ')}
+      </h3>
+
+      {/* Project Description */}
+      <p className="text-[#F8F9FA]/70 text-xs mb-4 line-clamp-2 leading-relaxed">
+        {project.description.split('|')[0].trim()}
+      </p>
+
+      {/* Professional CTA Button */}
+      <a
+        href={project.html_url}
+        className="group/btn inline-flex items-center gap-2 text-[#34B27B] text-xs font-semibold hover:gap-3 transition-all duration-300"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span>View Details</span>
+        <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+));
+
+ProjectCard.displayName = 'ProjectCard';
+
 
 function Projects() {
   const [filter, setFilter] = useState("All");
   const [itemsToShow, setItemsToShow] = useState(6);
+  const [isPending, startTransition] = useTransition();
+  const [lastClickTime, setLastClickTime] = useState(0);
 
-  const filteredProjects = filter === "All"
-    ? projects
-    : projects.filter(p => p.type === filter);
+  // Memoized filter calculation to prevent recalculation on re-renders
+  const filteredProjects = useMemo(() => {
+    return filter === "All"
+      ? projects
+      : projects.filter(p => p.type === filter);
+  }, [filter]);
 
-  const visibleProjects = filteredProjects.slice(0, itemsToShow);
+  // Memoized visible projects slice
+  const visibleProjects = useMemo(() => {
+    return filteredProjects.slice(0, itemsToShow);
+  }, [filteredProjects, itemsToShow]);
+
   const hasMore = itemsToShow < filteredProjects.length;
+
+  // Debounced filter handler with useTransition for non-blocking updates
+  const handleFilterClick = useCallback((type) => {
+    const now = Date.now();
+    // Debounce: prevent updates within 100ms of last click
+    if (now - lastClickTime < 100) return;
+    setLastClickTime(now);
+    
+    // Mark as non-urgent so UI stays responsive during re-filter
+    startTransition(() => {
+      setFilter(type);
+      setItemsToShow(6);
+    });
+  }, [lastClickTime]);
 
   return (
     <section id="projects" className="py-12 md:py-16 bg-gradient-to-b from-black to-[#11181C] relative overflow-hidden">
@@ -132,10 +235,9 @@ function Projects() {
                   ? 'bg-[#34B27B] text-white shadow-lg shadow-[#34B27B]/20'
                   : 'bg-[#11181C] text-[#F8F9FA]/70 hover:text-[#34B27B] border border-[#F8F9FA]/10 hover:border-[#34B27B]/50 hover:shadow-md'
               }`}
-              onClick={() => {
-                setFilter(type);
-                setItemsToShow(6);
-              }}
+              onClick={() => handleFilterClick(type)}
+              disabled={isPending}
+              aria-current={filter === type ? 'true' : 'false'}
             >
               {type}
             </button>
@@ -143,83 +245,9 @@ function Projects() {
         </div>
 
         {/* Professional Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto ${isPending ? 'opacity-60' : ''}`}>
           {visibleProjects.map((project, idx) => (
-            <div
-              key={idx}
-              className="group bg-[#11181C] rounded-2xl shadow-lg border border-[#F8F9FA]/10 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-[#34B27B]/10 hover:-translate-y-1"
-              style={{
-                animation: `fadeInUp 0.5s ease-out ${idx * 0.1}s both`
-              }}
-            >
-              {/* Professional Image Container */}
-              <div className="relative overflow-hidden h-48 bg-black">
-                <img
-                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
-                  src={project.image}
-                  alt={project.name}
-                  loading="lazy"
-                />
-                
-                {/* Subtle Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                
-                {/* Professional Type Badge */}
-                <div className="absolute top-3 left-3">
-                  <span className="px-2.5 py-1 bg-[#34B27B]/20 text-[#34B27B] text-xs font-bold rounded-lg shadow-md border border-[#34B27B]/30">
-                    {project.type}
-                  </span>
-                </div>
-
-                {/* External Link Icon */}
-                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                  <a
-                    href={project.html_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-8 h-8 bg-[#11181C] rounded-lg flex items-center justify-center text-[#34B27B] hover:bg-[#34B27B] hover:text-white transition-all duration-300 shadow-lg"
-                    aria-label="View project"
-                  >
-                    <FaExternalLinkAlt className="text-xs" />
-                  </a>
-                </div>
-
-                {/* Technology Tags */}
-                <div className="absolute bottom-3 left-3 right-3 flex flex-wrap gap-1.5 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300">
-                  {project.tags?.slice(0, 3).map((tag, i) => (
-                    <span key={i} className="px-2 py-0.5 bg-[#11181C]/95 text-[#34B27B] text-xs font-semibold rounded-md shadow-sm border border-[#34B27B]/30">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Professional Content */}
-              <div className="p-5">
-                {/* Project Title */}
-                <h3 className="text-lg font-bold text-[#F8F9FA] mb-1.5 group-hover:text-[#34B27B] transition-colors duration-300 line-clamp-1">
-                  {project.name.replace(/-/g, ' ').replace(/_/g, ' ')}
-                </h3>
-
-                {/* Project Description */}
-                <p className="text-[#F8F9FA]/70 text-xs mb-4 line-clamp-2 leading-relaxed">
-                  {project.description.split('|')[0].trim()}
-                </p>
-
-                {/* Professional CTA Button */}
-                <a
-                  href={project.html_url}
-                  className="group/btn inline-flex items-center gap-2 text-[#34B27B] text-xs font-semibold hover:gap-3 transition-all duration-300"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span>View Details</span>
-                  <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
+            <ProjectCard key={project.name} project={project} idx={idx} />
           ))}
         </div>
 
@@ -229,8 +257,9 @@ function Projects() {
             <button
               onClick={() => setItemsToShow(prev => prev + 6)}
               className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[var(--primary)] to-[var(--primary-dark)] text-white text-sm rounded-lg font-semibold hover:shadow-xl hover:shadow-[var(--primary)]/30 hover:scale-105 transition-all duration-300 shadow-lg"
+                          disabled={isPending}
             >
-              <span>Load More Projects</span>
+              <span>{isPending ? 'Loading...' : 'Load More Projects'}</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
               </svg>
