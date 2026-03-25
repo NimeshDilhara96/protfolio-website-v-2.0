@@ -100,17 +100,22 @@ function Navbar() {
       rafIdRef.current = window.requestAnimationFrame(updateFromScroll);
     };
 
+    let resizeTimeout = null;
     const onScroll = () => requestTick();
     const onResize = () => {
-      updateSectionOffsets();
-      requestTick();
+      // Debounce resize to avoid repeated DOM queries on mobile
+      if (resizeTimeout) clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        updateSectionOffsets();
+        requestTick();
+      }, 150);
     };
 
     updateSectionOffsets();
     requestTick();
 
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onResize);
+    window.addEventListener('resize', onResize, { passive: true });
 
     return () => {
       window.removeEventListener('scroll', onScroll);
@@ -118,6 +123,7 @@ function Navbar() {
       if (rafIdRef.current) {
         window.cancelAnimationFrame(rafIdRef.current);
       }
+      if (resizeTimeout) clearTimeout(resizeTimeout);
       ticking = false;
       rafIdRef.current = null;
     };
