@@ -4,11 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- � Performance: Preconnect & DNS Prefetch -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-    <link rel="dns-prefetch" href="https://vercel.com">    
+    <!-- 🔥 Performance: Preload critical LCP-candidate image & DNS Prefetch -->
+    <link rel="preload" href="/src/assets/profiletrc.webp" as="image" type="image/webp">
+    <link rel="dns-prefetch" href="https://vercel.com">
     <!-- 🚀 Performance: Let Vite manage hashed module loading in production -->
     
     <!-- 🚀 Critical Path Rendering - inline minimal CSS for initial paint -->
