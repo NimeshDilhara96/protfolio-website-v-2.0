@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useInteractionAnimation } from './hooks/useInteractionAnimation';
 import Navbar from './Components/Navbar';
 import Home from './Components/Home';
 import Loading from './Components/Loading';
@@ -18,6 +19,9 @@ const Footer = lazy(() => import('./Components/Footer'));
 const Download = lazy(() => import('./Components/Download'));
 
 function App() {
+  // Disable expensive animations after first user interaction for better INP
+  useInteractionAnimation();
+
   return (
     <Router>
       <Routes>
