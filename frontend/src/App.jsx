@@ -1,4 +1,4 @@
-import React, { useState, useEffect, lazy, Suspense } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar';
 import Home from './Components/Home';
@@ -18,38 +18,53 @@ const Footer = lazy(() => import('./Components/Footer'));
 const Download = lazy(() => import('./Components/Download'));
 
 function App() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (loading) return <Loading />;
-
   return (
     <Router>
-      <Suspense fallback={<Loading />}>
-        <Routes>
-          <Route path="/" element={
-            <>
-              <Navbar />
-              <Home />
+      <Routes>
+        <Route path="/" element={
+          <>
+            <Navbar />
+            <Home />
+            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
               <About />
+            </Suspense>
+            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
               <Education />
+            </Suspense>
+            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
               <Technologies />
+            </Suspense>
+            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
               <Projects />
+            </Suspense>
+            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
               <WhatIOffer />
+            </Suspense>
+            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
               <Stats />
+            </Suspense>
+            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
               <ClientReviews />
+            </Suspense>
+            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
               <Contact />
+            </Suspense>
+            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
               <Footer />
-            </>
-          } />
-          <Route path="/downloads" element={<Download />} />
-          <Route path="/form" element={<FormRedirect />} />
-        </Routes>
-      </Suspense>
+            </Suspense>
+          </>
+        } />
+        <Route path="/downloads" element={
+          <Suspense fallback={<Loading />}>
+            <Download />
+          </Suspense>
+        } />
+        <Route path="/form" element={
+          <Suspense fallback={<Loading />}>
+            <FormRedirect />
+          </Suspense>
+        } />
+      </Routes>
     </Router>
   );
 }
