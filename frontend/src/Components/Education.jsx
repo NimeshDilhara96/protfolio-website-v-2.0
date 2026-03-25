@@ -24,11 +24,11 @@ function Education() {
         {/* Education List */}
         <div className="space-y-8 max-w-4xl mx-auto">
           {/* ESOFT Metro Campus */}
-          <div className="group bg-[#11181C]/90 backdrop-blur-sm rounded-2xl shadow-lg shadow-[#34B27B]/5 p-8 transition-all duration-300 hover:shadow-xl hover:shadow-[#34B27B]/10 hover:scale-[1.02] border border-[#F8F9FA]/10">
+          <div className="group bg-[#11181C]/95 rounded-2xl shadow-lg shadow-[#34B27B]/5 p-8 transition-all duration-300 hover:shadow-xl hover:shadow-[#34B27B]/10 hover:scale-[1.02] border border-[#F8F9FA]/10 md:bg-[#11181C]/90 md:backdrop-blur-sm">
             <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
               {/* Logo */}
               <div className="flex-shrink-0">
-                <div className="w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden shadow-lg bg-[#11181C]/80 backdrop-blur-sm flex items-center justify-center p-2">
+                <div className="w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden shadow-lg bg-[#11181C]/90 flex items-center justify-center p-2 md:bg-[#11181C]/80 md:backdrop-blur-sm">
                   <img
                     src="https://esu.lk/images/logo/esu-header.png"
                     alt="ESOFT Metro Campus Logo"
@@ -64,11 +64,11 @@ function Education() {
           </div>
 
           {/* K/Galigamuwa Central College */}
-          <div className="group bg-[#11181C]/90 backdrop-blur-sm rounded-2xl shadow-lg shadow-[#34B27B]/5 p-8 transition-all duration-300 hover:shadow-xl hover:shadow-[#34B27B]/10 hover:scale-[1.02] border border-[#F8F9FA]/10">
+          <div className="group bg-[#11181C]/95 rounded-2xl shadow-lg shadow-[#34B27B]/5 p-8 transition-all duration-300 hover:shadow-xl hover:shadow-[#34B27B]/10 hover:scale-[1.02] border border-[#F8F9FA]/10 md:bg-[#11181C]/90 md:backdrop-blur-sm">
             <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
               {/* Logo */}
               <div className="flex-shrink-0">
-                <div className="w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden shadow-lg bg-[#11181C]/80 backdrop-blur-sm flex items-center justify-center p-2">
+                <div className="w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden shadow-lg bg-[#11181C]/90 flex items-center justify-center p-2 md:bg-[#11181C]/80 md:backdrop-blur-sm">
                   <img
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMXXEvlKCNAX5FjO2CprQhrgJqldsZBHUv-Q&s"
                     alt="K/galigamuwa Central College Logo"

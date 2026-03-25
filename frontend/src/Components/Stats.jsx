@@ -41,7 +41,7 @@ function Stats() {
             return (
               <div
                 key={index}
-                className="group bg-[#11181C]/70 backdrop-blur-sm rounded-xl md:rounded-2xl shadow-lg shadow-[#34B27B]/10 p-4 md:p-6 text-center transition-all duration-500 hover:shadow-xl hover:shadow-[#34B27B]/15 hover:scale-105 hover:-translate-y-1 border border-[#F8F9FA]/10"
+                className="group bg-[#11181C]/90 rounded-xl md:rounded-2xl shadow-lg shadow-[#34B27B]/10 p-4 md:p-6 text-center transition-all duration-500 hover:shadow-xl hover:shadow-[#34B27B]/15 hover:scale-105 hover:-translate-y-1 border border-[#F8F9FA]/10 md:bg-[#11181C]/70 md:backdrop-blur-sm"
                 style={{
                   animation: `fadeInUp 0.6s ease-out ${stat.delay} both`
                 }}

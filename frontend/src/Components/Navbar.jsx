@@ -173,8 +173,8 @@ function Navbar() {
         aria-label="Main navigation"
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           scrolled 
-            ? 'bg-[#11181C]/80 backdrop-blur-xl border-b border-[#F8F9FA]/10 shadow-sm' 
-            : 'bg-[#11181C]/50 backdrop-blur-md'
+            ? 'bg-[#11181C]/95 border-b border-[#F8F9FA]/10 shadow-sm md:bg-[#11181C]/80 md:backdrop-blur-xl' 
+            : 'bg-[#11181C]/70 md:bg-[#11181C]/50 md:backdrop-blur-md'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -273,7 +273,7 @@ function Navbar() {
             isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
           }`}
         >
-          <div className="px-4 pt-2 pb-6 space-y-1 bg-[#11181C]/95 backdrop-blur-xl border-t border-[#F8F9FA]/10 shadow-lg">
+          <div className="px-4 pt-2 pb-6 space-y-1 bg-[#11181C]/98 border-t border-[#F8F9FA]/10 shadow-lg md:bg-[#11181C]/95 md:backdrop-blur-xl\">
             {navLinks.map((link) => (
               <button
                 key={link.href}
@@ -314,7 +314,7 @@ function Navbar() {
       {/* Mobile menu backdrop */}
       {isMenuOpen && (
         <div 
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
+          className="fixed inset-0 bg-black/60 z-40 lg:hidden md:bg-black/50 md:backdrop-blur-sm\"
           onClick={() => setIsMenuOpen(false)}
           aria-hidden="true"
         />

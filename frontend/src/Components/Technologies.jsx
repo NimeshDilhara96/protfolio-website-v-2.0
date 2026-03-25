@@ -86,7 +86,7 @@ function Technologies() {
           {techCategories.map((category, categoryIndex) => (
             <div 
               key={categoryIndex}
-              className="group relative bg-[#11181C]/60 backdrop-blur-sm rounded-xl p-5 border border-[#F8F9FA]/10 hover:border-[#34B27B]/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(52,178,123,0.3)] hover:scale-105 overflow-hidden"
+              className="group relative bg-[#11181C]/90 rounded-xl p-5 border border-[#F8F9FA]/10 hover:border-[#34B27B]/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(52,178,123,0.3)] hover:scale-105 overflow-hidden md:bg-[#11181C]/60 md:backdrop-blur-sm"
               style={{
                 animation: `slideUp 0.5s ease-out ${categoryIndex * 0.1}s both`
               }}

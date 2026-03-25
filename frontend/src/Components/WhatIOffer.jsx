@@ -42,7 +42,7 @@ const WhatIOffer = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group relative bg-[#11181C]/50 backdrop-blur-sm rounded-2xl p-8 border border-[#F8F9FA]/10 hover:border-[#34B27B] transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#34B27B]/20"
+              className="group relative bg-[#11181C]/80 rounded-2xl p-8 border border-[#F8F9FA]/10 hover:border-[#34B27B] transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#34B27B]/20 md:bg-[#11181C]/50 md:backdrop-blur-sm"
             >
               {/* Icon */}
               <div className="mb-6 text-[#34B27B] group-hover:text-[#34B27B]/80 transition-colors duration-300 group-hover:scale-110 transform">

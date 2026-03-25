@@ -46,7 +46,7 @@ function About() {
             <div className="lg:col-span-2 flex flex-col items-center lg:items-start">
               <div className="relative mb-8">
                 <div className="absolute -inset-3 bg-[#34B27B]/20 rounded-full blur-xl"></div>
-                <div className="relative bg-[#11181C]/80 p-3 rounded-full shadow-2xl border border-[#F8F9FA]/10 md:backdrop-blur-sm">
+                <div className="relative bg-[#11181C]/80 p-3 rounded-full shadow-2xl border border-[#F8F9FA]/10 md:backdrop-blur-sm md:bg-[#11181C]/60">
                   <img
                     src={aboutPhoto}
                     alt="Nimesh Dilhara"
@@ -63,7 +63,7 @@ function About() {
                 {highlights.map((item, idx) => (
                   <div
                     key={idx}
-                    className="bg-[#11181C]/60 p-4 rounded-xl border border-[#F8F9FA]/10 shadow-sm hover:shadow-md hover:border-[#34B27B]/40 transition-all duration-300 md:backdrop-blur-sm"
+                    className="bg-[#11181C]/80 p-4 rounded-xl border border-[#F8F9FA]/10 shadow-sm hover:shadow-md hover:border-[#34B27B]/40 transition-all duration-300 md:bg-[#11181C]/60 md:backdrop-blur-sm"
                   >
                     <div className="flex items-center gap-3">
                       <div className="w-12 h-12 bg-[#34B27B]/20 rounded-lg flex items-center justify-center text-[#34B27B] text-xl">
@@ -82,7 +82,7 @@ function About() {
             {/* Content - Right Column (3/5) */}
             <div className="lg:col-span-3 space-y-8">
               {/* Introduction */}
-              <div className="bg-[#11181C]/60 p-8 rounded-2xl border border-[#F8F9FA]/10 shadow-lg md:backdrop-blur-sm">
+              <div className="bg-[#11181C]/80 p-8 rounded-2xl border border-[#F8F9FA]/10 shadow-lg md:bg-[#11181C]/60 md:backdrop-blur-sm">
                 <h3 className="text-2xl md:text-3xl font-bold text-[#F8F9FA] mb-6">
                   Nimesh Dilhara Kulasooriya
                 </h3>
@@ -115,7 +115,7 @@ function About() {
                   {skills.map((skill, idx) => (
                     <div
                       key={idx}
-                      className="group bg-[#11181C]/60 p-5 rounded-xl border border-[#F8F9FA]/10 shadow-sm hover:shadow-lg hover:border-[#34B27B]/40 transition-all duration-300 md:backdrop-blur-sm"
+                      className="group bg-[#11181C]/80 p-5 rounded-xl border border-[#F8F9FA]/10 shadow-sm hover:shadow-lg hover:border-[#34B27B]/40 transition-all duration-300 md:bg-[#11181C]/60 md:backdrop-blur-sm"
                     >
                       <div className="flex items-start gap-4">
                         <div className="flex-shrink-0 w-12 h-12 bg-[#34B27B]/20 rounded-xl flex items-center justify-center text-[#34B27B] text-xl group-hover:scale-110 transition-transform duration-300">
@@ -136,7 +136,7 @@ function About() {
               </div>
 
               {/* Professional Stats */}
-              <div className="bg-[#34B27B]/10 p-8 rounded-2xl border border-[#F8F9FA]/10 md:backdrop-blur-sm">
+              <div className="bg-[#34B27B]/10 p-8 rounded-2xl border border-[#F8F9FA]/10 md:backdrop-blur-sm md:bg-[#34B27B]/5">
                 <div className="grid grid-cols-3 gap-6">
                   <div className="text-center">
                     <div className="text-3xl md:text-4xl font-bold text-[#34B27B] mb-2">10+</div>

@@ -55,14 +55,14 @@ const Typewriter = React.memo(({ isMobile }) => {
 
 // Reusable Badge Component
 const WelcomeBadge = () => (
-  <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 mb-4 md:mb-6 rounded-full bg-[#34B27B]/20 text-[#34B27B] border border-[#34B27B]/30 text-sm font-medium backdrop-blur-sm">
+  <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 mb-4 md:mb-6 rounded-full bg-[#34B27B]/20 text-[#34B27B] border border-[#34B27B]/30 text-sm font-medium md:backdrop-blur-sm">
     👋 Hello, I'm
   </div>
 );
 
 // Open to Work Badge Component
 const OpenToWorkBadge = () => (
-  <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 mb-4 md:mb-6 rounded-full bg-green-500/10 text-green-600 border border-green-500/30 text-sm font-medium backdrop-blur-sm animate-pulse ml-2">
+  <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 mb-4 md:mb-6 rounded-full bg-green-500/10 text-green-600 border border-green-500/30 text-sm font-medium animate-pulse ml-2 md:backdrop-blur-sm">
     <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
     Open to Work
   </div>
@@ -90,7 +90,7 @@ const SocialLinks = ({ size = 'default' }) => {
           target="_blank" 
           rel="noopener noreferrer"
           aria-label={label}
-          className={`${containerSize} flex items-center justify-center rounded-full bg-[#11181C] text-[#F8F9FA]/70 hover:bg-[#34B27B] hover:text-white transition-all duration-300 backdrop-blur-sm ${size === 'large' ? 'hover:scale-110' : ''}`}
+          className={`${containerSize} flex items-center justify-center rounded-full bg-[#11181C] text-[#F8F9FA]/70 hover:bg-[#34B27B] hover:text-white transition-all duration-300 md:backdrop-blur-sm ${size === 'large' ? 'hover:scale-110' : ''}`}
         >
           {React.createElement(icon, { size: iconSize })}
         </a>
@@ -352,7 +352,7 @@ function Home() {
                 
                 {/* Open to Work Badge on Ring */}
                 <div className="absolute bottom-2 right-2 z-20">
-                  <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-500/95 text-white border-2 border-white text-sm font-bold backdrop-blur-sm animate-pulse shadow-xl">
+                  <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-500/95 text-white border-2 border-white text-sm font-bold animate-pulse shadow-xl md:backdrop-blur-sm">
                     <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
                     Open to Work
                   </div>

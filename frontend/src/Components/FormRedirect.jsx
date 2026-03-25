@@ -270,7 +270,7 @@ const FormRedirect = () => {
         {/* Content */}
         <div className={`relative z-10 text-center px-4 sm:px-6 max-w-2xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
           {/* Icon with modern animation */}
-          <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 mb-4 sm:mb-6 rounded-full bg-[#34B27B]/20 border-4 border-[#34B27B]/30 backdrop-blur-sm animate-fadeInScale animate-pulseGlow perspective-card">
+          <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 mb-4 sm:mb-6 rounded-full bg-[#34B27B]/20 border-4 border-[#34B27B]/30 animate-fadeInScale animate-pulseGlow perspective-card md:backdrop-blur-sm">
             <FaWpforms className="text-3xl sm:text-4xl text-[#34B27B] animate-float" />
           </div>
 
@@ -285,7 +285,7 @@ const FormRedirect = () => {
           </p>
 
           {/* Study Description */}
-          <div className="max-w-xl mx-auto mb-4 sm:mb-6 p-3 sm:p-5 bg-[#11181C]/50 backdrop-blur-sm rounded-xl border border-[#34B27B]/20 animate-fadeInUp delay-300 transform-3d hover:border-[#34B27B]/40 transition-all duration-300">
+          <div className="max-w-xl mx-auto mb-4 sm:mb-6 p-3 sm:p-5 bg-[#11181C]/80 rounded-xl border border-[#34B27B]/20 animate-fadeInUp delay-300 transform-3d hover:border-[#34B27B]/40 transition-all duration-300 md:bg-[#11181C]/50 md:backdrop-blur-sm\">
             <p className="text-xs sm:text-sm md:text-base text-[#F8F9FA]/80 leading-relaxed mb-2 sm:mb-3">
               This study analyzes AI systems for preventing lifestyle diseases (diabetes, obesity, cardiovascular conditions).
             </p>
@@ -308,7 +308,7 @@ const FormRedirect = () => {
               <div className="absolute inset-0 w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-[#34B27B]/30 animate-ping"></div>
               <div className="absolute inset-0 w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-[#34B27B]/20 animate-pulse"></div>
               
-              <div className="relative w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center rounded-full bg-[#34B27B]/20 border-2 border-[#34B27B] backdrop-blur-sm animate-pulseGlow">
+              <div className="relative w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center rounded-full bg-[#34B27B]/20 border-2 border-[#34B27B] animate-pulseGlow md:backdrop-blur-sm\">
                 <span className="text-2xl sm:text-3xl font-bold text-[#34B27B] animate-countdownPulse">
                   {countdown}
                 </span>

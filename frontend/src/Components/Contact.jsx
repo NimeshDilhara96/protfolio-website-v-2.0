@@ -27,7 +27,7 @@ function Contact() {
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Contact Form */}
-            <div className="bg-[#11181C]/70 backdrop-blur-sm rounded-3xl shadow-xl shadow-[#34B27B]/10 p-8 border border-[#F8F9FA]/10">
+            <div className="bg-[#11181C]/90 rounded-3xl shadow-xl shadow-[#34B27B]/10 p-8 border border-[#F8F9FA]/10 md:bg-[#11181C]/70 md:backdrop-blur-sm">
               <div className="mb-8">
                 <h3 className="text-2xl font-bold text-[#F8F9FA] mb-2">Send me a message</h3>
                 <p className="text-[#F8F9FA]/70 text-sm">I'll get back to you as soon as possible!</p>
@@ -46,7 +46,7 @@ function Contact() {
                       name="name" 
                       placeholder="Your Name" 
                       required 
-                      className="w-full px-4 py-3 bg-black/50 backdrop-blur-sm border border-[#F8F9FA]/20 rounded-xl text-[#F8F9FA] placeholder-[#F8F9FA]/50 focus:outline-none focus:border-[#34B27B] focus:ring-2 focus:ring-[#34B27B]/20 transition-all duration-300 group-hover:border-[#34B27B]/50"
+                      className="w-full px-4 py-3 bg-black/70 border border-[#F8F9FA]/20 rounded-xl text-[#F8F9FA] placeholder-[#F8F9FA]/50 focus:outline-none focus:border-[#34B27B] focus:ring-2 focus:ring-[#34B27B]/20 transition-all duration-300 group-hover:border-[#34B27B]/50 md:bg-black/50 md:backdrop-blur-sm"
                     />
                   </div>
                   <div className="group">
@@ -88,7 +88,7 @@ function Contact() {
             <div className="space-y-8">
               {/* Contact Info Cards */}
               <div className="space-y-4">
-                <div className="bg-[#11181C]/70 backdrop-blur-sm rounded-2xl p-6 border border-[#F8F9FA]/10 shadow-lg shadow-[#34B27B]/5 hover:shadow-xl hover:shadow-[#34B27B]/10 transition-all duration-300 group">
+                <div className="bg-[#11181C]/90 rounded-2xl p-6 border border-[#F8F9FA]/10 shadow-lg shadow-[#34B27B]/5 hover:shadow-xl hover:shadow-[#34B27B]/10 transition-all duration-300 group md:bg-[#11181C]/70 md:backdrop-blur-sm">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-[#34B27B] rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                       <FaEnvelope className="text-white text-lg" />
@@ -104,7 +104,7 @@ function Contact() {
               </div>
 
               {/* Social Links */}
-              <div className="bg-[#11181C]/70 backdrop-blur-sm rounded-2xl p-8 border border-[#F8F9FA]/10 shadow-lg shadow-[#34B27B]/5">
+              <div className="bg-[#11181C]/90 rounded-2xl p-8 border border-[#F8F9FA]/10 shadow-lg shadow-[#34B27B]/5 md:bg-[#11181C]/70 md:backdrop-blur-sm">
                 <h3 className="text-xl font-bold text-[#F8F9FA] mb-6 text-center">Follow me on</h3>
                 <div className="flex flex-wrap justify-center gap-4">
                   

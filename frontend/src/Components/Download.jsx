@@ -58,7 +58,7 @@ function Download() {
                         {downloads.map((item, idx) => (
                             <div 
                                 key={idx}
-                                className="group bg-[#11181C]/70 backdrop-blur-sm rounded-2xl shadow-lg shadow-[#34B27B]/5 p-8 transition-all duration-300 hover:shadow-xl hover:shadow-[#34B27B]/10 hover:scale-105 hover:-translate-y-2 border border-[#F8F9FA]/10"
+                                className="group bg-[#11181C]/90 rounded-2xl shadow-lg shadow-[#34B27B]/5 p-8 transition-all duration-300 hover:shadow-xl hover:shadow-[#34B27B]/10 hover:scale-105 hover:-translate-y-2 border border-[#F8F9FA]/10 md:bg-[#11181C]/70 md:backdrop-blur-sm"
                                 style={{
                                     animationDelay: `${idx * 150}ms`
                                 }}
@@ -108,7 +108,7 @@ function Download() {
 
                     {/* Add more downloads message */}
                     <div className="text-center mt-16">
-                        <div className="inline-flex items-center px-6 py-3 bg-[#11181C] backdrop-blur-sm rounded-full border border-[#F8F9FA]/10 text-[#F8F9FA]/70 text-sm">
+                        <div className="inline-flex items-center px-6 py-3 bg-[#11181C] rounded-full border border-[#F8F9FA]/10 text-[#F8F9FA]/70 text-sm md:backdrop-blur-sm md:bg-[#11181C]/80">
                             <div className="w-2 h-2 bg-[#34B27B] rounded-full mr-3 animate-pulse"></div>
                             More downloads coming soon!
                         </div>

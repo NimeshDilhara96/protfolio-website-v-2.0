@@ -99,7 +99,7 @@ function ClientReviews() {
             {/* Main Card */}
             <div 
               key={currentReview}
-              className="bg-[#11181C]/80 backdrop-blur-xl rounded-2xl p-6 md:p-8 shadow-xl border border-[#F8F9FA]/10 transform transition-all duration-500 hover:scale-[1.01]"
+              className="bg-[#11181C]/95 rounded-2xl p-6 md:p-8 shadow-xl border border-[#F8F9FA]/10 transform transition-all duration-500 hover:scale-[1.01] md:bg-[#11181C]/80 md:backdrop-blur-xl"
               style={{
                 animation: direction === 'next' ? 'slideInRight 0.5s ease-out' : 'slideInLeft 0.5s ease-out'
               }}
