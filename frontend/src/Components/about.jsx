@@ -18,11 +18,12 @@ function About() {
 
   return (
     <section id="about" className="py-20 md:py-28 bg-gradient-to-br from-[#11181C] via-[#11181C] to-black relative overflow-hidden">
-      {/* Background decoration */}
+      {/* Simplified background - blur disabled on mobile for better FCP */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-tr from-[#11181C] via-black to-[#11181C] opacity-80"></div>
-        <div className="absolute top-[-10%] left-[-5%] w-[40%] h-[40%] rounded-full bg-gradient-to-br from-[#34B27B]/10 to-transparent blur-[100px]"></div>
-        <div className="absolute bottom-[-15%] right-[-10%] w-[50%] h-[50%] rounded-full bg-gradient-to-tl from-[#34B27B]/10 to-transparent blur-[120px]"></div>
+        {/* Desktop-only blur blobs */}
+        <div className="hidden lg:block absolute top-[-10%] left-[-5%] w-[40%] h-[40%] rounded-full bg-gradient-to-br from-[#34B27B]/10 to-transparent blur-[100px]"></div>
+        <div className="hidden lg:block absolute bottom-[-15%] right-[-10%] w-[50%] h-[50%] rounded-full bg-gradient-to-tl from-[#34B27B]/10 to-transparent blur-[120px]"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#11181C]/40 to-[#11181C] z-10"></div>
       </div>
 
@@ -45,11 +46,13 @@ function About() {
             <div className="lg:col-span-2 flex flex-col items-center lg:items-start">
               <div className="relative mb-8">
                 <div className="absolute -inset-3 bg-[#34B27B]/20 rounded-full blur-xl"></div>
-                <div className="relative bg-[#11181C]/80 backdrop-blur-sm p-3 rounded-full shadow-2xl border border-[#F8F9FA]/10">
+                <div className="relative bg-[#11181C]/80 p-3 rounded-full shadow-2xl border border-[#F8F9FA]/10 md:backdrop-blur-sm">
                   <img
                     src={aboutPhoto}
                     alt="Nimesh Dilhara"
                     loading="lazy"
+                    width="288"
+                    height="288"
                     className="w-64 h-64 md:w-72 md:h-72 rounded-full object-cover"
                   />
                 </div>
@@ -60,7 +63,7 @@ function About() {
                 {highlights.map((item, idx) => (
                   <div
                     key={idx}
-                    className="bg-[#11181C]/60 backdrop-blur-sm p-4 rounded-xl border border-[#F8F9FA]/10 shadow-sm hover:shadow-md hover:border-[#34B27B]/40 transition-all duration-300"
+                    className="bg-[#11181C]/60 p-4 rounded-xl border border-[#F8F9FA]/10 shadow-sm hover:shadow-md hover:border-[#34B27B]/40 transition-all duration-300 md:backdrop-blur-sm"
                   >
                     <div className="flex items-center gap-3">
                       <div className="w-12 h-12 bg-[#34B27B]/20 rounded-lg flex items-center justify-center text-[#34B27B] text-xl">
@@ -79,7 +82,7 @@ function About() {
             {/* Content - Right Column (3/5) */}
             <div className="lg:col-span-3 space-y-8">
               {/* Introduction */}
-              <div className="bg-[#11181C]/60 backdrop-blur-sm p-8 rounded-2xl border border-[#F8F9FA]/10 shadow-lg">
+              <div className="bg-[#11181C]/60 p-8 rounded-2xl border border-[#F8F9FA]/10 shadow-lg md:backdrop-blur-sm">
                 <h3 className="text-2xl md:text-3xl font-bold text-[#F8F9FA] mb-6">
                   Nimesh Dilhara Kulasooriya
                 </h3>
@@ -112,7 +115,7 @@ function About() {
                   {skills.map((skill, idx) => (
                     <div
                       key={idx}
-                      className="group bg-[#11181C]/60 backdrop-blur-sm p-5 rounded-xl border border-[#F8F9FA]/10 shadow-sm hover:shadow-lg hover:border-[#34B27B]/40 transition-all duration-300"
+                      className="group bg-[#11181C]/60 p-5 rounded-xl border border-[#F8F9FA]/10 shadow-sm hover:shadow-lg hover:border-[#34B27B]/40 transition-all duration-300 md:backdrop-blur-sm"
                     >
                       <div className="flex items-start gap-4">
                         <div className="flex-shrink-0 w-12 h-12 bg-[#34B27B]/20 rounded-xl flex items-center justify-center text-[#34B27B] text-xl group-hover:scale-110 transition-transform duration-300">
@@ -133,7 +136,7 @@ function About() {
               </div>
 
               {/* Professional Stats */}
-              <div className="bg-[#34B27B]/10 backdrop-blur-sm p-8 rounded-2xl border border-[#F8F9FA]/10">
+              <div className="bg-[#34B27B]/10 p-8 rounded-2xl border border-[#F8F9FA]/10 md:backdrop-blur-sm">
                 <div className="grid grid-cols-3 gap-6">
                   <div className="text-center">
                     <div className="text-3xl md:text-4xl font-bold text-[#34B27B] mb-2">10+</div>

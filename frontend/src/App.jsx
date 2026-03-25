@@ -33,7 +33,7 @@ function App() {
           <>
             <Navbar />
             <Home />
-            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+            <Suspense fallback={<div className="h-32 bg-[#11181C]" />}>
               <About />
             </Suspense>
             <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
