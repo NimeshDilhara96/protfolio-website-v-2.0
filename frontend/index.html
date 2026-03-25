@@ -9,13 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="https://vercel.com">    
-    <!-- 🚀 Performance: Preload critical resources -->
-    <link rel="preload" href="/src/main.jsx" as="script" type="module" fetchpriority="high">
-    <link rel="modulepreload" href="/src/Components/Navbar.jsx">
-    <link rel="modulepreload" href="/src/Components/Home.jsx">
-    
-    <!-- 🚀 Performance: Preload critical above-the-fold image -->
-    <link rel="preload" href="/public/profiletrc.webp" as="image" type="image/webp" fetchpriority="high">
+    <!-- 🚀 Performance: Let Vite manage hashed module loading in production -->
     
     <!-- 🚀 Critical Path Rendering - inline minimal CSS for initial paint -->
     <style>

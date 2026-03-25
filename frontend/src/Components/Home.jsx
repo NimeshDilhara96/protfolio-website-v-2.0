@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { FaGithub, FaLinkedin, FaInstagram, FaTwitter, FaFacebook } from 'react-icons/fa';
 import profilePhoto from '../assets/profiletrc.webp';
 
 const lines = [
@@ -77,31 +76,61 @@ const OpenToWorkBadge = () => (
   </div>
 );
 
+const GithubIcon = ({ size }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48 0-.24-.01-.87-.01-1.71-2.78.6-3.37-1.19-3.37-1.19-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.61.07-.61 1 .07 1.54 1.03 1.54 1.03.9 1.53 2.35 1.09 2.92.84.09-.65.35-1.09.64-1.34-2.22-.25-4.56-1.11-4.56-4.95 0-1.1.39-2 1.03-2.71-.1-.25-.45-1.28.1-2.66 0 0 .84-.27 2.75 1.03A9.58 9.58 0 0 1 12 6.8c.85 0 1.7.11 2.5.34 1.9-1.3 2.74-1.03 2.74-1.03.55 1.38.2 2.41.1 2.66.64.7 1.02 1.6 1.02 2.71 0 3.85-2.35 4.7-4.59 4.95.36.31.69.92.69 1.86 0 1.34-.01 2.42-.01 2.75 0 .27.18.58.67.48A10 10 0 0 0 22 12c0-5.52-4.48-10-10-10Z" />
+  </svg>
+);
+
+const LinkedinIcon = ({ size }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M6.94 8.5H3.56V20h3.38V8.5Zm.24-3.55A1.95 1.95 0 0 0 5.2 3a1.95 1.95 0 0 0 0 3.9c1.08 0 1.96-.87 1.98-1.95Zm4.11 3.55H8V20h3.37v-6.03c0-1.59.3-3.13 2.28-3.13 1.95 0 1.98 1.82 1.98 3.23V20H19v-6.62c0-3.25-.7-5.75-4.5-5.75-1.82 0-3.04 1-3.54 1.95h-.05V8.5Z" />
+  </svg>
+);
+
+const InstagramIcon = ({ size }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm8.5 1.8h-8.5A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95Zm-4.25 2.95A5.25 5.25 0 1 1 6.75 12 5.25 5.25 0 0 1 12 6.75Zm0 1.8A3.45 3.45 0 1 0 15.45 12 3.45 3.45 0 0 0 12 8.55Zm5.6-2.2a1.2 1.2 0 1 1-1.2 1.2 1.2 1.2 0 0 1 1.2-1.2Z" />
+  </svg>
+);
+
+const TwitterIcon = ({ size }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M18.9 2H22l-6.77 7.74L23 22h-6.1l-4.78-6.25L6.66 22H3.55l7.24-8.27L1 2h6.24l4.32 5.72L18.9 2Zm-1.07 18.17h1.69L6.33 3.74H4.52l13.31 16.43Z" />
+  </svg>
+);
+
+const FacebookIcon = ({ size }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M13.5 22v-8h2.7l.4-3H13.5V9.2c0-.87.24-1.47 1.5-1.47h1.6V5.05A21.1 21.1 0 0 0 14.27 5c-2.3 0-3.87 1.4-3.87 3.98V11H7.8v3h2.6v8h3.1Z" />
+  </svg>
+);
+
 // Social Links Component
 const SocialLinks = ({ size = 'default' }) => {
   const iconSize = size === 'large' ? 20 : 16;
   const containerSize = size === 'large' ? 'w-12 h-12' : 'w-9 h-9';
   
   const socialLinks = [
-    { href: "https://github.com/nimeshdilhara96", icon: FaGithub, label: "GitHub Profile" },
-    { href: "https://linkedin.com/in/nimeshdilhara", icon: FaLinkedin, label: "LinkedIn Profile" },
-    { href: "https://instagram.com/nimeshdilhara_", icon: FaInstagram, label: "Instagram Profile" },
-    { href: "https://twitter.com/nimeshdilhara8", icon: FaTwitter, label: "Twitter Profile" }, // Fix your username
-    { href: "https://facebook.com/nimesh.dilhara.96", icon: FaFacebook, label: "Facebook Profile" }
+    { href: "https://github.com/nimeshdilhara96", icon: GithubIcon, label: "GitHub Profile" },
+    { href: "https://linkedin.com/in/nimeshdilhara", icon: LinkedinIcon, label: "LinkedIn Profile" },
+    { href: "https://instagram.com/nimeshdilhara_", icon: InstagramIcon, label: "Instagram Profile" },
+    { href: "https://twitter.com/nimeshdilhara8", icon: TwitterIcon, label: "Twitter Profile" },
+    { href: "https://facebook.com/nimesh.dilhara.96", icon: FacebookIcon, label: "Facebook Profile" }
   ];
 
   return (
     <div className={`flex items-center ${size === 'large' ? 'gap-4' : 'gap-3'}`}>
-      {socialLinks.map(({ href, icon, label }) => (
+      {socialLinks.map((social) => (
         <a 
-          key={label}
-          href={href} 
+          key={social.label}
+          href={social.href} 
           target="_blank" 
           rel="noopener noreferrer"
-          aria-label={label}
+          aria-label={social.label}
           className={`${containerSize} flex items-center justify-center rounded-full bg-[#11181C] text-[#F8F9FA]/70 hover:bg-[#34B27B] hover:text-white transition-all duration-300 md:backdrop-blur-sm ${size === 'large' ? 'hover:scale-110' : ''}`}
         >
-          {React.createElement(icon, { size: iconSize })}
+          <social.icon size={iconSize} />
         </a>
       ))}
     </div>

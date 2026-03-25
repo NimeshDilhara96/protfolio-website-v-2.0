@@ -5,7 +5,6 @@ import { useMobileOptimization } from './hooks/useMobileOptimization';
 import Navbar from './Components/Navbar';
 import Home from './Components/Home';
 import Loading from './Components/Loading';
-import FormRedirect from './Components/FormRedirect';
 
 // Lazy load components for better performance
 const About = lazy(() => import('./Components/about'));
@@ -18,6 +17,7 @@ const ClientReviews = lazy(() => import('./Components/ClientReviews'));
 const Contact = lazy(() => import('./Components/Contact'));
 const Footer = lazy(() => import('./Components/Footer'));
 const Download = lazy(() => import('./Components/Download'));
+const FormRedirect = lazy(() => import('./Components/FormRedirect'));
 
 function App() {
   // Disable expensive animations after first user interaction for better INP
