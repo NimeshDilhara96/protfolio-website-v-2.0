@@ -49,6 +49,13 @@ function Navbar() {
     };
   }, [isMenuOpen]);
 
+  // Reset scroll position when navigating to route pages.
+  useEffect(() => {
+    if (location.pathname !== '/') {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    }
+  }, [location.pathname]);
+
   // Single rAF-based scroll pipeline for navbar state + scrollspy.
   useEffect(() => {
     const sectionLinks = navLinks.filter((link) => link.href.startsWith('/#'));
@@ -163,6 +170,7 @@ function Navbar() {
     } else {
       setActiveSection(href);
       navigate(href);
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
     }
   };
 
