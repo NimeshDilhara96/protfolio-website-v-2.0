@@ -7,6 +7,7 @@ const navLinks = [
   { href: "/#education", label: "Education" },
   { href: "/#technologies", label: "Skills" },
   { href: "/#what-i-offer", label: "Services" },
+  { href: "/contact", label: "Contact" },
   { href: "/downloads", label: "Downloads" },
 ];
 
@@ -81,6 +82,11 @@ function Navbar() {
 
       if (location.pathname === '/downloads') {
         setActiveSection((prev) => (prev === '/downloads' ? prev : '/downloads'));
+        return;
+      }
+
+      if (location.pathname === '/contact') {
+        setActiveSection((prev) => (prev === '/contact' ? prev : '/contact'));
         return;
       }
 
@@ -236,7 +242,7 @@ function Navbar() {
                 </a>
 
                 <button
-                  onClick={(e) => handleNavClick(e, "/#contact")}
+                  onClick={(e) => handleNavClick(e, "/contact")}
                   className="px-4 py-2 text-sm font-medium text-[#F8F9FA]/70 hover:text-[#F8F9FA] transition-colors"
                 >
                   Contact
@@ -302,7 +308,7 @@ function Navbar() {
             {/* Mobile CTA Buttons */}
             <div className="pt-4 space-y-2 border-t border-[#F8F9FA]/10">
               <button
-                onClick={(e) => handleNavClick(e, "/#contact")}
+                onClick={(e) => handleNavClick(e, "/contact")}
                 className="w-full px-4 py-3 text-base font-medium text-[#F8F9FA]/70 hover:bg-[#11181C] rounded-lg transition-all"
               >
                 Contact

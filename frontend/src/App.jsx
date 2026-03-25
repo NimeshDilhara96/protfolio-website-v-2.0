@@ -67,6 +67,17 @@ function App() {
             <Download />
           </Suspense>
         } />
+        <Route path="/contact" element={
+          <>
+            <Navbar />
+            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+              <Contact />
+            </Suspense>
+            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+              <Footer />
+            </Suspense>
+          </>
+        } />
         <Route path="/form" element={
           <Suspense fallback={<Loading />}>
             <FormRedirect />
