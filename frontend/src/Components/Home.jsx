@@ -150,12 +150,12 @@ function Home() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#11181C] via-[#11181C] to-black"></div>
         
         {/* Animated gradient orbs - Supabase Jungle Green theme */}
-        <div className="absolute top-[-20%] sm:top-[-10%] left-[-10%] sm:left-[-5%] w-[300px] sm:w-[450px] md:w-[500px] h-[300px] sm:h-[450px] md:h-[500px] rounded-full bg-[#34B27B]/10 blur-3xl animate-blob"></div>
-        <div className="absolute top-[5%] sm:top-[10%] right-[-10%] sm:right-[-5%] w-[250px] sm:w-[350px] md:w-[400px] h-[250px] sm:h-[350px] md:h-[400px] rounded-full bg-[#34B27B]/15 blur-3xl animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-[-15%] sm:bottom-[-10%] left-[10%] sm:left-[20%] w-[280px] sm:w-[400px] md:w-[450px] h-[280px] sm:h-[400px] md:h-[450px] rounded-full bg-[#34B27B]/10 blur-3xl animate-blob animation-delay-4000"></div>
+        <div className="hidden md:block absolute top-[-20%] sm:top-[-10%] left-[-10%] sm:left-[-5%] w-[300px] sm:w-[450px] md:w-[500px] h-[300px] sm:h-[450px] md:h-[500px] rounded-full bg-[#34B27B]/10 blur-3xl animate-blob"></div>
+        <div className="hidden md:block absolute top-[5%] sm:top-[10%] right-[-10%] sm:right-[-5%] w-[250px] sm:w-[350px] md:w-[400px] h-[250px] sm:h-[350px] md:h-[400px] rounded-full bg-[#34B27B]/15 blur-3xl animate-blob animation-delay-2000"></div>
+        <div className="hidden md:block absolute bottom-[-15%] sm:bottom-[-10%] left-[10%] sm:left-[20%] w-[280px] sm:w-[400px] md:w-[450px] h-[280px] sm:h-[400px] md:h-[450px] rounded-full bg-[#34B27B]/10 blur-3xl animate-blob animation-delay-4000"></div>
         
         {/* Additional color accent */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[200px] sm:w-[350px] h-[200px] sm:h-[350px] rounded-full bg-[#34B27B]/10 blur-3xl animate-blob animation-delay-6000"></div>
+        <div className="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[200px] sm:w-[350px] h-[200px] sm:h-[350px] rounded-full bg-[#34B27B]/10 blur-3xl animate-blob animation-delay-6000"></div>
         
         {/* Subtle geometric pattern */}
         <div className="hidden sm:block absolute inset-0 opacity-[0.03]" style={{
@@ -167,13 +167,13 @@ function Home() {
         }}></div>
         
         {/* Modern dots pattern */}
-        <div className="absolute inset-0 opacity-[0.04]" style={{
+        <div className="hidden md:block absolute inset-0 opacity-[0.04]" style={{
           backgroundImage: 'radial-gradient(circle, #34B27B 1px, transparent 1px)',
           backgroundSize: '40px 40px'
         }}></div>
         
         {/* Dark gradient overlay */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-transparent via-[#11181C]/20 to-transparent"></div>
+        <div className="hidden md:block absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-transparent via-[#11181C]/20 to-transparent"></div>
         
         {/* Smooth fade to content */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#11181C]/80 z-10"></div>
@@ -229,24 +229,8 @@ function Home() {
           <div className="mb-8">
             <div className="relative inline-block group">
               <div className="w-48 h-48 sm:w-56 sm:h-56 relative">
-                {/* Main border with gradient - Ring with opening at top-right */}
-                <div className="absolute -inset-1 bg-[#34B27B] rounded-full opacity-50 group-hover:opacity-100 transition-all duration-300" style={{clipPath: 'polygon(50% 50%, 50% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 100%, 0% 100%, 0% 0%, 50% 0%, 50% 50%, 100% 15%, 100% 100%, 0% 100%, 0% 0%)'}}></div>
-                
-                {/* Ring segments for better gap control */}
-                <svg className="absolute -inset-1 w-[calc(100%+0.5rem)] h-[calc(100%+0.5rem)]" style={{transform: 'rotate(-90deg)'}}>
-                  <circle 
-                    cx="50%" 
-                    cy="50%" 
-                    r="48%" 
-                    fill="none" 
-                    stroke="#34B27B" 
-                    strokeWidth="4" 
-                    strokeDasharray="220 40" 
-                    strokeDashoffset="-30"
-                    className="opacity-50 group-hover:opacity-100 transition-all duration-300"
-                    style={{strokeLinecap: 'round'}}
-                  />
-                </svg>
+                {/* Simplified mobile frame for faster first paint */}
+                <div className="absolute -inset-1 rounded-full border-2 border-[#34B27B]/60"></div>
                 
                 {/* Inner border */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#11181C] to-black rounded-full"></div>
@@ -260,11 +244,8 @@ function Home() {
                   decoding="async"
                   width="224"
                   height="224"
-                  className="w-full h-full object-cover rounded-full p-1 relative z-10 transform group-hover:scale-105 transition-transform duration-500 shadow-2xl shadow-[#34B27B]/10"
+                  className="w-full h-full object-cover rounded-full p-1 relative z-10 shadow-xl shadow-[#34B27B]/10"
                 />
-                
-                {/* Shine effect */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500" style={{transform: 'rotate(45deg)'}}></div>
                 
                 {/* Open to Work Badge on Ring - LinkedIn Style */}
                 <div className="absolute bottom-1 right-1 z-20">
