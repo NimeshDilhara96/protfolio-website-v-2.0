@@ -4,7 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- 🔥 Favicon & Icons -->
+    <!-- � Performance: Preconnect & DNS Prefetch -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://vercel.com">    
+    <!-- 🚀 Performance: Preload critical resources -->
+    <link rel="preload" href="/src/main.jsx" as="script" type="module">
+    <link rel="modulepreload" href="/src/Components/Navbar.jsx">
+    <link rel="modulepreload" href="/src/Components/Home.jsx">
+    
+    <!-- 🚀 Performance: Preload critical above-the-fold image -->
+    <link rel="preload" href="/public/profiletrc.webp" as="image" type="image/webp">
+    
+    <!-- 🚀 Critical Path Rendering - inline minimal CSS for initial paint -->
+    <style>
+      html { scroll-behavior: smooth; }
+      body { margin: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; background: #11181C; }
+      #root { min-height: 100vh; }
+      @media (prefers-reduced-motion: reduce) { 
+        * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+      }
+    </style>
+    <!-- �🔥 Favicon & Icons -->
    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
    <link rel="shortcut icon" href="/favicon.ico" />
