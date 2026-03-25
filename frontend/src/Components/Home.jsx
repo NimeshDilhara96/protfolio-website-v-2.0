@@ -44,9 +44,10 @@ const Typewriter = React.memo(({ isMobile }) => {
 
   const cursorClass = isMobile ? "w-[2px] h-5" : "w-[3px] h-7";
   const textClass = isMobile ? "text-lg sm:text-xl min-h-[28px]" : "text-2xl xl:text-3xl min-h-[40px] xl:min-h-[48px]";
+  const alignmentClass = isMobile ? "justify-center text-center" : "justify-start text-left";
 
   return (
-    <div className={`${textClass} font-medium mb-4 lg:mb-6 text-[#34B27B] flex items-center`}>
+    <div className={`${textClass} ${alignmentClass} font-medium mb-4 lg:mb-6 text-[#34B27B] flex items-center`}>
       <span>{display}</span>
       <span className={`${cursorClass} bg-[#34B27B] ml-1 animate-pulse`} aria-hidden="true"></span>
     </div>
