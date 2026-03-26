@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { useInteractionAnimation } from './hooks/useInteractionAnimation';
 import { useMobileOptimization } from './hooks/useMobileOptimization';
 import Navbar from './Components/Navbar';
@@ -69,6 +70,14 @@ function App() {
         } />
         <Route path="/contact" element={
           <>
+            <Helmet>
+              <title>Contact | Nimesh Dilhara Kulasooriya</title>
+              <meta
+                name="description"
+                content="Contact Nimesh Dilhara Kulasooriya for collaborations, freelance opportunities, and software engineering projects."
+              />
+              <link rel="canonical" href="https://nimeshdilhara.vercel.app/contact" />
+            </Helmet>
             <Navbar />
             <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
               <Contact />

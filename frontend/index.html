@@ -50,6 +50,7 @@
       content="Explore my portfolio projects, skills, and achievements as a Software Engineering undergraduate specializing in full-stack development and AI."
     />
     <meta property="og:image" content="https://nimeshdilhara.vercel.app/cropimage.jpeg" />
+    <meta property="og:image:alt" content="Nimesh Dilhara Kulasooriya portrait photo" />
     <meta property="og:url" content="https://nimeshdilhara.vercel.app/" />
     <meta property="og:type" content="website" />
 
@@ -61,17 +62,31 @@
       content="Software Engineering undergraduate | Full-stack developer | AI enthusiast"
     />
     <meta name="twitter:image" content="https://nimeshdilhara.vercel.app/cropimage.jpeg" />
+    <meta name="twitter:image:alt" content="Nimesh Dilhara Kulasooriya portrait photo" />
 
     <!-- 🔥 JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
+      "@id": "https://nimeshdilhara.vercel.app/#person",
       "name": "Nimesh Dilhara Kulasooriya",
+      "givenName": "Nimesh",
+      "familyName": "Kulasooriya",
+      "alternateName": "Nimesh Dilhara",
       "url": "https://nimeshdilhara.vercel.app/",
-      "image": "https://nimeshdilhara.vercel.app/cropimage.jpeg",
+      "mainEntityOfPage": "https://nimeshdilhara.vercel.app/",
+      "image": {
+        "@type": "ImageObject",
+        "@id": "https://nimeshdilhara.vercel.app/#profile-image",
+        "url": "https://nimeshdilhara.vercel.app/cropimage.jpeg",
+        "contentUrl": "https://nimeshdilhara.vercel.app/cropimage.jpeg",
+        "caption": "Nimesh Dilhara Kulasooriya portrait",
+        "representativeOfPage": true
+      },
       "jobTitle": "Software Engineer",
       "description": "BSc (Hons) Software Engineering undergraduate. Passionate about full-stack development, AI, and building modern web applications.",
+      "nationality": "Sri Lankan",
       "alumniOf": {
         "@type": "EducationalOrganization",
         "name": "Software Engineering Degree Program"
@@ -79,11 +94,24 @@
       "knowsAbout": ["Software Engineering", "Full-stack Development", "React", "MERN Stack", "Artificial Intelligence", "Web Development"],
       "sameAs": [
         "https://github.com/nimeshdilhara96",
-        "https://www.facebook.com/nimeshdilhara96",
+        "https://www.linkedin.com/in/nimeshdilhara",
+        "https://www.facebook.com/nimesh.dilhara.96",
         "https://www.instagram.com/nimeshdilhara_",
-        https://x.com/nimeshdilhara8,
-        "https://nimeshdilhara.vercel.app/"
+        "https://x.com/nimeshdilhara8"
       ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "@id": "https://nimeshdilhara.vercel.app/#profile-page",
+      "url": "https://nimeshdilhara.vercel.app/",
+      "name": "Nimesh Dilhara Kulasooriya | Software Engineer",
+      "description": "Official portfolio profile page of Nimesh Dilhara Kulasooriya.",
+      "mainEntity": {
+        "@id": "https://nimeshdilhara.vercel.app/#person"
+      }
     }
     </script>
     <script type="application/ld+json">
