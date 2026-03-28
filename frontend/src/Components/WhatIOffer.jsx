@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaCode, FaPalette, FaCog } from 'react-icons/fa';
+import { FaCode, FaPalette, FaCog, FaRocket, FaSearch } from 'react-icons/fa';
 
 const WhatIOffer = () => {
   const services = [
@@ -20,6 +20,12 @@ const WhatIOffer = () => {
       title: "Custom Software Solutions",
       description: "Developing tailored software solutions to solve your unique business challenges. From concept to deployment.",
       skills: ["System Design", "API Development", "Database Design", "DevOps"]
+    },
+    {
+      icon: <div className="flex gap-1"><FaRocket className="w-4 h-4" /><FaSearch className="w-4 h-4" /></div>,
+      title: "Performance & SEO Engineering",
+      description: "Optimizing websites for speed, Core Web Vitals, and search engine visibility. Implementing structured data, schema markup, and technical SEO best practices.",
+      skills: ["Core Web Vitals", "Schema.org", "Page Speed", "SEO Strategy", "Analytics"]
     }
   ];
 
