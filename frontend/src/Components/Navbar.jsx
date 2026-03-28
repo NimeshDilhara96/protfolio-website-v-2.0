@@ -3,10 +3,10 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 const navLinks = [
   { href: "/#home", label: "Home" },
-  { href: "/#about", label: "About" },
+  { href: "/about", label: "About" },
   { href: "/#education", label: "Education" },
   { href: "/#technologies", label: "Skills" },
-  { href: "/#what-i-offer", label: "Services" },
+  { href: "/what-i-offer", label: "Services" },
   { href: "/contact", label: "Contact" },
   { href: "/downloads", label: "Downloads" },
 ];

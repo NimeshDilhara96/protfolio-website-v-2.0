@@ -64,9 +64,76 @@ function App() {
           </>
         } />
         <Route path="/downloads" element={
-          <Suspense fallback={<Loading />}>
-            <Download />
-          </Suspense>
+          <>
+            <Helmet>
+              <title>Downloads | Nimesh Dilhara Kulasooriya</title>
+              <meta
+                name="description"
+                content="Download Nimesh Dilhara Kulasooriya resume and access project resources from the official portfolio downloads page."
+              />
+              <link rel="canonical" href="https://nimeshdilhara.vercel.app/downloads" />
+            </Helmet>
+            <Suspense fallback={<Loading />}>
+              <Download />
+            </Suspense>
+          </>
+        } />
+        <Route path="/what-i-offer" element={
+          <>
+            <Helmet>
+              <title>What I Offer | Nimesh Dilhara Kulasooriya</title>
+              <meta
+                name="description"
+                content="Explore services offered by Nimesh Dilhara Kulasooriya including web development, UI/UX design, and custom software solutions."
+              />
+              <link rel="canonical" href="https://nimeshdilhara.vercel.app/what-i-offer" />
+            </Helmet>
+            <Navbar />
+            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+              <WhatIOffer />
+            </Suspense>
+            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+              <Footer />
+            </Suspense>
+          </>
+        } />
+        <Route path="/about" element={
+          <>
+            <Helmet>
+              <title>About Me | Nimesh Dilhara Kulasooriya</title>
+              <meta
+                name="description"
+                content="Learn more about Nimesh Dilhara Kulasooriya, a software engineering undergraduate focused on full-stack development and AI."
+              />
+              <link rel="canonical" href="https://nimeshdilhara.vercel.app/about" />
+            </Helmet>
+            <Navbar />
+            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+              <About />
+            </Suspense>
+            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+              <Footer />
+            </Suspense>
+          </>
+        } />
+        <Route path="/projects" element={
+          <>
+            <Helmet>
+              <title>Projects | Nimesh Dilhara Kulasooriya</title>
+              <meta
+                name="description"
+                content="Explore software engineering projects by Nimesh Dilhara Kulasooriya including web applications, UI designs, and full-stack solutions."
+              />
+              <link rel="canonical" href="https://nimeshdilhara.vercel.app/projects" />
+            </Helmet>
+            <Navbar />
+            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+              <Projects />
+            </Suspense>
+            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+              <Footer />
+            </Suspense>
+          </>
         } />
         <Route path="/contact" element={
           <>
@@ -88,9 +155,19 @@ function App() {
           </>
         } />
         <Route path="/form" element={
-          <Suspense fallback={<Loading />}>
-            <FormRedirect />
-          </Suspense>
+          <>
+            <Helmet>
+              <title>Research Survey | Nimesh Dilhara Kulasooriya</title>
+              <meta
+                name="description"
+                content="Join Nimesh Dilhara Kulasooriya's AI dietary systems research survey and share your feedback through the official form page."
+              />
+              <link rel="canonical" href="https://nimeshdilhara.vercel.app/form" />
+            </Helmet>
+            <Suspense fallback={<Loading />}>
+              <FormRedirect />
+            </Suspense>
+          </>
         } />
       </Routes>
     </Router>
