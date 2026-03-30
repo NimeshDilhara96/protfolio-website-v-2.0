@@ -20,6 +20,12 @@ const Footer = lazy(() => import('./Components/Footer'));
 const Download = lazy(() => import('./Components/Download'));
 const FormRedirect = lazy(() => import('./Components/FormRedirect'));
 
+// Preview components for homepage (no duplicate content)
+const AboutPreview = lazy(() => import('./Components/AboutPreview'));
+const ProjectsPreview = lazy(() => import('./Components/ProjectsPreview'));
+const WhatIOfferPreview = lazy(() => import('./Components/WhatIOfferPreview'));
+const ContactPreview = lazy(() => import('./Components/ContactPreview'));
+
 function App() {
   // Disable expensive animations after first user interaction for better INP
   useInteractionAnimation();
@@ -35,7 +41,7 @@ function App() {
             <Navbar />
             <Home />
             <Suspense fallback={<div className="h-32 bg-[#11181C]" />}>
-              <About />
+              <AboutPreview />
             </Suspense>
             <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
               <Education />
@@ -44,10 +50,10 @@ function App() {
               <Technologies />
             </Suspense>
             <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
-              <Projects />
+              <ProjectsPreview />
             </Suspense>
             <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
-              <WhatIOffer />
+              <WhatIOfferPreview />
             </Suspense>
             <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
               <Stats />
@@ -56,7 +62,7 @@ function App() {
               <ClientReviews />
             </Suspense>
             <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
-              <Contact />
+              <ContactPreview />
             </Suspense>
             <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
               <Footer />

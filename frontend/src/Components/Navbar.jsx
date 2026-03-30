@@ -249,7 +249,7 @@ function Navbar() {
                 </button>
 
                 <button
-                  onClick={(e) => handleNavClick(e, "/#projects")}
+                  onClick={(e) => handleNavClick(e, "/projects")}
                   className="px-4 py-2 text-sm font-medium text-white bg-[#34B27B] hover:bg-[#34B27B]/90 rounded-lg transition-all shadow-sm hover:shadow-md"
                 >
                   View Projects
