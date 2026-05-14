@@ -83,7 +83,14 @@ function Footer() {
             {/* Powered by section with MommentX logo */}
             <div className="flex items-center gap-3">
               <span className="text-sm text-[#F8F9FA]/70 font-medium hidden sm:inline">Powered by</span>
-              <span className="font-bold tracking-wide font-blanka text-white text-lg md:text-xl lg:text-2xl">MommentX</span>
+              <a 
+                href="https://mommentx.vercel.app/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="font-bold tracking-wide font-blanka text-white text-lg md:text-xl lg:text-2xl hover:text-[#34B27B] transition-colors duration-300"
+              >
+                MommentX
+              </a>
             </div>
           </div>
         </div>
