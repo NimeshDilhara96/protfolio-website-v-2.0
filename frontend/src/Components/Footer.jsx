@@ -83,21 +83,7 @@ function Footer() {
             {/* Powered by section with MommentX logo */}
             <div className="flex items-center gap-3">
               <span className="text-sm text-[#F8F9FA]/70 font-medium hidden sm:inline">Powered by</span>
-              <a
-                href="https://mommentx.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-3 px-4 py-2.5 bg-[#34B27B] text-white text-sm font-semibold rounded-lg shadow-lg shadow-[#34B27B]/20 hover:shadow-xl hover:shadow-[#34B27B]/30 hover:scale-105 transition-all duration-300 relative overflow-hidden"
-              >
-                {/* Background animation */}
-                <div className="absolute inset-0 bg-[#34B27B]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
-                {/* Content with logo */}
-                <div className="relative z-10 flex items-center gap-2">
-                  
-                  <span className="font-bold tracking-wide font-blanka">MommentX(Me)</span>
-                </div>
-              </a>
+              <span className="font-bold tracking-wide font-blanka text-white text-lg md:text-xl lg:text-2xl">MommentX</span>
             </div>
           </div>
         </div>
