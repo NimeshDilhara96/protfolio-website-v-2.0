@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@import url('https://fonts.cdnfonts.com/css/blanka');
 
 :root {
   /* Modern Color Palette - copied from style.css */
@@ -172,4 +172,9 @@
 .reduce-motion * {
   animation: none !important;
   transition: none !important;
+}
+
+/* Blanka Font Styling */
+.font-blanka {
+  font-family: 'Blanka', sans-serif;
 }
