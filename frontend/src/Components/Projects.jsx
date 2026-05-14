@@ -75,13 +75,22 @@ const projects = [
     "tags": ["Still Developing"]
   },
   {
-    "name": "queue Management System",
+    "name": "Fit Life gym management system",
     "type": "Web App",
-    "description": "A web-based queue management system designed to streamline customer service operations by efficiently managing and organizing queues in various service environments.",
+    "description": "A comprehensive gym management system designed to streamline operations and enhance the fitness experience for both staff and members.",
+    "html_url": "test",
+    "image": null,
+    "tags": [".net","windows form","sql server"]
+  },
+
+  {
+    "name": "Blog _Site",
+    "type": "Web App",
+    "description": "A dynamic blog site that allows users to create, edit, and share blog posts, featuring a user-friendly interface and robust content management system.",
     "html_url": ",test",
     //"image": ,
-    "tags": ["Still Developing"]
-  }
+    "tags": ["django","html","css"]
+  },
 
 ];
 
