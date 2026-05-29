@@ -2,13 +2,14 @@ import React, { useEffect, useRef, useState } from 'react';
 import profilePhoto from '../assets/profiletrc.webp';
 
 const lines = [
-  "Undergraduate Software Engineer",
-  "Creative Developer & Problem Solver",
-  "Frontend Developer 💻",
-  "Backend Developer 🔧",
-  "Full Stack Developer 🚀",
-  "From Beautiful Sri Lanka 🇱🇰",
-  "Always Learning & Creating ✨",
+  "Freelance Full-Stack Developer",
+  "React & Node.js Developer",
+  "MERN Stack Engineer 🚀",
+  "AI Web Application Developer 🤖",
+  "Building Scalable Modern Apps",
+  "Available for International Projects 🌍",
+  "Frontend & Backend Specialist 💻",
+  "From Sri Lanka 🇱🇰",
   "MommentX"
 ];
 
@@ -106,17 +107,40 @@ const FacebookIcon = ({ size }) => (
   </svg>
 );
 
+// Tech Stack Badges Component
+const TechStackBadges = () => {
+  const techStack = ["React", "Node.js", "MERN", "MongoDB", "AI Integration", "JavaScript"];
+  
+  return (
+    <div className="mt-6 md:mt-8">
+      <p className="text-sm text-[#F8F9FA]/50 mb-3">
+        Available for freelance and remote opportunities worldwide.
+      </p>
+      <div className="flex flex-wrap gap-2">
+        {techStack.map((tech) => (
+          <span 
+            key={tech}
+            className="px-3 py-1.5 text-xs md:text-sm bg-[#34B27B]/10 text-[#34B27B] border border-[#34B27B]/30 rounded-full font-medium hover:bg-[#34B27B]/20 transition-colors duration-300"
+          >
+            {tech}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 // Social Links Component
 const SocialLinks = ({ size = 'default' }) => {
   const iconSize = size === 'large' ? 20 : 16;
   const containerSize = size === 'large' ? 'w-12 h-12' : 'w-9 h-9';
   
   const socialLinks = [
-    { href: "https://github.com/nimeshdilhara96", icon: GithubIcon, label: "GitHub Profile" },
-    { href: "https://linkedin.com/in/nimeshdilhara", icon: LinkedinIcon, label: "LinkedIn Profile" },
-    { href: "https://instagram.com/nimeshdilhara_", icon: InstagramIcon, label: "Instagram Profile" },
-    { href: "https://twitter.com/nimeshdilhara8", icon: TwitterIcon, label: "Twitter Profile" },
-    { href: "https://facebook.com/nimesh.dilhara.96", icon: FacebookIcon, label: "Facebook Profile" }
+    { href: "https://github.com/nimeshdilhara96", icon: GithubIcon, label: "Nimesh Dilhara GitHub Profile" },
+    { href: "https://linkedin.com/in/nimeshdilhara", icon: LinkedinIcon, label: "Nimesh Dilhara LinkedIn Profile" },
+    { href: "https://instagram.com/nimeshdilhara_", icon: InstagramIcon, label: "Nimesh Dilhara Instagram Profile" },
+    { href: "https://twitter.com/nimeshdilhara8", icon: TwitterIcon, label: "Nimesh Dilhara Twitter Profile" },
+    { href: "https://facebook.com/nimesh.dilhara.96", icon: FacebookIcon, label: "Nimesh Dilhara Facebook Profile" }
   ];
 
   return (
@@ -229,15 +253,17 @@ function Home() {
             </div>
             
             <h1 className="text-3xl sm:text-4xl font-bold mb-3 text-[#F8F9FA] tracking-tight">
-              Nimesh Dilhara
+              Nimesh Dilhara Kulasooriya
             </h1>
+            <p className="sr-only">
+  Nimesh Dilhara Kulasooriya is a freelance full-stack developer from Sri Lanka specializing in React, Node.js, MERN stack, AI integration, frontend development, backend development, and scalable web applications for international clients.
+</p>
             
             {/* Fixed typing animation height */}
             <Typewriter isMobile={true} />
             
             <p className="text-[#F8F9FA]/70 text-base sm:text-lg mb-6 leading-relaxed">
-              I craft modern, engaging digital experiences with clean code and creative design.
-              Specialized in full-stack web development, AI, and UI/UX.
+             I help startups, businesses, and international clients build fast, scalable, and modern web applications using React, Node.js, MERN stack, and AI-powered solutions.
             </p>
             
             {/* Action buttons */}
@@ -260,9 +286,11 @@ function Home() {
                 className="w-full sm:w-auto px-6 py-3 border-2 border-[#34B27B] text-[#34B27B] text-sm rounded-xl font-medium hover:bg-[#34B27B] hover:text-white hover:translate-y-[-2px] transition-all duration-300 relative overflow-hidden group"
               >
                 <span className="absolute inset-0 w-0 bg-[#34B27B] group-hover:w-full transition-all duration-300 rounded-xl"></span>
-                <span className="relative z-10">Contact Me</span>
+                <span className="relative z-10">Hire Me</span>
               </a>
             </div>
+            
+            <TechStackBadges />
             
             <SocialLinks />
           </div>
@@ -277,15 +305,14 @@ function Home() {
             </div>
             
             <h1 className="text-5xl xl:text-6xl font-bold mb-4 text-[#F8F9FA] tracking-tight">
-              Nimesh Dilhara
+              Nimesh Dilhara Kulasooriya
             </h1>
             
             {/* Fixed typing animation height */}
             <Typewriter isMobile={false} />
             
             <p className="text-[#F8F9FA]/70 text-xl mb-8 max-w-xl leading-relaxed">
-              I craft modern, engaging digital experiences with clean code and creative design.
-              Specialized in full-stack web development, AI, and UI/UX.
+              I help startups, businesses, and international clients build fast, scalable, and modern web applications using React, Node.js, MERN stack, and AI-powered solutions.
             </p>
             
             <div className="flex items-center gap-5 mb-10">
@@ -307,11 +334,15 @@ function Home() {
                 className="px-8 py-4 border-2 border-[#34B27B] text-[#34B27B] text-base rounded-xl font-medium hover:bg-[#34B27B] hover:text-white hover:translate-y-[-3px] transition-all duration-300 relative overflow-hidden group"
               >
                 <span className="absolute inset-0 w-0 bg-[#34B27B] group-hover:w-full transition-all duration-300 rounded-xl"></span>
-                <span className="relative z-10">Contact Me</span>
+                <span className="relative z-10">Hire Me</span>
               </a>
             </div>
             
-            <SocialLinks size="large" />
+            <TechStackBadges />
+            
+            <div className="mt-8">
+              <SocialLinks size="large" />
+            </div>
           </div>
 
           {/* Profile Image - Desktop */}
