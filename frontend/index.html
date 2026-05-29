@@ -7,78 +7,139 @@
     <!-- 🔥 Performance: Preload critical LCP-candidate image & DNS Prefetch -->
     <link rel="preload" href="/profiletrc.webp" as="image" type="image/webp">
     <link rel="dns-prefetch" href="https://vercel.com">
-    <!-- 🚀 Performance: Let Vite manage hashed module loading in production -->
-    
+
     <!-- 🚀 Critical Path Rendering - inline minimal CSS for initial paint -->
     <style>
       html { scroll-behavior: smooth; }
-      body { margin: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; background: #11181C; }
+      body {
+        margin: 0;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        background: #11181C;
+      }
       #root { min-height: 100vh; }
-      @media (prefers-reduced-motion: reduce) { 
-        * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
       }
     </style>
-    <!-- �🔥 Favicon & Icons -->
-   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-   <link rel="shortcut icon" href="/favicon.ico" />
-   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-   <meta name="apple-mobile-web-app-title" content="Nimesh Dilhara" />
-   <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- 🔥 Favicon & Icons -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Nimesh Dilhara" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- 🔥 Theme -->
+    <meta name="theme-color" content="#11181C" />
+    <meta name="application-name" content="Nimesh Dilhara Portfolio" />
+    <meta name="creator" content="Nimesh Dilhara Kulasooriya" />
 
     <!-- 🔥 Google Search Console Verification -->
     <meta name="google-site-verification" content="3mm7BILITtRhYTxFAv8x_2GxG_blQlO1LvqjFGrwFVQ" />
-    
+
     <!-- Blanka Font -->
     <link href="https://fonts.cdnfonts.com/css/blanka" rel="stylesheet">
 
     <!-- 🔥 SEO Basics -->
-    <title>Nimesh Dilhara Kulasooriya | Software Engineer </title>
+    <title>Nimesh Dilhara Kulasooriya | Freelance Full-Stack Developer</title>
+
     <link rel="canonical" href="https://nimeshdilhara.vercel.app/" />
+
     <meta
       name="description"
-      content="Nimesh Dilhara Kulasooriya – BSc Software Engineering student, full-stack developer, AI enthusiast. Explore my portfolio and projects."
+      content="Nimesh Dilhara Kulasooriya is a freelance full-stack developer specializing in React, Node.js, MERN stack, AI-powered web applications, and scalable modern software solutions for international clients."
     />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
     <meta
       name="keywords"
-      content="Nimesh Dilhara Kulasooriya, Nimesh Dilhara, software engineer portfolio, full stack developer, React developer, MERN stack developer, Vite portfolio, JavaScript developer, AI enthusiast, web developer Sri Lanka, frontend developer, backend developer, portfolio website"
+      content="Nimesh Dilhara Kulasooriya, Nimesh Dilhara, freelance full stack developer, React developer, Node.js developer, MERN stack developer, AI web developer, software engineer Sri Lanka, web developer Sri Lanka, React developer for startups, international freelance developer, frontend developer, backend developer, full stack engineer, AI integration developer, MERN developer"
     />
+
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+
     <meta name="author" content="Nimesh Dilhara Kulasooriya" />
 
-    <!-- 🔥 Open Graph (LinkedIn/Facebook/WhatsApp preview) -->
-    <meta property="og:title" content="Nimesh Dilhara Kulasooriya | Software Engineer " />
+    <!-- 🔥 Open Graph -->
+    <meta
+      property="og:title"
+      content="Nimesh Dilhara Kulasooriya | Freelance Full-Stack Developer"
+    />
+
     <meta
       property="og:description"
-      content="Explore my portfolio projects, skills, and achievements as a Software Engineering undergraduate specializing in full-stack development and AI."
+      content="Freelance full-stack developer specializing in React, Node.js, MERN stack, and AI-powered web applications for international clients."
     />
-    <meta property="og:image" content="https://nimeshdilhara.vercel.app/nimesh-dilhara-profile.jpg" />
-    <meta property="og:image:alt" content="Nimesh Dilhara Kulasooriya portrait photo" />
-    <meta property="og:url" content="https://nimeshdilhara.vercel.app/" />
+
+    <meta
+      property="og:image"
+      content="https://nimeshdilhara.vercel.app/nimesh-dilhara-profile.jpg"
+    />
+
+    <meta
+      property="og:image:alt"
+      content="Nimesh Dilhara Kulasooriya portrait photo"
+    />
+
+    <meta
+      property="og:url"
+      content="https://nimeshdilhara.vercel.app/"
+    />
+
     <meta property="og:type" content="website" />
 
     <!-- 🔥 Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Nimesh Dilhara | Software Engineer " />
+
+    <meta
+      name="twitter:title"
+      content="Nimesh Dilhara | Freelance Full-Stack Developer"
+    />
+
     <meta
       name="twitter:description"
-      content="Software Engineering undergraduate | Full-stack developer | AI enthusiast"
+      content="React • Node.js • MERN Stack • AI Integration Developer"
     />
-    <meta name="twitter:image" content="https://nimeshdilhara.vercel.app/nimesh-dilhara-profile.jpg" />
-    <meta name="twitter:image:alt" content="Nimesh Dilhara Kulasooriya portrait photo" />
 
-    <!-- 🔥 JSON-LD Structured Data -->
+    <meta
+      name="twitter:image"
+      content="https://nimeshdilhara.vercel.app/nimesh-dilhara-profile.jpg"
+    />
+
+    <meta
+      name="twitter:image:alt"
+      content="Nimesh Dilhara Kulasooriya portrait photo"
+    />
+
+    <!-- 🔥 PERSON JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
       "@id": "https://nimeshdilhara.vercel.app/#person",
+
       "name": "Nimesh Dilhara Kulasooriya",
+
       "givenName": "Nimesh",
       "familyName": "Kulasooriya",
-      "alternateName": "Nimesh Dilhara",
+
+      "alternateName": [
+        "Nimesh Dilhara",
+        "Nimesh"
+      ],
+
       "url": "https://nimeshdilhara.vercel.app/",
+
       "mainEntityOfPage": "https://nimeshdilhara.vercel.app/",
+
       "image": {
         "@type": "ImageObject",
         "@id": "https://nimeshdilhara.vercel.app/#profile-image",
@@ -87,14 +148,59 @@
         "caption": "Nimesh Dilhara Kulasooriya portrait",
         "representativeOfPage": true
       },
-      "jobTitle": "Software Engineer",
-      "description": "BSc (Hons) Software Engineering undergraduate. Passionate about full-stack development, AI, and building modern web applications.",
+
+      "jobTitle": "Freelance Full-Stack Developer",
+
+      "description": "Freelance full-stack developer specializing in React, Node.js, MERN stack, and AI-powered web applications for international clients.",
+
       "nationality": "Sri Lankan",
-      "alumniOf": {
-        "@type": "EducationalOrganization",
-        "name": "Software Engineering Degree Program"
+
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Colombo",
+        "addressCountry": "Sri Lanka"
       },
-      "knowsAbout": ["Software Engineering", "Full-stack Development", "React", "MERN Stack", "Artificial Intelligence", "Web Development"],
+
+      "knowsAbout": [
+        "React",
+        "Node.js",
+        "MERN Stack",
+        "JavaScript",
+        "MongoDB",
+        "Express.js",
+        "AI Integration",
+        "Web Development",
+        "Frontend Development",
+        "Backend Development",
+        "Full-Stack Development"
+      ],
+
+      "knowsLanguage": [
+        "English",
+        "Sinhala"
+      ],
+
+      "brand": {
+        "@type": "Brand",
+        "name": "Nimesh Dilhara"
+      },
+
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Full-Stack Developer",
+        "occupationLocation": {
+          "@type": "Country",
+          "name": "Sri Lanka"
+        },
+        "skills": [
+          "React",
+          "Node.js",
+          "MongoDB",
+          "Express.js",
+          "AI Integration"
+        ]
+      },
+
       "sameAs": [
         "https://github.com/nimeshdilhara96",
         "https://www.linkedin.com/in/nimeshdilhara",
@@ -104,30 +210,76 @@
       ]
     }
     </script>
+
+    <!-- 🔥 PROFILE PAGE -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
+
       "@type": "ProfilePage",
+
       "@id": "https://nimeshdilhara.vercel.app/#profile-page",
+
       "url": "https://nimeshdilhara.vercel.app/",
-      "name": "Nimesh Dilhara Kulasooriya | Software Engineer",
+
+      "name": "Nimesh Dilhara Kulasooriya | Freelance Full-Stack Developer",
+
       "description": "Official portfolio profile page of Nimesh Dilhara Kulasooriya.",
+
       "mainEntity": {
         "@id": "https://nimeshdilhara.vercel.app/#person"
       }
     }
     </script>
+
+    <!-- 🔥 SERVICE -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
+
+      "@type": "Service",
+
+      "name": "Freelance Full-Stack Development",
+
+      "provider": {
+        "@id": "https://nimeshdilhara.vercel.app/#person"
+      },
+
+      "serviceType": "Web Development",
+
+      "description": "React, Node.js, MERN stack development and AI-powered web application development services.",
+
+      "areaServed": [
+        "United States",
+        "United Kingdom",
+        "Canada",
+        "Australia",
+        "Europe"
+      ],
+
+      "availableLanguage": [
+        "English"
+      ]
+    }
+    </script>
+
+    <!-- 🔥 WEBSITE -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+
       "@type": "WebSite",
+
       "name": "Nimesh Dilhara Portfolio",
+
       "url": "https://nimeshdilhara.vercel.app/",
+
       "potentialAction": {
         "@type": "SearchAction",
         "target": "https://nimeshdilhara.vercel.app/?q={search_term_string}",
         "query-input": "required name=search_term_string"
       },
+
       "hasPart": [
         {
           "@type": "SiteNavigationElement",
@@ -162,19 +314,67 @@
       ]
     }
     </script>
+
+    <!-- 🔥 WEBPAGE -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
+
       "@type": "WebPage",
+
       "url": "https://nimeshdilhara.vercel.app/",
+
       "name": "Nimesh Dilhara Portfolio",
-      "description": "Portfolio of Nimesh Dilhara, Software Engineer and full-stack developer featuring projects, skills, and contact information."
+
+      "description": "Portfolio of Nimesh Dilhara, freelance full-stack developer specializing in React, MERN stack, and AI-powered applications."
     }
     </script>
+
+    <!-- 🔥 FAQ PAGE -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+
+      "@type": "FAQPage",
+
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do you work with international clients?",
+
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, I work remotely with startups, businesses, and international clients worldwide."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What technologies do you specialize in?",
+
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "I specialize in React, Node.js, MERN stack, JavaScript, MongoDB, Express.js, and AI-powered web application development."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you develop AI-powered applications?",
+
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, I build AI-powered web applications and integrate AI services into modern software solutions."
+          }
+        }
+      ]
+    }
+    </script>
+
   </head>
+
   <body>
     <div id="root"></div>
-    <!-- 🚀 Main app bundle - loads immediately with high priority -->
+
+    <!-- 🚀 Main app bundle -->
     <script type="module" src="/src/main.jsx"></script>
-</body>
+  </body>
 </html>
