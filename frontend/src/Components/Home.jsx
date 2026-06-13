@@ -107,10 +107,17 @@ const FacebookIcon = ({ size }) => (
   </svg>
 );
 
+const UpworkIcon = ({ size, className }) => (
+  <svg width={size} height={size} className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z" />
+  </svg>
+);
+
+
 // Tech Stack Badges Component
 const TechStackBadges = () => {
   const techStack = ["React", "Node.js", "MERN", "MongoDB", "AI Integration", "JavaScript"];
-  
+
   return (
     <div className="mt-6 md:mt-8">
       <p className="text-sm text-[#F8F9FA]/50 mb-3">
@@ -118,7 +125,7 @@ const TechStackBadges = () => {
       </p>
       <div className="flex flex-wrap gap-2">
         {techStack.map((tech) => (
-          <span 
+          <span
             key={tech}
             className="px-3 py-1.5 text-xs md:text-sm bg-[#34B27B]/10 text-[#34B27B] border border-[#34B27B]/30 rounded-full font-medium hover:bg-[#34B27B]/20 transition-colors duration-300"
           >
@@ -134,7 +141,7 @@ const TechStackBadges = () => {
 const SocialLinks = ({ size = 'default' }) => {
   const iconSize = size === 'large' ? 20 : 16;
   const containerSize = size === 'large' ? 'w-12 h-12' : 'w-9 h-9';
-  
+
   const socialLinks = [
     { href: "https://github.com/nimeshdilhara96", icon: GithubIcon, label: "Nimesh Dilhara GitHub Profile" },
     { href: "https://linkedin.com/in/nimeshdilhara", icon: LinkedinIcon, label: "Nimesh Dilhara LinkedIn Profile" },
@@ -146,10 +153,10 @@ const SocialLinks = ({ size = 'default' }) => {
   return (
     <div className={`flex items-center ${size === 'large' ? 'gap-4' : 'gap-3'}`}>
       {socialLinks.map((social) => (
-        <a 
+        <a
           key={social.label}
-          href={social.href} 
-          target="_blank" 
+          href={social.href}
+          target="_blank"
           rel="noopener noreferrer"
           aria-label={social.label}
           className={`${containerSize} flex items-center justify-center rounded-full bg-[#11181C] text-[#F8F9FA]/70 hover:bg-[#34B27B] hover:text-white transition-all duration-300 md:backdrop-blur-sm ${size === 'large' ? 'hover:scale-110' : ''}`}
@@ -172,15 +179,15 @@ function Home() {
       <div className="absolute inset-0 z-0 overflow-hidden">
         {/* Rich dark gradient base */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#11181C] via-[#11181C] to-black"></div>
-        
+
         {/* Animated gradient orbs - Supabase Jungle Green theme */}
         <div className="hidden md:block absolute top-[-20%] sm:top-[-10%] left-[-10%] sm:left-[-5%] w-[300px] sm:w-[450px] md:w-[500px] h-[300px] sm:h-[450px] md:h-[500px] rounded-full bg-[#34B27B]/10 blur-3xl animate-blob"></div>
         <div className="hidden md:block absolute top-[5%] sm:top-[10%] right-[-10%] sm:right-[-5%] w-[250px] sm:w-[350px] md:w-[400px] h-[250px] sm:h-[350px] md:h-[400px] rounded-full bg-[#34B27B]/15 blur-3xl animate-blob animation-delay-2000"></div>
         <div className="hidden md:block absolute bottom-[-15%] sm:bottom-[-10%] left-[10%] sm:left-[20%] w-[280px] sm:w-[400px] md:w-[450px] h-[280px] sm:h-[400px] md:h-[450px] rounded-full bg-[#34B27B]/10 blur-3xl animate-blob animation-delay-4000"></div>
-        
+
         {/* Additional color accent */}
         <div className="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[200px] sm:w-[350px] h-[200px] sm:h-[350px] rounded-full bg-[#34B27B]/10 blur-3xl animate-blob animation-delay-6000"></div>
-        
+
         {/* Subtle geometric pattern */}
         <div className="hidden sm:block absolute inset-0 opacity-[0.03]" style={{
           backgroundImage: `
@@ -189,19 +196,19 @@ function Home() {
           `,
           backgroundSize: '80px 80px'
         }}></div>
-        
+
         {/* Modern dots pattern */}
         <div className="hidden md:block absolute inset-0 opacity-[0.04]" style={{
           backgroundImage: 'radial-gradient(circle, #34B27B 1px, transparent 1px)',
           backgroundSize: '40px 40px'
         }}></div>
-        
+
         {/* Dark gradient overlay */}
         <div className="hidden md:block absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-transparent via-[#11181C]/20 to-transparent"></div>
-        
+
         {/* Smooth fade to content */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#11181C]/80 z-10"></div>
-        
+
         {/* Glass morphism accent with color */}
         <div className="hidden lg:block absolute top-1/3 right-1/3 w-96 h-96 bg-[#34B27B]/10 rounded-full blur-2xl"></div>
       </div>
@@ -216,14 +223,14 @@ function Home() {
               <div className="w-48 h-48 sm:w-56 sm:h-56 relative">
                 {/* Simplified mobile frame for faster first paint */}
                 <div className="absolute -inset-1 rounded-full border-2 border-[#34B27B]/60"></div>
-                
+
                 {/* Inner border */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#11181C] to-black rounded-full"></div>
-                
+
                 {/* Image */}
-                <img 
-                  src={profilePhoto} 
-                  alt="Nimesh Dilhara - Software Engineer and Full Stack Developer" 
+                <img
+                  src={profilePhoto}
+                  alt="Nimesh Dilhara - Software Engineer and Full Stack Developer"
                   loading="eager"
                   fetchPriority="high"
                   decoding="sync"
@@ -232,15 +239,18 @@ function Home() {
                   height="224"
                   className="w-full h-full object-cover rounded-full p-1 relative z-10 shadow-xl shadow-[#34B27B]/10"
                 />
-                
-                {/* Open to Work Badge on Ring - LinkedIn Style */}
+
+                {/* Open to Work Badge on Ring - Replaced with Upwork */}
                 <div className="absolute bottom-1 right-1 z-20">
-                  <div className="relative">
-                    <div className="inline-flex items-center px-2.5 py-1 rounded-full bg-green-500 text-white border-2 border-white text-[10px] font-bold shadow-lg">
-                      <span className="w-1.5 h-1.5 bg-white rounded-full mr-1.5 animate-pulse"></span>
-                      Open to Work
-                    </div>
-                  </div>
+                  <a
+                    href="https://www.upwork.com/freelancers/~YOUR_UPWORK_ID"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-2.5 py-1 rounded-full bg-[#14a800] text-white border-2 border-white text-[10px] font-bold shadow-lg hover:bg-[#108500] hover:scale-105 transition-all duration-300"
+                  >
+                    <UpworkIcon size={10} className="mr-1" />
+                    <span>Upwork</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -251,21 +261,21 @@ function Home() {
             <div className="flex flex-wrap items-center justify-center gap-2">
               <WelcomeBadge />
             </div>
-            
+
             <h1 className="text-3xl sm:text-4xl font-bold mb-3 text-[#F8F9FA] tracking-tight">
               Nimesh Dilhara Kulasooriya
             </h1>
             <p className="sr-only">
-  Nimesh Dilhara Kulasooriya is a freelance full-stack developer from Sri Lanka specializing in React, Node.js, MERN stack, AI integration, frontend development, backend development, and scalable web applications for international clients.
-</p>
-            
+              Nimesh Dilhara Kulasooriya is a freelance full-stack developer from Sri Lanka specializing in React, Node.js, MERN stack, AI integration, frontend development, backend development, and scalable web applications for international clients.
+            </p>
+
             {/* Fixed typing animation height */}
             <Typewriter isMobile={true} />
-            
+
             <p className="text-[#F8F9FA]/70 text-base sm:text-lg mb-6 leading-relaxed">
-             I help startups, businesses, and international clients build fast, scalable, and modern web applications using React, Node.js, MERN stack, and AI-powered solutions.
+              I help startups, businesses, and international clients build fast, scalable, and modern web applications using React, Node.js, MERN stack, and AI-powered solutions.
             </p>
-            
+
             {/* Action buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-8">
               <a
@@ -280,7 +290,7 @@ function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
                 </svg>
               </a>
-              <a 
+              <a
                 href="#contact"
                 aria-label="Go to contact section"
                 className="w-full sm:w-auto px-6 py-3 border-2 border-[#34B27B] text-[#34B27B] text-sm rounded-xl font-medium hover:bg-[#34B27B] hover:text-white hover:translate-y-[-2px] transition-all duration-300 relative overflow-hidden group"
@@ -289,9 +299,9 @@ function Home() {
                 <span className="relative z-10">Hire Me</span>
               </a>
             </div>
-            
+
             <TechStackBadges />
-            
+
             <SocialLinks />
           </div>
         </div>
@@ -303,18 +313,18 @@ function Home() {
             <div className="flex items-center gap-2">
               <WelcomeBadge />
             </div>
-            
+
             <h1 className="text-5xl xl:text-6xl font-bold mb-4 text-[#F8F9FA] tracking-tight">
               Nimesh Dilhara Kulasooriya
             </h1>
-            
+
             {/* Fixed typing animation height */}
             <Typewriter isMobile={false} />
-            
+
             <p className="text-[#F8F9FA]/70 text-xl mb-8 max-w-xl leading-relaxed">
               I help startups, businesses, and international clients build fast, scalable, and modern web applications using React, Node.js, MERN stack, and AI-powered solutions.
             </p>
-            
+
             <div className="flex items-center gap-5 mb-10">
               <a
                 href={CV_LINK}
@@ -328,7 +338,7 @@ function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
                 </svg>
               </a>
-              <a 
+              <a
                 href="#contact"
                 aria-label="Go to contact section"
                 className="px-8 py-4 border-2 border-[#34B27B] text-[#34B27B] text-base rounded-xl font-medium hover:bg-[#34B27B] hover:text-white hover:translate-y-[-3px] transition-all duration-300 relative overflow-hidden group"
@@ -337,9 +347,9 @@ function Home() {
                 <span className="relative z-10">Hire Me</span>
               </a>
             </div>
-            
+
             <TechStackBadges />
-            
+
             <div className="mt-8">
               <SocialLinks size="large" />
             </div>
@@ -351,14 +361,14 @@ function Home() {
               <div className="w-72 h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 relative">
                 {/* Main border with gradient */}
                 <div className="absolute -inset-1.5 bg-[#34B27B] rounded-full opacity-50 group-hover:opacity-100 transition-all duration-300"></div>
-                
+
                 {/* Inner border */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#11181C] to-black rounded-full"></div>
-                
+
                 {/* Image */}
-                <img 
-                  src={profilePhoto} 
-                  alt="Nimesh Dilhara - Software Engineer and Full Stack Developer" 
+                <img
+                  src={profilePhoto}
+                  alt="Nimesh Dilhara - Software Engineer and Full Stack Developer"
                   loading="eager"
                   fetchPriority="high"
                   decoding="async"
@@ -366,16 +376,21 @@ function Home() {
                   height="384"
                   className="w-full h-full object-cover rounded-full p-2 relative z-10 transform group-hover:scale-105 transition-transform duration-500 shadow-2xl shadow-[#34B27B]/10"
                 />
-                
+
                 {/* Shine effect */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500" style={{transform: 'rotate(45deg)'}}></div>
-                
-                {/* Open to Work Badge on Ring */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500" style={{ transform: 'rotate(45deg)' }}></div>
+
+                {/* Open to Work Badge on Ring - Replaced with Upwork */}
                 <div className="absolute bottom-2 right-2 z-20">
-                  <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-500/95 text-white border-2 border-white text-sm font-bold animate-pulse shadow-xl md:backdrop-blur-sm">
-                    <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
-                    Open to Work
-                  </div>
+                  <a
+                    href="https://www.upwork.com/freelancers/~01e70e0f98c0cf9951"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-4 py-2 rounded-full bg-[#14a800] text-white border-2 border-white text-sm font-bold shadow-xl hover:bg-[#108500] hover:scale-105 transition-all duration-300"
+                  >
+                    <UpworkIcon size={14} className="mr-1.5" />
+                    <span>Upwork</span>
+                  </a>
                 </div>
               </div>
             </div>
