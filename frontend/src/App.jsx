@@ -19,6 +19,7 @@ const Contact = lazy(() => import('./Components/Contact'));
 const Footer = lazy(() => import('./Components/Footer'));
 const Download = lazy(() => import('./Components/Download'));
 const FormRedirect = lazy(() => import('./Components/FormRedirect'));
+const Blog = lazy(() => import('./Components/blog'));
 
 // Preview components for homepage (no duplicate content)
 const AboutPreview = lazy(() => import('./Components/AboutPreview'));
@@ -174,6 +175,11 @@ function App() {
               <FormRedirect />
             </Suspense>
           </>
+        } />
+        <Route path="/blog" element={
+          <Suspense fallback={<Loading />}>
+            <Blog />
+          </Suspense>
         } />
       </Routes>
     </Router>
