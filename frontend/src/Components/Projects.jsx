@@ -7,7 +7,7 @@ import aiPromptCover from "../assets/Ai_Promptgallery.webp";
 import nutricaremobilecover from "../assets/nutricaremobilecover.webp";
 import personalprotfoliyo from "../assets/personalprotfoliyo.webp";
 import hotelcover from "../assets/hotelcover.webp";
-import multitentenat_saas from "../assets/multitenant_saas.webp";
+import erpcover from "../assets/erp.webp";
 
 // Add a "type" property for filtering
 const projects = [
@@ -26,7 +26,7 @@ const projects = [
     description:
       "A multi-tenant SaaS ERP system designed to streamline business operations across various industries. It offers modules for inventory management, accounting, HR, and customer relationship management, all accessible through a unified platform.",
     html_url: "https://github.com/NimeshDilhara96/website-tracking-system",
-    image: multitentenat_saas,
+    image: erpcover,
     tags: ["Still Developing"],
   },
   {
