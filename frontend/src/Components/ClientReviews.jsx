@@ -1,9 +1,14 @@
-import React, { useState, useEffect, useTransition, useCallback } from 'react';
-import { FaStar, FaQuoteLeft, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import React, { useState, useEffect, useTransition, useCallback } from "react";
+import {
+  FaStar,
+  FaQuoteLeft,
+  FaChevronLeft,
+  FaChevronRight,
+} from "react-icons/fa";
 
 function ClientReviews() {
   const [currentReview, setCurrentReview] = useState(0);
-  const [direction, setDirection] = useState('next');
+  const [direction, setDirection] = useState("next");
   const [isPending, startTransition] = useTransition();
   const [lastNavTime, setLastNavTime] = useState(0);
 
@@ -13,53 +18,57 @@ function ClientReviews() {
       name: "Shakila De Silva",
       role: "BSc Information Technology Student",
       rating: 5,
-      review: "Nimesh delivered an exceptional web application that exceeded our expectations. His attention to detail and problem-solving skills are outstanding.",
+      review:
+        "Nimesh delivered an exceptional web application that exceeded our expectations. His attention to detail and problem-solving skills are outstanding.",
       initials: "SD",
-      color: "from-purple-500 to-pink-500"
+      color: "from-purple-500 to-pink-500",
     },
     {
       id: 2,
       name: "Tharushika Lakshani",
       role: "BSc Business Management Student",
       rating: 5,
-      review: "Working with Nimesh was a game-changer for our startup. He transformed our ideas into a beautiful, functional website.",
+      review:
+        "Working with Nimesh was a game-changer for our startup. He transformed our ideas into a beautiful, functional website.",
       initials: "TL",
-      color: "from-blue-500 to-cyan-500"
+      color: "from-blue-500 to-cyan-500",
     },
     {
       id: 3,
       name: "Emily Rodriguez",
       role: "Marketing Director",
       rating: 5,
-      review: "Nimesh's expertise in both frontend and backend development made our project seamless. The final product was exactly what we envisioned.",
+      review:
+        "Nimesh's expertise in both frontend and backend development made our project seamless. The final product was exactly what we envisioned.",
       initials: "ER",
-      color: "from-pink-500 to-orange-500"
+      color: "from-pink-500 to-orange-500",
     },
     {
       id: 4,
       name: "M Ilmi",
-      role: "Senior Brand Executive at Royal Fernwood Porcelain Limited", 
+      role: "Senior Brand Executive at Royal Fernwood Porcelain Limited",
       rating: 5,
-      review: "I have known Nimesh for many years as a close friend. He is highly technology oriented with strong IT knowledge and always stays updated with the latest trends and industry related news. He is a fast learner who quickly understands new concepts and adapts to changes with ease. He is hardworking, disciplined, and has a strong problem solving mindset. Nimesh is also friendly and easy to work with. I believe he has a bright future in the IT field and I highly recommend him for suitable opportunities.",
+      review:
+        "I have known Nimesh for many years as a close friend. He is highly technology oriented with strong IT knowledge and always stays updated with the latest trends and industry related news. He is a fast learner who quickly understands new concepts and adapts to changes with ease. He is hardworking, disciplined, and has a strong problem solving mindset. Nimesh is also friendly and easy to work with. I believe he has a bright future in the IT field and I highly recommend him for suitable opportunities.",
       initials: "MI",
-      color: "from-[#34B27B] to-[#34B27B]"
+      color: "from-[#34B27B] to-[#34B27B]",
     },
     {
       id: 5,
       name: "Yesmin Jalaldeen",
       role: "BSc Information Technology Student",
       rating: 5,
-      review: "I confidently recommend Nimesh for software engineering internships, development roles, or technical collaborations. His technical foundation, teamwork skills, and commitment to excellence make him a valuable addition to any engineering team.",
+      review:
+        "I confidently recommend Nimesh for software engineering internships, development roles, or technical collaborations. His technical foundation, teamwork skills, and commitment to excellence make him a valuable addition to any engineering team.",
       initials: "YJ",
-      color: "from-yellow-500 to-red-500"
-    }
-
+      color: "from-yellow-500 to-red-500",
+    },
   ];
 
   // Auto-rotate reviews
   useEffect(() => {
     const timer = setInterval(() => {
-      setDirection('next');
+      setDirection("next");
       setCurrentReview((prev) => (prev + 1) % reviews.length);
     }, 5000);
     return () => clearInterval(timer);
@@ -71,7 +80,7 @@ function ClientReviews() {
     if (now - lastNavTime < 80) return; // Debounce 80ms
     setLastNavTime(now);
     startTransition(() => {
-      setDirection('next');
+      setDirection("next");
       setCurrentReview((prev) => (prev + 1) % reviews.length);
     });
   }, [lastNavTime, reviews.length]);
@@ -81,35 +90,42 @@ function ClientReviews() {
     if (now - lastNavTime < 80) return; // Debounce 80ms
     setLastNavTime(now);
     startTransition(() => {
-      setDirection('prev');
+      setDirection("prev");
       setCurrentReview((prev) => (prev - 1 + reviews.length) % reviews.length);
     });
   }, [lastNavTime, reviews.length]);
 
   // Debounced dot click handler
-  const handleDotClick = useCallback((index) => {
-    const now = Date.now();
-    if (now - lastNavTime < 80) return; // Debounce 80ms
-    setLastNavTime(now);
-    startTransition(() => {
-      setDirection(index > currentReview ? 'next' : 'prev');
-      setCurrentReview(index);
-    });
-  }, [currentReview, lastNavTime]);
+  const handleDotClick = useCallback(
+    (index) => {
+      const now = Date.now();
+      if (now - lastNavTime < 80) return; // Debounce 80ms
+      setLastNavTime(now);
+      startTransition(() => {
+        setDirection(index > currentReview ? "next" : "prev");
+        setCurrentReview(index);
+      });
+    },
+    [currentReview, lastNavTime],
+  );
   return (
-    <section id="reviews" className="py-12 md:py-16 bg-gradient-to-br from-[#11181C] to-black relative overflow-hidden">
+    <section
+      id="reviews"
+      className="py-12 md:py-16 bg-gradient-to-br from-[#11181C] to-black relative overflow-hidden"
+    >
       {/* Modern background decoration */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-10 w-48 h-48 bg-[#34B27B]/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-10 w-56 h-56 bg-[#34B27B]/5 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div
+          className="absolute bottom-1/4 right-10 w-56 h-56 bg-[#34B27B]/5 rounded-full blur-3xl animate-pulse"
+          style={{ animationDelay: "2s" }}
+        ></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Compact Section Title */}
         <div className="text-center mb-10">
-          <div className="inline-block mb-3">
-            
-          </div>
+          <div className="inline-block mb-3"></div>
           <h2 className="text-3xl md:text-4xl font-bold text-[#F8F9FA] mb-3 tracking-tight">
             What Clients Say
           </h2>
@@ -120,21 +136,25 @@ function ClientReviews() {
         <div className="max-w-3xl mx-auto">
           <div className="relative">
             {/* Main Card */}
-            <div 
+            <div
               key={currentReview}
-              className="bg-[#11181C]/95 rounded-2xl p-6 md:p-8 shadow-xl border border-[#F8F9FA]/10 transform transition-all duration-500 hover:scale-[1.01] md:bg-[#11181C]/80 md:backdrop-blur-xl"
-              className={`bg-[#11181C]/95 rounded-2xl p-6 md:p-8 shadow-xl border border-[#F8F9FA]/10 transform transition-all duration-500 hover:scale-[1.01] md:bg-[#11181C]/80 md:backdrop-blur-xl ${isPending ? 'opacity-75' : ''}`}
+              className={`bg-[#11181C]/95 rounded-2xl p-6 md:p-8 shadow-xl border border-[#F8F9FA]/10 transform transition-all duration-300 ${direction === "next" ? "slideInRight" : "slideInLeft"}`}
               style={{
-                animation: direction === 'next' ? 'slideInRight 0.5s ease-out' : 'slideInLeft 0.5s ease-out'
+                animation:
+                  direction === "next"
+                    ? "slideInRight 0.5s ease-out"
+                    : "slideInLeft 0.5s ease-out",
               }}
             >
               {/* Top Section with Avatar */}
               <div className="flex flex-col md:flex-row items-center md:items-start gap-4 mb-6">
                 {/* Smaller Avatar */}
-                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${reviews[currentReview].color} flex items-center justify-center text-white text-lg font-bold shadow-lg flex-shrink-0 transform hover:rotate-6 transition-transform duration-300`}>
+                <div
+                  className={`w-14 h-14 rounded-xl bg-gradient-to-br ${reviews[currentReview].color} flex items-center justify-center text-white text-lg font-bold shadow-lg flex-shrink-0 transform hover:rotate-6 transition-transform duration-300`}
+                >
                   {reviews[currentReview].initials}
                 </div>
-                
+
                 {/* Client Info */}
                 <div className="text-center md:text-left flex-1">
                   <h4 className="font-bold text-[#F8F9FA] text-lg md:text-xl mb-1">
@@ -146,10 +166,10 @@ function ClientReviews() {
                   {/* Smaller Stars */}
                   <div className="flex justify-center md:justify-start gap-0.5">
                     {[...Array(5)].map((_, i) => (
-                      <FaStar 
-                        key={i} 
-                        className="text-yellow-400 text-sm animate-pulse" 
-                        style={{animationDelay: `${i * 0.1}s`}}
+                      <FaStar
+                        key={i}
+                        className="text-yellow-400 text-sm animate-pulse"
+                        style={{ animationDelay: `${i * 0.1}s` }}
                       />
                     ))}
                   </div>
@@ -166,7 +186,7 @@ function ClientReviews() {
                 <p className="text-[#F8F9FA]/80 text-sm md:text-base leading-relaxed text-center md:text-left italic">
                   "{reviews[currentReview].review}"
                 </p>
-                
+
                 {/* Decorative line */}
                 <div className="absolute -left-3 top-0 bottom-0 w-0.5 bg-[#34B27B] rounded-full hidden md:block"></div>
               </div>
@@ -176,17 +196,15 @@ function ClientReviews() {
             <button
               onClick={prevReview}
               aria-label="Previous review"
-              className="absolute left-0 md:-left-5 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-[#11181C] shadow-lg rounded-full flex items-center justify-center text-[#F8F9FA]/70 hover:text-[#34B27B] hover:scale-110 transition-all duration-300 group border border-[#F8F9FA]/10"
               className="absolute left-0 md:-left-5 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-[#11181C] shadow-lg rounded-full flex items-center justify-center text-[#F8F9FA]/70 hover:text-[#34B27B] hover:scale-110 transition-all duration-300 group border border-[#F8F9FA]/10 disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={isPending}
             >
               <FaChevronLeft className="text-sm group-hover:-translate-x-1 transition-transform duration-300" />
             </button>
-            
+
             <button
               onClick={nextReview}
               aria-label="Next review"
-              className="absolute right-0 md:-right-5 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-[#11181C] shadow-lg rounded-full flex items-center justify-center text-[#F8F9FA]/70 hover:text-[#34B27B] hover:scale-110 transition-all duration-300 group border border-[#F8F9FA]/10"
               className="absolute right-0 md:-right-5 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-[#11181C] shadow-lg rounded-full flex items-center justify-center text-[#F8F9FA]/70 hover:text-[#34B27B] hover:scale-110 transition-all duration-300 group border border-[#F8F9FA]/10 disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={isPending}
             >
@@ -204,8 +222,8 @@ function ClientReviews() {
                 aria-label={`Go to review ${index + 1}`}
                 className={`transition-all duration-300 rounded-full ${
                   index === currentReview
-                  ? 'w-8 h-2 bg-[#34B27B]'
-                  : 'w-2 h-2 bg-[#F8F9FA]/20 hover:bg-[#F8F9FA]/40'
+                    ? "w-8 h-2 bg-[#34B27B]"
+                    : "w-2 h-2 bg-[#F8F9FA]/20 hover:bg-[#F8F9FA]/40"
                 } disabled:opacity-50 disabled:cursor-not-allowed`}
               />
             ))}
@@ -214,7 +232,12 @@ function ClientReviews() {
           {/* Compact Review Counter */}
           <div className="text-center mt-4">
             <p className="text-[#F8F9FA]/70 text-xs font-medium">
-              Review <span className="text-[#34B27B] font-bold">{currentReview + 1}</span> of <span className="text-[#34B27B] font-bold">{reviews.length}</span>
+              Review{" "}
+              <span className="text-[#34B27B] font-bold">
+                {currentReview + 1}
+              </span>{" "}
+              of{" "}
+              <span className="text-[#34B27B] font-bold">{reviews.length}</span>
             </p>
           </div>
         </div>

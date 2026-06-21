@@ -1,5 +1,5 @@
+@import url("https://fonts.cdnfonts.com/css/blanka");
 @import "tailwindcss";
-@import url('https://fonts.cdnfonts.com/css/blanka');
 
 :root {
   /* Modern Color Palette - copied from style.css */
@@ -11,7 +11,7 @@
   --accent-pink: #ec4899;
   --accent-green: #10b981;
   --accent-purple: #8b5cf6;
-  
+
   /* Use only dark palette */
   --dark: #ffffff;
   --dark-light: #1e293b;
@@ -23,7 +23,11 @@
   --gray-light: #64748b;
   --gray-lighter: #334155;
 
- font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -36,8 +40,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-
 
 @keyframes float {
   0% {
@@ -67,7 +69,8 @@
 }
 
 @keyframes blob {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0, 0) scale(1);
   }
   33% {
@@ -139,17 +142,17 @@
   .animate-shimmer {
     animation: none !important;
   }
-  
+
   /* Reduce blur effects on mobile */
   [class*="blur-"] {
     filter: none !important;
   }
-  
+
   [class*="backdrop-blur"] {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
   }
-  
+
   /* Reduce transition duration on mobile for snappier feel */
   * {
     transition-duration: 100ms !important;
@@ -176,5 +179,5 @@
 
 /* Blanka Font Styling */
 .font-blanka {
-  font-family: 'Blanka', sans-serif;
+  font-family: "Blanka", sans-serif;
 }
