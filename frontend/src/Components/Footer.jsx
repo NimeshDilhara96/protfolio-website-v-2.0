@@ -87,9 +87,10 @@ function Footer() {
                 href="https://mommentx.vercel.app/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="font-bold tracking-wide font-blanka text-white text-lg md:text-xl lg:text-2xl hover:text-[#34B27B] transition-colors duration-300"
+                className="group font-bold tracking-wide font-blanka text-lg md:text-xl lg:text-2xl"
               >
-                MommentX
+                <span className="text-white group-hover:text-[#34B27B] transition-colors duration-300">Momment</span>
+                <span className="text-[#ff5722] [text-shadow:0_0_12px_#ff4500,0_0_20px_#ff0000] group-hover:[text-shadow:0_0_15px_#ff4500,0_0_25px_#ff0000] transition-all duration-300">X</span>
               </a>
             </div>
           </div>
