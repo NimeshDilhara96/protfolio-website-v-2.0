@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { FaHeart, FaCode, FaReact, FaSun, FaMoon } from 'react-icons/fa';
+import React, { useState, useEffect } from "react";
+import { FaHeart, FaCode, FaReact, FaSun, FaMoon } from "react-icons/fa";
 
 function Footer() {
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
     // Check for saved theme preference or default to 'dark'
-    const savedTheme = localStorage.getItem('theme') || 'dark';
+    const savedTheme = localStorage.getItem("theme") || "dark";
     setTheme(savedTheme);
-    document.documentElement.setAttribute('data-theme', savedTheme);
+    document.documentElement.setAttribute("data-theme", savedTheme);
   }, []);
 
   const toggleTheme = () => {
-    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    const newTheme = theme === "dark" ? "light" : "dark";
     setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem("theme", newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
   };
 
   return (
@@ -31,16 +31,14 @@ function Footer() {
 
       <div className="relative z-10 container mx-auto px-4 py-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          
           {/* Brand section */}
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
             <div className="text-center md:text-left">
               <h3 className="text-xl md:text-2xl font-bold text-[#F8F9FA] mb-1">
                 Nimesh Dilhara Kulasooriya
               </h3>
-             
             </div>
-            
+
             {/* Year badge */}
             <div className="px-3 py-1 bg-[#34B27B]/20 text-[#34B27B] text-sm font-medium rounded-full border border-[#34B27B]/30">
               © {new Date().getFullYear()}
@@ -57,40 +55,46 @@ function Footer() {
             >
               <div className="relative w-5 h-5">
                 {/* Sun icon for light mode */}
-                <FaSun 
+                <FaSun
                   className={`absolute inset-0 text-[#34B27B] transition-all duration-300 ${
-                    theme === 'light' 
-                      ? 'opacity-100 rotate-0 scale-100' 
-                      : 'opacity-0 rotate-90 scale-50'
+                    theme === "light"
+                      ? "opacity-100 rotate-0 scale-100"
+                      : "opacity-0 rotate-90 scale-50"
                   }`}
                 />
                 {/* Moon icon for dark mode */}
-                <FaMoon 
+                <FaMoon
                   className={`absolute inset-0 text-[#F8F9FA] transition-all duration-300 ${
-                    theme === 'dark' 
-                      ? 'opacity-100 rotate-0 scale-100' 
-                      : 'opacity-0 -rotate-90 scale-50'
+                    theme === "dark"
+                      ? "opacity-100 rotate-0 scale-100"
+                      : "opacity-0 -rotate-90 scale-50"
                   }`}
                 />
               </div>
-              
+
               {/* Tooltip */}
               <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-[#11181C] text-[#F8F9FA] text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap border border-[#F8F9FA]/10">
-                {theme === 'dark' ? 'Light mode' : 'Dark mode'}
+                {theme === "dark" ? "Light mode" : "Dark mode"}
               </span>
             </button>
 
             {/* Powered by section with MommentX logo */}
             <div className="flex items-center gap-3">
-              <span className="text-sm text-[#F8F9FA]/70 font-medium hidden sm:inline">Powered by</span>
-              <a 
-                href="https://mommentx.vercel.app/" 
-                target="_blank" 
+              <span className="text-sm text-[#F8F9FA]/70 font-medium hidden sm:inline">
+                Powered by
+              </span>
+              <a
+                href="https://mommentx.space/"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="group font-bold tracking-wide font-blanka text-lg md:text-xl lg:text-2xl"
               >
-                <span className="text-white group-hover:text-[#34B27B] transition-colors duration-300">Momment</span>
-                <span className="text-[#ff5722] [text-shadow:0_0_12px_#ff4500,0_0_20px_#ff0000] group-hover:[text-shadow:0_0_15px_#ff4500,0_0_25px_#ff0000] transition-all duration-300">X</span>
+                <span className="text-white group-hover:text-[#34B27B] transition-colors duration-300">
+                  Momment
+                </span>
+                <span className="text-[#ff5722] [text-shadow:0_0_12px_#ff4500,0_0_20px_#ff0000] group-hover:[text-shadow:0_0_15px_#ff4500,0_0_25px_#ff0000] transition-all duration-300">
+                  X
+                </span>
               </a>
             </div>
           </div>
@@ -100,21 +104,25 @@ function Footer() {
         <div className="mt-8 pt-6 border-t border-[#F8F9FA]/10">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#F8F9FA]/70">
             <p className="text-center sm:text-left">
-              Full Stack Developer • UI/UX Designer • AI Enthusiast 
+              Full Stack Developer • UI/UX Designer • AI Enthusiast
             </p>
             <div className="flex items-center gap-4">
               <span>v6.0.0-</span>
               <div className="flex items-center gap-1">
                 <div className="w-1 h-1 bg-[#34B27B] rounded-full animate-pulse"></div>
-                <div className="w-1 h-1 bg-[#34B27B]/70 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
-                <div className="w-1 h-1 bg-[#34B27B]/50 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+                <div
+                  className="w-1 h-1 bg-[#34B27B]/70 rounded-full animate-pulse"
+                  style={{ animationDelay: "0.2s" }}
+                ></div>
+                <div
+                  className="w-1 h-1 bg-[#34B27B]/50 rounded-full animate-pulse"
+                  style={{ animationDelay: "0.4s" }}
+                ></div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-     
     </footer>
   );
 }
