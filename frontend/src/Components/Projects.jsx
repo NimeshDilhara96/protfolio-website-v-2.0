@@ -26,8 +26,9 @@ const projects = [
     description:
       "A multi-tenant SaaS ERP system designed to streamline business operations across various industries. It offers modules for inventory management, accounting, HR, and customer relationship management, all accessible through a unified platform.",
     html_url: "https://github.com/NimeshDilhara96/website-tracking-system",
+    live_url: "https://mommentx.space/erp",
     image: erpcover,
-    tags: ["Still Developing"],
+    tags: ["SaaS", "ERP", "Multi-tenant"],
   },
   {
     name: "Nutricare-Meal_Management_System",
@@ -130,22 +131,42 @@ const ProjectCard = React.memo(({ project, idx }) => (
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
 
       {/* Professional Type Badge */}
-      <div className="absolute top-3 left-3">
+      <div className="absolute top-3 left-3 flex items-center gap-2">
         <span className="px-2.5 py-1 bg-[#34B27B]/20 text-[#34B27B] text-xs font-bold rounded-lg shadow-md border border-[#34B27B]/30">
           {project.type}
         </span>
+        {project.live_url && (
+          <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-bold rounded-lg shadow-md border border-emerald-500/40">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            Live
+          </span>
+        )}
       </div>
 
-      {/* External Link Icon */}
-      <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300">
+      {/* External Link Icon — live site preferred, else GitHub */}
+      <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 flex gap-1.5">
+        {project.live_url && (
+          <a
+            href={project.live_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-8 h-8 bg-emerald-500/20 rounded-lg flex items-center justify-center text-emerald-400 hover:bg-emerald-500 hover:text-white transition-all duration-300 shadow-lg border border-emerald-500/30"
+            aria-label="Visit live site"
+          >
+            <FaExternalLinkAlt className="text-xs" />
+          </a>
+        )}
         <a
           href={project.html_url}
           target="_blank"
           rel="noopener noreferrer"
           className="w-8 h-8 bg-[#11181C] rounded-lg flex items-center justify-center text-[#34B27B] hover:bg-[#34B27B] hover:text-white transition-all duration-300 shadow-lg"
-          aria-label="View project"
+          aria-label="View GitHub repository"
         >
-          <FaExternalLinkAlt className="text-xs" />
+          <FaGithub className="text-xs" />
         </a>
       </div>
 
@@ -174,28 +195,41 @@ const ProjectCard = React.memo(({ project, idx }) => (
         {project.description.split("|")[0].trim()}
       </p>
 
-      {/* Professional CTA Button */}
-      <a
-        href={project.html_url}
-        className="group/btn inline-flex items-center gap-2 text-[#34B27B] text-xs font-semibold hover:gap-3 transition-all duration-300"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <span>View Details</span>
-        <svg
-          className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+      {/* CTA Buttons */}
+      <div className="flex items-center gap-3">
+        {project.live_url ? (
+          <a
+            href={project.live_url}
+            className="group/btn inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold rounded-lg hover:bg-emerald-500 hover:text-white hover:border-emerald-500 transition-all duration-300"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaExternalLinkAlt className="text-xs" />
+            <span>Visit Live Site</span>
+          </a>
+        ) : null}
+        <a
+          href={project.html_url}
+          className="group/btn inline-flex items-center gap-2 text-[#34B27B] text-xs font-semibold hover:gap-3 transition-all duration-300"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M17 8l4 4m0 0l-4 4m4-4H3"
-          ></path>
-        </svg>
-      </a>
+          <span>{project.live_url ? "GitHub" : "View Details"}</span>
+          <svg
+            className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M17 8l4 4m0 0l-4 4m4-4H3"
+            ></path>
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
 ));
