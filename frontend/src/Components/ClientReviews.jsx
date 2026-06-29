@@ -35,12 +35,12 @@ function ClientReviews() {
     },
     {
       id: 3,
-      name: "Emily Rodriguez",
-      role: "Marketing Director",
+      name: "Shamal Theekshana",
+      role: "Information System Security Undergraduate",
       rating: 5,
       review:
-        "Nimesh's expertise in both frontend and backend development made our project seamless. The final product was exactly what we envisioned.",
-      initials: "ER",
+        "Working with Nimesh at campus has been a great experience. As a Software Engineer, he has a real knack for breaking down difficult problems and building solid solutions. We collaborated on quite a few projects, and I was always impressed by his proactive approach and how he handles pressure without breaking a sweat. He’s a fantastic teammate and a brilliant developer who brings a lot of value to the table. I highly recommend him!",
+      initials: "ST",
       color: "from-pink-500 to-orange-500",
     },
     {
