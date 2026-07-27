@@ -6,6 +6,7 @@
 
     <!-- 🔥 Performance: Preload critical LCP-candidate image & DNS Prefetch -->
     <link rel="preload" href="/profiletrc.webp" as="image" type="image/webp">
+    <link rel="preload" href="/nimesh-kulasooriya-new.jpg" as="image" type="image/jpeg">
     <link rel="dns-prefetch" href="https://vercel.com">
 
     <!-- 🚀 Critical Path Rendering - inline minimal CSS for initial paint -->
@@ -83,6 +84,10 @@
       property="og:image"
       content="https://nimeshdilhara.vercel.app/nimesh-dilhara-profile.jpg"
     />
+    <meta
+      property="og:image"
+      content="https://nimeshdilhara.vercel.app/nimesh-kulasooriya-new.jpg"
+    />
 
     <meta
       property="og:image:alt"
@@ -113,6 +118,10 @@
       name="twitter:image"
       content="https://nimeshdilhara.vercel.app/nimesh-dilhara-profile.jpg"
     />
+    <meta
+      name="twitter:image"
+      content="https://nimeshdilhara.vercel.app/nimesh-kulasooriya-new.jpg"
+    />
 
     <meta
       name="twitter:image:alt"
@@ -140,14 +149,24 @@
 
       "mainEntityOfPage": "https://nimeshdilhara.vercel.app/",
 
-      "image": {
-        "@type": "ImageObject",
-        "@id": "https://nimeshdilhara.vercel.app/#profile-image",
-        "url": "https://nimeshdilhara.vercel.app/nimesh-dilhara-profile.jpg",
-        "contentUrl": "https://nimeshdilhara.vercel.app/nimesh-dilhara-profile.jpg",
-        "caption": "Nimesh Dilhara Kulasooriya portrait",
-        "representativeOfPage": true
-      },
+      "image": [
+        {
+          "@type": "ImageObject",
+          "@id": "https://nimeshdilhara.vercel.app/#profile-image",
+          "url": "https://nimeshdilhara.vercel.app/nimesh-dilhara-profile.jpg",
+          "contentUrl": "https://nimeshdilhara.vercel.app/nimesh-dilhara-profile.jpg",
+          "caption": "Nimesh Dilhara Kulasooriya portrait",
+          "representativeOfPage": true
+        },
+        {
+          "@type": "ImageObject",
+          "@id": "https://nimeshdilhara.vercel.app/#profile-image-new",
+          "url": "https://nimeshdilhara.vercel.app/nimesh-kulasooriya-new.jpg",
+          "contentUrl": "https://nimeshdilhara.vercel.app/nimesh-kulasooriya-new.jpg",
+          "caption": "Nimesh Dilhara Kulasooriya new portrait",
+          "representativeOfPage": false
+        }
+      ],
 
       "jobTitle": "Freelance Full-Stack Developer",
 

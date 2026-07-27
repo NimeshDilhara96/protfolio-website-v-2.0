@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import profilePhoto from '../assets/profiletrc.webp';
+import React, { useEffect, useRef, useState } from "react";
+import profilePhoto from "../assets/nimesh_dilhara_Kulasooriya_profe.jpeg";
 
 const lines = [
   "Freelance Full-Stack Developer",
@@ -10,7 +10,7 @@ const lines = [
   "Available for International Projects 🌍",
   "Frontend & Backend Specialist 💻",
   "From Sri Lanka 🇱🇰",
-  "MommentX"
+  "MommentX",
 ];
 
 // Memoized Typewriter component - isolates high-frequency re-renders
@@ -51,13 +51,22 @@ const Typewriter = React.memo(({ isMobile }) => {
 
   const cursorClass = isMobile ? "w-[2px] h-5" : "w-[3px] h-7";
   const cursorAnimationClass = isMobile ? "" : "animate-pulse";
-  const textClass = isMobile ? "text-lg sm:text-xl min-h-[28px]" : "text-2xl xl:text-3xl min-h-[40px] xl:min-h-[48px]";
-  const alignmentClass = isMobile ? "justify-center text-center" : "justify-start text-left";
+  const textClass = isMobile
+    ? "text-lg sm:text-xl min-h-[28px]"
+    : "text-2xl xl:text-3xl min-h-[40px] xl:min-h-[48px]";
+  const alignmentClass = isMobile
+    ? "justify-center text-center"
+    : "justify-start text-left";
 
   return (
-    <div className={`${textClass} ${alignmentClass} font-medium mb-4 lg:mb-6 text-[#34B27B] flex items-center`}>
+    <div
+      className={`${textClass} ${alignmentClass} font-medium mb-4 lg:mb-6 text-[#34B27B] flex items-center`}
+    >
       <span>{display}</span>
-      <span className={`${cursorClass} ${cursorAnimationClass} bg-[#34B27B] ml-1`} aria-hidden="true"></span>
+      <span
+        className={`${cursorClass} ${cursorAnimationClass} bg-[#34B27B] ml-1`}
+        aria-hidden="true"
+      ></span>
     </div>
   );
 });
@@ -78,45 +87,88 @@ const OpenToWorkBadge = () => (
 );
 
 const GithubIcon = ({ size }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    aria-hidden="true"
+  >
     <path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48 0-.24-.01-.87-.01-1.71-2.78.6-3.37-1.19-3.37-1.19-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.61.07-.61 1 .07 1.54 1.03 1.54 1.03.9 1.53 2.35 1.09 2.92.84.09-.65.35-1.09.64-1.34-2.22-.25-4.56-1.11-4.56-4.95 0-1.1.39-2 1.03-2.71-.1-.25-.45-1.28.1-2.66 0 0 .84-.27 2.75 1.03A9.58 9.58 0 0 1 12 6.8c.85 0 1.7.11 2.5.34 1.9-1.3 2.74-1.03 2.74-1.03.55 1.38.2 2.41.1 2.66.64.7 1.02 1.6 1.02 2.71 0 3.85-2.35 4.7-4.59 4.95.36.31.69.92.69 1.86 0 1.34-.01 2.42-.01 2.75 0 .27.18.58.67.48A10 10 0 0 0 22 12c0-5.52-4.48-10-10-10Z" />
   </svg>
 );
 
 const LinkedinIcon = ({ size }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    aria-hidden="true"
+  >
     <path d="M6.94 8.5H3.56V20h3.38V8.5Zm.24-3.55A1.95 1.95 0 0 0 5.2 3a1.95 1.95 0 0 0 0 3.9c1.08 0 1.96-.87 1.98-1.95Zm4.11 3.55H8V20h3.37v-6.03c0-1.59.3-3.13 2.28-3.13 1.95 0 1.98 1.82 1.98 3.23V20H19v-6.62c0-3.25-.7-5.75-4.5-5.75-1.82 0-3.04 1-3.54 1.95h-.05V8.5Z" />
   </svg>
 );
 
 const InstagramIcon = ({ size }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    aria-hidden="true"
+  >
     <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm8.5 1.8h-8.5A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95Zm-4.25 2.95A5.25 5.25 0 1 1 6.75 12 5.25 5.25 0 0 1 12 6.75Zm0 1.8A3.45 3.45 0 1 0 15.45 12 3.45 3.45 0 0 0 12 8.55Zm5.6-2.2a1.2 1.2 0 1 1-1.2 1.2 1.2 1.2 0 0 1 1.2-1.2Z" />
   </svg>
 );
 
 const TwitterIcon = ({ size }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    aria-hidden="true"
+  >
     <path d="M18.9 2H22l-6.77 7.74L23 22h-6.1l-4.78-6.25L6.66 22H3.55l7.24-8.27L1 2h6.24l4.32 5.72L18.9 2Zm-1.07 18.17h1.69L6.33 3.74H4.52l13.31 16.43Z" />
   </svg>
 );
 
 const FacebookIcon = ({ size }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    aria-hidden="true"
+  >
     <path d="M13.5 22v-8h2.7l.4-3H13.5V9.2c0-.87.24-1.47 1.5-1.47h1.6V5.05A21.1 21.1 0 0 0 14.27 5c-2.3 0-3.87 1.4-3.87 3.98V11H7.8v3h2.6v8h3.1Z" />
   </svg>
 );
 
 const UpworkIcon = ({ size, className }) => (
-  <svg width={size} height={size} className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+  <svg
+    width={size}
+    height={size}
+    className={className}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    aria-hidden="true"
+  >
     <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z" />
   </svg>
 );
 
-
 // Tech Stack Badges Component
 const TechStackBadges = () => {
-  const techStack = ["React", "Node.js", "MERN", "MongoDB", "AI Integration", "JavaScript"];
+  const techStack = [
+    "React",
+    "Node.js",
+    "MERN",
+    "MongoDB",
+    "AI Integration",
+    "JavaScript",
+  ];
 
   return (
     <div className="mt-6 md:mt-8">
@@ -138,20 +190,42 @@ const TechStackBadges = () => {
 };
 
 // Social Links Component
-const SocialLinks = ({ size = 'default' }) => {
-  const iconSize = size === 'large' ? 20 : 16;
-  const containerSize = size === 'large' ? 'w-12 h-12' : 'w-9 h-9';
+const SocialLinks = ({ size = "default" }) => {
+  const iconSize = size === "large" ? 20 : 16;
+  const containerSize = size === "large" ? "w-12 h-12" : "w-9 h-9";
 
   const socialLinks = [
-    { href: "https://github.com/nimeshdilhara96", icon: GithubIcon, label: "Nimesh Dilhara GitHub Profile" },
-    { href: "https://linkedin.com/in/nimeshdilhara", icon: LinkedinIcon, label: "Nimesh Dilhara LinkedIn Profile" },
-    { href: "https://instagram.com/nimeshdilhara_", icon: InstagramIcon, label: "Nimesh Dilhara Instagram Profile" },
-    { href: "https://twitter.com/nimeshdilhara8", icon: TwitterIcon, label: "Nimesh Dilhara Twitter Profile" },
-    { href: "https://facebook.com/nimesh.dilhara.96", icon: FacebookIcon, label: "Nimesh Dilhara Facebook Profile" }
+    {
+      href: "https://github.com/nimeshdilhara96",
+      icon: GithubIcon,
+      label: "Nimesh Dilhara GitHub Profile",
+    },
+    {
+      href: "https://linkedin.com/in/nimeshdilhara",
+      icon: LinkedinIcon,
+      label: "Nimesh Dilhara LinkedIn Profile",
+    },
+    {
+      href: "https://instagram.com/nimeshdilhara_",
+      icon: InstagramIcon,
+      label: "Nimesh Dilhara Instagram Profile",
+    },
+    {
+      href: "https://twitter.com/nimeshdilhara8",
+      icon: TwitterIcon,
+      label: "Nimesh Dilhara Twitter Profile",
+    },
+    {
+      href: "https://facebook.com/nimesh.dilhara.96",
+      icon: FacebookIcon,
+      label: "Nimesh Dilhara Facebook Profile",
+    },
   ];
 
   return (
-    <div className={`flex items-center ${size === 'large' ? 'gap-4' : 'gap-3'}`}>
+    <div
+      className={`flex items-center ${size === "large" ? "gap-4" : "gap-3"}`}
+    >
       {socialLinks.map((social) => (
         <a
           key={social.label}
@@ -159,7 +233,7 @@ const SocialLinks = ({ size = 'default' }) => {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={social.label}
-          className={`${containerSize} flex items-center justify-center rounded-full bg-[#11181C] text-[#F8F9FA]/70 hover:bg-[#34B27B] hover:text-white transition-all duration-300 md:backdrop-blur-sm ${size === 'large' ? 'hover:scale-110' : ''}`}
+          className={`${containerSize} flex items-center justify-center rounded-full bg-[#11181C] text-[#F8F9FA]/70 hover:bg-[#34B27B] hover:text-white transition-all duration-300 md:backdrop-blur-sm ${size === "large" ? "hover:scale-110" : ""}`}
         >
           <social.icon size={iconSize} />
         </a>
@@ -169,12 +243,15 @@ const SocialLinks = ({ size = 'default' }) => {
 };
 
 function Home() {
-
   // Fixed CV link - use the same one for both mobile and desktop
-  const CV_LINK = "https://drive.google.com/file/d/1vv68wCDcY4ggOY3uy3AnyURXQtdYofW4/view?usp=drive_link";
+  const CV_LINK =
+    "https://drive.google.com/file/d/1vv68wCDcY4ggOY3uy3AnyURXQtdYofW4/view?usp=drive_link";
 
   return (
-    <div id="home" className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-[#11181C] via-[#11181C] to-black pt-20 md:pt-16">
+    <div
+      id="home"
+      className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-[#11181C] via-[#11181C] to-black pt-20 md:pt-16"
+    >
       {/* Modern Professional Background - Dark Theme */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         {/* Rich dark gradient base */}
@@ -189,19 +266,26 @@ function Home() {
         <div className="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[200px] sm:w-[350px] h-[200px] sm:h-[350px] rounded-full bg-[#34B27B]/10 blur-3xl animate-blob animation-delay-6000"></div>
 
         {/* Subtle geometric pattern */}
-        <div className="hidden sm:block absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: `
+        <div
+          className="hidden sm:block absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `
             linear-gradient(to right, #34B27B 1px, transparent 1px),
             linear-gradient(to bottom, #34B27B 1px, transparent 1px)
           `,
-          backgroundSize: '80px 80px'
-        }}></div>
+            backgroundSize: "80px 80px",
+          }}
+        ></div>
 
         {/* Modern dots pattern */}
-        <div className="hidden md:block absolute inset-0 opacity-[0.04]" style={{
-          backgroundImage: 'radial-gradient(circle, #34B27B 1px, transparent 1px)',
-          backgroundSize: '40px 40px'
-        }}></div>
+        <div
+          className="hidden md:block absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, #34B27B 1px, transparent 1px)",
+            backgroundSize: "40px 40px",
+          }}
+        ></div>
 
         {/* Dark gradient overlay */}
         <div className="hidden md:block absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-transparent via-[#11181C]/20 to-transparent"></div>
@@ -266,14 +350,19 @@ function Home() {
               Nimesh Dilhara Kulasooriya
             </h1>
             <p className="sr-only">
-              Nimesh Dilhara Kulasooriya is a freelance full-stack developer from Sri Lanka specializing in React, Node.js, MERN stack, AI integration, frontend development, backend development, and scalable web applications for international clients.
+              Nimesh Dilhara Kulasooriya is a freelance full-stack developer
+              from Sri Lanka specializing in React, Node.js, MERN stack, AI
+              integration, frontend development, backend development, and
+              scalable web applications for international clients.
             </p>
 
             {/* Fixed typing animation height */}
             <Typewriter isMobile={true} />
 
             <p className="text-[#F8F9FA]/70 text-base sm:text-lg mb-6 leading-relaxed">
-              I help startups, businesses, and international clients build fast, scalable, and modern web applications using React, Node.js, MERN stack, and AI-powered solutions.
+              I help startups, businesses, and international clients build fast,
+              scalable, and modern web applications using React, Node.js, MERN
+              stack, and AI-powered solutions.
             </p>
 
             {/* Action buttons */}
@@ -286,8 +375,19 @@ function Home() {
                 className="w-full sm:w-auto px-6 py-3 bg-[#34B27B] text-white text-sm rounded-xl font-medium shadow-lg shadow-[#34B27B]/20 hover:translate-y-[-2px] hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 group"
               >
                 <span>Download CV</span>
-                <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                <svg
+                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                  ></path>
                 </svg>
               </a>
               <a
@@ -322,7 +422,9 @@ function Home() {
             <Typewriter isMobile={false} />
 
             <p className="text-[#F8F9FA]/70 text-xl mb-8 max-w-xl leading-relaxed">
-              I help startups, businesses, and international clients build fast, scalable, and modern web applications using React, Node.js, MERN stack, and AI-powered solutions.
+              I help startups, businesses, and international clients build fast,
+              scalable, and modern web applications using React, Node.js, MERN
+              stack, and AI-powered solutions.
             </p>
 
             <div className="flex items-center gap-5 mb-10">
@@ -334,8 +436,19 @@ function Home() {
                 className="px-8 py-4 bg-[#34B27B] text-white text-base rounded-xl font-medium shadow-lg shadow-[#34B27B]/20 hover:translate-y-[-3px] hover:shadow-xl hover:bg-[#34B27B]/90 transition-all duration-300 flex items-center gap-3 relative overflow-hidden group"
               >
                 <span className="relative z-10">Download CV</span>
-                <svg className="w-5 h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                <svg
+                  className="w-5 h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                  ></path>
                 </svg>
               </a>
               <a
@@ -378,7 +491,10 @@ function Home() {
                 />
 
                 {/* Shine effect */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500" style={{ transform: 'rotate(45deg)' }}></div>
+                <div
+                  className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500"
+                  style={{ transform: "rotate(45deg)" }}
+                ></div>
 
                 {/* Open to Work Badge on Ring - Replaced with Upwork */}
                 <div className="absolute bottom-2 right-2 z-20">
