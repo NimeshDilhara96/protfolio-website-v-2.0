@@ -1,23 +1,60 @@
 import React from "react";
-import { FaCode, FaBrain, FaPaintBrush, FaUsers, FaGraduationCap, FaLaptopCode, FaAward, FaRocket } from 'react-icons/fa';
-import aboutPhoto from '../assets/about.webp';
+import {
+  FaCode,
+  FaBrain,
+  FaPaintBrush,
+  FaUsers,
+  FaGraduationCap,
+  FaLaptopCode,
+  FaAward,
+  FaRocket,
+} from "react-icons/fa";
+import aboutPhoto from "../assets/about_n.webp";
 
 function About() {
   const skills = [
-    { icon: <FaLaptopCode />, label: "Full-Stack Development", description: "Modern web applications" },
-    { icon: <FaBrain />, label: "AI Enthusiast", description: "ML & data science" },
-    { icon: <FaCode />, label: "React,Next.js,Node.js & .NET", description: "Technologies Mastered" },
-    { icon: <FaUsers />, label: "UI/UX Design", description: "User-centered design" },
+    {
+      icon: <FaLaptopCode />,
+      label: "Full-Stack Development",
+      description: "Modern web applications",
+    },
+    {
+      icon: <FaBrain />,
+      label: "AI Enthusiast",
+      description: "ML & data science",
+    },
+    {
+      icon: <FaCode />,
+      label: "React,Next.js,Node.js & .NET",
+      description: "Technologies Mastered",
+    },
+    {
+      icon: <FaUsers />,
+      label: "UI/UX Design",
+      description: "User-centered design",
+    },
   ];
 
   const highlights = [
-    { icon: <FaGraduationCap />, title: "Education", value: "Bachelor of Information Technology (Hons.) in Software Engineering" },
-    { icon: <FaAward />, title: "Experience", value: "2+ Years Learning & Building" },
+    {
+      icon: <FaGraduationCap />,
+      title: "Education",
+      value:
+        "Bachelor of Information Technology (Hons.) in Software Engineering",
+    },
+    {
+      icon: <FaAward />,
+      title: "Experience",
+      value: "2+ Years Learning & Building",
+    },
     { icon: <FaRocket />, title: "Projects", value: "10+ Completed Projects" },
   ];
 
   return (
-    <section id="about" className="py-20 md:py-28 bg-gradient-to-br from-[#11181C] via-[#11181C] to-black relative overflow-hidden">
+    <section
+      id="about"
+      className="py-20 md:py-28 bg-gradient-to-br from-[#11181C] via-[#11181C] to-black relative overflow-hidden"
+    >
       {/* Simplified background - blur disabled on mobile for better FCP */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-tr from-[#11181C] via-black to-[#11181C] opacity-80"></div>
@@ -34,14 +71,14 @@ function About() {
             About Me
           </h2>
           <p className="text-[#F8F9FA]/80 text-lg max-w-2xl mx-auto mb-4">
-            Passionate software engineer dedicated to building innovative solutions
+            Passionate software engineer dedicated to building innovative
+            solutions
           </p>
           <div className="w-20 h-1 bg-[#34B27B] mx-auto rounded-full"></div>
         </div>
 
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
-            
             {/* Profile Image - Left Column (2/5) */}
             <div className="lg:col-span-2 flex flex-col items-center lg:items-start">
               <div className="relative mb-8">
@@ -70,8 +107,12 @@ function About() {
                         {item.icon}
                       </div>
                       <div>
-                        <div className="text-sm text-[#F8F9FA]/70 font-medium">{item.title}</div>
-                        <div className="text-[#F8F9FA] font-semibold">{item.value}</div>
+                        <div className="text-sm text-[#F8F9FA]/70 font-medium">
+                          {item.title}
+                        </div>
+                        <div className="text-[#F8F9FA] font-semibold">
+                          {item.value}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -86,31 +127,50 @@ function About() {
                 <h3 className="text-2xl md:text-3xl font-bold text-[#F8F9FA] mb-6">
                   Nimesh Dilhara Kulasooriya
                 </h3>
-                
+
                 <div className="space-y-4 text-[#F8F9FA]/80 leading-relaxed text-base">
                   <p>
-                    As a <span className="font-semibold text-[#34B27B]">BSc (Hons) Software Engineering</span> undergraduate, 
-                    I am dedicated to crafting innovative digital solutions that bridge technology and user needs. 
-                    My approach combines technical excellence with creative problem-solving.
+                    As a{" "}
+                    <span className="font-semibold text-[#34B27B]">
+                      BSc (Hons) Software Engineering
+                    </span>{" "}
+                    undergraduate, I am dedicated to crafting innovative digital
+                    solutions that bridge technology and user needs. My approach
+                    combines technical excellence with creative problem-solving.
                   </p>
-                  
+
                   <p>
-                    Specializing in <span className="font-semibold text-[#34B27B]">full-stack web development</span>, 
-                    <span className="font-semibold text-[#34B27B]"> artificial intelligence</span>, and 
-                    <span className="font-semibold text-[#34B27B]"> user experience design</span>, I create 
-                    applications that deliver both functionality and exceptional user experiences.
+                    Specializing in{" "}
+                    <span className="font-semibold text-[#34B27B]">
+                      full-stack web development
+                    </span>
+                    ,
+                    <span className="font-semibold text-[#34B27B]">
+                      {" "}
+                      artificial intelligence
+                    </span>
+                    , and
+                    <span className="font-semibold text-[#34B27B]">
+                      {" "}
+                      user experience design
+                    </span>
+                    , I create applications that deliver both functionality and
+                    exceptional user experiences.
                   </p>
-                  
+
                   <p>
-                    I am committed to continuous learning, staying current with emerging technologies, and 
-                    delivering scalable, efficient solutions that make a meaningful impact.
+                    I am committed to continuous learning, staying current with
+                    emerging technologies, and delivering scalable, efficient
+                    solutions that make a meaningful impact.
                   </p>
                 </div>
               </div>
 
               {/* Skills Grid */}
               <div className="space-y-5">
-                <h4 className="text-xl font-bold text-[#F8F9FA]">Core Competencies</h4>
+                <h4 className="text-xl font-bold text-[#F8F9FA]">
+                  Core Competencies
+                </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {skills.map((skill, idx) => (
                     <div
@@ -139,16 +199,28 @@ function About() {
               <div className="bg-[#34B27B]/10 p-8 rounded-2xl border border-[#F8F9FA]/10 md:backdrop-blur-sm md:bg-[#34B27B]/5">
                 <div className="grid grid-cols-3 gap-6">
                   <div className="text-center">
-                    <div className="text-3xl md:text-4xl font-bold text-[#34B27B] mb-2">10+</div>
-                    <div className="text-sm text-[#F8F9FA]/70 font-medium">Projects Completed</div>
+                    <div className="text-3xl md:text-4xl font-bold text-[#34B27B] mb-2">
+                      10+
+                    </div>
+                    <div className="text-sm text-[#F8F9FA]/70 font-medium">
+                      Projects Completed
+                    </div>
                   </div>
                   <div className="text-center border-x border-[#F8F9FA]/20">
-                    <div className="text-3xl md:text-4xl font-bold text-[#34B27B] mb-2">5+</div>
-                    <div className="text-sm text-[#F8F9FA]/70 font-medium">Technologies Mastered</div>
+                    <div className="text-3xl md:text-4xl font-bold text-[#34B27B] mb-2">
+                      5+
+                    </div>
+                    <div className="text-sm text-[#F8F9FA]/70 font-medium">
+                      Technologies Mastered
+                    </div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl md:text-4xl font-bold text-[#34B27B] mb-2">100%</div>
-                    <div className="text-sm text-[#F8F9FA]/70 font-medium">Commitment</div>
+                    <div className="text-3xl md:text-4xl font-bold text-[#34B27B] mb-2">
+                      100%
+                    </div>
+                    <div className="text-sm text-[#F8F9FA]/70 font-medium">
+                      Commitment
+                    </div>
                   </div>
                 </div>
               </div>

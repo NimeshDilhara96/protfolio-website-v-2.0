@@ -1,8 +1,11 @@
-import React from 'react';
+import React from "react";
 
 function Education() {
   return (
-    <section id="education" className="py-20 bg-gradient-to-b from-[#11181C] to-black relative overflow-hidden">
+    <section
+      id="education"
+      className="py-20 bg-gradient-to-b from-[#11181C] to-black relative overflow-hidden"
+    >
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-10 left-10 w-32 h-32 bg-[#34B27B]/10 rounded-full blur-xl"></div>
@@ -17,7 +20,8 @@ function Education() {
           </h2>
           <div className="w-20 h-1 bg-[#34B27B] mx-auto rounded-full"></div>
           <p className="text-[#F8F9FA]/80 text-lg mt-6 max-w-2xl mx-auto">
-            My academic journey and qualifications that shaped my technical expertise
+            My academic journey and qualifications that shaped my technical
+            expertise
           </p>
         </div>
 
@@ -37,20 +41,31 @@ function Education() {
                   />
                 </div>
               </div>
-              
+
               {/* Education Details */}
               <div className="flex-1">
                 <h3 className="text-2xl font-bold text-[#F8F9FA] mb-2 group-hover:text-[#34B27B] transition-colors duration-300">
                   ESU Colombo
                 </h3>
                 <div className="text-lg font-semibold text-[#F8F9FA]/70 mb-3">
-                 Bachelor of Information Technology (Hons.) in Software Engineering
+                  Bachelor of Information Technology (Hons.) in Software
+                  Engineering
                 </div>
                 <div className="flex items-center gap-2 text-[#34B27B] font-medium">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    ></path>
                   </svg>
-                  <span>Oct 2022 - Dec 2026</span>
+                  <span>Oct 2022 - sep 2026</span>
                 </div>
               </div>
 
@@ -77,7 +92,7 @@ function Education() {
                   />
                 </div>
               </div>
-              
+
               {/* Education Details */}
               <div className="flex-1">
                 <h3 className="text-2xl font-bold text-[#F8F9FA] mb-2 group-hover:text-[#34B27B] transition-colors duration-300">
@@ -87,8 +102,18 @@ function Education() {
                   Advanced Level, Technology
                 </div>
                 <div className="flex items-center gap-2 text-[#34B27B] font-medium">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    ></path>
                   </svg>
                   <span>2018 - 2020</span>
                 </div>
@@ -108,8 +133,14 @@ function Education() {
         <div className="flex justify-center mt-16">
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-[#34B27B] rounded-full animate-pulse"></div>
-            <div className="w-2 h-2 bg-[#34B27B]/70 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
-            <div className="w-2 h-2 bg-[#34B27B]/50 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+            <div
+              className="w-2 h-2 bg-[#34B27B]/70 rounded-full animate-pulse"
+              style={{ animationDelay: "0.2s" }}
+            ></div>
+            <div
+              className="w-2 h-2 bg-[#34B27B]/50 rounded-full animate-pulse"
+              style={{ animationDelay: "0.4s" }}
+            ></div>
           </div>
         </div>
       </div>
