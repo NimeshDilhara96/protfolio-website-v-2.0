@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { FaCode, FaPalette, FaCog, FaRocket, FaSearch } from 'react-icons/fa';
 
 const WhatIOffer = () => {
@@ -31,6 +32,11 @@ const WhatIOffer = () => {
 
   return (
     <section id="what-i-offer" className="min-h-screen bg-gradient-to-br from-[#11181C] via-black to-[#11181C] py-20 px-6">
+      <Helmet>
+        <title>What I Offer | Nimesh Dilhara Kulasooriya</title>
+        <meta name="description" content="Web development, UI/UX design, custom software, SEO & AI integration services by Nimesh Dilhara. React, Node.js, MERN stack expert for hire." />
+        <link rel="canonical" href="https://nimeshdilhara.vercel.app/what-i-offer" />
+      </Helmet>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">

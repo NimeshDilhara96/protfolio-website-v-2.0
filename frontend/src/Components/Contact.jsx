@@ -1,9 +1,15 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { FaGithub, FaLinkedin, FaInstagram, FaTwitter, FaFacebook, FaEnvelope, FaPaperPlane } from 'react-icons/fa';
 
 function Contact() {
   return (
     <section id="contact" className="py-20 bg-gradient-to-br from-[#11181C] to-black relative overflow-hidden">
+      <Helmet>
+        <title>Contact Nimesh Dilhara | Hire a Freelance Full-Stack Developer</title>
+        <meta name="description" content="Get in touch with Nimesh Dilhara Kulasooriya. Available for freelance React, Node.js & MERN stack projects worldwide. Let's build something great together." />
+        <link rel="canonical" href="https://nimeshdilhara.vercel.app/contact" />
+      </Helmet>
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-10 left-10 w-40 h-40 bg-[#34B27B]/10 rounded-full blur-3xl animate-pulse"></div>

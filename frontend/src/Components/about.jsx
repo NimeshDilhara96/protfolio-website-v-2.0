@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import {
   FaCode,
   FaBrain,
@@ -55,6 +56,11 @@ function About() {
       id="about"
       className="py-20 md:py-28 bg-gradient-to-br from-[#11181C] via-[#11181C] to-black relative overflow-hidden"
     >
+      <Helmet>
+        <title>About Nimesh Dilhara Kulasooriya | Full-Stack Developer Sri Lanka</title>
+        <meta name="description" content="Learn about Nimesh Dilhara Kulasooriya — software engineering undergraduate, full-stack developer from Sri Lanka specializing in React, Node.js & AI integration." />
+        <link rel="canonical" href="https://nimeshdilhara.vercel.app/about" />
+      </Helmet>
       {/* Simplified background - blur disabled on mobile for better FCP */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-tr from-[#11181C] via-black to-[#11181C] opacity-80"></div>

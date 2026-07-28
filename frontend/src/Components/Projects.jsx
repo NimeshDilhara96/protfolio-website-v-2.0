@@ -1,4 +1,5 @@
 import React, { useState, useTransition, useCallback, useMemo } from "react";
+import { Helmet } from "react-helmet-async";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import nextgenCover from "../assets/nextgensport club project cover.webp";
 import nutricoreCover from "../assets/Nutricare cover.webp";
@@ -278,6 +279,11 @@ function Projects() {
       id="projects"
       className="py-12 md:py-16 bg-gradient-to-b from-black to-[#11181C] relative overflow-hidden"
     >
+      <Helmet>
+        <title>Projects | Nimesh Dilhara Kulasooriya — Full-Stack Developer</title>
+        <meta name="description" content="Explore React, MERN stack & AI-powered projects by Nimesh Dilhara. Includes Nutricare, NextGen Sports Club, UCare and more full-stack web applications." />
+        <link rel="canonical" href="https://nimeshdilhara.vercel.app/projects" />
+      </Helmet>
       {/* Subtle background decoration */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 right-10 w-96 h-96 bg-[#34B27B]/5 rounded-full blur-3xl"></div>
