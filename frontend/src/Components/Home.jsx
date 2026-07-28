@@ -414,9 +414,9 @@ function Home() {
               <WelcomeBadge />
             </div>
 
-            <h1 className="text-5xl xl:text-6xl font-bold mb-4 text-[#F8F9FA] tracking-tight">
+            <h2 className="text-5xl xl:text-6xl font-bold mb-4 text-[#F8F9FA] tracking-tight">
               Nimesh Dilhara Kulasooriya
-            </h1>
+            </h2>
 
             {/* Fixed typing animation height */}
             <Typewriter isMobile={false} />
