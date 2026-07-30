@@ -36,14 +36,6 @@ export default function ProjectsPreview() {
               Showcasing my top projects, including enterprise-grade SaaS platforms, AI-integrated solutions, and robust full-stack applications.
             </p>
           </div>
-          
-          <Link
-            to="/projects"
-            className="hidden md:inline-flex items-center gap-3 px-6 py-3 bg-[#11181C] border border-[#34B27B]/30 text-white font-medium rounded-xl hover:bg-[#34B27B] hover:border-[#34B27B] transition-all duration-300 group hover:shadow-[0_0_20px_rgb(52,178,123,0.3)]"
-          >
-            <span>View Complete Portfolio</span>
-            <FaArrowRight className="group-hover:translate-x-1 transition-transform text-[#34B27B] group-hover:text-white" />
-          </Link>
         </div>
 
         {/* Top Projects Grid */}
@@ -141,14 +133,14 @@ export default function ProjectsPreview() {
           ))}
         </div>
 
-        {/* Mobile View All Button */}
-        <div className="mt-12 text-center md:hidden">
+        {/* View Complete Portfolio Button */}
+        <div className="mt-14 flex justify-center">
           <Link
             to="/projects"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-[#34B27B] text-white font-semibold rounded-xl hover:shadow-[0_0_20px_rgb(52,178,123,0.4)] transition-all duration-300 w-full justify-center"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-[#11181C] border border-[#34B27B]/30 text-white font-medium rounded-xl hover:bg-[#34B27B] hover:border-[#34B27B] transition-all duration-300 group hover:shadow-[0_0_20px_rgb(52,178,123,0.3)] w-full sm:w-auto justify-center"
           >
             <span>View Complete Portfolio</span>
-            <FaArrowRight />
+            <FaArrowRight className="group-hover:translate-x-1 transition-transform text-[#34B27B] group-hover:text-white" />
           </Link>
         </div>
       </div>
