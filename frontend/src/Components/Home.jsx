@@ -245,7 +245,7 @@ const SocialLinks = ({ size = "default" }) => {
 function Home() {
   // Fixed CV link - use the same one for both mobile and desktop
   const CV_LINK =
-    "https://drive.google.com/file/d/1vv68wCDcY4ggOY3uy3AnyURXQtdYofW4/view?usp=drive_link";
+    "https://drive.google.com/file/d/1GYmuy_2CMK9ZsAU3Dpf1A65O9hweZ_m-/view?usp=sharing";
 
   return (
     <div
