@@ -7,11 +7,10 @@ import ucareCover from "../assets/ucare project cover.webp";
 import aiPromptCover from "../assets/Ai_Promptgallery.webp";
 import nutricaremobilecover from "../assets/nutricaremobilecover.webp";
 import personalprotfoliyo from "../assets/personalprotfoliyo.webp";
-import hotelcover from "../assets/hotelcover.webp";
 import erpcover from "../assets/erp.webp";
 
 // Add a "type" property for filtering
-const projects = [
+export const projects = [
   {
     name: "NextGen-Sport-Club-Management-System",
     type: "Web App",
@@ -22,7 +21,7 @@ const projects = [
     tags: ["React", "Node.js", "MongoDB", "AI", "MERN"],
   },
   {
-    name: "Multi-tenant SaaS Erp System",
+    name: "Multi-Tenant SaaS Erp System",
     type: "Web App",
     description:
       "A multi-tenant SaaS ERP system designed to streamline business operations across various industries. It offers modules for inventory management, accounting, HR, and customer relationship management, all accessible through a unified platform.",
@@ -30,25 +29,6 @@ const projects = [
     live_url: "https://mommentx.space/erp",
     image: erpcover,
     tags: ["SaaS", "ERP", "Multi-tenant"],
-  },
-  {
-    name: "hrm-system",
-    type: "Web App",
-    description:
-      "A comprehensive Human Resource Management (HRM) system designed to streamline HR processes, including employee management, payroll, attendance tracking, and performance evaluation.",
-    html_url: "https://github.com/NimeshDilhara96/hrm-system",
-    image: null,
-    tags: ["HRM", "Web App", "Employee Management"],
-  },
-  {
-    name: "Nutricare-Meal_Management_System",
-    type: "Web App",
-    description:
-      "Nutricare is a personalized meal planning and health management system designed to cater to individual dietary needs and health conditions. It empowers users to lead healthier lifestyles with customized meal plans, health insights, and expert consultations.",
-    html_url:
-      "https://github.com/NimeshDilhara96/Nutricare-Meal_Management_System",
-    image: nutricoreCover,
-    tags: ["PHP", "Health", "API"],
   },
   {
     name: "U-CARE Hospital Consultation Mobile UI Design",
@@ -61,21 +41,40 @@ const projects = [
     tags: ["Figma", "UI/UX", "Mobile"],
   },
   {
-    name: "Ai Promt Gallery",
+    name: "AI Prompt Gallery",
     type: "Web App",
     description:
-      "Live Demo: https://mometec.codes/Ai-Prompt-Gallery/  |  A web application that allows users to explore, create, and share AI-generated prompts for various applications, fostering creativity and collaboration in the AI community.",
-    html_url: "https://www.mometec.codes",
+      "A web application that allows users to explore, create, and share AI-generated prompts for various applications, fostering creativity and collaboration in the AI community.",
+    html_url: "https://github.com/NimeshDilhara96/Ai-Prompt-Gallery",
+    live_url: "https://mometec.codes/Ai-Prompt-Gallery/",
     image: aiPromptCover,
     tags: ["AI", "React", "Community"],
+  },
+  {
+    name: "Nutricare-Meal_Management_System",
+    type: "Web App",
+    description:
+      "Nutricare is a personalized meal planning and health management system designed to cater to individual dietary needs and health conditions. It empowers users to lead healthier lifestyles with customized meal plans, health insights, and expert consultations.",
+    html_url:
+      "https://github.com/NimeshDilhara96/Nutricare-Meal_Management_System",
+    image: nutricoreCover,
+    tags: ["PHP", "Health", "API"],
+  },
+  {
+    name: "Hrm-system",
+    type: "Web App",
+    description:
+      "A comprehensive Human Resource Management (HRM) system designed to streamline HR processes, including employee management, payroll, attendance tracking, and performance evaluation.",
+    html_url: "https://github.com/NimeshDilhara96/hrm-system",
+    image: null,
+    tags: ["HRM", "Web App", "Employee Management", "Nextjs", "Typescript"],
   },
   {
     name: "Nutricare Mobile Application UI Design",
     type: "UI/UX",
     description:
       "A sleek and intuitive mobile application UI design for Nutricare, focused on personalized meal management and health tracking. Explore the full design project on Behance.",
-    html_url:
-      "https://www.behance.net/gallery/219353335/Nutricare-Mobile-Application-UI-Design",
+    html_url: "#",
     image: nutricaremobilecover,
     tags: ["Figma", "UI/UX", "Mobile"],
   },
@@ -88,157 +87,108 @@ const projects = [
     image: personalprotfoliyo,
     tags: ["React", "Tailwind CSS", "Portfolio"],
   },
-  {
-    name: "Hotel landing page design",
-    type: "Web App",
-    description:
-      "A modern and visually appealing hotel landing page design, created using HTML, CSS, and JavaScript to enhance user experience and drive bookings.",
-    html_url: "test",
-    image: hotelcover,
-    tags: ["Still Developing"],
-  },
-  {
-    name: "Fit Life gym management system",
-    type: "Web App",
-    description:
-      "A comprehensive gym management system designed to streamline operations and enhance the fitness experience for both staff and members.",
-    html_url: "test",
-    image: null,
-    tags: [".net", "windows form", "sql server"],
-  },
-
-  {
-    name: "Blog _Site",
-    type: "Web App",
-    description:
-      "A dynamic blog site that allows users to create, edit, and share blog posts, featuring a user-friendly interface and robust content management system.",
-    html_url: ",test",
-    //"image": ,
-    tags: ["django", "html", "css"],
-  },
 ];
 
 // Get unique types for filter buttons
 const types = ["All", ...Array.from(new Set(projects.map((p) => p.type)))];
+
 // Memoized ProjectCard component to isolate re-renders
 const ProjectCard = React.memo(({ project, idx }) => (
   <div
-    className="group bg-[#11181C] rounded-2xl shadow-lg border border-[#F8F9FA]/10 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-[#34B27B]/10 hover:-translate-y-1"
+    className="group flex flex-col bg-[#11181C]/80 backdrop-blur-xl rounded-2xl shadow-lg border border-[#F8F9FA]/10 overflow-hidden transition-all duration-500 hover:shadow-[0_8px_30px_rgb(52,178,123,0.2)] hover:border-[#34B27B]/30 hover:-translate-y-2"
     style={{
       animation: `fadeInUp 0.5s ease-out ${idx * 0.1}s both`,
     }}
   >
     {/* Professional Image Container */}
-    <div className="relative overflow-hidden h-48 bg-black">
-      <img
-        className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
-        src={project.image}
-        alt={project.name}
-        loading="lazy"
-      />
-
-      {/* Subtle Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-
-      {/* Professional Type Badge */}
-      <div className="absolute top-3 left-3 flex items-center gap-2">
-        <span className="px-2.5 py-1 bg-[#34B27B]/20 text-[#34B27B] text-xs font-bold rounded-lg shadow-md border border-[#34B27B]/30">
-          {project.type}
-        </span>
-        {project.live_url && (
-          <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-bold rounded-lg shadow-md border border-emerald-500/40">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </span>
-            Live
+    <div className="relative overflow-hidden h-40 md:h-48 bg-black shrink-0">
+      {project.image ? (
+        <img
+          className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+          src={project.image}
+          alt={project.name}
+          loading="lazy"
+        />
+      ) : (
+        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#11181C] to-black">
+          <span className="text-[#34B27B]/40 text-4xl font-bold">
+            {project.name
+              .split(/[-_ ]/)
+              .map((w) => w[0])
+              .slice(0, 2)
+              .join("")
+              .toUpperCase()}
           </span>
-        )}
-      </div>
-
-      {/* External Link Icon — live site preferred, else GitHub */}
-      <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 flex gap-1.5">
-        {project.live_url && (
-          <a
-            href={project.live_url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-8 h-8 bg-emerald-500/20 rounded-lg flex items-center justify-center text-emerald-400 hover:bg-emerald-500 hover:text-white transition-all duration-300 shadow-lg border border-emerald-500/30"
-            aria-label="Visit live site"
-          >
-            <FaExternalLinkAlt className="text-xs" />
-          </a>
-        )}
-        <a
-          href={project.html_url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-8 h-8 bg-[#11181C] rounded-lg flex items-center justify-center text-[#34B27B] hover:bg-[#34B27B] hover:text-white transition-all duration-300 shadow-lg"
-          aria-label="View GitHub repository"
-        >
-          <FaGithub className="text-xs" />
-        </a>
-      </div>
-
-      {/* Technology Tags */}
-      <div className="absolute bottom-3 left-3 right-3 flex flex-wrap gap-1.5 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300">
-        {project.tags?.slice(0, 3).map((tag, i) => (
-          <span
-            key={i}
-            className="px-2 py-0.5 bg-[#11181C]/95 text-[#34B27B] text-xs font-semibold rounded-md shadow-sm border border-[#34B27B]/30"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
+        </div>
+      )}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#11181C] via-transparent to-transparent opacity-90"></div>
     </div>
 
-    {/* Professional Content */}
-    <div className="p-5">
-      {/* Project Title */}
-      <h3 className="text-lg font-bold text-[#F8F9FA] mb-1.5 group-hover:text-[#34B27B] transition-colors duration-300 line-clamp-1">
-        {project.name.replace(/-/g, " ").replace(/_/g, " ")}
-      </h3>
+    {/* Typography Content Container */}
+    <div className="flex flex-col flex-grow p-4 md:p-6 lg:p-8">
+      {/* Header: Badges & Title */}
+      <div className="mb-3 md:mb-5">
+        <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
+          <span className="px-2 py-0.5 md:px-3 md:py-1 bg-[#34B27B]/10 text-[#34B27B] text-[10px] md:text-xs font-bold rounded-lg border border-[#34B27B]/20">
+            {project.type}
+          </span>
+          {project.live_url && (
+            <span className="inline-flex items-center gap-1 md:gap-1.5 px-2 py-0.5 md:px-3 md:py-1 bg-emerald-500/10 text-emerald-400 text-[10px] md:text-xs font-bold rounded-lg border border-emerald-500/20">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+              </span>
+              Live
+            </span>
+          )}
+        </div>
+        <h3 className="text-lg md:text-xl font-bold text-[#F8F9FA] group-hover:text-[#34B27B] transition-colors duration-300 leading-tight">
+          {project.name.replace(/-/g, " ").replace(/_/g, " ")}
+        </h3>
+      </div>
 
       {/* Project Description */}
-      <p className="text-[#F8F9FA]/70 text-xs mb-4 line-clamp-2 leading-relaxed">
+      <p className="text-[#F8F9FA]/70 text-sm mb-4 md:mb-8 leading-relaxed flex-grow">
         {project.description.split("|")[0].trim()}
       </p>
 
-      {/* CTA Buttons */}
-      <div className="flex items-center gap-3">
-        {project.live_url ? (
+      {/* Footer: Tags & Action Links */}
+      <div className="flex flex-col gap-4 md:gap-5 mt-auto pt-4 md:pt-5 border-t border-[#F8F9FA]/5">
+        {/* Technology Tags */}
+        <div className="flex flex-wrap gap-1.5 md:gap-2">
+          {project.tags?.map((tag, i) => (
+            <span
+              key={i}
+              className="px-2 py-1 md:px-3 md:py-1.5 bg-[#11181C] text-[#F8F9FA]/80 text-[10px] md:text-xs font-medium rounded-md border border-[#F8F9FA]/10 shadow-sm"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        {/* Action Links */}
+        <div className="flex items-center gap-3 md:gap-4 justify-end mt-1 md:mt-2">
+          {project.live_url && (
+            <a
+              href={project.live_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 md:gap-2 text-[13px] md:text-sm font-semibold text-[#34B27B] hover:text-emerald-400 transition-colors group/link"
+            >
+              <span>Live Demo</span>
+              <FaExternalLinkAlt className="text-[10px] md:text-xs group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 transition-transform" />
+            </a>
+          )}
           <a
-            href={project.live_url}
-            className="group/btn inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold rounded-lg hover:bg-emerald-500 hover:text-white hover:border-emerald-500 transition-all duration-300"
+            href={project.html_url}
             target="_blank"
             rel="noopener noreferrer"
+            className="flex items-center gap-1.5 md:gap-2 text-[13px] md:text-sm font-medium text-[#F8F9FA]/60 hover:text-white transition-colors group/link ml-1 md:ml-2"
           >
-            <FaExternalLinkAlt className="text-xs" />
-            <span>Visit Live Site</span>
+            <span>{project.live_url ? "Source Code" : "View Details"}</span>
+            <FaGithub className="text-base md:text-lg group-hover/link:scale-110 transition-transform" />
           </a>
-        ) : null}
-        <a
-          href={project.html_url}
-          className="group/btn inline-flex items-center gap-2 text-[#34B27B] text-xs font-semibold hover:gap-3 transition-all duration-300"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span>{project.live_url ? "GitHub" : "View Details"}</span>
-          <svg
-            className="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M17 8l4 4m0 0l-4 4m4-4H3"
-            ></path>
-          </svg>
-        </a>
+        </div>
       </div>
     </div>
   </div>
@@ -248,7 +198,8 @@ ProjectCard.displayName = "ProjectCard";
 
 function Projects() {
   const [filter, setFilter] = useState("All");
-  const [itemsToShow, setItemsToShow] = useState(6);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
   const [isPending, startTransition] = useTransition();
   const [lastClickTime, setLastClickTime] = useState(0);
 
@@ -259,12 +210,13 @@ function Projects() {
       : projects.filter((p) => p.type === filter);
   }, [filter]);
 
+  const totalPages = Math.ceil(filteredProjects.length / itemsPerPage);
+
   // Memoized visible projects slice
   const visibleProjects = useMemo(() => {
-    return filteredProjects.slice(0, itemsToShow);
-  }, [filteredProjects, itemsToShow]);
-
-  const hasMore = itemsToShow < filteredProjects.length;
+    const start = (currentPage - 1) * itemsPerPage;
+    return filteredProjects.slice(start, start + itemsPerPage);
+  }, [filteredProjects, currentPage]);
 
   // Debounced filter handler with useTransition for non-blocking updates
   const handleFilterClick = useCallback(
@@ -277,11 +229,20 @@ function Projects() {
       // Mark as non-urgent so UI stays responsive during re-filter
       startTransition(() => {
         setFilter(type);
-        setItemsToShow(6);
+        setCurrentPage(1);
       });
     },
     [lastClickTime],
   );
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    // Smooth scroll to top of projects section
+    const element = document.getElementById("projects");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
     <section
@@ -349,17 +310,21 @@ function Projects() {
           ))}
         </div>
 
-        {/* Next Button */}
-        {hasMore && (
-          <div className="text-center mt-8">
+        {/* Pagination Controls */}
+        {totalPages > 1 && (
+          <div className="flex justify-center items-center gap-2 mt-12">
             <button
-              onClick={() => setItemsToShow((prev) => prev + 6)}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[var(--primary)] to-[var(--primary-dark)] text-white text-sm rounded-lg font-semibold hover:shadow-xl hover:shadow-[var(--primary)]/30 hover:scale-105 transition-all duration-300 shadow-lg"
-              disabled={isPending}
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1 || isPending}
+              className={`flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-300 ${
+                currentPage === 1
+                  ? "bg-[#11181C] text-[#F8F9FA]/30 cursor-not-allowed border border-[#F8F9FA]/5"
+                  : "bg-[#11181C] text-[#F8F9FA]/70 hover:bg-[#34B27B] hover:text-white border border-[#F8F9FA]/10 hover:border-[#34B27B] hover:shadow-[0_0_15px_rgb(52,178,123,0.3)]"
+              }`}
+              aria-label="Previous Page"
             >
-              <span>{isPending ? "Loading..." : "Load More Projects"}</span>
               <svg
-                className="w-4 h-4"
+                className="w-5 h-5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -368,7 +333,52 @@ function Projects() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
-                  d="M19 9l-7 7-7-7"
+                  d="M15 19l-7-7 7-7"
+                ></path>
+              </svg>
+            </button>
+
+            <div className="flex items-center gap-2 px-2">
+              {Array.from({ length: totalPages }).map((_, idx) => {
+                const page = idx + 1;
+                return (
+                  <button
+                    key={page}
+                    onClick={() => handlePageChange(page)}
+                    disabled={isPending}
+                    className={`flex items-center justify-center w-10 h-10 rounded-xl font-bold transition-all duration-300 ${
+                      currentPage === page
+                        ? "bg-[#34B27B] text-white shadow-[0_0_15px_rgb(52,178,123,0.4)] border border-[#34B27B]"
+                        : "bg-[#11181C] text-[#F8F9FA]/70 hover:bg-[#11181C]/80 hover:text-[#34B27B] border border-[#F8F9FA]/10 hover:border-[#34B27B]/50"
+                    }`}
+                  >
+                    {page}
+                  </button>
+                );
+              })}
+            </div>
+
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages || isPending}
+              className={`flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-300 ${
+                currentPage === totalPages
+                  ? "bg-[#11181C] text-[#F8F9FA]/30 cursor-not-allowed border border-[#F8F9FA]/5"
+                  : "bg-[#11181C] text-[#F8F9FA]/70 hover:bg-[#34B27B] hover:text-white border border-[#F8F9FA]/10 hover:border-[#34B27B] hover:shadow-[0_0_15px_rgb(52,178,123,0.3)]"
+              }`}
+              aria-label="Next Page"
+            >
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M9 5l7 7-7 7"
                 ></path>
               </svg>
             </button>
@@ -412,19 +422,6 @@ function Projects() {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </section>
   );
 }
