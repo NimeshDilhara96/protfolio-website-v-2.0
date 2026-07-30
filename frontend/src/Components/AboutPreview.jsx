@@ -19,7 +19,11 @@ export default function AboutPreview() {
           </h2>
           
           <p className="text-lg text-[#F8F9FA]/80 mb-8 leading-relaxed">
-            Hi! I'm <span className="text-[#34B27B] font-semibold">Nimesh Dilhara Kulasooriya</span>, a software engineering undergraduate passionate about full-stack development, artificial intelligence, and creating innovative digital solutions.
+            Hi, I'm <span className="text-[#34B27B] font-semibold">Nimesh Dilhara Kulasooriya</span>. As a{" "}
+            <span className="font-semibold text-[#34B27B]">
+              BSc (Hons) Software Engineering
+            </span>{" "}
+            undergraduate, I am passionate about building scalable, secure, and production-ready digital solutions that solve real-world problems. My approach combines strong engineering practices with creative problem-solving and a focus on delivering reliable user experiences.
           </p>
 
           <Link

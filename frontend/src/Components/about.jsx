@@ -140,9 +140,7 @@ function About() {
                     <span className="font-semibold text-[#34B27B]">
                       BSc (Hons) Software Engineering
                     </span>{" "}
-                    undergraduate, I am dedicated to crafting innovative digital
-                    solutions that bridge technology and user needs. My approach
-                    combines technical excellence with creative problem-solving.
+                    undergraduate, I am passionate about building scalable, secure, and production-ready digital solutions that solve real-world problems. My approach combines strong engineering practices with creative problem-solving and a focus on delivering reliable user experiences.
                   </p>
 
                   <p>
@@ -150,24 +148,19 @@ function About() {
                     <span className="font-semibold text-[#34B27B]">
                       full-stack web development
                     </span>
-                    ,
+                    ,{" "}
                     <span className="font-semibold text-[#34B27B]">
-                      {" "}
-                      artificial intelligence
+                      SaaS application development
                     </span>
-                    , and
-                    <span className="font-semibold text-[#34B27B]">
-                      {" "}
-                      user experience design
-                    </span>
-                    , I create applications that deliver both functionality and
-                    exceptional user experiences.
+                    , backend engineering, and modern software architecture, I develop secure and scalable systems with a focus on performance, maintainability, and business value.
                   </p>
 
                   <p>
-                    I am committed to continuous learning, staying current with
-                    emerging technologies, and delivering scalable, efficient
-                    solutions that make a meaningful impact.
+                    I have experience designing production-level applications with{" "}
+                    <span className="font-semibold text-[#34B27B]">
+                      secure authentication
+                    </span>
+                    , API protection, cloud deployment, and scalable architecture. I am committed to continuous learning, adopting emerging technologies, and building impactful software solutions that create meaningful value.
                   </p>
                 </div>
               </div>
