@@ -1,41 +1,65 @@
-import React from 'react';
-import { Helmet } from 'react-helmet-async';
-import { FaCode, FaPalette, FaCog, FaRocket, FaSearch } from 'react-icons/fa';
+import React from "react";
+import { Helmet } from "react-helmet-async";
+import { FaCode, FaPalette, FaCog, FaRocket, FaSearch } from "react-icons/fa";
 
 const WhatIOffer = () => {
   const services = [
     {
       icon: <FaCode className="w-8 h-8" />,
       title: "Web Development",
-      description: "Building responsive, modern web applications with clean code and best practices. From landing pages to full-stack applications.",
-      skills: ["React", "Next.js", "TypeScript", "Node.js", "MongoDB"]
+      description:
+        "Building responsive, modern web applications with clean code and best practices. From landing pages to full-stack applications.",
+      skills: ["React", "Next.js", "TypeScript", "Node.js", "MongoDB"],
     },
     {
       icon: <FaPalette className="w-8 h-8" />,
       title: "UI/UX Design",
-      description: "Creating intuitive and beautiful user interfaces using Figma. Focusing on user experience and modern design principles.",
-      skills: ["Figma", "Prototyping", "Wireframing", "Design Systems"]
+      description:
+        "Creating intuitive and beautiful user interfaces using Figma. Focusing on user experience and modern design principles.",
+      skills: ["Figma", "Prototyping", "Wireframing", "Design Systems"],
     },
     {
       icon: <FaCog className="w-8 h-8" />,
       title: "Custom Software Solutions",
-      description: "Developing tailored software solutions to solve your unique business challenges. From concept to deployment.",
-      skills: ["System Design", "API Development", "Database Design", "DevOps"]
+      description:
+        "Developing tailored software solutions to solve your unique business challenges. From concept to deployment.",
+      skills: ["System Design", "API Development", "Database Design", "DevOps"],
     },
     {
-      icon: <div className="flex gap-1"><FaRocket className="w-4 h-4" /><FaSearch className="w-4 h-4" /></div>,
+      icon: (
+        <div className="flex gap-1">
+          <FaRocket className="w-4 h-4" />
+          <FaSearch className="w-4 h-4" />
+        </div>
+      ),
       title: "Performance & SEO Engineering",
-      description: "Optimizing websites for speed, Core Web Vitals, and search engine visibility. Implementing structured data, schema markup, and technical SEO best practices.",
-      skills: ["Core Web Vitals", "Schema.org", "Page Speed", "SEO Strategy", "Analytics"]
-    }
+      description:
+        "Optimizing websites for speed, Core Web Vitals, and search engine visibility. Implementing structured data, schema markup, and technical SEO best practices.",
+      skills: [
+        "Core Web Vitals",
+        "Schema.org",
+        "Page Speed",
+        "SEO Strategy",
+        "Analytics",
+      ],
+    },
   ];
 
   return (
-    <section id="what-i-offer" className="min-h-screen bg-gradient-to-br from-[#11181C] via-black to-[#11181C] py-20 px-6">
+    <section
+      id="what-i-offer"
+      className="min-h-screen bg-gradient-to-br from-[#11181C] via-black to-[#11181C] py-20 px-6"
+    >
       <Helmet>
         <title>What I Offer | Nimesh Dilhara Kulasooriya</title>
-        <meta name="description" content="Web development, UI/UX design, custom software, SEO & AI integration services by Nimesh Dilhara. React, Node.js, MERN stack expert for hire." />
-        <link rel="canonical" href="https://nimeshdilhara.vercel.app/what-i-offer" />
+        <meta
+          name="description"
+          content="Web development, UI/UX design, custom software, SEO & AI integration services by Nimesh Dilhara. React, Node.js, MERN stack expert for hire."
+        />
+        <link
+          rel="canonical"
+          href="https://nimeshdilhara.vercel.app/what-i-offer"
+        />
       </Helmet>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
@@ -45,7 +69,8 @@ const WhatIOffer = () => {
           </h2>
           <div className="w-24 h-1 bg-[#34B27B] mx-auto mb-6"></div>
           <p className="text-xl text-[#F8F9FA]/80 max-w-2xl mx-auto">
-            Transforming ideas into digital reality with expertise in development, design, and custom solutions
+            Transforming ideas into digital reality with expertise in
+            development, design, and custom solutions
           </p>
         </div>
 
@@ -95,7 +120,7 @@ const WhatIOffer = () => {
             Ready to bring your project to life?
           </p>
           <a
-            href="#contact"
+            href="/contact"
             className="inline-block px-8 py-4 bg-[#34B27B] text-white font-semibold rounded-full hover:shadow-lg hover:shadow-[#34B27B]/50 transition-all duration-300 hover:scale-105"
           >
             Let's Work Together

@@ -414,7 +414,7 @@ function Projects() {
               <span>View on GitHub</span>
             </a>
             <a
-              href="#contact"
+              href="/contact"
               className="inline-flex items-center gap-2 px-5 py-2 bg-[#11181C] border-2 border-[#34B27B]/50 text-[#34B27B] text-sm rounded-lg font-semibold hover:bg-[#34B27B] hover:text-white hover:border-[#34B27B] transition-all duration-300"
             >
               <span>Get in Touch</span>
