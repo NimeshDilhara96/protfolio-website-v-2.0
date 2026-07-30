@@ -32,6 +32,15 @@ const projects = [
     tags: ["SaaS", "ERP", "Multi-tenant"],
   },
   {
+    name: "hrm-system",
+    type: "Web App",
+    description:
+      "A comprehensive Human Resource Management (HRM) system designed to streamline HR processes, including employee management, payroll, attendance tracking, and performance evaluation.",
+    html_url: "https://github.com/NimeshDilhara96/hrm-system",
+    image: null,
+    tags: ["HRM", "Web App", "Employee Management"],
+  },
+  {
     name: "Nutricare-Meal_Management_System",
     type: "Web App",
     description:
@@ -280,9 +289,17 @@ function Projects() {
       className="py-12 md:py-16 bg-gradient-to-b from-black to-[#11181C] relative overflow-hidden"
     >
       <Helmet>
-        <title>Projects | Nimesh Dilhara Kulasooriya — Full-Stack Developer</title>
-        <meta name="description" content="Explore React, MERN stack & AI-powered projects by Nimesh Dilhara. Includes Nutricare, NextGen Sports Club, UCare and more full-stack web applications." />
-        <link rel="canonical" href="https://nimeshdilhara.vercel.app/projects" />
+        <title>
+          Projects | Nimesh Dilhara Kulasooriya — Full-Stack Developer
+        </title>
+        <meta
+          name="description"
+          content="Explore React, MERN stack & AI-powered projects by Nimesh Dilhara. Includes Nutricare, NextGen Sports Club, UCare and more full-stack web applications."
+        />
+        <link
+          rel="canonical"
+          href="https://nimeshdilhara.vercel.app/projects"
+        />
       </Helmet>
       {/* Subtle background decoration */}
       <div className="absolute inset-0 overflow-hidden">
