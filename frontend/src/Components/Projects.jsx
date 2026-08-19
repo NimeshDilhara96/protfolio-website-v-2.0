@@ -31,6 +31,15 @@ export const projects = [
     tags: ["SaaS", "ERP", "Multi-tenant"],
   },
   {
+    name: "Smartmap Pro",
+    type: "Web App",
+    description:
+      "SmartMap Pro is a plug-and-play, highly customizable NPM package that lets you build commercial routing maps in minutes.",
+    live_url: "https://momentix.gumroad.com/l/smartmap-pro",
+    image: "https://public-files.gumroad.com/05t1o3x7abs0v4sqozb0ru60ts84",
+    tags: ["React", "Leaflet", "OSRM", "NPM"],
+  },
+  {
     name: "U-CARE Hospital Consultation Mobile UI Design",
     type: "UI/UX",
     description:
