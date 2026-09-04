@@ -65,14 +65,14 @@ function Education() {
                       d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                     ></path>
                   </svg>
-                  <span>Oct 2022 - Sep 2026</span>
+                  <span>Oct 2022 - Sep 02, 2026</span>
                 </div>
               </div>
 
               {/* Status Badge */}
               <div className="flex-shrink-0">
                 <span className="px-4 py-2 bg-[#34B27B] text-white text-sm font-medium rounded-full shadow-lg shadow-[#34B27B]/30">
-                  Final
+                  Graduated
                 </span>
               </div>
             </div>

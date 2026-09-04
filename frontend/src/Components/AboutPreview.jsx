@@ -1,10 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { FaArrowRight } from 'react-icons/fa';
+import React from "react";
+import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 
 export default function AboutPreview() {
   return (
-    <section id="about" className="py-16 md:py-20 bg-gradient-to-br from-[#11181C] via-[#11181C] to-black relative overflow-hidden">
+    <section
+      id="about"
+      className="py-16 md:py-20 bg-gradient-to-br from-[#11181C] via-[#11181C] to-black relative overflow-hidden"
+    >
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-tr from-[#11181C] via-black to-[#11181C] opacity-80"></div>
         <div className="hidden lg:block absolute top-[-10%] left-[-5%] w-[40%] h-[40%] rounded-full bg-gradient-to-br from-[#34B27B]/10 to-transparent blur-[100px]"></div>
@@ -17,13 +20,20 @@ export default function AboutPreview() {
           <h2 className="text-4xl md:text-5xl font-bold text-[#F8F9FA] mb-6 tracking-tight">
             About Me
           </h2>
-          
+
           <p className="text-lg text-[#F8F9FA]/80 mb-8 leading-relaxed">
-            Hi, I'm <span className="text-[#34B27B] font-semibold">Nimesh Dilhara Kulasooriya</span>. As a{" "}
+            Hi, I'm{" "}
+            <span className="text-[#34B27B] font-semibold">
+              Nimesh Dilhara Kulasooriya
+            </span>
+            . A{" "}
             <span className="font-semibold text-[#34B27B]">
-              BSc (Hons) Software Engineering
+              Bachelor of Information Technology (Hons.) in Software Engineering
             </span>{" "}
-            undergraduate, I am passionate about building scalable, secure, and production-ready digital solutions that solve real-world problems. My approach combines strong engineering practices with creative problem-solving and a focus on delivering reliable user experiences.
+            graduate passionate about building scalable, secure, and
+            production-ready digital solutions that solve real-world problems. I
+            combine strong engineering practices with creative problem-solving
+            to deliver reliable and meaningful user experiences.
           </p>
 
           <Link

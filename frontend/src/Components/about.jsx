@@ -57,8 +57,13 @@ function About() {
       className="py-20 md:py-28 bg-gradient-to-br from-[#11181C] via-[#11181C] to-black relative overflow-hidden"
     >
       <Helmet>
-        <title>About Nimesh Dilhara Kulasooriya | Full-Stack Developer Sri Lanka</title>
-        <meta name="description" content="Learn about Nimesh Dilhara Kulasooriya — software engineering undergraduate, full-stack developer from Sri Lanka specializing in React, Node.js & AI integration." />
+        <title>
+          About Nimesh Dilhara Kulasooriya | Full-Stack Developer Sri Lanka
+        </title>
+        <meta
+          name="description"
+          content="Learn about Nimesh Dilhara Kulasooriya — software engineering undergraduate, full-stack developer from Sri Lanka specializing in React, Node.js & AI integration."
+        />
         <link rel="canonical" href="https://nimeshdilhara.vercel.app/about" />
       </Helmet>
       {/* Simplified background - blur disabled on mobile for better FCP */}
@@ -138,9 +143,26 @@ function About() {
                   <p>
                     As a{" "}
                     <span className="font-semibold text-[#34B27B]">
-                      BSc (Hons) Software Engineering
+                      Bachelor of Information Technology (Hons.) in Software
+                      Engineering
                     </span>{" "}
-                    undergraduate, I am passionate about building scalable, secure, and production-ready digital solutions that solve real-world problems. My approach combines strong engineering practices with creative problem-solving and a focus on delivering reliable user experiences.
+                    graduate, I am passionate about building scalable, secure,
+                    and production-ready digital solutions that solve real-world
+                    problems. I combine strong engineering practices with
+                    creative problem-solving to build reliable and meaningful
+                    software experiences. I specialize in full-stack web
+                    development, SaaS application development, backend
+                    engineering, and modern software architecture. I have
+                    hands-on experience developing and deploying real-world
+                    applications using modern technologies, with a strong focus
+                    on performance, maintainability, security, and business
+                    value. My experience includes building production-ready
+                    systems, secure authentication and API protection,
+                    multi-tenant SaaS architecture, database design, and cloud
+                    deployment. I am continuously expanding my technical
+                    expertise while exploring emerging technologies and building
+                    software solutions that create practical value for users and
+                    businesses.
                   </p>
 
                   <p>
@@ -152,15 +174,21 @@ function About() {
                     <span className="font-semibold text-[#34B27B]">
                       SaaS application development
                     </span>
-                    , backend engineering, and modern software architecture, I develop secure and scalable systems with a focus on performance, maintainability, and business value.
+                    , backend engineering, and modern software architecture, I
+                    develop secure and scalable systems with a focus on
+                    performance, maintainability, and business value.
                   </p>
 
                   <p>
-                    I have experience designing production-level applications with{" "}
+                    I have experience designing production-level applications
+                    with{" "}
                     <span className="font-semibold text-[#34B27B]">
                       secure authentication
                     </span>
-                    , API protection, cloud deployment, and scalable architecture. I am committed to continuous learning, adopting emerging technologies, and building impactful software solutions that create meaningful value.
+                    , API protection, cloud deployment, and scalable
+                    architecture. I am committed to continuous learning,
+                    adopting emerging technologies, and building impactful
+                    software solutions that create meaningful value.
                   </p>
                 </div>
               </div>
