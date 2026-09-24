@@ -55,7 +55,7 @@ export const projects = [
     description:
       "A web application that allows users to explore, create, and share AI-generated prompts for various applications, fostering creativity and collaboration in the AI community.",
     html_url: "https://github.com/NimeshDilhara96/Ai-Prompt-Gallery",
-    live_url: "https://mometec.codes/Ai-Prompt-Gallery/",
+    live_url: "https://aiprompts.mommentx.space",
     image: aiPromptCover,
     tags: ["AI", "React", "Community"],
   },
