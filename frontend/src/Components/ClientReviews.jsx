@@ -51,7 +51,7 @@ function ClientReviews() {
       review:
         "I have known Nimesh for many years as a close friend. He is highly technology oriented with strong IT knowledge and always stays updated with the latest trends and industry related news. He is a fast learner who quickly understands new concepts and adapts to changes with ease. He is hardworking, disciplined, and has a strong problem solving mindset. Nimesh is also friendly and easy to work with. I believe he has a bright future in the IT field and I highly recommend him for suitable opportunities.",
       initials: "MI",
-      color: "from-[#34B27B] to-[#34B27B]",
+      color: "from-accent to-accent",
     },
     {
       id: 5,
@@ -111,13 +111,13 @@ function ClientReviews() {
   return (
     <section
       id="reviews"
-      className="py-12 md:py-16 bg-gradient-to-br from-[#11181C] to-black relative overflow-hidden"
+      className="py-12 md:py-16 bg-gradient-to-br from-surface to-background relative overflow-hidden"
     >
       {/* Modern background decoration */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-10 w-48 h-48 bg-[#34B27B]/5 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/4 left-10 w-48 h-48 bg-accent/5 rounded-full blur-3xl animate-pulse"></div>
         <div
-          className="absolute bottom-1/4 right-10 w-56 h-56 bg-[#34B27B]/5 rounded-full blur-3xl animate-pulse"
+          className="absolute bottom-1/4 right-10 w-56 h-56 bg-accent/5 rounded-full blur-3xl animate-pulse"
           style={{ animationDelay: "2s" }}
         ></div>
       </div>
@@ -126,10 +126,10 @@ function ClientReviews() {
         {/* Compact Section Title */}
         <div className="text-center mb-10">
           <div className="inline-block mb-3"></div>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#F8F9FA] mb-3 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-3 tracking-tight">
             What Clients Say
           </h2>
-          <div className="w-16 h-0.5 bg-[#34B27B] mx-auto rounded-full"></div>
+          <div className="w-16 h-0.5 bg-accent mx-auto rounded-full"></div>
         </div>
 
         {/* Compact Review Card */}
@@ -138,7 +138,7 @@ function ClientReviews() {
             {/* Main Card */}
             <div
               key={currentReview}
-              className={`bg-[#11181C]/95 rounded-2xl p-6 md:p-8 shadow-xl border border-[#F8F9FA]/10 transform transition-all duration-300 ${direction === "next" ? "slideInRight" : "slideInLeft"}`}
+              className={`bg-surface/95 rounded-2xl p-6 md:p-8 shadow-xl border border-border-subtle transform transition-all duration-300 ${direction === "next" ? "slideInRight" : "slideInLeft"}`}
               style={{
                 animation:
                   direction === "next"
@@ -150,17 +150,17 @@ function ClientReviews() {
               <div className="flex flex-col md:flex-row items-center md:items-start gap-4 mb-6">
                 {/* Smaller Avatar */}
                 <div
-                  className={`w-14 h-14 rounded-xl bg-gradient-to-br ${reviews[currentReview].color} flex items-center justify-center text-white text-lg font-bold shadow-lg flex-shrink-0 transform hover:rotate-6 transition-transform duration-300`}
+                  className={`w-14 h-14 rounded-xl bg-gradient-to-br ${reviews[currentReview].color} flex items-center justify-center text-text-primary text-lg font-bold shadow-lg flex-shrink-0 transform hover:rotate-6 transition-transform duration-300`}
                 >
                   {reviews[currentReview].initials}
                 </div>
 
                 {/* Client Info */}
                 <div className="text-center md:text-left flex-1">
-                  <h4 className="font-bold text-[#F8F9FA] text-lg md:text-xl mb-1">
+                  <h4 className="font-bold text-text-primary text-lg md:text-xl mb-1">
                     {reviews[currentReview].name}
                   </h4>
-                  <p className="text-[#F8F9FA]/70 text-xs md:text-sm mb-2">
+                  <p className="text-text-primary/70 text-xs md:text-sm mb-2">
                     {reviews[currentReview].role}
                   </p>
                   {/* Smaller Stars */}
@@ -177,18 +177,18 @@ function ClientReviews() {
 
                 {/* Smaller Decorative Quote */}
                 <div className="hidden md:block">
-                  <FaQuoteLeft className="text-[#34B27B]/20 text-3xl" />
+                  <FaQuoteLeft className="text-accent/20 text-3xl" />
                 </div>
               </div>
 
               {/* Review Text */}
               <div className="relative">
-                <p className="text-[#F8F9FA]/80 text-sm md:text-base leading-relaxed text-center md:text-left italic">
+                <p className="text-text-primary/80 text-sm md:text-base leading-relaxed text-center md:text-left italic">
                   "{reviews[currentReview].review}"
                 </p>
 
                 {/* Decorative line */}
-                <div className="absolute -left-3 top-0 bottom-0 w-0.5 bg-[#34B27B] rounded-full hidden md:block"></div>
+                <div className="absolute -left-3 top-0 bottom-0 w-0.5 bg-accent rounded-full hidden md:block"></div>
               </div>
             </div>
 
@@ -196,7 +196,7 @@ function ClientReviews() {
             <button
               onClick={prevReview}
               aria-label="Previous review"
-              className="absolute left-0 md:-left-5 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-[#11181C] shadow-lg rounded-full flex items-center justify-center text-[#F8F9FA]/70 hover:text-[#34B27B] hover:scale-110 transition-all duration-300 group border border-[#F8F9FA]/10 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="absolute left-0 md:-left-5 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-surface shadow-lg rounded-full flex items-center justify-center text-text-primary/70 hover:text-accent hover:scale-110 transition-all duration-300 group border border-border-subtle disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={isPending}
             >
               <FaChevronLeft className="text-sm group-hover:-translate-x-1 transition-transform duration-300" />
@@ -205,7 +205,7 @@ function ClientReviews() {
             <button
               onClick={nextReview}
               aria-label="Next review"
-              className="absolute right-0 md:-right-5 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-[#11181C] shadow-lg rounded-full flex items-center justify-center text-[#F8F9FA]/70 hover:text-[#34B27B] hover:scale-110 transition-all duration-300 group border border-[#F8F9FA]/10 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="absolute right-0 md:-right-5 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-surface shadow-lg rounded-full flex items-center justify-center text-text-primary/70 hover:text-accent hover:scale-110 transition-all duration-300 group border border-border-subtle disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={isPending}
             >
               <FaChevronRight className="text-sm group-hover:translate-x-1 transition-transform duration-300" />
@@ -222,8 +222,8 @@ function ClientReviews() {
                 aria-label={`Go to review ${index + 1}`}
                 className={`transition-all duration-300 rounded-full ${
                   index === currentReview
-                    ? "w-8 h-2 bg-[#34B27B]"
-                    : "w-2 h-2 bg-[#F8F9FA]/20 hover:bg-[#F8F9FA]/40"
+                    ? "w-8 h-2 bg-accent"
+                    : "w-2 h-2 bg-text-primary/20 hover:bg-text-primary/40"
                 } disabled:opacity-50 disabled:cursor-not-allowed`}
               />
             ))}
@@ -231,13 +231,13 @@ function ClientReviews() {
 
           {/* Compact Review Counter */}
           <div className="text-center mt-4">
-            <p className="text-[#F8F9FA]/70 text-xs font-medium">
+            <p className="text-text-primary/70 text-xs font-medium">
               Review{" "}
-              <span className="text-[#34B27B] font-bold">
+              <span className="text-accent font-bold">
                 {currentReview + 1}
               </span>{" "}
               of{" "}
-              <span className="text-[#34B27B] font-bold">{reviews.length}</span>
+              <span className="text-accent font-bold">{reviews.length}</span>
             </p>
           </div>
         </div>

@@ -1,261 +1,243 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import {
-  FaCode,
-  FaBrain,
-  FaPaintBrush,
-  FaUsers,
-  FaGraduationCap,
-  FaLaptopCode,
-  FaAward,
-  FaRocket,
-} from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaBehance, FaExternalLinkAlt } from "react-icons/fa";
 import aboutPhoto from "../assets/about_n.webp";
+import Education from "./Education";
+
+const stats = [
+  { value: "10+", label: "Projects" },
+  { value: "2+", label: "Years Exp." },
+  { value: "15+", label: "Technologies" },
+  { value: "100%", label: "Commitment" },
+];
+
+const competencies = [
+  "Full-Stack Web Development",
+  "SaaS Architecture",
+  "React & Next.js",
+  "Node.js & Express",
+  "UI/UX Design (Figma)",
+  "MongoDB & MySQL",
+  "AI & ML Integration",
+  "REST API Design",
+  "Cloud Deployment",
+  "Multi-Tenant Systems",
+];
+
+const brings = [
+  {
+    emoji: "🏗️",
+    title: "Production-Ready Systems",
+    desc: "Secure authentication, multi-tenant SaaS architecture, and cloud-deployed applications built to scale.",
+  },
+  {
+    emoji: "🎨",
+    title: "Design + Code",
+    desc: "I design in Figma and build it myself — one person, end-to-end, with zero compromise on quality.",
+  },
+  {
+    emoji: "🤖",
+    title: "AI-Powered Features",
+    desc: "Real-world AI integration — AI-generated meal & training plans, smart search, and intelligent workflows.",
+  },
+  {
+    emoji: "⚡",
+    title: "Performance-First",
+    desc: "Optimized for speed: lazy loading, code splitting, efficient queries, and clean architecture.",
+  },
+];
 
 function About() {
-  const skills = [
-    {
-      icon: <FaLaptopCode />,
-      label: "Full-Stack Development",
-      description: "Modern web applications",
-    },
-    {
-      icon: <FaBrain />,
-      label: "AI Enthusiast",
-      description: "ML & data science",
-    },
-    {
-      icon: <FaCode />,
-      label: "React,Next.js,Node.js & .NET",
-      description: "Technologies Mastered",
-    },
-    {
-      icon: <FaUsers />,
-      label: "UI/UX Design",
-      description: "User-centered design",
-    },
-  ];
-
-  const highlights = [
-    {
-      icon: <FaGraduationCap />,
-      title: "Education",
-      value:
-        "Bachelor of Information Technology (Hons.) in Software Engineering",
-    },
-    {
-      icon: <FaAward />,
-      title: "Experience",
-      value: "2+ Years Learning & Building",
-    },
-    { icon: <FaRocket />, title: "Projects", value: "10+ Completed Projects" },
-  ];
-
   return (
-    <section
-      id="about"
-      className="py-20 md:py-28 bg-gradient-to-br from-[#11181C] via-[#11181C] to-black relative overflow-hidden"
-    >
-      <Helmet>
-        <title>
-          About Nimesh Dilhara Kulasooriya | Full-Stack Developer Sri Lanka
-        </title>
-        <meta
-          name="description"
-          content="Learn about Nimesh Dilhara Kulasooriya — software engineering undergraduate, full-stack developer from Sri Lanka specializing in React, Node.js & AI integration."
-        />
-        <link rel="canonical" href="https://nimeshdilhara.vercel.app/about" />
-      </Helmet>
-      {/* Simplified background - blur disabled on mobile for better FCP */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-tr from-[#11181C] via-black to-[#11181C] opacity-80"></div>
-        {/* Desktop-only blur blobs */}
-        <div className="hidden lg:block absolute top-[-10%] left-[-5%] w-[40%] h-[40%] rounded-full bg-gradient-to-br from-[#34B27B]/10 to-transparent blur-[100px]"></div>
-        <div className="hidden lg:block absolute bottom-[-15%] right-[-10%] w-[50%] h-[50%] rounded-full bg-gradient-to-tl from-[#34B27B]/10 to-transparent blur-[120px]"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#11181C]/40 to-[#11181C] z-10"></div>
-      </div>
+    <>
+      <section
+        id="about"
+        className="min-h-screen bg-background relative overflow-hidden"
+      >
+        <Helmet>
+          <title>
+            About Nimesh Dilhara Kulasooriya | Full-Stack Developer Sri Lanka
+          </title>
+          <meta
+            name="description"
+            content="Learn about Nimesh Dilhara Kulasooriya — software engineering undergraduate, full-stack developer from Sri Lanka specializing in React, Node.js & AI integration."
+          />
+          <link rel="canonical" href="https://nimeshdilhara.vercel.app/about" />
+        </Helmet>
 
-      <div className="container mx-auto px-4 relative z-20">
-        {/* Section Title */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#F8F9FA] mb-3 tracking-tight">
-            About Me
-          </h2>
-          <p className="text-[#F8F9FA]/80 text-lg max-w-2xl mx-auto mb-4">
-            Passionate software engineer dedicated to building innovative
-            solutions
-          </p>
-          <div className="w-20 h-1 bg-[#34B27B] mx-auto rounded-full"></div>
+        {/* Subtle background */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] bg-accent/5 rounded-full blur-[120px]" />
+          <div className="absolute -bottom-[10%] -right-[10%] w-[50%] h-[50%] bg-accent/4 rounded-full blur-[140px]" />
         </div>
 
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
-            {/* Profile Image - Left Column (2/5) */}
-            <div className="lg:col-span-2 flex flex-col items-center lg:items-start">
-              <div className="relative mb-8">
-                <div className="absolute -inset-3 bg-[#34B27B]/20 rounded-full blur-xl"></div>
-                <div className="relative bg-[#11181C]/80 p-3 rounded-full shadow-2xl border border-[#F8F9FA]/10 md:backdrop-blur-sm md:bg-[#11181C]/60">
-                  <img
-                    src={aboutPhoto}
-                    alt="Nimesh Dilhara"
-                    loading="lazy"
-                    width="288"
-                    height="288"
-                    className="w-64 h-64 md:w-72 md:h-72 rounded-full object-cover"
-                  />
+        <div className="container mx-auto px-4 sm:px-6 py-20 md:py-28 relative z-10">
+
+          {/* ── Page heading ── */}
+          <div className="mb-16">
+            <p className="text-text-primary/40 text-xs font-bold uppercase tracking-widest mb-2">
+              Get to know me
+            </p>
+            <h1 className="text-4xl md:text-6xl font-extrabold text-text-primary tracking-tight leading-none">
+              About{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-emerald-300">
+                Me
+              </span>
+            </h1>
+          </div>
+
+          {/* ── Main layout: sticky card left + content right ── */}
+          <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-10 xl:gap-16 items-start">
+
+            {/* ── Left: Sticky profile card ── */}
+            <div className="lg:sticky lg:top-24 flex flex-col gap-5">
+
+              {/* Photo */}
+              <div className="relative rounded-2xl overflow-hidden border border-border-subtle bg-surface/80">
+                <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent z-10" />
+                <img
+                  src={aboutPhoto}
+                  alt="Nimesh Dilhara Kulasooriya"
+                  loading="lazy"
+                  width="340"
+                  height="340"
+                  className="w-full h-72 object-cover object-top"
+                />
+                {/* Name overlay */}
+                <div className="absolute bottom-0 left-0 right-0 p-5 z-20">
+                  <h2 className="text-xl font-bold text-text-primary leading-tight">
+                    Nimesh Dilhara
+                  </h2>
+                  <p className="text-accent text-sm font-medium">
+                    Full-Stack Developer · Sri Lanka
+                  </p>
+                </div>
+                {/* Available badge */}
+                <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-bold rounded-full border border-emerald-500/30 backdrop-blur-sm">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse inline-block" />
+                  Available for work
                 </div>
               </div>
 
-              {/* Highlights Cards */}
-              <div className="w-full space-y-3">
-                {highlights.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-[#11181C]/80 p-4 rounded-xl border border-[#F8F9FA]/10 shadow-sm hover:shadow-md hover:border-[#34B27B]/40 transition-all duration-300 md:bg-[#11181C]/60 md:backdrop-blur-sm"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-[#34B27B]/20 rounded-lg flex items-center justify-center text-[#34B27B] text-xl">
-                        {item.icon}
-                      </div>
-                      <div>
-                        <div className="text-sm text-[#F8F9FA]/70 font-medium">
-                          {item.title}
-                        </div>
-                        <div className="text-[#F8F9FA] font-semibold">
-                          {item.value}
-                        </div>
-                      </div>
-                    </div>
+              {/* Stats row */}
+              <div className="grid grid-cols-4 gap-2">
+                {stats.map((s, i) => (
+                  <div key={i} className="flex flex-col items-center bg-surface/70 rounded-xl py-3 px-1 border border-border-subtle">
+                    <span className="text-lg font-extrabold text-accent">{s.value}</span>
+                    <span className="text-[10px] text-text-primary/50 text-center leading-tight mt-0.5">{s.label}</span>
                   </div>
                 ))}
               </div>
+
+              {/* Social links */}
+              <div className="flex items-center gap-3">
+                <a href="https://github.com/NimeshDilhara96" target="_blank" rel="noopener noreferrer"
+                  className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-surface/80 border border-border-subtle text-text-primary/70 hover:text-text-primary hover:border-accent/50 transition-all text-sm font-medium">
+                  <FaGithub /> GitHub
+                </a>
+                <a href="https://linkedin.com/in/nimeshdilhara" target="_blank" rel="noopener noreferrer"
+                  className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-surface/80 border border-border-subtle text-text-primary/70 hover:text-text-primary hover:border-accent/50 transition-all text-sm font-medium">
+                  <FaLinkedin /> LinkedIn
+                </a>
+                <a href="https://www.behance.net/nimeshdilhara" target="_blank" rel="noopener noreferrer"
+                  className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-surface/80 border border-border-subtle text-text-primary/70 hover:text-text-primary hover:border-accent/50 transition-all text-sm font-medium">
+                  <FaBehance /> Behance
+                </a>
+              </div>
+
+              {/* CTA */}
+              <a
+                href="/downloads"
+                className="flex items-center justify-center gap-2 py-3 btn-primary border-transparent text-sm font-bold rounded-xl hover:bg-emerald-500 transition-all shadow-lg shadow-accent/20"
+              >
+                <FaExternalLinkAlt className="text-xs" />
+                Download Resume
+              </a>
             </div>
 
-            {/* Content - Right Column (3/5) */}
-            <div className="lg:col-span-3 space-y-8">
-              {/* Introduction */}
-              <div className="bg-[#11181C]/80 p-8 rounded-2xl border border-[#F8F9FA]/10 shadow-lg md:bg-[#11181C]/60 md:backdrop-blur-sm">
-                <h3 className="text-2xl md:text-3xl font-bold text-[#F8F9FA] mb-6">
-                  Nimesh Dilhara Kulasooriya
+            {/* ── Right: Content ── */}
+            <div className="flex flex-col gap-10">
+
+              {/* Bio */}
+              <div>
+                <h3 className="text-xl font-bold text-text-primary mb-4 flex items-center gap-2">
+                  <span className="w-6 h-0.5 bg-accent inline-block rounded-full" />
+                  Who I am
                 </h3>
-
-                <div className="space-y-4 text-[#F8F9FA]/80 leading-relaxed text-base">
+                <div className="space-y-4 text-text-primary/70 leading-relaxed text-base">
                   <p>
-                    As a{" "}
-                    <span className="font-semibold text-[#34B27B]">
-                      Bachelor of Information Technology (Hons.) in Software
-                      Engineering
+                    I&apos;m a{" "}
+                    <span className="text-accent font-semibold">
+                      Bachelor of Information Technology (Hons.) in Software Engineering
                     </span>{" "}
-                    graduate, I am passionate about building scalable, secure,
-                    and production-ready digital solutions that solve real-world
-                    problems. I combine strong engineering practices with
-                    creative problem-solving to build reliable and meaningful
-                    software experiences. I specialize in full-stack web
-                    development, SaaS application development, backend
-                    engineering, and modern software architecture. I have
-                    hands-on experience developing and deploying real-world
-                    applications using modern technologies, with a strong focus
-                    on performance, maintainability, security, and business
-                    value. My experience includes building production-ready
-                    systems, secure authentication and API protection,
-                    multi-tenant SaaS architecture, database design, and cloud
-                    deployment. I am continuously expanding my technical
-                    expertise while exploring emerging technologies and building
-                    software solutions that create practical value for users and
-                    businesses.
+                    graduate, passionate about building scalable, secure, and production-ready digital
+                    solutions that solve real-world problems. I combine strong engineering practices
+                    with creative problem-solving to build reliable and meaningful software experiences.
                   </p>
-
                   <p>
-                    Specializing in{" "}
-                    <span className="font-semibold text-[#34B27B]">
-                      full-stack web development
-                    </span>
-                    ,{" "}
-                    <span className="font-semibold text-[#34B27B]">
-                      SaaS application development
-                    </span>
-                    , backend engineering, and modern software architecture, I
-                    develop secure and scalable systems with a focus on
-                    performance, maintainability, and business value.
+                    I specialize in{" "}
+                    <span className="text-accent font-semibold">full-stack web development</span>,{" "}
+                    <span className="text-accent font-semibold">SaaS application development</span>,
+                    backend engineering, and modern software architecture — with hands-on experience
+                    building and deploying real-world applications focused on performance,
+                    maintainability, security, and business value.
                   </p>
-
                   <p>
-                    I have experience designing production-level applications
-                    with{" "}
-                    <span className="font-semibold text-[#34B27B]">
-                      secure authentication
-                    </span>
-                    , API protection, cloud deployment, and scalable
-                    architecture. I am committed to continuous learning,
-                    adopting emerging technologies, and building impactful
-                    software solutions that create meaningful value.
+                    Beyond code, I design in Figma, integrate AI into products, and care deeply
+                    about user experience. I&apos;m continuously expanding my expertise while exploring
+                    emerging technologies that create practical value.
                   </p>
                 </div>
               </div>
 
-              {/* Skills Grid */}
-              <div className="space-y-5">
-                <h4 className="text-xl font-bold text-[#F8F9FA]">
+              {/* Competency pills */}
+              <div>
+                <h3 className="text-xl font-bold text-text-primary mb-4 flex items-center gap-2">
+                  <span className="w-6 h-0.5 bg-accent inline-block rounded-full" />
                   Core Competencies
-                </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {skills.map((skill, idx) => (
-                    <div
-                      key={idx}
-                      className="group bg-[#11181C]/80 p-5 rounded-xl border border-[#F8F9FA]/10 shadow-sm hover:shadow-lg hover:border-[#34B27B]/40 transition-all duration-300 md:bg-[#11181C]/60 md:backdrop-blur-sm"
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {competencies.map((c, i) => (
+                    <span
+                      key={i}
+                      className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-surface/80 border border-border-subtle text-text-primary/80 hover:border-accent/50 hover:text-accent transition-colors cursor-default"
                     >
-                      <div className="flex items-start gap-4">
-                        <div className="flex-shrink-0 w-12 h-12 bg-[#34B27B]/20 rounded-xl flex items-center justify-center text-[#34B27B] text-xl group-hover:scale-110 transition-transform duration-300">
-                          {skill.icon}
-                        </div>
-                        <div>
-                          <div className="font-semibold text-[#F8F9FA] mb-1 group-hover:text-[#34B27B] transition-colors duration-300">
-                            {skill.label}
-                          </div>
-                          <div className="text-sm text-[#F8F9FA]/70">
-                            {skill.description}
-                          </div>
-                        </div>
-                      </div>
+                      {c}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* What I bring */}
+              <div>
+                <h3 className="text-xl font-bold text-text-primary mb-4 flex items-center gap-2">
+                  <span className="w-6 h-0.5 bg-accent inline-block rounded-full" />
+                  What I bring
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {brings.map((b, i) => (
+                    <div
+                      key={i}
+                      className="group p-5 rounded-2xl bg-surface/80 border border-border-subtle hover:border-accent/40 hover:shadow-lg shadow-accent/20 transition-all duration-300"
+                    >
+                      <div className="text-2xl mb-3">{b.emoji}</div>
+                      <h4 className="text-text-primary font-bold text-sm mb-1.5 group-hover:text-accent transition-colors">
+                        {b.title}
+                      </h4>
+                      <p className="text-text-primary/55 text-xs leading-relaxed">{b.desc}</p>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Professional Stats */}
-              <div className="bg-[#34B27B]/10 p-8 rounded-2xl border border-[#F8F9FA]/10 md:backdrop-blur-sm md:bg-[#34B27B]/5">
-                <div className="grid grid-cols-3 gap-6">
-                  <div className="text-center">
-                    <div className="text-3xl md:text-4xl font-bold text-[#34B27B] mb-2">
-                      10+
-                    </div>
-                    <div className="text-sm text-[#F8F9FA]/70 font-medium">
-                      Projects Completed
-                    </div>
-                  </div>
-                  <div className="text-center border-x border-[#F8F9FA]/20">
-                    <div className="text-3xl md:text-4xl font-bold text-[#34B27B] mb-2">
-                      5+
-                    </div>
-                    <div className="text-sm text-[#F8F9FA]/70 font-medium">
-                      Technologies Mastered
-                    </div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl md:text-4xl font-bold text-[#34B27B] mb-2">
-                      100%
-                    </div>
-                    <div className="text-sm text-[#F8F9FA]/70 font-medium">
-                      Commitment
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Education section — style unchanged */}
+      <Education />
+    </>
   );
 }
 

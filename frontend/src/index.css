@@ -1,6 +1,10 @@
 @import url("https://fonts.cdnfonts.com/css/blanka");
 @import "tailwindcss";
 
+/* Hide scrollbar for horizontal carousels */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
 :root {
   /* Modern Color Palette - copied from style.css */
   --primary: #6366f1;
@@ -28,6 +32,8 @@
     system-ui,
     -apple-system,
     sans-serif;
+  
+  --font-heading: "Bricolage Grotesque", sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -40,6 +46,112 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* ==========================================================================
+   THEME VARIABLES
+   ========================================================================== */
+@theme {
+  --color-background: var(--theme-bg);
+  --color-surface: var(--theme-card);
+  --color-text-primary: var(--theme-ink);
+  --color-text-muted: var(--theme-mute);
+  --color-border-subtle: var(--theme-line);
+  --color-border-medium: var(--theme-line);
+  --color-accent: var(--theme-a);
+}
+
+:root {
+  /* DARK MODE (Default) */
+  --theme-bg: #0b110f;
+  --theme-card: #121c18;
+  --theme-ink: #ffffff;
+  --theme-mute: rgba(255, 255, 255, 0.85);
+  --theme-line: rgba(16, 185, 129, 0.2);
+  --theme-a: #10b981;
+  --theme-b: #a3e635;
+  --theme-accInk: #0b110f;
+  --theme-grid: rgba(16, 185, 129, 0.15);
+  --theme-glow: rgba(16, 185, 129, 0.15);
+  --theme-shadow: rgba(0, 0, 0, 0.60);
+}
+
+html[data-theme="light"] {
+  /* LIGHT MODE (User Requested) */
+  --theme-bg: #f5f1e8;
+  --theme-card: #fffdf8;
+  --theme-ink: #1a1f1b;
+  --theme-mute: #6a6f63;
+  --theme-line: #e2dccb;
+  --theme-a: #1f7a54;
+  --theme-b: #6a9a12;
+  --theme-accInk: #ffffff;
+  --theme-grid: rgba(26, 31, 27, 0.05);
+  --theme-glow: rgba(31, 122, 84, 0.12);
+  --theme-shadow: rgba(26, 31, 27, 0.30);
+}
+
+html[data-theme="light"] body {
+  background-color: var(--theme-bg);
+  color: var(--theme-ink);
+}
+
+/* Specific Utility Classes */
+.btn-primary {
+  background: linear-gradient(135deg, #a3e635, #10b981) !important;
+  color: #ffffff !important;
+}
+
+.text-highlight {
+  background: linear-gradient(100deg, #10b981, #a3e635);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Light Mode Overrides for Reflections/Glows */
+html[data-theme="light"] .theme-bg-glow {
+  display: none !important;
+}
+
+html[data-theme="light"] .theme-card-glow {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025) !important;
+  border-color: var(--theme-line) !important;
+}
+html[data-theme="light"] .theme-card-glow:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+  border-color: var(--theme-line) !important;
+}
+
+.bg-card-placeholder {
+  background: linear-gradient(to bottom right, #1C3A2A, #0A1A10);
+}
+html[data-theme="light"] .bg-card-placeholder {
+  background: linear-gradient(160deg, #cfe3d6, #f0e9d6);
+}
+
+/* Card Shadows */
+html[data-theme="light"] .shadow-2xl,
+html[data-theme="light"] .shadow-lg,
+html[data-theme="light"] .shadow-md {
+  box-shadow: 0 20px 40px -10px var(--theme-shadow) !important;
+}
+/* Typography Overrides */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.03em;
+}
+
+h1 {
+  font-weight: 800 !important;
+}
+h2, h3, h4, h5, h6 {
+  font-weight: 700 !important;
+}
+
+.text-3xl, .text-4xl, .text-5xl, .text-6xl, .text-7xl {
+  font-family: var(--font-heading);
+  letter-spacing: -0.03em;
+}
+
 
 @keyframes float {
   0% {

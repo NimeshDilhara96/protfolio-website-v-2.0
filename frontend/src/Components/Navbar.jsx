@@ -1,13 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import Button from "./common/Button";
 
 const navLinks = [
-  { href: "/#home", label: "Home" },
+  { href: "/projects", label: "Work" },
+  { href: "/#projects-bento", label: "Design" },
   { href: "/about", label: "About" },
-  { href: "/#education", label: "Education" },
-  { href: "/#technologies", label: "Skills" },
   { href: "/what-i-offer", label: "Services" },
-  { href: "/contact", label: "Contact" },
   { href: "/downloads", label: "Downloads" },
 ];
 
@@ -15,7 +14,7 @@ function Navbar() {
   const navbarRef = useRef(null);
   const sectionOffsetsRef = useRef([]);
   const rafIdRef = useRef(null);
-  const [activeSection, setActiveSection] = useState("/#home");
+  const [activeSection, setActiveSection] = useState("/#projects");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
@@ -96,7 +95,7 @@ function Navbar() {
 
       const navbarHeight = navbarRef.current?.offsetHeight || 70;
       const scrollPos = currentScrollY + navbarHeight + 50;
-      let current = "/#home";
+      let current = "/#projects";
 
       for (const section of sectionOffsetsRef.current) {
         if (section.top <= scrollPos) {
@@ -189,8 +188,8 @@ function Navbar() {
         aria-label="Main navigation"
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-[#11181C]/95 border-b border-[#F8F9FA]/10 shadow-sm md:bg-[#11181C]/80 md:backdrop-blur-xl"
-            : "bg-[#11181C]/70 md:bg-[#11181C]/50 md:backdrop-blur-md"
+            ? "bg-surface/95 border-b border-border-subtle shadow-sm md:bg-surface/80 md:backdrop-blur-xl"
+            : "bg-surface/70 md:bg-surface/50 md:backdrop-blur-md"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -199,12 +198,12 @@ function Navbar() {
             <div className="flex-shrink-0">
               <button
                 type="button"
-                onClick={(e) => handleNavClick(e, "/#home")}
+                onClick={(e) => handleNavClick(e, "/")}
                 aria-label="Go to homepage"
-                className="group flex items-center gap-2 text-[#F8F9FA] font-semibold text-lg tracking-tight hover:opacity-80 transition-opacity"
+                className="group flex items-center gap-2 text-text-primary font-semibold text-lg tracking-tight hover:opacity-80 transition-opacity"
               >
                 <span>Nimesh Dilhara</span>
-                <span className="text-[#34B27B] animate-pulse">.</span>
+                <span className="text-accent animate-pulse">.</span>
               </button>
             </div>
 
@@ -220,11 +219,11 @@ function Navbar() {
                     aria-current={
                       activeSection === link.href ? "page" : undefined
                     }
-                    className="relative px-3 py-2 text-sm font-medium text-[#F8F9FA]/70 hover:text-[#F8F9FA] transition-colors group"
+                    className="relative px-3 py-2 text-sm font-medium text-text-primary/70 hover:text-text-primary transition-colors group"
                   >
                     {link.label}
                     <span
-                      className={`absolute bottom-0 left-0 w-full h-0.5 bg-[#34B27B] transform origin-left transition-transform duration-200 ${
+                      className={`absolute bottom-0 left-0 w-full h-0.5 bg-accent transform origin-left transition-transform duration-200 ${
                         activeSection === link.href
                           ? "scale-x-100"
                           : "scale-x-0 group-hover:scale-x-100"
@@ -235,13 +234,13 @@ function Navbar() {
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex items-center gap-2 ml-4 pl-4 border-l border-[#F8F9FA]/10">
+              <div className="flex items-center gap-2 ml-4 pl-4 border-l border-border-subtle">
                 {/* GitHub Stars */}
                 <a
                   href="https://github.com/Nimeshdilhara96"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hidden xl:flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-[#F8F9FA]/70 hover:text-[#F8F9FA] border border-[#F8F9FA]/10 rounded-lg hover:border-[#34B27B] transition-all"
+                  className="hidden xl:flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-text-primary/70 hover:text-text-primary border border-border-subtle rounded-lg hover:border-accent transition-all"
                 >
                   <svg
                     className="w-4 h-4"
@@ -257,19 +256,13 @@ function Navbar() {
                   <span>1.2K</span>
                 </a>
 
-                <button
+                <Button
                   onClick={(e) => handleNavClick(e, "/contact")}
-                  className="px-4 py-2 text-sm font-medium text-[#F8F9FA]/70 hover:text-[#F8F9FA] transition-colors"
+                  variant="primary"
+                  size="sm"
                 >
-                  Contact
-                </button>
-
-                <button
-                  onClick={(e) => handleNavClick(e, "/projects")}
-                  className="px-4 py-2 text-sm font-medium text-white bg-[#34B27B] hover:bg-[#34B27B]/90 rounded-lg transition-all shadow-sm hover:shadow-md"
-                >
-                  View Projects
-                </button>
+                  Hire Me
+                </Button>
               </div>
             </div>
 
@@ -280,7 +273,7 @@ function Navbar() {
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMenuOpen}
               aria-controls="mobile-menu"
-              className="lg:hidden p-2 text-gray-300 hover:text-white transition-colors"
+              className="lg:hidden p-2 text-gray-300 hover:text-text-primary transition-colors"
             >
               {isMenuOpen ? (
                 <svg
@@ -325,7 +318,7 @@ function Navbar() {
               : "max-h-0 opacity-0 overflow-hidden"
           }`}
         >
-          <div className="px-4 pt-2 pb-6 space-y-1 bg-[#11181C]/98 border-t border-[#F8F9FA]/10 shadow-lg md:bg-[#11181C]/95 md:backdrop-blur-xl\">
+          <div className="px-4 pt-2 pb-6 space-y-1 bg-surface/98 border-t border-border-subtle shadow-lg md:bg-surface/95 md:backdrop-blur-xl\">
             {navLinks.map((link) => (
               <button
                 key={link.href}
@@ -335,8 +328,8 @@ function Navbar() {
                 aria-current={activeSection === link.href ? "page" : undefined}
                 className={`w-full text-left px-4 py-3 text-base font-medium rounded-lg transition-all ${
                   activeSection === link.href
-                    ? "text-[#34B27B] bg-[#34B27B]/20"
-                    : "text-[#F8F9FA]/70 hover:bg-[#11181C]"
+                    ? "text-accent bg-accent/20"
+                    : "text-text-primary/70 hover:bg-surface"
                 }`}
               >
                 {link.label}
@@ -344,20 +337,14 @@ function Navbar() {
             ))}
 
             {/* Mobile CTA Buttons */}
-            <div className="pt-4 space-y-2 border-t border-[#F8F9FA]/10">
-              <button
+            <div className="pt-4 space-y-2 border-t border-border-subtle">
+              <Button
                 onClick={(e) => handleNavClick(e, "/contact")}
-                className="w-full px-4 py-3 text-base font-medium text-[#F8F9FA]/70 hover:bg-[#11181C] rounded-lg transition-all"
+                variant="primary"
+                className="w-full justify-center"
               >
-                Contact
-              </button>
-
-              <button
-                onClick={(e) => handleNavClick(e, "/projects")}
-                className="w-full px-4 py-3 text-base font-medium text-white bg-[#34B27B] hover:bg-[#34B27B]/90 rounded-lg transition-all shadow-sm"
-              >
-                View Projects
-              </button>
+                Hire Me
+              </Button>
             </div>
           </div>
         </div>
@@ -366,7 +353,7 @@ function Navbar() {
       {/* Mobile menu backdrop */}
       {isMenuOpen && (
         <div
-          className="fixed inset-0 bg-black/60 z-40 lg:hidden md:bg-black/50 md:backdrop-blur-sm\"
+          className="fixed inset-0 bg-background/60 z-40 lg:hidden md:bg-background/50 md:backdrop-blur-sm\"
           onClick={() => setIsMenuOpen(false)}
           aria-hidden="true"
         />

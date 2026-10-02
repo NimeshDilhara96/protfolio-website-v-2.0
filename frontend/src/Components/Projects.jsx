@@ -1,6 +1,7 @@
 import React, { useState, useTransition, useCallback, useMemo } from "react";
 import { Helmet } from "react-helmet-async";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+import Button from "./common/Button";
 import nextgenCover from "../assets/nextgensport club project cover.webp";
 import nutricoreCover from "../assets/Nutricare cover.webp";
 import ucareCover from "../assets/ucare project cover.webp";
@@ -104,23 +105,23 @@ const types = ["All", ...Array.from(new Set(projects.map((p) => p.type)))];
 // Memoized ProjectCard component to isolate re-renders
 const ProjectCard = React.memo(({ project, idx }) => (
   <div
-    className="group flex flex-col bg-[#11181C]/80 backdrop-blur-xl rounded-2xl shadow-lg border border-[#F8F9FA]/10 overflow-hidden transition-all duration-500 hover:shadow-[0_8px_30px_rgb(52,178,123,0.2)] hover:border-[#34B27B]/30 hover:-translate-y-2"
+    className="group flex flex-col bg-surface/80 backdrop-blur-xl rounded-2xl shadow-lg border border-border-subtle overflow-hidden transition-all duration-500 hover:shadow-lg hover:border-border-medium hover:-translate-y-2 theme-card-glow"
     style={{
       animation: `fadeInUp 0.5s ease-out ${idx * 0.1}s both`,
     }}
   >
     {/* Professional Image Container */}
-    <div className="relative overflow-hidden h-40 md:h-48 bg-black shrink-0">
+    <div className="relative overflow-hidden h-40 md:h-48 bg-background shrink-0">
       {project.image ? (
         <img
-          className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+          className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 brightness-[0.85] group-hover:brightness-100"
           src={project.image}
           alt={project.name}
           loading="lazy"
         />
       ) : (
-        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#11181C] to-black">
-          <span className="text-[#34B27B]/40 text-4xl font-bold">
+        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-surface to-background">
+          <span className="text-accent/40 text-4xl font-bold">
             {project.name
               .split(/[-_ ]/)
               .map((w) => w[0])
@@ -130,7 +131,6 @@ const ProjectCard = React.memo(({ project, idx }) => (
           </span>
         </div>
       )}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#11181C] via-transparent to-transparent opacity-90"></div>
     </div>
 
     {/* Typography Content Container */}
@@ -138,7 +138,7 @@ const ProjectCard = React.memo(({ project, idx }) => (
       {/* Header: Badges & Title */}
       <div className="mb-3 md:mb-5">
         <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
-          <span className="px-2 py-0.5 md:px-3 md:py-1 bg-[#34B27B]/10 text-[#34B27B] text-[10px] md:text-xs font-bold rounded-lg border border-[#34B27B]/20">
+          <span className="px-2 py-0.5 md:px-3 md:py-1 bg-accent/10 text-accent text-[10px] md:text-xs font-bold rounded-lg border border-accent/20">
             {project.type}
           </span>
           {project.live_url && (
@@ -151,24 +151,24 @@ const ProjectCard = React.memo(({ project, idx }) => (
             </span>
           )}
         </div>
-        <h3 className="text-lg md:text-xl font-bold text-[#F8F9FA] group-hover:text-[#34B27B] transition-colors duration-300 leading-tight">
+        <h3 className="text-lg md:text-xl font-bold text-text-primary group-hover:text-accent transition-colors duration-300 leading-tight">
           {project.name.replace(/-/g, " ").replace(/_/g, " ")}
         </h3>
       </div>
 
       {/* Project Description */}
-      <p className="text-[#F8F9FA]/70 text-sm mb-4 md:mb-8 leading-relaxed flex-grow">
+      <p className="text-text-primary/70 text-sm mb-4 md:mb-8 leading-relaxed flex-grow">
         {project.description.split("|")[0].trim()}
       </p>
 
       {/* Footer: Tags & Action Links */}
-      <div className="flex flex-col gap-4 md:gap-5 mt-auto pt-4 md:pt-5 border-t border-[#F8F9FA]/5">
+      <div className="flex flex-col gap-4 md:gap-5 mt-auto pt-4 md:pt-5 border-t border-text-primary/5">
         {/* Technology Tags */}
         <div className="flex flex-wrap gap-1.5 md:gap-2">
           {project.tags?.map((tag, i) => (
             <span
               key={i}
-              className="px-2 py-1 md:px-3 md:py-1.5 bg-[#11181C] text-[#F8F9FA]/80 text-[10px] md:text-xs font-medium rounded-md border border-[#F8F9FA]/10 shadow-sm"
+              className="px-2 py-1 md:px-3 md:py-1.5 bg-surface text-text-muted text-[10px] md:text-xs font-semibold rounded-md border border-border-subtle shadow-sm"
             >
               {tag}
             </span>
@@ -182,7 +182,7 @@ const ProjectCard = React.memo(({ project, idx }) => (
               href={project.live_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 md:gap-2 text-[13px] md:text-sm font-semibold text-[#34B27B] hover:text-emerald-400 transition-colors group/link"
+              className="flex items-center gap-1.5 md:gap-2 text-[13px] md:text-sm font-semibold text-accent hover:text-emerald-400 transition-colors group/link"
             >
               <span>Live Demo</span>
               <FaExternalLinkAlt className="text-[10px] md:text-xs group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 transition-transform" />
@@ -192,7 +192,7 @@ const ProjectCard = React.memo(({ project, idx }) => (
             href={project.html_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 md:gap-2 text-[13px] md:text-sm font-medium text-[#F8F9FA]/60 hover:text-white transition-colors group/link ml-1 md:ml-2"
+            className="flex items-center gap-1.5 md:gap-2 text-[13px] md:text-sm font-medium text-text-primary/60 hover:text-text-primary transition-colors group/link ml-1 md:ml-2"
           >
             <span>{project.live_url ? "Source Code" : "View Details"}</span>
             <FaGithub className="text-base md:text-lg group-hover/link:scale-110 transition-transform" />
@@ -256,7 +256,7 @@ function Projects() {
   return (
     <section
       id="projects"
-      className="py-12 md:py-16 bg-gradient-to-b from-black to-[#11181C] relative overflow-hidden"
+      className="py-12 md:py-16 bg-gradient-to-b from-background to-surface relative overflow-hidden"
     >
       <Helmet>
         <title>
@@ -272,20 +272,20 @@ function Projects() {
         />
       </Helmet>
       {/* Subtle background decoration */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 right-10 w-96 h-96 bg-[#34B27B]/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-10 w-80 h-80 bg-[#34B27B]/5 rounded-full blur-3xl"></div>
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 right-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl theme-bg-glow"></div>
+        <div className="absolute bottom-20 left-10 w-80 h-80 bg-accent/5 rounded-full blur-3xl theme-bg-glow"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Professional Section Header */}
         <div className="text-center mb-10">
           <div className="inline-block mb-3"></div>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#F8F9FA] mb-3 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-3 tracking-tight">
             Featured Projects
           </h2>
-          <div className="w-16 h-0.5 bg-[#34B27B] mx-auto rounded-full"></div>
-          <p className="text-[#F8F9FA]/80 text-sm md:text-base max-w-2xl mx-auto mt-3">
+          <div className="w-16 h-0.5 bg-accent mx-auto rounded-full"></div>
+          <p className="text-text-primary/80 text-sm md:text-base max-w-2xl mx-auto mt-3">
             Delivering exceptional digital solutions with modern technology and
             design excellence
           </p>
@@ -294,19 +294,17 @@ function Projects() {
         {/* Professional Filter Buttons */}
         <div className="flex flex-wrap justify-center gap-2 mb-10">
           {types.map((type) => (
-            <button
+            <Button
               key={type}
-              className={`px-5 py-2 rounded-lg font-semibold text-sm transition-all duration-300 ${
-                filter === type
-                  ? "bg-[#34B27B] text-white shadow-lg shadow-[#34B27B]/20"
-                  : "bg-[#11181C] text-[#F8F9FA]/70 hover:text-[#34B27B] border border-[#F8F9FA]/10 hover:border-[#34B27B]/50 hover:shadow-md"
-              }`}
+              variant={filter === type ? "primary" : "outline"}
+              size="sm"
+              className={isPending ? "opacity-70 cursor-wait" : ""}
               onClick={() => handleFilterClick(type)}
               disabled={isPending}
               aria-current={filter === type ? "true" : "false"}
             >
               {type}
-            </button>
+            </Button>
           ))}
         </div>
 
@@ -322,94 +320,70 @@ function Projects() {
         {/* Pagination Controls */}
         {totalPages > 1 && (
           <div className="flex justify-center items-center gap-2 mt-12">
-            <button
+            <Button
+              variant="outline"
+              size="sm"
               onClick={() => handlePageChange(currentPage - 1)}
               disabled={currentPage === 1 || isPending}
-              className={`flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-300 ${
-                currentPage === 1
-                  ? "bg-[#11181C] text-[#F8F9FA]/30 cursor-not-allowed border border-[#F8F9FA]/5"
-                  : "bg-[#11181C] text-[#F8F9FA]/70 hover:bg-[#34B27B] hover:text-white border border-[#F8F9FA]/10 hover:border-[#34B27B] hover:shadow-[0_0_15px_rgb(52,178,123,0.3)]"
-              }`}
+              className="w-10 h-10 p-0 rounded-xl flex items-center justify-center"
               aria-label="Previous Page"
-            >
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M15 19l-7-7 7-7"
-                ></path>
-              </svg>
-            </button>
+              icon={
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+              }
+            />
 
             <div className="flex items-center gap-2 px-2">
               {Array.from({ length: totalPages }).map((_, idx) => {
                 const page = idx + 1;
                 return (
-                  <button
+                  <Button
                     key={page}
+                    variant={currentPage === page ? "primary" : "outline"}
+                    size="sm"
                     onClick={() => handlePageChange(page)}
                     disabled={isPending}
-                    className={`flex items-center justify-center w-10 h-10 rounded-xl font-bold transition-all duration-300 ${
-                      currentPage === page
-                        ? "bg-[#34B27B] text-white shadow-[0_0_15px_rgb(52,178,123,0.4)] border border-[#34B27B]"
-                        : "bg-[#11181C] text-[#F8F9FA]/70 hover:bg-[#11181C]/80 hover:text-[#34B27B] border border-[#F8F9FA]/10 hover:border-[#34B27B]/50"
-                    }`}
+                    className="w-10 h-10 p-0 rounded-xl flex items-center justify-center"
                   >
                     {page}
-                  </button>
+                  </Button>
                 );
               })}
             </div>
 
-            <button
+            <Button
+              variant="outline"
+              size="sm"
               onClick={() => handlePageChange(currentPage + 1)}
               disabled={currentPage === totalPages || isPending}
-              className={`flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-300 ${
-                currentPage === totalPages
-                  ? "bg-[#11181C] text-[#F8F9FA]/30 cursor-not-allowed border border-[#F8F9FA]/5"
-                  : "bg-[#11181C] text-[#F8F9FA]/70 hover:bg-[#34B27B] hover:text-white border border-[#F8F9FA]/10 hover:border-[#34B27B] hover:shadow-[0_0_15px_rgb(52,178,123,0.3)]"
-              }`}
+              className="w-10 h-10 p-0 rounded-xl flex items-center justify-center"
               aria-label="Next Page"
-            >
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M9 5l7 7-7 7"
-                ></path>
-              </svg>
-            </button>
+              icon={
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              }
+            />
           </div>
         )}
 
         {/* Professional Empty State */}
         {filteredProjects.length === 0 && (
-          <div className="text-center py-12 bg-[#11181C] rounded-2xl border border-[#F8F9FA]/10 shadow-sm">
+          <div className="text-center py-12 bg-surface rounded-2xl border border-border-subtle shadow-sm">
             <div className="text-4xl mb-3 opacity-50">🔍</div>
-            <h3 className="text-lg font-semibold text-[#F8F9FA] mb-1.5">
+            <h3 className="text-lg font-semibold text-text-primary mb-1.5">
               No projects found
             </h3>
-            <p className="text-[#F8F9FA]/70 text-xs">
+            <p className="text-text-primary/70 text-xs">
               Please select a different category to view more projects.
             </p>
           </div>
         )}
 
         {/* Professional CTA Section */}
-        <div className="text-center mt-10 pt-8 border-t border-[#F8F9FA]/10">
-          <p className="text-[#F8F9FA]/70 text-xs mb-3 font-medium">
+        <div className="text-center mt-10 pt-8 border-t border-border-subtle">
+          <p className="text-text-primary/70 text-xs mb-3 font-medium">
             Interested in collaborating?
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -417,14 +391,14 @@ function Projects() {
               href="https://github.com/nimeshdilhara96"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2 bg-[#34B27B] text-white text-sm rounded-lg font-semibold hover:shadow-xl hover:shadow-[#34B27B]/30 hover:scale-105 transition-all duration-300 shadow-lg"
+              className="inline-flex items-center gap-2 px-5 py-2 btn-primary border-transparent text-sm rounded-lg font-semibold hover:shadow-xl hover:shadow-accent/30 hover:scale-105 transition-all duration-300 shadow-lg"
             >
               <FaGithub className="text-base" />
               <span>View on GitHub</span>
             </a>
             <a
               href="/contact"
-              className="inline-flex items-center gap-2 px-5 py-2 bg-[#11181C] border-2 border-[#34B27B]/50 text-[#34B27B] text-sm rounded-lg font-semibold hover:bg-[#34B27B] hover:text-white hover:border-[#34B27B] transition-all duration-300"
+              className="inline-flex items-center gap-2 px-5 py-2 bg-surface border-2 border-accent/50 text-accent text-sm rounded-lg font-semibold hover:bg-accent hover:text-text-primary hover:border-accent transition-all duration-300"
             >
               <span>Get in Touch</span>
             </a>

@@ -10,7 +10,6 @@ import Loading from './Components/Loading';
 // Lazy load components for better performance
 const About = lazy(() => import('./Components/about'));
 const WhatIOffer = lazy(() => import('./Components/WhatIOffer'));
-const Education = lazy(() => import('./Components/Education'));
 const Technologies = lazy(() => import('./Components/Technologies'));
 const Projects = lazy(() => import('./Components/Projects'));
 const Stats = lazy(() => import('./Components/Stats'));
@@ -26,6 +25,9 @@ const AboutPreview = lazy(() => import('./Components/AboutPreview'));
 const ProjectsPreview = lazy(() => import('./Components/ProjectsPreview'));
 const WhatIOfferPreview = lazy(() => import('./Components/WhatIOfferPreview'));
 const ContactPreview = lazy(() => import('./Components/ContactPreview'));
+const ProjectsBento = lazy(() => import('./Components/ProjectsBento'));
+const SkillsMarquee = lazy(() => import('./Components/SkillsMarquee'));
+const HowIWork = lazy(() => import('./Components/HowIWork'));
 
 function App() {
   // Disable expensive animations after first user interaction for better INP
@@ -42,22 +44,22 @@ function App() {
             <Navbar />
             <Home />
             <Suspense fallback={<div className="h-32 bg-[#11181C]" />}>
-              <AboutPreview />
-            </Suspense>
-            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
-              <Education />
-            </Suspense>
-            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
-              <Technologies />
+              <SkillsMarquee />
             </Suspense>
             <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
               <ProjectsPreview />
             </Suspense>
             <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+              <ProjectsBento />
+            </Suspense>
+            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
               <WhatIOfferPreview />
             </Suspense>
             <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
-              <Stats />
+              <HowIWork />
+            </Suspense>
+            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+              <AboutPreview />
             </Suspense>
             <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
               <ClientReviews />
@@ -100,6 +102,9 @@ function App() {
               <WhatIOffer />
             </Suspense>
             <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+              <HowIWork />
+            </Suspense>
+            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
               <Footer />
             </Suspense>
           </>
@@ -117,6 +122,9 @@ function App() {
             <Navbar />
             <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
               <About />
+            </Suspense>
+            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+              <Technologies />
             </Suspense>
             <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
               <Footer />

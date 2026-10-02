@@ -1,48 +1,67 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaArrowRight } from "react-icons/fa";
+import profilePhoto from "../assets/about_n.webp";
 
 export default function AboutPreview() {
   return (
     <section
       id="about"
-      className="py-16 md:py-20 bg-gradient-to-br from-[#11181C] via-[#11181C] to-black relative overflow-hidden"
+      className="py-16 md:py-24 bg-background border-t border-text-primary/5"
     >
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-tr from-[#11181C] via-black to-[#11181C] opacity-80"></div>
-        <div className="hidden lg:block absolute top-[-10%] left-[-5%] w-[40%] h-[40%] rounded-full bg-gradient-to-br from-[#34B27B]/10 to-transparent blur-[100px]"></div>
-        <div className="hidden lg:block absolute bottom-[-15%] right-[-10%] w-[50%] h-[50%] rounded-full bg-gradient-to-tl from-[#34B27B]/10 to-transparent blur-[120px]"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#11181C]/40 to-[#11181C] z-10"></div>
-      </div>
+      <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+        <div className="flex flex-col md:flex-row items-center gap-10 lg:gap-16">
+          {/* Left: Photo Card */}
+          <div className="w-full md:w-[40%] lg:w-[350px] flex-shrink-0">
+            <div className="w-full aspect-[4/5] md:aspect-square bg-[#1B3126] rounded-3xl flex items-center justify-center shadow-2xl relative overflow-hidden">
+              <img
+                src={profilePhoto}
+                alt="Nimesh Dilhara"
+                className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
+              />
+              {/* Optional glow */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-accent/10 to-transparent pointer-events-none" />
+            </div>
+          </div>
 
-      <div className="container mx-auto px-4 relative z-20">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#F8F9FA] mb-6 tracking-tight">
-            About Me
-          </h2>
+          {/* Right: Content */}
+          <div className="w-full md:w-[60%] flex flex-col justify-center">
+            <h2 className="text-3xl md:text-5xl lg:text-[54px] font-bold text-text-primary mb-6 leading-[1.1] tracking-tight">
+              Designer and developer in one person.
+            </h2>
 
-          <p className="text-lg text-[#F8F9FA]/80 mb-8 leading-relaxed">
-            Hi, I'm{" "}
-            <span className="text-[#34B27B] font-semibold">
-              Nimesh Dilhara Kulasooriya
-            </span>
-            . A{" "}
-            <span className="font-semibold text-[#34B27B]">
-              Bachelor of Information Technology (Hons.) in Software Engineering
-            </span>{" "}
-            graduate passionate about building scalable, secure, and
-            production-ready digital solutions that solve real-world problems. I
-            combine strong engineering practices with creative problem-solving
-            to deliver reliable and meaningful user experiences.
-          </p>
+            <p className="text-[#84a39f] text-base md:text-lg leading-relaxed max-w-xl">
+              BIT (Hons) in Software Engineering graduate. I care about secure
+              authentication, clean APIs and interfaces that are easy to use.
+            </p>
 
-          <Link
-            to="/about"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-[#34B27B] text-white font-semibold rounded-full hover:shadow-lg hover:shadow-[#34B27B]/50 transition-all duration-300 hover:scale-105 group"
-          >
-            <span>Read My Full Story</span>
-            <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-          </Link>
+            <div className="w-full max-w-2xl h-[1px] bg-text-primary/10 my-8"></div>
+
+            <div className="flex items-center gap-12">
+              <div>
+                <div className="text-3xl md:text-4xl font-bold text-accent mb-1">
+                  10+
+                </div>
+                <div className="text-[#84a39f] text-sm md:text-base">
+                  projects
+                </div>
+              </div>
+              <div>
+                <div className="text-3xl md:text-4xl font-bold text-accent mb-1">
+                  2+
+                </div>
+                <div className="text-[#84a39f] text-sm md:text-base">years</div>
+              </div>
+            </div>
+
+            <div className="w-full max-w-2xl h-[1px] bg-text-primary/10 my-8"></div>
+
+            <Link
+              to="/about"
+              className="text-accent font-medium text-base md:text-lg hover:text-emerald-400 transition-colors inline-block"
+            >
+              Read my story
+            </Link>
+          </div>
         </div>
       </div>
     </section>

@@ -1,520 +1,198 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
+import { FaPlay, FaArrowRight, FaGithub, FaLinkedinIn, FaInstagram, FaXTwitter, FaFacebookF } from "react-icons/fa6";
 import profilePhoto from "../assets/nimesh_dilhara_Kulasooriya_profe.jpeg";
+import Button from "./common/Button";
 
-const lines = [
-  "Freelance Full-Stack Developer",
-  "React & Node.js Developer",
-  "MERN Stack Engineer 🚀",
-  "AI Web Application Developer 🤖",
-  "Building Scalable Modern Apps",
-  "Available for International Projects 🌍",
-  "Frontend & Backend Specialist 💻",
-  "From Sri Lanka 🇱🇰",
-  "MommentX",
-];
+const SocialLink = ({ href, icon, ariaLabel }) => (
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={ariaLabel}
+    className="w-10 h-10 flex items-center justify-center rounded-full border border-border-subtle text-text-primary/60 hover:text-accent hover:border-accent transition-colors text-sm font-semibold tracking-wider"
+  >
+    {icon}
+  </a>
+);
 
-// Memoized Typewriter component - isolates high-frequency re-renders
-const Typewriter = React.memo(({ isMobile }) => {
-  const [lineIdx, setLineIdx] = useState(0);
-  const [charIdx, setCharIdx] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const typingTimeout = useRef();
-
-  useEffect(() => {
-    // Use low-frequency rotating text on mobile to keep main thread free for interactions.
-    if (isMobile) {
-      const intervalId = setInterval(() => {
-        setLineIdx((prev) => (prev + 1) % lines.length);
-      }, 2800);
-      return () => clearInterval(intervalId);
-    }
-
-    const currentLine = lines[lineIdx];
-    if (!isDeleting) {
-      if (charIdx < currentLine.length) {
-        typingTimeout.current = setTimeout(() => setCharIdx(charIdx + 1), 60);
-      } else {
-        typingTimeout.current = setTimeout(() => setIsDeleting(true), 1200);
-      }
-    } else {
-      if (charIdx > 0) {
-        typingTimeout.current = setTimeout(() => setCharIdx(charIdx - 1), 30);
-      } else {
-        setIsDeleting(false);
-        setLineIdx((lineIdx + 1) % lines.length);
-      }
-    }
-    return () => clearTimeout(typingTimeout.current);
-  }, [charIdx, isDeleting, lineIdx, isMobile]);
-
-  const display = isMobile ? lines[lineIdx] : lines[lineIdx].slice(0, charIdx);
-
-  const cursorClass = isMobile ? "w-[2px] h-5" : "w-[3px] h-7";
-  const cursorAnimationClass = isMobile ? "" : "animate-pulse";
-  const textClass = isMobile
-    ? "text-lg sm:text-xl min-h-[28px]"
-    : "text-2xl xl:text-3xl min-h-[40px] xl:min-h-[48px]";
-  const alignmentClass = isMobile
-    ? "justify-center text-center"
-    : "justify-start text-left";
-
-  return (
-    <div
-      className={`${textClass} ${alignmentClass} font-medium mb-4 lg:mb-6 text-[#34B27B] flex items-center`}
-    >
-      <span>{display}</span>
-      <span
-        className={`${cursorClass} ${cursorAnimationClass} bg-[#34B27B] ml-1`}
-        aria-hidden="true"
-      ></span>
-    </div>
-  );
-});
-
-// Reusable Badge Component
-const WelcomeBadge = () => (
-  <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 mb-4 md:mb-6 rounded-full bg-[#34B27B]/20 text-[#34B27B] border border-[#34B27B]/30 text-sm font-medium md:backdrop-blur-sm">
-    👋 Hello, I'm
+const FloatingPill = ({ label, className }) => (
+  <div className={`absolute px-5 py-2 bg-surface border border-border-subtle rounded-full text-xs font-semibold text-text-primary/80 shadow-2xl ${className}`}>
+    {label}
   </div>
 );
 
-// Open to Work Badge Component
-const OpenToWorkBadge = () => (
-  <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 mb-4 md:mb-6 rounded-full bg-green-500/10 text-green-600 border border-green-500/30 text-sm font-medium animate-pulse ml-2 md:backdrop-blur-sm">
-    <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-    Open to Work
-  </div>
-);
-
-const GithubIcon = ({ size }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    aria-hidden="true"
-  >
-    <path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48 0-.24-.01-.87-.01-1.71-2.78.6-3.37-1.19-3.37-1.19-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.61.07-.61 1 .07 1.54 1.03 1.54 1.03.9 1.53 2.35 1.09 2.92.84.09-.65.35-1.09.64-1.34-2.22-.25-4.56-1.11-4.56-4.95 0-1.1.39-2 1.03-2.71-.1-.25-.45-1.28.1-2.66 0 0 .84-.27 2.75 1.03A9.58 9.58 0 0 1 12 6.8c.85 0 1.7.11 2.5.34 1.9-1.3 2.74-1.03 2.74-1.03.55 1.38.2 2.41.1 2.66.64.7 1.02 1.6 1.02 2.71 0 3.85-2.35 4.7-4.59 4.95.36.31.69.92.69 1.86 0 1.34-.01 2.42-.01 2.75 0 .27.18.58.67.48A10 10 0 0 0 22 12c0-5.52-4.48-10-10-10Z" />
-  </svg>
-);
-
-const LinkedinIcon = ({ size }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    aria-hidden="true"
-  >
-    <path d="M6.94 8.5H3.56V20h3.38V8.5Zm.24-3.55A1.95 1.95 0 0 0 5.2 3a1.95 1.95 0 0 0 0 3.9c1.08 0 1.96-.87 1.98-1.95Zm4.11 3.55H8V20h3.37v-6.03c0-1.59.3-3.13 2.28-3.13 1.95 0 1.98 1.82 1.98 3.23V20H19v-6.62c0-3.25-.7-5.75-4.5-5.75-1.82 0-3.04 1-3.54 1.95h-.05V8.5Z" />
-  </svg>
-);
-
-const InstagramIcon = ({ size }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    aria-hidden="true"
-  >
-    <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm8.5 1.8h-8.5A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95Zm-4.25 2.95A5.25 5.25 0 1 1 6.75 12 5.25 5.25 0 0 1 12 6.75Zm0 1.8A3.45 3.45 0 1 0 15.45 12 3.45 3.45 0 0 0 12 8.55Zm5.6-2.2a1.2 1.2 0 1 1-1.2 1.2 1.2 1.2 0 0 1 1.2-1.2Z" />
-  </svg>
-);
-
-const TwitterIcon = ({ size }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    aria-hidden="true"
-  >
-    <path d="M18.9 2H22l-6.77 7.74L23 22h-6.1l-4.78-6.25L6.66 22H3.55l7.24-8.27L1 2h6.24l4.32 5.72L18.9 2Zm-1.07 18.17h1.69L6.33 3.74H4.52l13.31 16.43Z" />
-  </svg>
-);
-
-const FacebookIcon = ({ size }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    aria-hidden="true"
-  >
-    <path d="M13.5 22v-8h2.7l.4-3H13.5V9.2c0-.87.24-1.47 1.5-1.47h1.6V5.05A21.1 21.1 0 0 0 14.27 5c-2.3 0-3.87 1.4-3.87 3.98V11H7.8v3h2.6v8h3.1Z" />
-  </svg>
-);
-
-const UpworkIcon = ({ size, className }) => (
-  <svg
-    width={size}
-    height={size}
-    className={className}
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    aria-hidden="true"
-  >
-    <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z" />
-  </svg>
-);
-
-// Tech Stack Badges Component
-const TechStackBadges = () => {
-  const techStack = [
-    "React",
-    "Node.js",
-    "MERN",
-    "MongoDB",
-    "AI Integration",
-    "JavaScript",
-  ];
-
+export default function Home() {
   return (
-    <div className="mt-6 md:mt-8">
-      <p className="text-sm text-[#F8F9FA]/50 mb-3">
-        Available for freelance and remote opportunities worldwide.
-      </p>
-      <div className="flex flex-wrap gap-2">
-        {techStack.map((tech) => (
-          <span
-            key={tech}
-            className="px-3 py-1.5 text-xs md:text-sm bg-[#34B27B]/10 text-[#34B27B] border border-[#34B27B]/30 rounded-full font-medium hover:bg-[#34B27B]/20 transition-colors duration-300"
-          >
-            {tech}
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-// Social Links Component
-const SocialLinks = ({ size = "default" }) => {
-  const iconSize = size === "large" ? 20 : 16;
-  const containerSize = size === "large" ? "w-12 h-12" : "w-9 h-9";
-
-  const socialLinks = [
-    {
-      href: "https://github.com/nimeshdilhara96",
-      icon: GithubIcon,
-      label: "Nimesh Dilhara GitHub Profile",
-    },
-    {
-      href: "https://linkedin.com/in/nimeshdilhara",
-      icon: LinkedinIcon,
-      label: "Nimesh Dilhara LinkedIn Profile",
-    },
-    {
-      href: "https://instagram.com/nimeshdilhara_",
-      icon: InstagramIcon,
-      label: "Nimesh Dilhara Instagram Profile",
-    },
-    {
-      href: "https://twitter.com/nimeshdilhara8",
-      icon: TwitterIcon,
-      label: "Nimesh Dilhara Twitter Profile",
-    },
-    {
-      href: "https://facebook.com/nimesh.dilhara.96",
-      icon: FacebookIcon,
-      label: "Nimesh Dilhara Facebook Profile",
-    },
-  ];
-
-  return (
-    <div
-      className={`flex items-center ${size === "large" ? "gap-4" : "gap-3"}`}
-    >
-      {socialLinks.map((social) => (
-        <a
-          key={social.label}
-          href={social.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={social.label}
-          className={`${containerSize} flex items-center justify-center rounded-full bg-[#11181C] text-[#F8F9FA]/70 hover:bg-[#34B27B] hover:text-white transition-all duration-300 md:backdrop-blur-sm ${size === "large" ? "hover:scale-110" : ""}`}
-        >
-          <social.icon size={iconSize} />
-        </a>
-      ))}
-    </div>
-  );
-};
-
-function Home() {
-  // Fixed CV link - use the same one for both mobile and desktop
-  const CV_LINK =
-    "https://drive.google.com/file/d/1GYmuy_2CMK9ZsAU3Dpf1A65O9hweZ_m-/view?usp=sharing";
-
-  return (
-    <div
-      id="home"
-      className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-[#11181C] via-[#11181C] to-black pt-20 md:pt-16"
-    >
-      {/* Modern Professional Background - Dark Theme */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        {/* Rich dark gradient base */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#11181C] via-[#11181C] to-black"></div>
-
-        {/* Animated gradient orbs - Supabase Jungle Green theme */}
-        <div className="hidden md:block absolute top-[-20%] sm:top-[-10%] left-[-10%] sm:left-[-5%] w-[300px] sm:w-[450px] md:w-[500px] h-[300px] sm:h-[450px] md:h-[500px] rounded-full bg-[#34B27B]/10 blur-3xl animate-blob"></div>
-        <div className="hidden md:block absolute top-[5%] sm:top-[10%] right-[-10%] sm:right-[-5%] w-[250px] sm:w-[350px] md:w-[400px] h-[250px] sm:h-[350px] md:h-[400px] rounded-full bg-[#34B27B]/15 blur-3xl animate-blob animation-delay-2000"></div>
-        <div className="hidden md:block absolute bottom-[-15%] sm:bottom-[-10%] left-[10%] sm:left-[20%] w-[280px] sm:w-[400px] md:w-[450px] h-[280px] sm:h-[400px] md:h-[450px] rounded-full bg-[#34B27B]/10 blur-3xl animate-blob animation-delay-4000"></div>
-
-        {/* Additional color accent */}
-        <div className="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[200px] sm:w-[350px] h-[200px] sm:h-[350px] rounded-full bg-[#34B27B]/10 blur-3xl animate-blob animation-delay-6000"></div>
-
-        {/* Subtle geometric pattern */}
-        <div
-          className="hidden sm:block absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `
-            linear-gradient(to right, #34B27B 1px, transparent 1px),
-            linear-gradient(to bottom, #34B27B 1px, transparent 1px)
+    <div id="home" className="relative min-h-screen bg-background overflow-hidden pt-28 pb-8 flex flex-col justify-between">
+      {/* Background Grid */}
+      <div 
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, var(--theme-grid) 1px, transparent 1px),
+            linear-gradient(to bottom, var(--theme-grid) 1px, transparent 1px)
           `,
-            backgroundSize: "80px 80px",
-          }}
-        ></div>
+          backgroundSize: "56px 56px",
+          WebkitMaskImage: "radial-gradient(ellipse at center, black 40%, transparent 80%)",
+          maskImage: "radial-gradient(ellipse at center, black 40%, transparent 80%)",
+        }}
+      />
+      {/* Glows */}
+      <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-[var(--theme-glow)] rounded-full blur-[100px] z-0 pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[var(--theme-glow)] rounded-full blur-[120px] z-0 pointer-events-none" />
 
-        {/* Modern dots pattern */}
-        <div
-          className="hidden md:block absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle, #34B27B 1px, transparent 1px)",
-            backgroundSize: "40px 40px",
-          }}
-        ></div>
+      <div className="container mx-auto px-4 lg:px-8 xl:px-12 z-10 flex-grow flex flex-col justify-center">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
+          
+          {/* Left Content */}
+          <div className="w-full lg:w-[55%] flex flex-col items-start text-left pt-6 lg:pt-10">
+            {/* Top Badge */}
+            <div className="inline-flex items-center px-4 py-2 rounded-full border border-accent/30 bg-surface/80 text-text-primary/70 text-sm mb-8 shadow-lg backdrop-blur-md">
+              <span className="w-2.5 h-2.5 rounded-full bg-accent mr-3 animate-pulse shadow-[0_0_8px_var(--theme-a)]"></span>
+              Available for freelance worldwide
+            </div>
 
-        {/* Dark gradient overlay */}
-        <div className="hidden md:block absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-transparent via-[#11181C]/20 to-transparent"></div>
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-text-primary leading-[1.05] tracking-tight mb-8">
+              I build web apps<br />
+              <span className="text-highlight">that scale with</span><br />
+              your business.
+            </h1>
 
-        {/* Smooth fade to content */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#11181C]/80 z-10"></div>
+            <p className="text-text-primary/90 text-lg md:text-xl max-w-xl leading-relaxed mb-10">
+              <span className="font-bold text-text-primary">Nimesh Dilhara Kulasooriya</span>, freelance full-stack developer. I help startups and international clients ship fast, modern products with React, Node.js and AI features.
+            </p>
 
-        {/* Glass morphism accent with color */}
-        <div className="hidden lg:block absolute top-1/3 right-1/3 w-96 h-96 bg-[#34B27B]/10 rounded-full blur-2xl"></div>
-      </div>
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row items-center gap-4 mb-12 w-full sm:w-auto">
+              <Button
+                href="#contact"
+                variant="primary"
+                size="lg"
+                className="w-full sm:w-auto"
+                icon={<FaArrowRight className="-rotate-45" />}
+              >
+                Start a project
+              </Button>
+              <Button
+                href="#projects-bento"
+                variant="outline"
+                size="lg"
+                className="w-full sm:w-auto group"
+                icon={
+                  <div className="w-7 h-7 rounded-full border border-current flex items-center justify-center group-hover:border-accent transition-colors">
+                    <FaPlay className="text-[10px] ml-0.5" />
+                  </div>
+                }
+              >
+                View my work
+              </Button>
+            </div>
 
-      {/* Content Container */}
-      <div className="container mx-auto px-4 lg:px-8 xl:px-16 z-20 py-8 md:py-16">
-        {/* Mobile Layout */}
-        <div className="flex flex-col items-center text-center lg:hidden">
-          {/* Profile Image - Mobile */}
-          <div className="mb-8">
-            <div className="relative inline-block group">
-              <div className="w-48 h-48 sm:w-56 sm:h-56 relative">
-                {/* Simplified mobile frame for faster first paint */}
-                <div className="absolute -inset-1 rounded-full border-2 border-[#34B27B]/60"></div>
+            {/* Social Links */}
+            <div className="flex flex-wrap items-center gap-3">
+              <a
+                href="https://drive.google.com/file/d/1GYmuy_2CMK9ZsAU3Dpf1A65O9hweZ_m-/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Download Nimesh Dilhara Kulasooriya's CV"
+                className="text-sm font-medium text-text-primary/90 hover:text-accent underline underline-offset-4 mr-4 transition-colors"
+              >
+                Download CV
+              </a>
+              <SocialLink href="https://github.com/nimeshdilhara96" icon={<FaGithub />} ariaLabel="Nimesh Dilhara GitHub Profile" />
+              <SocialLink href="https://linkedin.com/in/nimeshdilhara" icon={<FaLinkedinIn />} ariaLabel="Nimesh Dilhara LinkedIn Profile" />
+              <SocialLink href="https://instagram.com/nimeshdilhara_" icon={<FaInstagram />} ariaLabel="Nimesh Dilhara Instagram Profile" />
+              <SocialLink href="https://twitter.com/nimeshdilhara8" icon={<FaXTwitter />} ariaLabel="Nimesh Dilhara Twitter Profile" />
+              <SocialLink href="https://facebook.com/nimesh.dilhara.96" icon={<FaFacebookF />} ariaLabel="Nimesh Dilhara Facebook Profile" />
+            </div>
+          </div>
 
-                {/* Inner border */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#11181C] to-black rounded-full"></div>
+          {/* Right Content - Visual Graphic */}
+          <div className="w-full lg:w-[45%] flex justify-center lg:justify-end relative h-[450px] md:h-[600px] items-center mt-12 lg:mt-0">
+            {/* Orbit Circle */}
+            <div className="absolute w-[400px] h-[400px] md:w-[550px] md:h-[550px] rounded-full border border-dashed border-accent/60 flex items-center justify-center animate-[spin_60s_linear_infinite]">
+              {/* Counter-spin inner items so they stay upright */}
+              
+              {/* Floating Pills */}
+              <div className="absolute top-0 right-[15%] -translate-y-1/2 animate-[spin_60s_linear_infinite_reverse]">
+                <FloatingPill label="Figma" />
+              </div>
+              <div className="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 animate-[spin_60s_linear_infinite_reverse]">
+                <FloatingPill label="React" />
+              </div>
+              <div className="absolute bottom-0 right-[15%] translate-y-1/2 animate-[spin_60s_linear_infinite_reverse]">
+                <FloatingPill label="Node.js" />
+              </div>
 
-                {/* Image */}
+              <div className="absolute top-[10%] right-[60%] -translate-x-1/2 animate-[spin_60s_linear_infinite_reverse]">
+                <div className="flex items-center gap-3 bg-surface border border-border-subtle rounded-full py-2 px-3 shadow-2xl">
+                  <div className="bg-[#14a800] text-text-primary text-[10px] font-bold px-2 py-0.5 rounded-full">Upwork</div>
+                  <span className="text-xs text-text-primary/80 pr-2 whitespace-nowrap">Hire me there too</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Static Inner Elements (Not Spinning) */}
+            <div className="relative w-full h-full flex items-center justify-center">
+              {/* Main Card */}
+              <div className="w-[260px] h-[300px] md:w-[320px] md:h-[380px] bg-surface rounded-[2.5rem] shadow-2xl relative flex flex-col items-center justify-center border border-accent/20 overflow-hidden group">
                 <img
                   src={profilePhoto}
                   alt="Nimesh Dilhara - Software Engineer and Full Stack Developer"
                   loading="eager"
                   fetchPriority="high"
-                  decoding="sync"
-                  sizes="(max-width: 640px) 192px, (max-width: 1024px) 224px, 224px"
-                  width="224"
-                  height="224"
-                  className="w-full h-full object-cover rounded-full p-1 relative z-10 shadow-xl shadow-[#34B27B]/10"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-
-                {/* Open to Work Badge on Ring - Replaced with Upwork */}
-                <div className="absolute bottom-1 right-1 z-20">
-                  <a
-                    href="https://www.upwork.com/freelancers/~YOUR_UPWORK_ID"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-2.5 py-1 rounded-full bg-[#14a800] text-white border-2 border-white text-[10px] font-bold shadow-lg hover:bg-[#108500] hover:scale-105 transition-all duration-300"
-                  >
-                    <UpworkIcon size={10} className="mr-1" />
-                    <span>Upwork</span>
-                  </a>
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute bottom-8 left-0 right-0 text-center px-4 z-10">
+                  <p className="font-bold text-text-primary leading-tight md:text-lg">Nimesh Dilhara<br/><span className="text-text-primary/90 text-sm font-medium">Full-Stack Developer</span></p>
                 </div>
               </div>
-            </div>
-          </div>
 
-          {/* Text Content - Mobile */}
-          <div className="max-w-lg">
-            <div className="flex flex-wrap items-center justify-center gap-2">
-              <WelcomeBadge />
-            </div>
-
-            <h1 className="text-3xl sm:text-4xl font-bold mb-3 text-[#F8F9FA] tracking-tight">
-              Nimesh Dilhara Kulasooriya
-            </h1>
-            <p className="sr-only">
-              Nimesh Dilhara Kulasooriya is a freelance full-stack developer
-              from Sri Lanka specializing in React, Node.js, MERN stack, AI
-              integration, frontend development, backend development, and
-              scalable web applications for international clients.
-            </p>
-
-            {/* Fixed typing animation height */}
-            <Typewriter isMobile={true} />
-
-            <p className="text-[#F8F9FA]/70 text-base sm:text-lg mb-6 leading-relaxed">
-              I help startups, businesses, and international clients build fast,
-              scalable, and modern web applications using React, Node.js, MERN
-              stack, and AI-powered solutions.
-            </p>
-
-            {/* Action buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-8">
-              <a
-                href={CV_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Download my CV"
-                className="w-full sm:w-auto px-6 py-3 bg-[#34B27B] text-white text-sm rounded-xl font-medium shadow-lg shadow-[#34B27B]/20 hover:translate-y-[-2px] hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 group"
-              >
-                <span>Download CV</span>
-                <svg
-                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                  ></path>
-                </svg>
-              </a>
-              <a
-                href="#contact"
-                aria-label="Go to contact section"
-                className="w-full sm:w-auto px-6 py-3 border-2 border-[#34B27B] text-[#34B27B] text-sm rounded-xl font-medium hover:bg-[#34B27B] hover:text-white hover:translate-y-[-2px] transition-all duration-300 relative overflow-hidden group"
-              >
-                <span className="absolute inset-0 w-0 bg-[#34B27B] group-hover:w-full transition-all duration-300 rounded-xl"></span>
-                <span className="relative z-10">Hire Me</span>
-              </a>
+              {/* Smaller Featured Card Overlapping */}
+              <div className="absolute left-[5%] md:-left-8 bottom-[10%] md:bottom-24 w-48 md:w-56 bg-surface border border-border-subtle rounded-2xl p-4 shadow-2xl z-20 hover:-translate-y-2 transition-transform duration-300">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_8px_var(--theme-a)]" />
+                  <span className="text-[10px] md:text-xs text-text-primary/60 font-medium">Featured project</span>
+                </div>
+                <div className="w-full h-14 md:h-16 bg-card-placeholder rounded-lg mb-3" />
+                <h4 className="text-text-primary font-bold text-sm md:text-base mb-1">OrderFlow ERP</h4>
+                <a href="#projects" className="text-accent text-[10px] md:text-xs font-bold flex items-center gap-1 hover:underline">
+                  View case <FaArrowRight className="-rotate-45" />
+                </a>
+              </div>
             </div>
 
-            <TechStackBadges />
-
-            <SocialLinks />
           </div>
         </div>
+      </div>
 
-        {/* Desktop Layout */}
-        <div className="hidden lg:flex lg:flex-row items-center justify-center gap-8 xl:gap-12 max-w-7xl mx-auto">
-          {/* Text Content - Desktop */}
-          <div className="flex-1 text-left max-w-xl xl:max-w-2xl">
-            <div className="flex items-center gap-2">
-              <WelcomeBadge />
-            </div>
-
-            <h2 className="text-5xl xl:text-6xl font-bold mb-4 text-[#F8F9FA] tracking-tight">
-              Nimesh Dilhara Kulasooriya
-            </h2>
-
-            {/* Fixed typing animation height */}
-            <Typewriter isMobile={false} />
-
-            <p className="text-[#F8F9FA]/70 text-xl mb-8 max-w-xl leading-relaxed">
-              I help startups, businesses, and international clients build fast,
-              scalable, and modern web applications using React, Node.js, MERN
-              stack, and AI-powered solutions.
-            </p>
-
-            <div className="flex items-center gap-5 mb-10">
-              <a
-                href={CV_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Download my CV"
-                className="px-8 py-4 bg-[#34B27B] text-white text-base rounded-xl font-medium shadow-lg shadow-[#34B27B]/20 hover:translate-y-[-3px] hover:shadow-xl hover:bg-[#34B27B]/90 transition-all duration-300 flex items-center gap-3 relative overflow-hidden group"
-              >
-                <span className="relative z-10">Download CV</span>
-                <svg
-                  className="w-5 h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                  ></path>
-                </svg>
-              </a>
-              <a
-                href="#contact"
-                aria-label="Go to contact section"
-                className="px-8 py-4 border-2 border-[#34B27B] text-[#34B27B] text-base rounded-xl font-medium hover:bg-[#34B27B] hover:text-white hover:translate-y-[-3px] transition-all duration-300 relative overflow-hidden group"
-              >
-                <span className="absolute inset-0 w-0 bg-[#34B27B] group-hover:w-full transition-all duration-300 rounded-xl"></span>
-                <span className="relative z-10">Hire Me</span>
-              </a>
-            </div>
-
-            <TechStackBadges />
-
-            <div className="mt-8">
-              <SocialLinks size="large" />
-            </div>
+      {/* Stats Bar at Bottom */}
+      <div className="container mx-auto px-4 lg:px-8 xl:px-12 relative z-20 mt-16 pb-4">
+        <div className="bg-surface/90 backdrop-blur-xl border border-border-subtle rounded-3xl w-full p-8 md:p-10 grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 divide-x-0 lg:divide-x divide-text-primary/10 shadow-2xl">
+          
+          <div className="flex flex-col justify-center px-4 md:px-8 items-start">
+            <div className="text-4xl md:text-5xl font-bold text-highlight mb-2 tracking-tight">10+</div>
+            <div className="text-text-primary/80 text-sm font-medium">Projects shipped</div>
+          </div>
+          
+          <div className="flex flex-col justify-center px-4 md:px-8 items-start">
+            <div className="text-4xl md:text-5xl font-bold text-highlight mb-2 tracking-tight">2+</div>
+            <div className="text-text-primary/80 text-sm font-medium">Years building</div>
+          </div>
+          
+          <div className="flex flex-col justify-center px-4 md:px-8 items-start">
+            <div className="text-4xl md:text-5xl font-bold text-highlight mb-2 tracking-tight">5</div>
+            <div className="text-text-primary/80 text-sm font-medium">Core technologies</div>
+          </div>
+          
+          <div className="flex flex-col justify-center px-4 md:px-8 items-start">
+            <div className="text-3xl md:text-4xl font-bold text-highlight mb-2 tracking-tight">Sri Lanka</div>
+            <div className="text-text-primary/80 text-sm font-medium">Working worldwide</div>
           </div>
 
-          {/* Profile Image - Desktop */}
-          <div className="flex-shrink-0">
-            <div className="relative group">
-              <div className="w-72 h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 relative">
-                {/* Main border with gradient */}
-                <div className="absolute -inset-1.5 bg-[#34B27B] rounded-full opacity-50 group-hover:opacity-100 transition-all duration-300"></div>
-
-                {/* Inner border */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#11181C] to-black rounded-full"></div>
-
-                {/* Image */}
-                <img
-                  src={profilePhoto}
-                  alt="Nimesh Dilhara - Software Engineer and Full Stack Developer"
-                  loading="eager"
-                  fetchPriority="high"
-                  decoding="async"
-                  width="384"
-                  height="384"
-                  className="w-full h-full object-cover rounded-full p-2 relative z-10 transform group-hover:scale-105 transition-transform duration-500 shadow-2xl shadow-[#34B27B]/10"
-                />
-
-                {/* Shine effect */}
-                <div
-                  className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500"
-                  style={{ transform: "rotate(45deg)" }}
-                ></div>
-
-                {/* Open to Work Badge on Ring - Replaced with Upwork */}
-                <div className="absolute bottom-2 right-2 z-20">
-                  <a
-                    href="https://www.upwork.com/freelancers/~01e70e0f98c0cf9951"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-4 py-2 rounded-full bg-[#14a800] text-white border-2 border-white text-sm font-bold shadow-xl hover:bg-[#108500] hover:scale-105 transition-all duration-300"
-                  >
-                    <UpworkIcon size={14} className="mr-1.5" />
-                    <span>Upwork</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
   );
 }
-
-export default Home;

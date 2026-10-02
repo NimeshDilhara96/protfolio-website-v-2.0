@@ -4,35 +4,56 @@ function Education() {
   return (
     <section
       id="education"
-      className="py-20 bg-gradient-to-b from-[#11181C] to-black relative overflow-hidden"
+      className="py-20 bg-gradient-to-b from-surface to-background relative overflow-hidden"
     >
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-10 left-10 w-32 h-32 bg-[#34B27B]/10 rounded-full blur-xl"></div>
-        <div className="absolute bottom-10 right-10 w-40 h-40 bg-[#34B27B]/10 rounded-full blur-xl"></div>
+        <div className="absolute top-10 left-10 w-32 h-32 bg-accent/10 rounded-full blur-xl"></div>
+        <div className="absolute bottom-10 right-10 w-40 h-40 bg-accent/10 rounded-full blur-xl"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Title */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#F8F9FA] mb-4 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-text-primary mb-4 tracking-tight">
             Education
           </h2>
-          <div className="w-20 h-1 bg-[#34B27B] mx-auto rounded-full"></div>
-          <p className="text-[#F8F9FA]/80 text-lg mt-6 max-w-2xl mx-auto">
+          <div className="w-20 h-1 bg-accent mx-auto rounded-full"></div>
+          <p className="text-text-primary/80 text-lg mt-6 max-w-2xl mx-auto">
             My academic journey and qualifications that shaped my technical
             expertise
           </p>
         </div>
 
-        {/* Education List */}
-        <div className="space-y-8 max-w-4xl mx-auto">
-          {/* ESOFT Metro Campus */}
-          <div className="group bg-[#11181C]/95 rounded-2xl shadow-lg shadow-[#34B27B]/5 p-8 transition-all duration-300 hover:shadow-xl hover:shadow-[#34B27B]/10 hover:scale-[1.02] border border-[#F8F9FA]/10 md:bg-[#11181C]/90 md:backdrop-blur-sm">
-            <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-              {/* Logo */}
-              <div className="flex-shrink-0">
-                <div className="w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden shadow-lg bg-[#11181C]/90 flex items-center justify-center p-2 md:bg-[#11181C]/80 md:backdrop-blur-sm">
+        {/* Education List - Timeline Style */}
+        <div className="max-w-3xl mx-auto pl-4 md:pl-0 mt-8">
+          <div className="relative border-l-2 border-border-subtle space-y-14 md:space-y-16">
+            
+            {/* ESOFT Metro Campus */}
+            <div className="relative pl-8 md:pl-12 group">
+              {/* Timeline Node - Filled */}
+              <div className="absolute -left-[11px] top-1.5 w-5 h-5 bg-accent rounded-full ring-8 ring-surface transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_10px_rgba(52,178,123,0.5)]"></div>
+              
+              <div className="flex flex-col sm:flex-row justify-between items-start gap-4">
+                <div className="flex-1">
+                  <time className="block text-accent font-semibold text-sm md:text-base mb-2">
+                    Oct 2022 – Sep 2026
+                  </time>
+                  <h3 className="text-2xl md:text-3xl font-bold text-text-primary mb-2 tracking-tight">
+                    Esoft Uni Colombo
+                  </h3>
+                  <p className="text-text-primary/70 text-lg">
+                    Bachelor of Information Technology (Hons.) in Software Engineering
+                  </p>
+                  <div className="mt-5">
+                    <span className="inline-block px-4 py-1.5 border border-accent text-accent text-sm font-medium rounded-full bg-accent/5">
+                      Graduated
+                    </span>
+                  </div>
+                </div>
+
+                {/* Logo */}
+                <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 bg-surface/90 rounded-xl p-2 border border-border-subtle shadow-lg group-hover:border-accent/50 transition-all duration-300 mt-2 sm:mt-0">
                   <img
                     src="https://esu.lk/images/logo/esu-header.png"
                     alt="ESOFT Metro Campus Logo"
@@ -41,104 +62,56 @@ function Education() {
                   />
                 </div>
               </div>
-
-              {/* Education Details */}
-              <div className="flex-1">
-                <h3 className="text-2xl font-bold text-[#F8F9FA] mb-2 group-hover:text-[#34B27B] transition-colors duration-300">
-                  Esoft Uni Colombo
-                </h3>
-                <div className="text-lg font-semibold text-[#F8F9FA]/70 mb-3">
-                  Bachelor of Information Technology (Hons.) in Software
-                  Engineering
-                </div>
-                <div className="flex items-center gap-2 text-[#34B27B] font-medium">
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                    ></path>
-                  </svg>
-                  <span>Oct 10, 2022 - Sep 02, 2026</span>
-                </div>
-              </div>
-
-              {/* Status Badge */}
-              <div className="flex-shrink-0">
-                <span className="px-4 py-2 bg-[#34B27B] text-white text-sm font-medium rounded-full shadow-lg shadow-[#34B27B]/30">
-                  Graduated
-                </span>
-              </div>
             </div>
-          </div>
 
-          {/* K/Galigamuwa Central College */}
-          <div className="group bg-[#11181C]/95 rounded-2xl shadow-lg shadow-[#34B27B]/5 p-8 transition-all duration-300 hover:shadow-xl hover:shadow-[#34B27B]/10 hover:scale-[1.02] border border-[#F8F9FA]/10 md:bg-[#11181C]/90 md:backdrop-blur-sm">
-            <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-              {/* Logo */}
-              <div className="flex-shrink-0">
-                <div className="w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden shadow-lg bg-[#11181C]/90 flex items-center justify-center p-2 md:bg-[#11181C]/80 md:backdrop-blur-sm">
+            {/* K/Galigamuwa Central College */}
+            <div className="relative pl-8 md:pl-12 group">
+              {/* Timeline Node - Outlined */}
+              <div className="absolute -left-[11px] top-1.5 w-5 h-5 border-[3px] border-border-subtle bg-surface rounded-full ring-8 ring-surface transition-all duration-300 group-hover:border-accent group-hover:scale-110"></div>
+              
+              <div className="flex flex-col sm:flex-row justify-between items-start gap-4">
+                <div className="flex-1">
+                  <time className="block text-accent font-semibold text-sm md:text-base mb-2">
+                    Advanced Level
+                  </time>
+                  <h3 className="text-2xl md:text-3xl font-bold text-text-primary mb-2 tracking-tight">
+                    K/Galigamuwa Central College
+                  </h3>
+                  <p className="text-text-primary/70 text-lg">
+                    Technology stream
+                  </p>
+                  <div className="mt-5">
+                    <span className="inline-block px-4 py-1.5 border border-border-subtle text-text-primary/70 text-sm font-medium rounded-full bg-white/5 transition-colors group-hover:border-accent/50 group-hover:text-accent">
+                      Completed
+                    </span>
+                  </div>
+                </div>
+
+                {/* Logo */}
+                <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 bg-surface/90 rounded-xl p-2 border border-border-subtle shadow-lg group-hover:border-accent/50 transition-all duration-300 mt-2 sm:mt-0">
                   <img
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMXXEvlKCNAX5FjO2CprQhrgJqldsZBHUv-Q&s"
-                    alt="K/galigamuwa Central College Logo"
+                    alt="K/Galigamuwa Central College Logo"
                     loading="lazy"
                     className="w-full h-full object-contain"
                   />
                 </div>
               </div>
-
-              {/* Education Details */}
-              <div className="flex-1">
-                <h3 className="text-2xl font-bold text-[#F8F9FA] mb-2 group-hover:text-[#34B27B] transition-colors duration-300">
-                  K/Galigamuwa Central College
-                </h3>
-                <div className="text-lg font-semibold text-[#F8F9FA]/70 mb-3">
-                  Advanced Level, Technology
-                </div>
-                <div className="flex items-center gap-2 text-[#34B27B] font-medium">
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                    ></path>
-                  </svg>
-                  <span>2018 - 2020</span>
-                </div>
-              </div>
-
-              {/* Status Badge */}
-              <div className="flex-shrink-0">
-                <span className="px-4 py-2 bg-[#34B27B]/80 text-white text-sm font-medium rounded-full shadow-lg shadow-[#34B27B]/20">
-                  Completed
-                </span>
-              </div>
             </div>
+
           </div>
         </div>
 
         {/* Additional decorative element */}
         <div className="flex justify-center mt-16">
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-[#34B27B] rounded-full animate-pulse"></div>
+            <div className="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
             <div
-              className="w-2 h-2 bg-[#34B27B]/70 rounded-full animate-pulse"
+              className="w-2 h-2 bg-accent/70 rounded-full animate-pulse"
               style={{ animationDelay: "0.2s" }}
             ></div>
             <div
-              className="w-2 h-2 bg-[#34B27B]/50 rounded-full animate-pulse"
+              className="w-2 h-2 bg-accent/50 rounded-full animate-pulse"
               style={{ animationDelay: "0.4s" }}
             ></div>
           </div>

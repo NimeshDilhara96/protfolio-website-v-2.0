@@ -59,9 +59,9 @@ function CategoryPill({ label, active, onClick }) {
         <button
             onClick={onClick}
             aria-pressed={active}
-            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#34B27B] ${active
-                    ? "bg-[#34B27B] text-white shadow-lg shadow-[#34B27B]/20"
-                    : "bg-[#11181C]/80 text-[#F8F9FA]/70 border border-[#F8F9FA]/10 hover:border-[#34B27B]/40 hover:text-[#F8F9FA]"
+            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent ${active
+                    ? "btn-primary border-transparent shadow-lg shadow-accent/20"
+                    : "bg-surface/80 text-text-primary/70 border border-border-subtle hover:border-accent/40 hover:text-text-primary"
                 }`}
         >
             {label}
@@ -76,7 +76,7 @@ function FeaturedCard({ post }) {
             itemScope
             itemType="https://schema.org/BlogPosting"
             onClick={() => window.open(post.url, "_blank")}
-            className="group relative bg-[#11181C]/80 md:bg-[#11181C]/60 md:backdrop-blur-sm rounded-2xl border border-[#F8F9FA]/10 hover:border-[#34B27B]/40 transition-all duration-300 hover:shadow-xl hover:shadow-[#34B27B]/5 overflow-hidden cursor-pointer"
+            className="group relative bg-surface/80 md:bg-surface/60 md:backdrop-blur-sm rounded-2xl border border-border-subtle hover:border-accent/40 transition-all duration-300 hover:shadow-xl hover:shadow-accent/5 overflow-hidden cursor-pointer"
         >
             {/* Hidden SEO metadata */}
             <meta itemProp="datePublished" content={post.dateISO} />
@@ -85,15 +85,15 @@ function FeaturedCard({ post }) {
             <link itemProp="url" href={post.url} />
 
             {/* Green accent bar */}
-            <div className="h-1 w-full bg-gradient-to-r from-[#34B27B] to-[#34B27B]/30" />
+            <div className="h-1 w-full bg-gradient-to-r from-accent to-accent/30" />
 
             <div className="p-7">
                 {/* Badge row */}
                 <div className="flex items-center gap-3 mb-4 flex-wrap">
-                    <span className="inline-flex items-center gap-1.5 bg-[#34B27B]/15 text-[#34B27B] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                    <span className="inline-flex items-center gap-1.5 bg-accent/15 text-accent text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
                         <FaFire className="text-[10px]" /> Featured
                     </span>
-                    <span className="inline-flex items-center gap-1.5 bg-[#F8F9FA]/5 text-[#F8F9FA]/60 text-xs px-3 py-1 rounded-full border border-[#F8F9FA]/10">
+                    <span className="inline-flex items-center gap-1.5 bg-text-primary/5 text-text-primary/60 text-xs px-3 py-1 rounded-full border border-border-subtle">
                         <FaTag className="text-[10px]" />
                         <span itemProp="articleSection">{post.category}</span>
                     </span>
@@ -101,24 +101,24 @@ function FeaturedCard({ post }) {
 
                 {/* Icon + title */}
                 <div className="flex items-start gap-4 mb-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-[#34B27B]/20 rounded-xl flex items-center justify-center text-[#34B27B] text-xl group-hover:scale-110 transition-transform duration-300">
+                    <div className="flex-shrink-0 w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center text-accent text-xl group-hover:scale-110 transition-transform duration-300">
                         {post.icon}
                     </div>
                     <h3
                         itemProp="headline"
-                        className="text-xl md:text-2xl font-bold text-[#F8F9FA] leading-tight group-hover:text-[#34B27B] transition-colors duration-300"
+                        className="text-xl md:text-2xl font-bold text-text-primary leading-tight group-hover:text-accent transition-colors duration-300"
                     >
                         {post.title}
                     </h3>
                 </div>
 
-                <p className="text-[#F8F9FA]/70 leading-relaxed mb-5">{post.excerpt}</p>
+                <p className="text-text-primary/70 leading-relaxed mb-5">{post.excerpt}</p>
 
                 {/* Meta row */}
                 <div className="flex items-center justify-between flex-wrap gap-3">
-                    <div className="flex items-center gap-4 text-sm text-[#F8F9FA]/50">
+                    <div className="flex items-center gap-4 text-sm text-text-primary/50">
                         <span className="flex items-center gap-1.5">
-                            <FaCalendarAlt className="text-[#34B27B]/70" />
+                            <FaCalendarAlt className="text-accent/70" />
                             <time itemProp="datePublished" dateTime={post.dateISO}>
                                 {new Date(post.date).toLocaleDateString("en-US", {
                                     year: "numeric",
@@ -128,11 +128,11 @@ function FeaturedCard({ post }) {
                             </time>
                         </span>
                         <span className="flex items-center gap-1.5">
-                            <FaClock className="text-[#34B27B]/70" />
+                            <FaClock className="text-accent/70" />
                             {post.readTime} min read
                         </span>
                     </div>
-                    <span className="flex items-center gap-1.5 text-[#34B27B] text-sm font-semibold group-hover:gap-3 transition-all duration-300">
+                    <span className="flex items-center gap-1.5 text-accent text-sm font-semibold group-hover:gap-3 transition-all duration-300">
                         Read article <FaArrowRight className="text-xs" />
                     </span>
                 </div>
@@ -142,7 +142,7 @@ function FeaturedCard({ post }) {
                     {post.tags.map((t) => (
                         <span
                             key={t}
-                            className="text-xs bg-[#F8F9FA]/5 text-[#F8F9FA]/50 border border-[#F8F9FA]/10 px-2.5 py-1 rounded-full"
+                            className="text-xs bg-text-primary/5 text-text-primary/50 border border-border-subtle px-2.5 py-1 rounded-full"
                         >
                             #{t}
                         </span>
@@ -160,7 +160,7 @@ function PostCard({ post }) {
             itemScope
             itemType="https://schema.org/BlogPosting"
             onClick={() => window.open(post.url, "_blank")}
-            className="group bg-[#11181C]/80 md:bg-[#11181C]/60 md:backdrop-blur-sm p-6 rounded-xl border border-[#F8F9FA]/10 hover:border-[#34B27B]/40 hover:shadow-lg hover:shadow-[#34B27B]/5 transition-all duration-300 cursor-pointer flex flex-col"
+            className="group bg-surface/80 md:bg-surface/60 md:backdrop-blur-sm p-6 rounded-xl border border-border-subtle hover:border-accent/40 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300 cursor-pointer flex flex-col"
         >
             <meta itemProp="datePublished" content={post.dateISO} />
             <meta itemProp="author" content={AUTHOR} />
@@ -168,25 +168,25 @@ function PostCard({ post }) {
             <link itemProp="url" href={post.url} />
 
             {/* Category */}
-            <span className="inline-flex items-center self-start gap-1.5 bg-[#F8F9FA]/5 text-[#34B27B] text-xs font-semibold px-3 py-1 rounded-full border border-[#34B27B]/20 mb-4">
+            <span className="inline-flex items-center self-start gap-1.5 bg-text-primary/5 text-accent text-xs font-semibold px-3 py-1 rounded-full border border-accent/20 mb-4">
                 <FaTag className="text-[10px]" />
                 <span itemProp="articleSection">{post.category}</span>
             </span>
 
             {/* Icon + title */}
             <div className="flex items-start gap-3 mb-3">
-                <div className="flex-shrink-0 w-10 h-10 bg-[#34B27B]/20 rounded-lg flex items-center justify-center text-[#34B27B] text-base group-hover:scale-110 transition-transform duration-300">
+                <div className="flex-shrink-0 w-10 h-10 bg-accent/20 rounded-lg flex items-center justify-center text-accent text-base group-hover:scale-110 transition-transform duration-300">
                     {post.icon}
                 </div>
                 <h3
                     itemProp="headline"
-                    className="font-bold text-[#F8F9FA] leading-snug group-hover:text-[#34B27B] transition-colors duration-300"
+                    className="font-bold text-text-primary leading-snug group-hover:text-accent transition-colors duration-300"
                 >
                     {post.title}
                 </h3>
             </div>
 
-            <p className="text-sm text-[#F8F9FA]/65 leading-relaxed flex-1 mb-4">
+            <p className="text-sm text-text-primary/65 leading-relaxed flex-1 mb-4">
                 {post.excerpt}
             </p>
 
@@ -195,7 +195,7 @@ function PostCard({ post }) {
                 {post.tags.map((t) => (
                     <span
                         key={t}
-                        className="text-xs bg-[#F8F9FA]/5 text-[#F8F9FA]/40 border border-[#F8F9FA]/10 px-2 py-0.5 rounded-full"
+                        className="text-xs bg-text-primary/5 text-text-primary/40 border border-border-subtle px-2 py-0.5 rounded-full"
                     >
                         #{t}
                     </span>
@@ -203,9 +203,9 @@ function PostCard({ post }) {
             </div>
 
             {/* Meta */}
-            <div className="flex items-center justify-between text-xs text-[#F8F9FA]/45 pt-4 border-t border-[#F8F9FA]/10">
+            <div className="flex items-center justify-between text-xs text-text-primary/45 pt-4 border-t border-border-subtle">
                 <span className="flex items-center gap-1.5">
-                    <FaCalendarAlt className="text-[#34B27B]/60" />
+                    <FaCalendarAlt className="text-accent/60" />
                     <time dateTime={post.dateISO}>
                         {new Date(post.date).toLocaleDateString("en-US", {
                             year: "numeric",
@@ -215,7 +215,7 @@ function PostCard({ post }) {
                     </time>
                 </span>
                 <span className="flex items-center gap-1.5">
-                    <FaClock className="text-[#34B27B]/60" />
+                    <FaClock className="text-accent/60" />
                     {post.readTime} min
                 </span>
             </div>
@@ -345,14 +345,14 @@ function Blog() {
             <section
                 id="blog"
                 aria-label="Blog"
-                className="py-20 md:py-28 bg-gradient-to-br from-[#11181C] via-[#11181C] to-black relative overflow-hidden"
+                className="py-20 md:py-28 bg-gradient-to-br from-surface via-surface to-background relative overflow-hidden"
             >
                 {/* Background blobs — same pattern as About */}
                 <div className="absolute inset-0 z-0 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-[#11181C] via-black to-[#11181C] opacity-80" />
-                    <div className="hidden lg:block absolute top-[-10%] right-[-5%] w-[40%] h-[40%] rounded-full bg-gradient-to-bl from-[#34B27B]/10 to-transparent blur-[100px]" />
-                    <div className="hidden lg:block absolute bottom-[-15%] left-[-10%] w-[50%] h-[50%] rounded-full bg-gradient-to-tr from-[#34B27B]/10 to-transparent blur-[120px]" />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#11181C]/40 to-[#11181C] z-10" />
+                    <div className="absolute inset-0 bg-gradient-to-tr from-surface via-background to-surface opacity-80" />
+                    <div className="hidden lg:block absolute top-[-10%] right-[-5%] w-[40%] h-[40%] rounded-full bg-gradient-to-bl from-accent/10 to-transparent blur-[100px]" />
+                    <div className="hidden lg:block absolute bottom-[-15%] left-[-10%] w-[50%] h-[50%] rounded-full bg-gradient-to-tr from-accent/10 to-transparent blur-[120px]" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-surface/40 to-surface z-10" />
                 </div>
 
                 <div className="container mx-auto px-4 relative z-20">
@@ -377,14 +377,14 @@ function Blog() {
 
                             {/* Search */}
                             <div className="relative w-full sm:w-64">
-                                <FaSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#F8F9FA]/30 text-sm pointer-events-none" />
+                                <FaSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 text-text-primary/30 text-sm pointer-events-none" />
                                 <input
                                     type="search"
                                     placeholder="Search articles…"
                                     aria-label="Search blog articles"
                                     value={query}
                                     onChange={(e) => setQuery(e.target.value)}
-                                    className="w-full bg-[#11181C]/80 border border-[#F8F9FA]/10 rounded-xl pl-9 pr-4 py-2.5 text-sm text-[#F8F9FA] placeholder-[#F8F9FA]/30 focus:outline-none focus:border-[#34B27B]/60 focus:ring-1 focus:ring-[#34B27B]/30 transition-all duration-200"
+                                    className="w-full bg-surface/80 border border-border-subtle rounded-xl pl-9 pr-4 py-2.5 text-sm text-text-primary placeholder-text-primary/30 focus:outline-none focus:border-accent/60 focus:ring-1 focus:ring-accent/30 transition-all duration-200"
                                 />
                             </div>
                         </div>
@@ -392,15 +392,15 @@ function Blog() {
                         {/* ── EMPTY STATE / LOADING ─────────────────────────── */}
                         {isLoading ? (
                             <div className="text-center py-20 flex flex-col items-center">
-                                <div className="w-10 h-10 border-4 border-[#34B27B]/20 border-t-[#34B27B] rounded-full animate-spin mb-6" />
-                                <p className="text-[#F8F9FA]/60 text-lg">Fetching articles from dev.to...</p>
+                                <div className="w-10 h-10 border-4 border-accent/20 border-t-accent rounded-full animate-spin mb-6" />
+                                <p className="text-text-primary/60 text-lg">Fetching articles from dev.to...</p>
                             </div>
                         ) : error ? (
                             <div className="text-center py-20">
                                 <p className="text-red-400 text-lg mb-4">Error: {error}</p>
                                 <button
                                     onClick={() => window.location.reload()}
-                                    className="text-[#34B27B] text-sm underline hover:text-[#34B27B]/80 transition-colors"
+                                    className="text-accent text-sm underline hover:text-accent/80 transition-colors"
                                 >
                                     Try again
                                 </button>
@@ -408,12 +408,12 @@ function Blog() {
                         ) : filtered.length === 0 && (
                             <div className="text-center py-20">
                                 <div className="text-5xl mb-4">🔍</div>
-                                <p className="text-[#F8F9FA]/60 text-lg">
-                                    No articles match <strong className="text-[#F8F9FA]">"{query}"</strong>.
+                                <p className="text-text-primary/60 text-lg">
+                                    No articles match <strong className="text-text-primary">"{query}"</strong>.
                                 </p>
                                 <button
                                     onClick={() => { setQuery(""); setActiveCategory("All"); }}
-                                    className="mt-4 text-[#34B27B] text-sm underline underline-offset-4 hover:text-[#34B27B]/80 transition-colors"
+                                    className="mt-4 text-accent text-sm underline underline-offset-4 hover:text-accent/80 transition-colors"
                                 >
                                     Clear filters
                                 </button>
@@ -423,7 +423,7 @@ function Blog() {
                         {/* ── FEATURED POSTS ──────────────────────── */}
                         {featured.length > 0 && (
                             <div className="mb-14">
-                                <h2 className="text-sm font-bold text-[#34B27B] uppercase tracking-widest mb-5 flex items-center gap-2">
+                                <h2 className="text-sm font-bold text-accent uppercase tracking-widest mb-5 flex items-center gap-2">
                                     <FaFire /> Featured
                                 </h2>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -437,7 +437,7 @@ function Blog() {
                         {/* ── ALL / FILTERED POSTS ────────────────── */}
                         {rest.length > 0 && (
                             <div>
-                                <h2 className="text-sm font-bold text-[#F8F9FA]/50 uppercase tracking-widest mb-5">
+                                <h2 className="text-sm font-bold text-text-primary/50 uppercase tracking-widest mb-5">
                                     {activeCategory === "All" ? "All Articles" : activeCategory}
                                 </h2>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -30,7 +30,7 @@ const FormRedirect = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-gradient-to-br from-[#11181C] via-[#11181C] to-black relative overflow-hidden flex items-center justify-center pt-20 pb-8 sm:pt-24 sm:pb-0">
+      <div className="min-h-screen bg-gradient-to-br from-surface via-surface to-background relative overflow-hidden flex items-center justify-center pt-20 pb-8 sm:pt-24 sm:pb-0">
         
         {/* Modern CSS Animations */}
         <style>{`
@@ -245,59 +245,59 @@ const FormRedirect = () => {
         `}</style>
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 w-48 h-48 sm:w-64 sm:h-64 bg-[#34B27B]/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-56 h-56 sm:w-80 sm:h-80 bg-[#34B27B]/10 rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-96 sm:h-96 bg-[#34B27B]/5 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+          <div className="absolute top-20 left-10 w-48 h-48 sm:w-64 sm:h-64 bg-accent/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-56 h-56 sm:w-80 sm:h-80 bg-accent/10 rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-96 sm:h-96 bg-accent/5 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
           
           {/* Animated particles - hidden on small mobile */}
-          <div className="hidden sm:block absolute top-1/4 left-1/4 w-2 h-2 bg-[#34B27B] rounded-full animate-float" style={{animationDelay: '0s'}}></div>
-          <div className="hidden sm:block absolute top-3/4 right-1/4 w-3 h-3 bg-[#34B27B]/60 rounded-full animate-float" style={{animationDelay: '1s'}}></div>
-          <div className="hidden sm:block absolute bottom-1/3 left-1/3 w-2 h-2 bg-[#34B27B]/40 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
-          <div className="hidden sm:block absolute top-1/3 right-1/3 w-2 h-2 bg-[#34B27B]/50 rounded-full animate-bounce-smooth" style={{animationDelay: '0.5s'}}></div>
-          <div className="hidden sm:block absolute bottom-1/4 right-1/4 w-3 h-3 bg-[#34B27B]/30 rounded-full animate-float" style={{animationDelay: '1.5s'}}></div>
+          <div className="hidden sm:block absolute top-1/4 left-1/4 w-2 h-2 bg-accent rounded-full animate-float" style={{animationDelay: '0s'}}></div>
+          <div className="hidden sm:block absolute top-3/4 right-1/4 w-3 h-3 bg-accent/60 rounded-full animate-float" style={{animationDelay: '1s'}}></div>
+          <div className="hidden sm:block absolute bottom-1/3 left-1/3 w-2 h-2 bg-accent/40 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
+          <div className="hidden sm:block absolute top-1/3 right-1/3 w-2 h-2 bg-accent/50 rounded-full animate-bounce-smooth" style={{animationDelay: '0.5s'}}></div>
+          <div className="hidden sm:block absolute bottom-1/4 right-1/4 w-3 h-3 bg-accent/30 rounded-full animate-float" style={{animationDelay: '1.5s'}}></div>
           
           {/* Rotating rings - multiple layers */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] border border-[#34B27B]/10 rounded-full animate-spin-slow"></div>
-          <div className="hidden sm:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-[#34B27B]/5 rounded-full" style={{animation: 'spin 30s linear infinite reverse'}}></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] border border-accent/10 rounded-full animate-spin-slow"></div>
+          <div className="hidden sm:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-accent/5 rounded-full" style={{animation: 'spin 30s linear infinite reverse'}}></div>
           
           {/* Animated gradient mesh */}
           <div className="absolute top-0 left-0 w-full h-full opacity-30">
-            <div className="absolute top-[10%] left-[20%] w-32 h-32 bg-[#34B27B]/20 rounded-full blur-2xl animate-float" style={{animationDelay: '0.2s'}}></div>
-            <div className="absolute bottom-[15%] right-[25%] w-40 h-40 bg-[#34B27B]/15 rounded-full blur-2xl animate-float" style={{animationDelay: '1.2s'}}></div>
+            <div className="absolute top-[10%] left-[20%] w-32 h-32 bg-accent/20 rounded-full blur-2xl animate-float" style={{animationDelay: '0.2s'}}></div>
+            <div className="absolute bottom-[15%] right-[25%] w-40 h-40 bg-accent/15 rounded-full blur-2xl animate-float" style={{animationDelay: '1.2s'}}></div>
           </div>
         </div>
 
         {/* Content */}
         <div className={`relative z-10 text-center px-4 sm:px-6 max-w-2xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
           {/* Icon with modern animation */}
-          <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 mb-4 sm:mb-6 rounded-full bg-[#34B27B]/20 border-4 border-[#34B27B]/30 animate-fadeInScale animate-pulseGlow perspective-card md:backdrop-blur-sm">
-            <FaWpforms className="text-3xl sm:text-4xl text-[#34B27B] animate-float" />
+          <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 mb-4 sm:mb-6 rounded-full bg-accent/20 border-4 border-accent/30 animate-fadeInScale animate-pulseGlow perspective-card md:backdrop-blur-sm">
+            <FaWpforms className="text-3xl sm:text-4xl text-accent animate-float" />
           </div>
 
           {/* Heading with staggered animation */}
-          <h1 className="text-xl sm:text-2xl md:text-4xl font-bold text-[#F8F9FA] mb-2 sm:mb-3 tracking-tight animate-slideInLeft delay-100 leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-4xl font-bold text-text-primary mb-2 sm:mb-3 tracking-tight animate-slideInLeft delay-100 leading-tight">
             Research Study Survey
           </h1>
 
           {/* Subheading */}
-          <p className="text-sm sm:text-base md:text-xl text-[#F8F9FA]/70 mb-3 sm:mb-4 animate-slideInRight delay-200">
+          <p className="text-sm sm:text-base md:text-xl text-text-primary/70 mb-3 sm:mb-4 animate-slideInRight delay-200">
             AI-Based Dietary Recommendation Systems
           </p>
 
           {/* Study Description */}
-          <div className="max-w-xl mx-auto mb-4 sm:mb-6 p-3 sm:p-5 bg-[#11181C]/80 rounded-xl border border-[#34B27B]/20 animate-fadeInUp delay-300 transform-3d hover:border-[#34B27B]/40 transition-all duration-300 md:bg-[#11181C]/50 md:backdrop-blur-sm\">
-            <p className="text-xs sm:text-sm md:text-base text-[#F8F9FA]/80 leading-relaxed mb-2 sm:mb-3">
+          <div className="max-w-xl mx-auto mb-4 sm:mb-6 p-3 sm:p-5 bg-surface/80 rounded-xl border border-accent/20 animate-fadeInUp delay-300 transform-3d hover:border-accent/40 transition-all duration-300 md:bg-surface/50 md:backdrop-blur-sm\">
+            <p className="text-xs sm:text-sm md:text-base text-text-primary/80 leading-relaxed mb-2 sm:mb-3">
               This study analyzes AI systems for preventing lifestyle diseases (diabetes, obesity, cardiovascular conditions).
             </p>
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center gap-2 sm:gap-0">
-              <p className="text-xs sm:text-sm text-[#34B27B] font-medium">
+              <p className="text-xs sm:text-sm text-accent font-medium">
                 ✓ Voluntary &nbsp; ✓ Anonymous &nbsp; ✓ Academic use
               </p>
             </div>
           </div>
 
           {/* Redirect message */}
-          <p className="text-xs sm:text-sm md:text-base text-[#F8F9FA]/70 mb-3 sm:mb-4 animate-fadeInUp delay-400">
+          <p className="text-xs sm:text-sm md:text-base text-text-primary/70 mb-3 sm:mb-4 animate-fadeInUp delay-400">
             Redirecting to questionnaire...
           </p>
 
@@ -305,11 +305,11 @@ const FormRedirect = () => {
           <div className="flex items-center justify-center gap-4 mb-4 sm:mb-6 animate-fadeInScale delay-500">
             <div className="relative">
               {/* Animated rings around countdown */}
-              <div className="absolute inset-0 w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-[#34B27B]/30 animate-ping"></div>
-              <div className="absolute inset-0 w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-[#34B27B]/20 animate-pulse"></div>
+              <div className="absolute inset-0 w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-accent/30 animate-ping"></div>
+              <div className="absolute inset-0 w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-accent/20 animate-pulse"></div>
               
-              <div className="relative w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center rounded-full bg-[#34B27B]/20 border-2 border-[#34B27B] animate-pulseGlow md:backdrop-blur-sm\">
-                <span className="text-2xl sm:text-3xl font-bold text-[#34B27B] animate-countdownPulse">
+              <div className="relative w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center rounded-full bg-accent/20 border-2 border-accent animate-pulseGlow md:backdrop-blur-sm\">
+                <span className="text-2xl sm:text-3xl font-bold text-accent animate-countdownPulse">
                   {countdown}
                 </span>
               </div>
@@ -317,9 +317,9 @@ const FormRedirect = () => {
           </div>
 
           {/* Modern Loading Bar with gradient */}
-          <div className="w-full max-w-xs sm:max-w-md mx-auto h-2 sm:h-3 bg-[#11181C] rounded-full overflow-hidden border border-[#F8F9FA]/10 shadow-lg animate-fadeInUp delay-500 relative">
+          <div className="w-full max-w-xs sm:max-w-md mx-auto h-2 sm:h-3 bg-surface rounded-full overflow-hidden border border-border-subtle shadow-lg animate-fadeInUp delay-500 relative">
             <div 
-              className="h-full bg-gradient-to-r from-[#34B27B] via-[#34B27B]/80 to-[#34B27B] rounded-full transition-all duration-1000 ease-linear relative overflow-hidden"
+              className="h-full bg-gradient-to-r from-accent via-accent/80 to-accent rounded-full transition-all duration-1000 ease-linear relative overflow-hidden"
               style={{ width: `${((3 - countdown) / 3) * 100}%` }}
             >
               {/* Animated shine effect */}
@@ -334,7 +334,7 @@ const FormRedirect = () => {
           <div className="mt-6 sm:mt-8 animate-fadeInScale delay-600">
             <a
               href="https://docs.google.com/forms/d/e/1FAIpQLSeL3MSA6v1dolbSjegZHlrGyxxW2VTYio8iadjSpawXPB7o1w/viewform"
-              className="inline-flex items-center gap-2 sm:gap-3 px-5 sm:px-7 py-2.5 sm:py-3 bg-[#34B27B] text-white text-sm sm:text-base font-semibold rounded-xl shadow-lg shadow-[#34B27B]/20 hover:shadow-2xl hover:shadow-[#34B27B]/40 hover:scale-110 hover:-translate-y-2 hover:rotate-1 transition-all duration-500 group relative overflow-hidden perspective-card"
+              className="inline-flex items-center gap-2 sm:gap-3 px-5 sm:px-7 py-2.5 sm:py-3 btn-primary border-transparent text-sm sm:text-base font-semibold rounded-xl shadow-lg shadow-accent/20 hover:shadow-2xl hover:shadow-accent/40 hover:scale-110 hover:-translate-y-2 hover:rotate-1 transition-all duration-500 group relative overflow-hidden perspective-card"
             >
               {/* Button shine effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
@@ -345,7 +345,7 @@ const FormRedirect = () => {
           </div>
 
           {/* Info text */}
-          <p className="mt-4 sm:mt-6 text-xs sm:text-sm text-[#F8F9FA]/50 animate-fadeInUp delay-600 px-4">
+          <p className="mt-4 sm:mt-6 text-xs sm:text-sm text-text-primary/50 animate-fadeInUp delay-600 px-4">
             Thank you for your valuable time and cooperation
           </p>
         </div>
