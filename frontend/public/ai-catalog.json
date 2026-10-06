@@ -1,65 +1,33 @@
 {
-  "version": "1.0",
-  "name": "Nimesh Dilhara Kulasooriya Portfolio",
-  "description": "Portfolio website of Nimesh Dilhara Kulasooriya — Software Engineering Undergraduate, Full-Stack Developer, and UI/UX Designer.",
-  "url": "https://nimeshdilhara.vercel.app",
-  "provider": {
-    "name": "Nimesh Dilhara Kulasooriya",
-    "url": "https://nimeshdilhara.vercel.app"
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Nimesh Dilhara Kulasooriya",
+    "documentationUrl": "https://nimeshdilhara.vercel.app/llms.txt"
   },
-  "resources": [
+  "entries": [
     {
+      "identifier": "urn:air:nimeshdilhara:page:home",
+      "displayName": "Home",
       "type": "page",
-      "name": "Home",
-      "description": "Main portfolio landing page with project highlights, skills marquee, client reviews, and contact preview.",
       "url": "https://nimeshdilhara.vercel.app/"
     },
     {
+      "identifier": "urn:air:nimeshdilhara:page:projects",
+      "displayName": "Projects",
       "type": "page",
-      "name": "Projects",
-      "description": "Software engineering projects including web applications, UI designs, and full-stack solutions.",
       "url": "https://nimeshdilhara.vercel.app/projects"
     },
     {
+      "identifier": "urn:air:nimeshdilhara:page:about",
+      "displayName": "About",
       "type": "page",
-      "name": "About",
-      "description": "Background, education, and technical skills of Nimesh Dilhara Kulasooriya.",
       "url": "https://nimeshdilhara.vercel.app/about"
     },
     {
+      "identifier": "urn:air:nimeshdilhara:page:services",
+      "displayName": "Services",
       "type": "page",
-      "name": "Services",
-      "description": "Services offered including web development, UI/UX design, and custom software solutions.",
       "url": "https://nimeshdilhara.vercel.app/what-i-offer"
-    },
-    {
-      "type": "page",
-      "name": "Downloads",
-      "description": "Download resume and access project resources.",
-      "url": "https://nimeshdilhara.vercel.app/downloads"
-    },
-    {
-      "type": "page",
-      "name": "Contact",
-      "description": "Get in touch for collaborations, freelance opportunities, and software engineering projects.",
-      "url": "https://nimeshdilhara.vercel.app/contact"
-    }
-  ],
-  "documentation": {
-    "llmsTxt": "https://nimeshdilhara.vercel.app/llms.txt"
-  },
-  "capabilities": [
-    {
-      "name": "Web Development",
-      "description": "Full-stack web applications using React, Node.js, and modern frameworks."
-    },
-    {
-      "name": "UI/UX Design",
-      "description": "User-centered interface design with modern aesthetics and responsive layouts."
-    },
-    {
-      "name": "Custom Software Solutions",
-      "description": "Tailored software built to solve specific business problems."
     }
   ]
 }
