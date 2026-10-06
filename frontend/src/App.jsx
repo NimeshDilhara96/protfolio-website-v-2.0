@@ -6,6 +6,7 @@ import { useMobileOptimization } from './hooks/useMobileOptimization';
 import Navbar from './Components/Navbar';
 import Home from './Components/Home';
 import Loading from './Components/Loading';
+import SectionSkeleton from './Components/common/SectionSkeleton';
 
 // Lazy load components for better performance
 const About = lazy(() => import('./Components/about'));
@@ -43,31 +44,31 @@ function App() {
           <>
             <Navbar />
             <Home />
-            <Suspense fallback={<div className="h-32 bg-[#11181C]" />}>
+            <Suspense fallback={<SectionSkeleton height="h-32" />}>
               <SkillsMarquee />
             </Suspense>
-            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+            <Suspense fallback={<SectionSkeleton />}>
               <ProjectsPreview />
             </Suspense>
-            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+            <Suspense fallback={<SectionSkeleton />}>
               <ProjectsBento />
             </Suspense>
-            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+            <Suspense fallback={<SectionSkeleton />}>
               <WhatIOfferPreview />
             </Suspense>
-            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+            <Suspense fallback={<SectionSkeleton />}>
               <HowIWork />
             </Suspense>
-            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+            <Suspense fallback={<SectionSkeleton />}>
               <AboutPreview />
             </Suspense>
-            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+            <Suspense fallback={<SectionSkeleton />}>
               <ClientReviews />
             </Suspense>
-            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+            <Suspense fallback={<SectionSkeleton />}>
               <ContactPreview />
             </Suspense>
-            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+            <Suspense fallback={<SectionSkeleton />}>
               <Footer />
             </Suspense>
           </>
@@ -98,13 +99,13 @@ function App() {
               <link rel="canonical" href="https://nimeshdilhara.vercel.app/what-i-offer" />
             </Helmet>
             <Navbar />
-            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+            <Suspense fallback={<SectionSkeleton />}>
               <WhatIOffer />
             </Suspense>
-            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+            <Suspense fallback={<SectionSkeleton />}>
               <HowIWork />
             </Suspense>
-            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+            <Suspense fallback={<SectionSkeleton />}>
               <Footer />
             </Suspense>
           </>
@@ -120,13 +121,13 @@ function App() {
               <link rel="canonical" href="https://nimeshdilhara.vercel.app/about" />
             </Helmet>
             <Navbar />
-            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+            <Suspense fallback={<SectionSkeleton />}>
               <About />
             </Suspense>
-            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+            <Suspense fallback={<SectionSkeleton />}>
               <Technologies />
             </Suspense>
-            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+            <Suspense fallback={<SectionSkeleton />}>
               <Footer />
             </Suspense>
           </>
@@ -142,10 +143,10 @@ function App() {
               <link rel="canonical" href="https://nimeshdilhara.vercel.app/projects" />
             </Helmet>
             <Navbar />
-            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+            <Suspense fallback={<SectionSkeleton />}>
               <Projects />
             </Suspense>
-            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+            <Suspense fallback={<SectionSkeleton />}>
               <Footer />
             </Suspense>
           </>
@@ -161,10 +162,10 @@ function App() {
               <link rel="canonical" href="https://nimeshdilhara.vercel.app/contact" />
             </Helmet>
             <Navbar />
-            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+            <Suspense fallback={<SectionSkeleton />}>
               <Contact />
             </Suspense>
-            <Suspense fallback={<div className="h-96 bg-[#11181C]" />}>
+            <Suspense fallback={<SectionSkeleton />}>
               <Footer />
             </Suspense>
           </>

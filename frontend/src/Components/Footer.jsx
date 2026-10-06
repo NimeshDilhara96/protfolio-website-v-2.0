@@ -107,7 +107,7 @@ function Footer() {
               Full Stack Developer • UI/UX Designer • AI Enthusiast
             </p>
             <div className="flex items-center gap-4">
-              <span>v8.0.0</span>
+              <span>v8.0.1</span>
               <div className="flex items-center gap-1">
                 <div className="w-1 h-1 bg-accent rounded-full animate-pulse"></div>
                 <div
