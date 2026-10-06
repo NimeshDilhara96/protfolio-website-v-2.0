@@ -1,0 +1,26 @@
+# Nimesh Dilhara Kulasooriya — Portfolio
+
+> Software Engineering Undergraduate | Full-Stack Developer | UI/UX Designer
+
+Nimesh Dilhara Kulasooriya is a software engineering undergraduate focused on full-stack development and AI. This portfolio showcases projects, services, skills, and contact information.
+
+## Pages
+
+- [Home](https://nimeshdilhara.vercel.app/): Main portfolio landing page with project highlights, skills, and client reviews.
+- [Projects](https://nimeshdilhara.vercel.app/projects): Software engineering projects including web applications, UI designs, and full-stack solutions.
+- [About](https://nimeshdilhara.vercel.app/about): Background, education, and technical skills of Nimesh Dilhara Kulasooriya.
+- [Services](https://nimeshdilhara.vercel.app/what-i-offer): Services offered including web development, UI/UX design, and custom software solutions.
+- [Downloads](https://nimeshdilhara.vercel.app/downloads): Download resume and access project resources.
+- [Contact](https://nimeshdilhara.vercel.app/contact): Get in touch for collaborations, freelance opportunities, and software engineering projects.
+
+## Services
+
+- Web Development — Full-stack web applications using React, Node.js, and modern frameworks.
+- UI/UX Design — User-centered interface design with modern aesthetics and responsive layouts.
+- Custom Software Solutions — Tailored software built to solve specific business problems.
+
+## Links
+
+- [GitHub](https://github.com/Nimeshdilhara96)
+- [Sitemap](https://nimeshdilhara.vercel.app/sitemap.xml)
+- [robots.txt](https://nimeshdilhara.vercel.app/robots.txt)

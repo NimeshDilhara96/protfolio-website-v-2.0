@@ -311,7 +311,8 @@ function Navbar() {
         {/* Mobile menu */}
         <div
           id="mobile-menu"
-          role="menu"
+          role="navigation"
+          aria-label="Mobile navigation"
           className={`lg:hidden transition-all duration-300 ease-in-out ${
             isMenuOpen
               ? "max-h-screen opacity-100"
@@ -323,7 +324,6 @@ function Navbar() {
               <button
                 key={link.href}
                 type="button"
-                role="menuitem"
                 onClick={(e) => handleNavClick(e, link.href)}
                 aria-current={activeSection === link.href ? "page" : undefined}
                 className={`w-full text-left px-4 py-3 text-base font-medium rounded-lg transition-all ${

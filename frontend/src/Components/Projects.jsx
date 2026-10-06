@@ -188,15 +188,17 @@ const ProjectCard = React.memo(({ project, idx }) => (
               <FaExternalLinkAlt className="text-[10px] md:text-xs group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 transition-transform" />
             </a>
           )}
-          <a
-            href={project.html_url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 md:gap-2 text-[13px] md:text-sm font-medium text-text-primary/60 hover:text-text-primary transition-colors group/link ml-1 md:ml-2"
-          >
-            <span>{project.live_url ? "Source Code" : "View Details"}</span>
-            <FaGithub className="text-base md:text-lg group-hover/link:scale-110 transition-transform" />
-          </a>
+          {project.html_url && (
+            <a
+              href={project.html_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 md:gap-2 text-[13px] md:text-sm font-medium text-text-primary/60 hover:text-text-primary transition-colors group/link ml-1 md:ml-2"
+            >
+              <span>{project.live_url ? "Source Code" : "View Details"}</span>
+              <FaGithub className="text-base md:text-lg group-hover/link:scale-110 transition-transform" />
+            </a>
+          )}
         </div>
       </div>
     </div>

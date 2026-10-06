@@ -184,15 +184,17 @@ export default function ProjectsPreview() {
                       Demo
                     </a>
                   )}
-                  <a
-                    href={project.html_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-xs font-medium text-text-primary/50 hover:text-text-primary transition-colors ml-auto"
-                  >
-                    <FaGithub className="text-sm" />
-                    {project.live_url ? "Code" : "Details"}
-                  </a>
+                  {project.html_url && (
+                    <a
+                      href={project.html_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 text-xs font-medium text-text-primary/50 hover:text-text-primary transition-colors ml-auto"
+                    >
+                      <FaGithub className="text-sm" />
+                      {project.live_url ? "Code" : "Details"}
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
